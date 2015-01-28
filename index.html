@@ -2,41 +2,48 @@
 <html>
 <head>
 	<title>INKEDin</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="DESCRIPTION" content="">
-<meta name="KEYWORDS" content="">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<style type="text/css">
-img{width: 100%;}
-*[class^='col'],div[class*=' col']{ padding:10px;}
-.full{padding:0;}
-</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="DESCRIPTION" content="">
+	<meta name="KEYWORDS" content="">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/inkedin.css">
+	<link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	<style type="text/css">
+	
+	</style>
+
 </head>
 
 <body>
 <div class="wrapper">
 	<!-- header-->	
-	<header>
+	<header id="site-header">
 		<div class="container">
 			<div class="row">
 				<nav class="col-lg-5">
-					<ul>
+					<ul class="clearfix">
 						<li><a href="#">Tatuajes</a></li>
 						<li><a href="#">Artistas</a></li>
 						<li><a href="#">Tops</a></li>
 					</ul>
 				</nav>
 
-				<h1 class="logo col-lg-2">INKEDin</h1>
+				<div class="col-lg-2" id="site-logo-container">
+					<h1 id="site-logo"><a href="index.html">INKEDin</a></h1>
+				</div>
 
-				<div class="tools col-lg-5">
-					<ul>
-						<li><a href="#">Registrarse</a></li>
-						<li><a href="#">Ingresar</a></li>
+				<div class="col-lg-5 full" id="site-tools">
+					<ul class="clearfix col-lg-12">
+						<li id="search-box" class="col-lg-6 full">
+							<input type="text" name="searchbox" value>
+							<input type="submit" value="" id="search-btn">
+						</li>
+						<li class="col-lg-3 full"><a href="#" class="id-buttons">Registrarse</a></li>
+						<li class="col-lg-3 full"><a href="#" class="id-buttons">Ingresar</a></li>
 					</ul>
-					<input type="text" name="searchbox" value>
-					<input type="submit" value="Buscar" id="search-btn">
 				</div>
 			</div>
 		</div>
@@ -45,86 +52,96 @@ img{width: 100%;}
 
 
 	<!-- content -->
-	<section class="content container">
+	<section id="site-content" class="container">
 		<div class="row">
 			<!-- left col -->
 			<div class="col-lg-6 full">
 				<!-- img -->
-				<article class="col-lg-12">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-12 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img7.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture super cool</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
 				
 				<!-- img -->
-				<article class="col-lg-6">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-6 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img2.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
 
 				<!-- img -->
-				<article class="col-lg-6">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-6 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img9.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
 
 				<!-- img -->
-				<article class="col-lg-6">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-6 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img5.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
 
 				<!-- img -->
-				<article class="col-lg-6">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-6 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img4.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
@@ -135,81 +152,91 @@ img{width: 100%;}
 			<!-- right col -->
 			<div class="col-lg-6 full">
 				<!-- img -->
-				<article class="col-lg-6">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-6 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img10.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
 
 				<!-- img -->
-				<article class="col-lg-6">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-6 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img3.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
 
 				<!-- img -->
-				<article class="col-lg-12">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-12 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img1.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture super cool</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
 
 				<!-- img -->
-				<article class="col-lg-6">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-6 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img8.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
 
 				<!-- img -->
-				<article class="col-lg-6">
-					<img src="assets/img1.jpg" alt="" />
-					<div class="hidden">
-						<p class="caption"></p>
-						<ul class="owner-container">
-							<li><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-							<li>
-								<h2>Nombre</h2>
-								<p>Ciudad</p>
-							</li>
-						</ul>
+				<article class="col-lg-6 pic-sq-grid">
+					<div class="inner-pic-sq-grid">
+						<a href="#"><img src="assets/img6.jpg" alt="" /></a>
+						<div class="pic-details">
+							<p class="caption">Lorem ipsum dolor setem picture</p>
+							<ul class="owner-container clearfix">
+								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+								<li class="owner-detail">
+									<h2><a href="#">Nombre</a></h2>
+									<p>Ciudad</p>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</article>
 				<!-- end img -->
@@ -219,13 +246,13 @@ img{width: 100%;}
 	</section>
 	<!-- end content -->
 
-	<footer>
+	<footer id="site-footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-2">
-					<ul>
-						<li><a href=""><img src="assets/fb.jpg" alt="" /></a></li>
-						<li><a href=""><img src="assets/tw.jpg" alt="" /></a></li>
+					<ul id="site-social" class="clearfix">
+						<li><a href=""><img src="assets/fb-icon.jpg" alt="" /></a></li>
+						<li><a href=""><img src="assets/tw-icon.jpg" alt="" /></a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2">

@@ -1,0 +1,211 @@
+*{
+	font-family: 'Cuprum', sans-serif;
+	color: #000;
+}
+img{
+	width: 100%;
+}
+
+/**[class^='col'],div[class*=' col']{ 
+	padding:10px;
+}*/
+
+
+/* NAV */
+nav{
+	margin-top: 10px;
+	/*border-top: 3px solid #000;*/
+}
+nav ul{
+	padding: 0;
+	border-top: 1px solid #000;
+	box-shadow: 0px -2px 0px 0px #fff, 0px -7px 0px 0px #000;
+	margin-top: 2px;
+	padding-top: 5px;
+}
+nav ul li{
+	list-style-type: none;
+	float: left;
+	background: url('../assets/nav-divider.png') no-repeat right;
+	padding-right: 30px; 
+	padding-left: 20px;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+nav ul li:last-child{
+	background: none;
+	padding-right: 0;
+}
+nav ul li:first-child{
+	padding-left: 0;
+}
+nav ul li a{
+	color: #000;
+}
+nav ul li a:hover{
+	color: #000;
+}
+/* END NAV */
+/*--------------------------------*/
+.full{
+	padding:0;
+}
+.id-buttons{
+	background: rgba(0,0,0,0.1);
+	border-radius: 3px;
+	padding: 4px 7px;
+	-webkit-transition: background 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: background 0.5s;
+    text-shadow: 0 0 2px rgba(255,255,255,0.2);
+}
+.id-buttons:hover{
+	text-decoration: none;
+	background: rgba(0,0,0,0.2);
+	text-shadow: 0 0 2px rgba(255,255,255,0.3);
+}
+.id-buttons:active,
+.id-buttons:visited,
+.id-buttons:link{
+	text-decoration: none;
+}
+.pic-sq-grid{
+	padding-bottom: 15px;
+	padding-top: 15px;
+}
+.inner-pic-sq-grid{
+	border: 10px solid #f0ddaf;
+	position: relative;
+}
+.inner-pic-sq-grid:hover .pic-details{
+	visibility:visible;
+    opacity:1;
+    transition-delay:0s;
+}
+.pic-details{
+	position: absolute;
+	bottom: 0;
+	background: rgba(240,221,175,0.8);
+	padding: 10px;
+	width: 100%;
+	visibility:hidden;
+    opacity:0;
+    transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+}
+.owner-container{
+	padding: 0;
+	margin: 0
+}
+.owner-container li{
+	list-style-type: none;
+	float: left;
+}
+.owner-pic{
+	width: 50px;
+	margin-right: 10px;
+}
+.owner-detail h2{
+	margin-top: 7px;
+	margin-bottom: 3px;
+	font-size: 18px;
+}
+.owner-detail p{
+	margin-bottom: 0;
+}
+/*------------------*/
+
+#site-header{
+	padding-top: 40px;
+	background: url('../assets/header-bg-3.jpg');
+	height: 140px;
+	margin-bottom: 20px;
+}
+#site-footer{
+	background: url('../assets/footer-bg.jpg');
+	padding-top: 30px;
+}
+#site-logo-container{
+	margin-top: -15px;
+}
+#site-logo{
+	background: url('../assets/inkedin-logo.png') no-repeat;
+	height: 131px;
+	background-size: contain;
+	width: 75%;
+	margin: 0 auto;
+	border-radius: 50%;
+	overflow: hidden;
+}
+#site-logo a{
+	display: block;
+	text-indent: -9999px;
+	width: 100%;
+	height: 100%;
+}
+#site-tools{
+	margin-top: 10px;
+}
+#site-tools ul{
+	padding: 0;
+	border-top: 1px solid #000;
+	box-shadow: 0px -2px 0px 0px #fff, 0px -7px 0px 0px #000;
+	margin-top: 2px;
+	padding-top: 10px;
+}
+#site-tools ul li{
+	list-style-type: none;
+	float: left;
+	text-align: center;
+}
+#site-tools ul li a{
+	color: #000;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+#site-tools #searchbox{
+	position: relative;
+}
+#site-tools #search-box{
+	position: relative;
+	padding-right: 20px;
+}
+#site-tools #search-box input[type="text"]{
+	width: 100%;
+	border-top: 2px solid rgba(0,0,0,0.3);
+	border-left: 2px solid rgba(0,0,0,0.3);
+	border-right: 2px solid rgba(255,255,255,0.3);
+	border-bottom: 2px solid rgba(255,255,255,0.3);
+	border-radius: 3px;
+	background: rgba(255,255,255,0.3)
+}
+#site-tools #search-box input[type="submit"]{
+	position: absolute;
+	right: 23px;
+	top: 3px;
+	background: #000 url('../assets/search-icon.png') no-repeat 1px 1px;
+	border: none;
+	border-radius: 3px;
+	width: 20px;
+	height: 20px;
+}
+#site-tools #search-box input[type="submit"]:hover,
+#site-tools #search-box input[type="submit"]:active{
+	position: absolute;
+	right: 23px;
+	top: 3px;
+	background: #000 url('../assets/search-icon.png') no-repeat -17px 1px;
+	border: none;
+	border-radius: 3px;
+	width: 20px;
+	height: 20px;
+}
+#site-social{
+	padding: 0;
+}
+#site-social li{
+	list-style-type: none;
+	float: left;
+	margin-right: 10px;
+}
+#site-content{
+	margin-bottom: 20px;
+}
