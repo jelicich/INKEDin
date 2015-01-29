@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+	<title>INKEDin</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="DESCRIPTION" content="">
+	<meta name="KEYWORDS" content="">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/inkedin.css">
+	<link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+	<script type="text/javascript">
+	$(document).on("scroll",function(){
+	    if($(document).scrollTop()>50){
+	        $("header").removeClass("full-header").addClass("small-header");
+	    } else{
+	        $("header").removeClass("small-header").addClass("full-header");
+	    }
+	     if($(document).scrollTop()>140){
+	        $("#profile-fix-wrapper").removeClass("profile-free").addClass("profile-fixed");
+	    } else{
+	        $("#profile-fix-wrapper").removeClass("profile-fixed").addClass("profile-free");
+	    }
+	});
+	</script>
+
+</head>
+
+<body>
+<div id="wrapper">
+	<!-- header-->	
+	<header id="site-header" class="full-header">
+		<div class="container">
+			<div class="row">
+				<nav class="col-lg-5">
+					<ul class="clearfix">
+						<li><a href="#">Tatuajes</a></li>
+						<li><a href="#">Artistas</a></li>
+						<li><a href="#">Tops</a></li>
+					</ul>
+				</nav>
+
+				<div class="col-lg-2" id="site-logo-container">
+					<h1 id="site-logo"><a href="index.html">INKEDin</a></h1>
+				</div>
+
+				<div class="col-lg-5 full" id="site-tools">
+					<ul class="clearfix col-lg-12">
+						<li id="search-box" class="col-lg-6 full">
+							<input type="text" name="searchbox" value>
+							<input type="submit" value="" id="search-btn">
+						</li>
+						<li class="col-lg-3 full"><a href="#" class="id-buttons">Registrarse</a></li>
+						<li class="col-lg-3 full"><a href="#" class="id-buttons">Ingresar</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>	
+	<!-- end header-->
+
+
+	<!-- content -->
+	<section id="site-content" class="container">
+		<div class="row">
+			<!-- COVER PIC -->
+			<div class="col-lg-12" id="container-cover-pic">
+				<div id="inner-container-cover-pic">
+					<a href="#"><img src="assets/cover-pic.jpg" id="cover-pic" alt=""></a>
+				</div>
+			</div>
+			<!-- END COVER PIC -->
+
+			<!-- LEFT COL -->
+			<article class="col-lg-3" id="profile-left-col">
+				<div id="profile-fix-wrapper" class="profile-free">
+					<!-- PROFILE PIC -->
+					<div id="profile-pic-container" class="border-img">
+						<a href="#"><img src="assets/img1.jpg" alt=""/></a>
+					</div>
+					<!-- END PROFILE PIC -->
+					<div id="profile-rating-container" class="clearfix border-divider">
+						<div class="rating rate">
+							<span>4.5</span>
+						</div>
+						<div class="rating stars">
+							<ol id="rating-scale" class="clearfix">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ol>
+							<span>Calificá a este artista</span>
+						</div>
+					</div>
+					<div class="profile-buttons-container border-divider">
+						<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav">AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+						<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg">ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+					</div>
+					<nav class="menu-profile">
+						<ul>
+							<li><a href="#">Información</a></li>
+							<li><a href="#">Albumes</a></li>
+							<li><a href="#">Comentarios</a></li>
+						</ul>
+					</nav>
+				</div>
+			</article>
+			<!--END LEFT COL -->
+
+			<!-- MID COL -->
+			<article class="col-lg-6" id="profile-mid-col">
+				<h1>Nombre del Artista</h1>
+				<div id="artist-info-container">
+					<div class="border-divider">
+						<h2>Acerca de mi</h2>
+						<p>I'm jumping in here a little late, but came across this page when pondering it myself. Of course I don't know how Facebook or Twitter justified it, but here is my own thought process for what it's worth. In the end, I concluded that this practice is not that unsemantic (is that a word?). In fact, besides shortness and the nice association of "i is for icon," I think it's actually the most semantic choice for an icon when a straightforward  tag is not practical.</p>
+					</div>
+					<div class="border-divider">
+						<h2>Estilos</h2>
+						<ul>
+							<li>Tradicional</li>
+							<li>Oriental</li>
+							<li>Blanco y Negro</li>
+						</ul>
+					</div>
+					<div class="border-divider">
+						<h2>Disponibilidad</h2>
+						<p>I'm jumping in here a little late, but came across this page when pondering it myself. Of course I don't know how Facebook or Twitter.</p>
+					</div>
+					<div>
+						<h2>Contacto</h2>
+						<dl>
+							<dt>Telefono</dt>
+							<dd>5555-5555</dd>
+							<dt>Dias y Horarios</dt>
+							<dd>Lunes a viernes de 9 a 18</dd>
+							<dt>Direccion</dt>
+							<dd>Guemes 2989</dd>
+						</dl>
+						<div id="map">
+						</div>
+					</div>
+				</div>
+			</article>
+			<!--END MID COL -->
+
+			<!--RIGHT COL-->
+			<aside class="col-lg-3" id="side-content-profile">
+				<div style="height: 300px; background:brown">
+				</div>
+			</aside>
+			<!--RIGHT COL -->
+		<div class="row">
+	</section>
+	<!-- end content -->
+
+	<footer id="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2">
+					<ul id="site-social" class="clearfix">
+						<li><a href=""><img src="assets/fb-icon.jpg" alt="" /></a></li>
+						<li><a href=""><img src="assets/tw-icon.jpg" alt="" /></a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2" id="footer-artists">
+					<h3>Artistas</h3>
+					<ul>	
+						<li><a href="">Sarasa</a></li>
+						<li><a href="">Lorem</a></li>
+						<li><a href="">Ipsum</a></li>
+						<li><a href="">Dolor</a></li>
+						<li><a href="">Bla</a></li>
+						<li><a href="">Lorem</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2" id="footer-tags">
+					<h3>Tags</h3>
+					<ul>	
+						<li><a href="">Old school tattoo</a></li>
+						<li><a href="">Traditional</a></li>
+						<li><a href="">Japanese</a></li>
+						<li><a href="">Portrait tattoo</a></li>
+						<li><a href="">Tattoo</a></li>
+						<li><a href="">Full color</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2" id="footer-tags-2">
+					<ul>	
+						<li><a href="">Oriental</a></li>
+						<li><a href="">Tiny tattoo</a></li>
+						<li><a href="">Eyeball tattoo</a></li>
+						<li><a href="">New school</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-4">
+					<p id="privacy">2015 Copyright. Todos los derechos reservados. <a href="#">Terminos y Condiciones</a>. <a href="#">Privacidad</a>. </p>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+</body>
+</html>

@@ -11,8 +11,12 @@ a:hover{
 img{
 	width: 100%;
 }
+html{
+	height: 100%;
+}
 body{
 	padding-top: 160px;
+	height: 100%
 }
 
 /**[class^='col'],div[class*=' col']{ 
@@ -27,7 +31,9 @@ h5,
 h6{
 	font-weight: bold;
 }
+
 /*HEADER DINAMICO FULL*/
+
 #site-header.full-header{
 	padding-top: 40px;
 	background: url('../assets/header-bg-3.jpg');
@@ -42,7 +48,7 @@ h6{
 }
 .full-header #site-logo{
 	background: url('../assets/inkedin-logo.png') no-repeat;
-	height: 131px;
+	height: 123px;
 	background-size: contain;
 	width: 75%;
 	margin: 0 auto;
@@ -258,6 +264,7 @@ h6{
 /*END HEADER SMALL*/
 /*--------------------------------*/
 
+
 /* TRANSITION  HEADERS */
 
 header, header *{
@@ -272,6 +279,9 @@ header, header *{
 
 .full{
 	padding:0;
+}
+.border-img{
+	border: 10px solid #f0ddaf;
 }
 .id-buttons{
 	background: rgba(0,0,0,0.1);
@@ -300,9 +310,9 @@ header, header *{
 	padding-top: 15px;
 }
 .inner-pic-sq-grid{
-	border: 10px solid #f0ddaf;
 	position: relative;
 }
+
 .inner-pic-sq-grid:hover .pic-details{
 	visibility:visible;
     opacity:1;
@@ -340,11 +350,18 @@ header, header *{
 }
 /*------------------*/
 
-
+#wrapper{
+	min-height: 100%;
+	position: relative;
+}
 #site-footer{
 	background: url('../assets/footer-bg.jpg');
 	padding-top: 30px;
 	padding-bottom: 30px;
+	height: 210px;
+	position:absolute;
+    bottom:0;
+    width:100%;
 }
 #site-footer h3{
 	margin-top: 0;
@@ -376,7 +393,7 @@ header, header *{
 	margin-right: 10px;
 }
 #site-content{
-	margin-bottom: 20px;
+	padding-bottom: 230px;
 }
 #footer-tags-2{
 	padding-top: 29px;
@@ -384,4 +401,115 @@ header, header *{
 #home-more{
 	display: block;
 	margin: 0 auto;
+}
+
+
+/* ----------------------- */
+/* PROFILE */
+.btn-profile{
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.btn-profile span{
+	margin-left: 5px;
+}
+.border-divider{
+	border-bottom: 1px solid #c99241;
+	margin-bottom: 10px;
+}
+.menu-profile ul{
+	padding: 0;
+}
+.menu-profile ul li{
+	list-style-type: none;
+	font-size: 18px;
+	font-weight: bold;
+}
+#profile-rating-container{
+	padding-bottom: 10px;
+}
+#profile-rating-container .rating{
+	float: left;
+}
+#profile-rating-container .rate{
+	background: url('../assets/star-rating-bg.png') no-repeat;
+	background-size: contain;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	margin-right: 20px;
+}
+#profile-rating-container #rating-scale{
+	padding: 20px 0 0 0;
+}
+#profile-rating-container #rating-scale li{
+	list-style-type: none;
+	/*TODO*/
+	width: 20px;
+	height: 20px;
+	background: #c99241;
+	float: left;
+	margin-right: 10px;
+}
+#profile-rating-container .rate span{
+	display: inline-block;
+	margin-top: 25px;
+	font-weight: bold;
+	font-size: 20px;
+}
+#container-cover-pic{
+	margin-top: -140px;
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+}
+#inner-container-cover-pic{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+#cover-pic{
+	position: absolute;
+    top:-100%; left:0; right: 0; bottom:-100%;
+    margin: auto;
+}
+#profile-left-col{
+	position: relative;
+	margin-top: -200px;
+	min-height: 500px;
+}
+#profile-left-col .profile-absolute{
+	position: absolute;
+	bottom: 0px;
+}
+#profile-left-col .profile-fixed{
+	position: fixed;
+	top: 80px;
+	width: 262px;
+}
+#profile-pic-container{
+	margin: 0 0 10px 10px;
+}
+#artist-info-container{
+	background: #f0ddaf;
+	padding: 10px;
+}
+#artist-info-container h2{
+	margin-top: 0;
+	margin-bottom: 5px;
+	font-size: 22px;
+}
+#artist-info-container dt{
+	text-transform: uppercase;
+	font-size: 12px;
+}
+#artist-info-container dd{
+	margin-bottom: 5px;
+}
+#artist-info-container #map{
+	height: 200px;
+	background: #c99241;
+}
+#side-content-profile{
+	margin-top: 69px;
 }
