@@ -2,28 +2,124 @@
 	font-family: 'Cuprum', sans-serif;
 	color: #000;
 }
+a{
+	color: #553200;
+}
+a:hover{
+	color: #331e00;
+}
 img{
 	width: 100%;
+}
+body{
+	padding-top: 160px;
 }
 
 /**[class^='col'],div[class*=' col']{ 
 	padding:10px;
 }*/
 
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-weight: bold;
+}
+/*HEADER DINAMICO FULL*/
+#site-header.full-header{
+	padding-top: 40px;
+	background: url('../assets/header-bg-3.jpg');
+	height: 140px;
+	position: fixed;
+	top:0;
+	width: 100%;
+	z-index: 10;
+}
+.full-header #site-logo-container{
+	margin-top: -15px;
+}
+.full-header #site-logo{
+	background: url('../assets/inkedin-logo.png') no-repeat;
+	height: 131px;
+	background-size: contain;
+	width: 75%;
+	margin: 0 auto;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.full-header #site-logo a{
+	display: block;
+	text-indent: -9999px;
+	width: 100%;
+	height: 100%;
+}
+.full-header #site-tools{
+	margin-top: 10px;
+}
+.full-header #site-tools ul{
+	padding: 0;
+	border-top: 1px solid #000;
+	box-shadow: 0px -2px 0px 0px #fff, 0px -7px 0px 0px #000;
+	margin-top: 2px;
+	padding-top: 10px;
+}
+.full-header #site-tools ul li{
+	list-style-type: none;
+	float: left;
+	text-align: center;
+}
+.full-header #site-tools #searchbox{
+	position: relative;
+}
+.full-header #site-tools #search-box{
+	position: relative;
+	padding-right: 20px;
+}
+.full-header #site-tools #search-box input[type="text"]{
+	width: 100%;
+	border-top: 2px solid rgba(0,0,0,0.3);
+	border-left: 2px solid rgba(0,0,0,0.3);
+	border-right: 2px solid rgba(255,255,255,0.3);
+	border-bottom: 2px solid rgba(255,255,255,0.3);
+	border-radius: 3px;
+	background: rgba(255,255,255,0.3)
+}
+.full-header #site-tools #search-box input[type="submit"]{
+	position: absolute;
+	right: 23px;
+	top: 3px;
+	background: #000 url('../assets/search-icon.png') no-repeat 1px 1px;
+	border: none;
+	border-radius: 3px;
+	width: 20px;
+	height: 20px;
+}
+.full-header #site-tools #search-box input[type="submit"]:hover,
+.full-header #site-tools #search-box input[type="submit"]:active{
+	position: absolute;
+	right: 23px;
+	top: 3px;
+	background: #000 url('../assets/search-icon.png') no-repeat -17px 1px;
+	border: none;
+	border-radius: 3px;
+	width: 20px;
+	height: 20px;
+}
 /* NAV */
-nav{
+.full-header nav{
 	margin-top: 10px;
 	/*border-top: 3px solid #000;*/
 }
-nav ul{
+.full-header nav ul{
 	padding: 0;
 	border-top: 1px solid #000;
 	box-shadow: 0px -2px 0px 0px #fff, 0px -7px 0px 0px #000;
 	margin-top: 2px;
 	padding-top: 5px;
 }
-nav ul li{
+.full-header nav ul li{
 	list-style-type: none;
 	float: left;
 	background: url('../assets/nav-divider.png') no-repeat right;
@@ -32,21 +128,148 @@ nav ul li{
 	text-transform: uppercase;
 	font-size: 30px;
 }
-nav ul li:last-child{
+.full-header nav ul li:last-child{
 	background: none;
 	padding-right: 0;
 }
-nav ul li:first-child{
+.full-header nav ul li:first-child{
 	padding-left: 0;
 }
-nav ul li a{
+.full-header nav ul li a{
 	color: #000;
 }
-nav ul li a:hover{
+.full-header nav ul li a:hover{
 	color: #000;
 }
 /* END NAV */
+
+/*END HEADER FULL*/
+
+/*HEADER DINAMICO SMALL*/
+#site-header.small-header{
+	background: url('../assets/header-bg-3.jpg') 0 -77px;
+	height: 50px;
+	position: fixed;
+	top:0;
+	width: 100%;
+	z-index: 10;
+}
+.small-header #site-logo-container{
+	margin-top: -15px;
+}
+.small-header #site-logo{
+	background: url('../assets/inkedin-logo.png') no-repeat;
+	height: 83px;
+	background-size: contain;
+	width: 50%;
+	margin: 0 auto;
+	border-radius: 50%;
+	overflow: hidden;
+}
+.small-header #site-logo a{
+	display: block;
+	text-indent: -9999px;
+	width: 100%;
+	height: 100%;
+}
+.small-header #site-tools{
+}
+.small-header #site-tools ul{
+	padding: 0;
+	margin-top: 2px;
+	padding-top: 10px;
+}
+.small-header #site-tools ul li{
+	list-style-type: none;
+	float: left;
+	text-align: center;
+}
+.small-header #site-tools #searchbox{
+	position: relative;
+}
+.small-header #site-tools #search-box{
+	position: relative;
+	padding-right: 20px;
+}
+.small-header #site-tools #search-box input[type="text"]{
+	width: 100%;
+	border-top: 2px solid rgba(0,0,0,0.3);
+	border-left: 2px solid rgba(0,0,0,0.3);
+	border-right: 2px solid rgba(255,255,255,0.3);
+	border-bottom: 2px solid rgba(255,255,255,0.3);
+	border-radius: 3px;
+	background: rgba(255,255,255,0.3)
+}
+.small-header #site-tools #search-box input[type="submit"]{
+	position: absolute;
+	right: 23px;
+	top: 3px;
+	background: #000 url('../assets/search-icon.png') no-repeat 1px 1px;
+	border: none;
+	border-radius: 3px;
+	width: 20px;
+	height: 20px;
+}
+.small-header #site-tools #search-box input[type="submit"]:hover,
+.small-header #site-tools #search-box input[type="submit"]:active{
+	position: absolute;
+	right: 23px;
+	top: 3px;
+	background: #000 url('../assets/search-icon.png') no-repeat -17px 1px;
+	border: none;
+	border-radius: 3px;
+	width: 20px;
+	height: 20px;
+}
+/* NAV */
+.small-header nav{
+
+}
+.small-header nav ul{
+	padding: 0;
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+.small-header nav ul li{
+	list-style-type: none;
+	float: left;
+	background: url('../assets/nav-divider.png') no-repeat right;
+	padding-right: 30px; 
+	padding-left: 20px;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+.small-header nav ul li:last-child{
+	background: none;
+	padding-right: 0;
+}
+.small-header nav ul li:first-child{
+	padding-left: 0;
+}
+.small-header nav ul li a{
+	color: #000;
+}
+.small-header nav ul li a:hover{
+	color: #000;
+}
+/* END NAV */
+
+
+/*END HEADER SMALL*/
 /*--------------------------------*/
+
+/* TRANSITION  HEADERS */
+
+header, header *{
+  transition: all 0.5s;
+  -moz-transition: all 0.5s; 
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s; 
+}
+
+
+/*---------------------------*/
+
 .full{
 	padding:0;
 }
@@ -57,16 +280,20 @@ nav ul li a:hover{
 	-webkit-transition: background 0.5s; /* For Safari 3.1 to 6.0 */
     transition: background 0.5s;
     text-shadow: 0 0 2px rgba(255,255,255,0.2);
+    text-transform: uppercase;
+	font-size: 18px;
 }
 .id-buttons:hover{
 	text-decoration: none;
 	background: rgba(0,0,0,0.2);
+	color: #000;
 	text-shadow: 0 0 2px rgba(255,255,255,0.3);
 }
 .id-buttons:active,
 .id-buttons:visited,
 .id-buttons:link{
 	text-decoration: none;
+	color: #000;
 }
 .pic-sq-grid{
 	padding-bottom: 15px;
@@ -89,7 +316,7 @@ nav ul li a:hover{
 	width: 100%;
 	visibility:hidden;
     opacity:0;
-    transition:visibility 0s linear 0.3s,opacity 0.3s linear;
+    transition: visibility 0s linear 0.3s,opacity 0.3s linear;
 }
 .owner-container{
 	padding: 0;
@@ -113,91 +340,33 @@ nav ul li a:hover{
 }
 /*------------------*/
 
-#site-header{
-	padding-top: 40px;
-	background: url('../assets/header-bg-3.jpg');
-	height: 140px;
-	margin-bottom: 20px;
-}
+
 #site-footer{
 	background: url('../assets/footer-bg.jpg');
 	padding-top: 30px;
+	padding-bottom: 30px;
 }
-#site-logo-container{
-	margin-top: -15px;
-}
-#site-logo{
-	background: url('../assets/inkedin-logo.png') no-repeat;
-	height: 131px;
-	background-size: contain;
-	width: 75%;
-	margin: 0 auto;
-	border-radius: 50%;
-	overflow: hidden;
-}
-#site-logo a{
-	display: block;
-	text-indent: -9999px;
-	width: 100%;
-	height: 100%;
-}
-#site-tools{
-	margin-top: 10px;
-}
-#site-tools ul{
-	padding: 0;
-	border-top: 1px solid #000;
-	box-shadow: 0px -2px 0px 0px #fff, 0px -7px 0px 0px #000;
-	margin-top: 2px;
-	padding-top: 10px;
-}
-#site-tools ul li{
-	list-style-type: none;
-	float: left;
-	text-align: center;
-}
-#site-tools ul li a{
-	color: #000;
-	text-transform: uppercase;
+#site-footer h3{
+	margin-top: 0;
 	font-size: 18px;
+	text-transform: uppercase;
 }
-#site-tools #searchbox{
-	position: relative;
+#site-footer ul{
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	text-transform: uppercase;
 }
-#site-tools #search-box{
-	position: relative;
-	padding-right: 20px;
+#site-footer ul li{
+	list-style-type: none;
 }
-#site-tools #search-box input[type="text"]{
-	width: 100%;
-	border-top: 2px solid rgba(0,0,0,0.3);
-	border-left: 2px solid rgba(0,0,0,0.3);
-	border-right: 2px solid rgba(255,255,255,0.3);
-	border-bottom: 2px solid rgba(255,255,255,0.3);
-	border-radius: 3px;
-	background: rgba(255,255,255,0.3)
+#site-footer ul li a{
+	/*color: #000;*/
 }
-#site-tools #search-box input[type="submit"]{
-	position: absolute;
-	right: 23px;
-	top: 3px;
-	background: #000 url('../assets/search-icon.png') no-repeat 1px 1px;
-	border: none;
-	border-radius: 3px;
-	width: 20px;
-	height: 20px;
+#site-footer ul li a:hover{
+	color: #000;
 }
-#site-tools #search-box input[type="submit"]:hover,
-#site-tools #search-box input[type="submit"]:active{
-	position: absolute;
-	right: 23px;
-	top: 3px;
-	background: #000 url('../assets/search-icon.png') no-repeat -17px 1px;
-	border: none;
-	border-radius: 3px;
-	width: 20px;
-	height: 20px;
-}
+
 #site-social{
 	padding: 0;
 }
@@ -208,4 +377,11 @@ nav ul li a:hover{
 }
 #site-content{
 	margin-bottom: 20px;
+}
+#footer-tags-2{
+	padding-top: 29px;
+}
+#home-more{
+	display: block;
+	margin: 0 auto;
 }
