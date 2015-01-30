@@ -127,48 +127,97 @@
 			<!--END LEFT COL -->
 
 			<!-- MID COL -->
-			<article class="col-md-6" id="profile-mid-col">
+			<article class="col-md-9" id="profile-mid-col">
 				<h1>Nombre del Artista</h1>
-				<div id="artist-info-container">
-					<div class="border-divider">
-						<h2>Acerca de mi</h2>
-						<p>I'm jumping in here a little late, but came across this page when pondering it myself. Of course I don't know how Facebook or Twitter justified it, but here is my own thought process for what it's worth. In the end, I concluded that this practice is not that unsemantic (is that a word?). In fact, besides shortness and the nice association of "i is for icon," I think it's actually the most semantic choice for an icon when a straightforward  tag is not practical.</p>
-					</div>
-					<div class="border-divider">
-						<h2>Estilos</h2>
-						<ul>
-							<li>Tradicional</li>
-							<li>Oriental</li>
-							<li>Blanco y Negro</li>
-						</ul>
-					</div>
-					<div class="border-divider">
-						<h2>Disponibilidad</h2>
-						<p>I'm jumping in here a little late, but came across this page when pondering it myself. Of course I don't know how Facebook or Twitter.</p>
-					</div>
-					<div>
-						<h2>Contacto</h2>
-						<dl>
-							<dt>Telefono</dt>
-							<dd>5555-5555</dd>
-							<dt>Dias y Horarios</dt>
-							<dd>Lunes a viernes de 9 a 18</dd>
-							<dt>Direccion</dt>
-							<dd>Guemes 2989</dd>
-						</dl>
-						<div id="map">
+				<h2>Nombre del album</h2>
+				
+				<div class="row">	
+					
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img3.jpg" alt=""/>
+							</a>
 						</div>
 					</div>
+
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img2.jpg" alt=""/>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img1.jpg" alt=""/>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img4.jpg" alt=""/>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img6.jpg" alt=""/>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img6.jpg" alt=""/>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img7.jpg" alt=""/>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img8.jpg" alt=""/>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img9.jpg" alt=""/>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-md-4 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
+								<img src="assets/img10.jpg" alt=""/>
+							</a>
+						</div>
+					</div>
+
 				</div>
 			</article>
 			<!--END MID COL -->
 
-			<!--RIGHT COL-->
-			<aside class="col-md-3" id="side-content-profile">
-				<div style="height: 300px; background:brown">
-				</div>
-			</aside>
-			<!--RIGHT COL -->
+			
 		</div>
 	</section>
 	<!-- end content -->
@@ -219,5 +268,45 @@
 		</div>
 	</footer>
 </div>
+
+<!--MODAL PIC -->
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="" id="photo-target" class="img-responsive">
+            <div class="modal-tools">
+           		<a href="#" class="btn btn-default">Guardar <span class="glyphicon glyphicon-picture"></span></a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- END MODAL PIC -->
+<script type="text/javascript">
+function centerModal() {
+    $(this).css('display', 'block');
+    var $dialog = $(this).find(".modal-dialog");
+    var offset = ($(window).height() - $dialog.height()) / 2;
+    // Center modal vertically in window
+    $dialog.css("margin-top", offset);
+}
+
+$('.modal').on('show.bs.modal', centerModal);
+$(window).on("resize", function () {
+    $('.modal:visible').each(centerModal);
+});
+
+$('.photo-anchor').click(function()
+{
+	console.log($(this).children());
+	var src = $(this).children().attr('src');
+	$('#photo-target').attr('src', src);		
+});
+
+</script>
+
 </body>
 </html>
