@@ -328,6 +328,13 @@ header, header *{
     opacity:0;
     transition: visibility 0s linear 0.3s,opacity 0.3s linear;
 }
+.pic-details-block{
+	position: static;
+	visibility: visible;
+	opacity: 1;
+	background: #f0ddaf;
+	padding: 10px 0 0 0;
+}
 .owner-container{
 	padding: 0;
 	margin: 0
@@ -476,7 +483,7 @@ header, header *{
 #profile-left-col{
 	position: relative;
 	margin-top: -200px;
-	min-height: 500px;
+	min-height: 790px;
 }
 #profile-left-col .profile-absolute{
 	position: absolute;
@@ -485,12 +492,12 @@ header, header *{
 #profile-left-col .profile-fixed{
 	position: fixed;
 	top: 80px;
-	width: 263px;
+	width: 262px;
 }
 #profile-left-col .profile-absolute{
 	position: absolute;
 	top: 269px;
-	width: 263px;
+	width: 262px;
 }
 #profile-pic-container{
 	margin: 0 0 10px 10px;
@@ -517,4 +524,17 @@ header, header *{
 }
 #side-content-profile{
 	margin-top: 69px;
+}
+/* END PROFILE */
+/*---------------------------------*/
+/*ALBUM*/
+.album-container h3{
+	position: absolute;
+	bottom: 0;
+	background: rgba(240,221,175,0.8);
+	padding: 10px;
+	width: 100%;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0
 }
