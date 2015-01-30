@@ -485,7 +485,12 @@ header, header *{
 #profile-left-col .profile-fixed{
 	position: fixed;
 	top: 80px;
-	width: 262px;
+	width: 263px;
+}
+#profile-left-col .profile-absolute{
+	position: absolute;
+	top: 269px;
+	width: 263px;
 }
 #profile-pic-container{
 	margin: 0 0 10px 10px;
