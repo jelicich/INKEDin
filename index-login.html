@@ -1,0 +1,328 @@
+<!doctype html>
+<html>
+<head>
+	<title>INKEDin</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="DESCRIPTION" content="">
+	<meta name="KEYWORDS" content="">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/inkedin.css">
+	<link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
+
+	<script type="text/javascript">
+	$(document).on("scroll",function(){
+	    if($(document).scrollTop()>50){
+	        $("header").removeClass("full-header").addClass("small-header");
+	    } else{
+	        $("header").removeClass("small-header").addClass("full-header");
+	    }
+	});
+
+	</script>
+
+</head>
+
+<body>
+<div id="wrapper">
+	<!-- header-->	
+	<header id="site-header" class="full-header">
+		<div class="container">
+			<div class="row">
+				<nav class="col-md-5">
+					<ul class="clearfix">
+						<li><a href="#">Tatuajes</a></li>
+						<li><a href="#">Artistas</a></li>
+						<li><a href="#">Tops</a></li>
+					</ul>
+				</nav>
+
+				<div class="col-md-2" id="site-logo-container">
+					<h1 id="site-logo"><a href="index.html">INKEDin</a></h1>
+				</div>
+
+				<div class="col-md-5" id="site-tools">
+					<ul class="clearfix row">
+						<li id="search-box" class="col-md-6 full">
+							<input type="text" name="searchbox" value>
+							<input type="submit" value="" id="search-btn">
+						</li>
+						<li class="col-md-3 full id-container">
+							<a href="#" class="id-buttons">Registrarse</a>
+						</li>
+						<li class="col-md-3 full id-container">
+							<a href="#" onclick="$('#login-toggle').toggle();" class="id-buttons">Ingresar</a>
+							<div id="login-toggle" class="login-container">
+								<form method="post" action="">
+									<label for="username">Usuario</label>
+									<input type="text" name="username" id="username" value="" />
+									<label for="password">Contraseña</label>
+									<input type="password" name="password" id="password" value="" />
+									<input type="submit" id="submit-login" class="btn btn-default btn-block" value="Ingresar" />
+									<div class="fb-btn-container">
+										<a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
+									</div>
+								</form>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>	
+	<!-- end header-->
+
+
+	<!-- content -->
+	<section id="site-content" class="container">
+		<div class="row">
+			<!-- left col -->
+			<div class="col-md-6">
+				<div class="row">
+					<!-- img -->
+					<article class="col-md-12 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img7.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture super cool</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+					
+					<!-- img -->
+					<article class="col-md-6 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img2.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+
+					<!-- img -->
+					<article class="col-md-6 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img9.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+
+					<!-- img -->
+					<article class="col-md-6 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img5.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+
+					<!-- img -->
+					<article class="col-md-6 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img4.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+				</div>
+			</div>
+			<!-- end left col -->
+
+
+			<!-- right col -->
+			<div class="col-md-6">
+				<div class="row">
+					<!-- img -->
+					<article class="col-md-6 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img10.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+
+					<!-- img -->
+					<article class="col-md-6 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img3.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+
+					<!-- img -->
+					<article class="col-md-12 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img1.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture super cool</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+
+					<!-- img -->
+					<article class="col-md-6 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img8.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+
+					<!-- img -->
+					<article class="col-md-6 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="assets/img6.jpg" alt="" /></a>
+							<div class="pic-details">
+								<p class="caption">Lorem ipsum dolor setem picture</p>
+								<ul class="owner-container clearfix">
+									<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
+									<li class="owner-detail">
+										<h2><a href="#">Nombre</a></h2>
+										<p>Ciudad</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+					<!-- end img -->
+				</div>
+			</div>
+				<!-- end right col -->
+			<div class="col-md-12 full">
+				<button class="btn" id="home-more">VER MAS</button>
+			</div>
+		</div>
+	</section>
+	<!-- end content -->
+
+	<footer id="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<ul id="site-social" class="clearfix">
+						<li><a href=""><img src="assets/fb-icon.jpg" alt="" /></a></li>
+						<li><a href=""><img src="assets/tw-icon.jpg" alt="" /></a></li>
+					</ul>
+				</div>
+				<div class="col-md-2" id="footer-artists">
+					<h3>Artistas</h3>
+					<ul>	
+						<li><a href="">Sarasa</a></li>
+						<li><a href="">Lorem</a></li>
+						<li><a href="">Ipsum</a></li>
+						<li><a href="">Dolor</a></li>
+						<li><a href="">Bla</a></li>
+						<li><a href="">Lorem</a></li>
+					</ul>
+				</div>
+				<div class="col-md-2" id="footer-tags">
+					<h3>Tags</h3>
+					<ul>	
+						<li><a href="">Old school tattoo</a></li>
+						<li><a href="">Traditional</a></li>
+						<li><a href="">Japanese</a></li>
+						<li><a href="">Portrait tattoo</a></li>
+						<li><a href="">Tattoo</a></li>
+						<li><a href="">Full color</a></li>
+					</ul>
+				</div>
+				<div class="col-md-2" id="footer-tags-2">
+					<ul>	
+						<li><a href="">Oriental</a></li>
+						<li><a href="">Tiny tattoo</a></li>
+						<li><a href="">Eyeball tattoo</a></li>
+						<li><a href="">New school</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<p id="privacy">2015 Copyright. Todos los derechos reservados. <a href="#">Terminos y Condiciones</a>. <a href="#">Privacidad</a>. </p>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+</body>
+</html>

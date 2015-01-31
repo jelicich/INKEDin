@@ -287,6 +287,12 @@ header, header *{
 .border-img{
 	border: 10px solid #f0ddaf;
 }
+.light-bg{
+	background-color: #f0ddaf;
+}
+.id-container{
+	position: relative;
+}
 .id-buttons{
 	background: rgba(0,0,0,0.1);
 	border-radius: 3px;
@@ -308,6 +314,34 @@ header, header *{
 .id-buttons:link{
 	text-decoration: none;
 	color: #000;
+}
+.login-container{
+	text-align: left;
+	position: absolute;
+	background: rgba(240,221,175,0.8);
+	padding: 10px;
+	right: 0;
+	margin-top: 10px;
+	display: none;
+}
+
+.login-container label{
+	display: block;
+	margin-bottom: 0;
+}
+.login-container input[type="text"],
+.login-container input[type="password"]{
+	display: block;
+	width: 100%;
+	margin-bottom: 5px;
+}
+.login-container #submit-login{
+	margin-top: 10px;
+}
+.fb-btn-container{
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #553200;
 }
 .pic-sq-grid{
 	padding-bottom: 15px;
@@ -518,7 +552,6 @@ header, header *{
 	margin: 0 0 10px 10px;
 }
 #artist-info-container{
-	background: #f0ddaf;
 	padding: 10px;
 }
 #artist-info-container h2{
@@ -571,4 +604,90 @@ header, header *{
 .modal-content{
 	background-color: #f0ddaf;
 	border-radius: 0;
+}
+
+/*-----------------------*/
+
+/*REGISTER */
+.register-wrapper{
+	padding: 10px;
+	border-left: 1px solid #f0ddaf;
+}
+.register-wrapper label{
+	font-size: 16px;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+.register-fb-container{
+	margin-bottom: 20px;
+	padding: 20px 150px;
+	background: linear-gradient(rgba(240,221,175,0.2), rgba(240,221,175,0.4));
+	border-bottom: 1px solid #f0ddaf;
+}
+.input-container{
+	position: relative;
+}
+.input-container-inner{
+	width: 70%;
+}
+.input-container-inner:hover +.info-input{
+	display: block;
+}
+.info-input{
+	width: 28%;
+	margin: 0;
+	position: absolute;
+	right: 0;
+	top: 27px;
+	background: #f0ddaf;
+	padding: 3px 8px;
+	display: none;
+}
+.info-input:before{	
+	content: " ";
+	display: inline-block;
+	margin-right: 6px;
+	margin-left: -16px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-right: 10px solid #f0ddaf; 
+}
+.register-wrapper input[type="text"],
+.register-wrapper input[type="password"]{
+	display: block;
+	margin-bottom: 20px;
+	width: 100%;
+}
+.register-wrapper input[type="submit"]{
+	display: block;
+	margin:0 auto;
+}
+.register-wrapper .terms{
+	text-align: center;
+	margin: 10px 0;
+}
+.side-register{
+	margin-top: -120px;
+	margin-bottom: -20px;
+	padding: 110px 15px 15px 15px;
+	border-left: 1px solid #c99241;
+	border-bottom: 1px solid #c99241;
+}
+.side-register img{
+	opacity: 0.3;
+	display: block;
+	margin: 0 auto;
+	width: 70%;
+}
+.side-register h3{
+	font-size: 18px;
+	text-align: center;
+	margin: 10px 0;
+}
+.side-register .login-button{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #c99241;
+	border-top: 1px solid #c99241;
 }

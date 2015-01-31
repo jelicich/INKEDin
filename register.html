@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+<head>
+	<title>INKEDin</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="DESCRIPTION" content="">
+	<meta name="KEYWORDS" content="">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/inkedin.css">
+	<link href='http://fonts.googleapis.com/css?family=Cuprum:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
+
+	<script type="text/javascript">
+	$(document).on("scroll",function(){
+	    if($(document).scrollTop()>50){
+	        $("header").removeClass("full-header").addClass("small-header");
+	    } else{
+	        $("header").removeClass("small-header").addClass("full-header");
+	    }
+	});
+
+	</script>
+
+</head>
+
+<body>
+<div id="wrapper">
+	<!-- header-->	
+	<header id="site-header" class="full-header">
+		<div class="container">
+			<div class="row">
+				<nav class="col-md-5">
+					<ul class="clearfix">
+						<li><a href="#">Tatuajes</a></li>
+						<li><a href="#">Artistas</a></li>
+						<li><a href="#">Tops</a></li>
+					</ul>
+				</nav>
+
+				<div class="col-md-2" id="site-logo-container">
+					<h1 id="site-logo"><a href="index.html">INKEDin</a></h1>
+				</div>
+
+				<div class="col-md-5" id="site-tools">
+					<ul class="clearfix row">
+						<li id="search-box" class="col-md-6 full">
+							<input type="text" name="searchbox" value>
+							<input type="submit" value="" id="search-btn">
+						</li>
+						<li class="col-md-3 full id-container">
+							<a href="#" class="id-buttons">Registrarse</a>
+						</li>
+						<li class="col-md-3 full id-container">
+							<a href="#" onclick="$('#login-toggle').toggle();" class="id-buttons">Ingresar</a>
+							<div id="login-toggle" class="login-container">
+								<form method="post" action="">
+									<label for="username">Usuario</label>
+									<input type="text" name="username" id="username" value="" />
+									<label for="password">Contraseña</label>
+									<input type="password" name="password" id="password" value="" />
+									<input type="submit" id="submit-login" class="btn btn-default btn-block" value="Ingresar" />
+									<div class="fb-btn-container">
+										<a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
+									</div>
+								</form>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>	
+	<!-- end header-->
+
+
+	<!-- content -->
+	<section id="site-content" class="container">
+		<div class="row">
+			<!-- left col -->
+			<div class="col-md-8">
+				<div class="register-wrapper">
+					<h2>Registrate en INKEDin</h2>
+					<p>Completa el formulario de registro o ingresa con tu cuenta de Facebook</p>
+					<div class="light-bg register-fb-container">
+						<a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
+					</div>
+					<form method="post" action="">
+						<div class="input-container">
+							<div class="input-container-inner">
+								<label for="name">Nombre</label>
+								<input type="text" id="name" name="name" value="" />	
+							</div>							
+							<p class="info-input">Solo letras y espacios</p>
+						</div>
+						<div class="input-container">
+							<div class="input-container-inner">
+								<label for="lastname">Apellido</label>
+								<input type="text" id="lastname" name="lastname" value="" />
+							</div>
+							<p class="info-input">Solo letras y espacios</p>
+						</div>
+						<div class="input-container">
+							<div class="input-container-inner">
+								<label for="email">Email</label>
+								<input type="text" id="email" name="email" value="" />
+							</div>
+							<p class="info-input">Recibiras la confirmacion</p>
+						</div>
+						<div class="input-container">
+							<div class="input-container-inner">
+								<label for="password">Contraseña</label>
+								<input type="text" id="password" name="password" value="" />
+							</div>
+							<p class="info-input">Mas de 4 caracteres</p>
+						</div>
+						<div class="input-container">
+							<input type="radio" id="user-artist" name="user-type" value="" />
+							<label for="user-artist">Soy un tatuador</label>
+						</div>
+						<div class="input-container">
+							<input type="radio" id="user-regular" name="user-type" value="" />
+							<label for="user-regular">Busco tatuadores</label>
+						</div>
+						
+						<p class="terms">Al registrarme acepto los <a href="#">terminos y condiciones</a> del sitio</p>
+						<input type="submit" class="btn btn-default btn-lg" value="Registrarme!">
+					</form>
+				</div>				
+			</div>
+			<!-- end left col -->
+
+
+			<!-- right col -->
+			<div class="col-md-4">
+				<div class="side-register light-bg">
+					<img src="assets/register-img.jpg" alt="" />
+					<div class="login-button">
+						<h3>Ya estas registrado?</h3>
+						<a href="#" class="btn btn-default btn-lg btn-block" onclick="$('#login-toggle').toggle();">Ingresar</a>
+					</div>
+
+					<h3>Registrate ahora</h3>
+					<p>Como tatuador podes:</p>
+					<ul>
+						<li>Subir fotos de tus trabajos</li>
+						<li>Publicar informacion para que te contacten</li>
+						<li>Recibir mensajes</li>
+					</ul>
+					<p>Como entusiasta podes:</p>
+					<ul>
+						<li>Buscar tatuadores y fotos</li>
+						<li>Armar tu lista de favoritos</li>
+						<li>Contactar a los tatuadores</li>
+					</ul>
+				</div>
+				
+			</div>
+			<!-- end right col -->
+			
+
+		</div>
+	</section>
+	<!-- end content -->
+
+	<footer id="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<ul id="site-social" class="clearfix">
+						<li><a href=""><img src="assets/fb-icon.jpg" alt="" /></a></li>
+						<li><a href=""><img src="assets/tw-icon.jpg" alt="" /></a></li>
+					</ul>
+				</div>
+				<div class="col-md-2" id="footer-artists">
+					<h3>Artistas</h3>
+					<ul>	
+						<li><a href="">Sarasa</a></li>
+						<li><a href="">Lorem</a></li>
+						<li><a href="">Ipsum</a></li>
+						<li><a href="">Dolor</a></li>
+						<li><a href="">Bla</a></li>
+						<li><a href="">Lorem</a></li>
+					</ul>
+				</div>
+				<div class="col-md-2" id="footer-tags">
+					<h3>Tags</h3>
+					<ul>	
+						<li><a href="">Old school tattoo</a></li>
+						<li><a href="">Traditional</a></li>
+						<li><a href="">Japanese</a></li>
+						<li><a href="">Portrait tattoo</a></li>
+						<li><a href="">Tattoo</a></li>
+						<li><a href="">Full color</a></li>
+					</ul>
+				</div>
+				<div class="col-md-2" id="footer-tags-2">
+					<ul>	
+						<li><a href="">Oriental</a></li>
+						<li><a href="">Tiny tattoo</a></li>
+						<li><a href="">Eyeball tattoo</a></li>
+						<li><a href="">New school</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<p id="privacy">2015 Copyright. Todos los derechos reservados. <a href="#">Terminos y Condiciones</a>. <a href="#">Privacidad</a>. </p>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+</body>
+</html>
