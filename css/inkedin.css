@@ -451,6 +451,11 @@ header, header *{
 
 /* ----------------------- */
 /* PROFILE */
+.profile-section{
+	border-top: 1px solid #c99241;
+	padding-top: 5px;
+	margin-top: 5px;
+}
 .btn-profile{
 	font-size: 16px;
 	margin-bottom: 10px;
