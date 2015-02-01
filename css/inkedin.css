@@ -696,3 +696,33 @@ header, header *{
 	border-bottom: 1px solid #c99241;
 	border-top: 1px solid #c99241;
 }
+
+/*---------------------------*/
+/* SEARCH RESULT */
+
+.artist-details{
+	position: absolute;
+	bottom: 0;
+	background: rgba(240,221,175,0.8);
+	padding: 10px;
+	width: 100%;
+}
+.divider-artists-photos{
+	border-left: 1px solid #c99241;	
+	background: linear-gradient(to left, rgba(240,221,175,0.1), rgba(240,221,175,0.5));
+}
+/*---------------------------*/
+/* SEARCH PHOTO */
+.artists-filter select{
+
+}
+.input-search{
+	width: 300px;
+	height: 30px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+.input-search-sm{
+	width: 200px;
+}
+

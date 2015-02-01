@@ -61,16 +61,40 @@
 	<!-- content -->
 	<section id="site-content" class="container">
 		<div class="row">
-			<!-- left col USERS-->
-			<div class="col-md-6">
-				<div class="row">
+			
 					<div class="col-md-12">
-						<h2>Resultados de artistas</h2>
-						<p>Se encontraron <strong>239</strong> artistas para la busqueda <strong>sarasa</strong>. <a href="#">Ver solo artistas</a></p>
+						<div class="row">
+							<div class="col-md-6">
+								<h2>Resultados de artistas</h2>
+								<p>Se encontraron <strong>239</strong> artistas para la busqueda <strong>sarasa</strong>.</p>
+							</div>
+							<div class="col-md-6">
+								<h2>Buscar artistas</h2>
+								<form method="get" class="artists-filter">
+									<select name="country">
+										<option disabled selected>Pais</option>
+										<option value="1">Argentina</option>
+									</select>
+									<select name="province">
+										<option disabled selected>Provincia</option>
+										<option value="1">Buenos Aires</option>
+										<option value="2">Cordoba</option>
+									</select>
+									<select name="city">
+										<option disabled selected>Ciudad</option>
+										<option value="1">Buenos Aires</option>
+										<option value="2">Rosario</option>
+									</select>
+									<input type="text" name="search-artists" class="input-search input-search-sm"/>
+									<input type="submit" value="Buscar" class="btn btn-default btn-sm" />
+								</form>
+							</div>
+							
+						</div>
 					</div>
 
 					<!-- artist -->
-					<article class="col-md-6 pic-sq-grid">
+					<article class="col-md-3 pic-sq-grid">
 						<div class="inner-pic-sq-grid border-img">
 							<a href="#"><img src="assets/img2.jpg" alt="" /></a>
 							<div class="artist-details">
@@ -87,7 +111,7 @@
 					<!-- end artist -->
 
 					<!-- artist -->
-					<article class="col-md-6 pic-sq-grid">
+					<article class="col-md-3 pic-sq-grid">
 						<div class="inner-pic-sq-grid border-img">
 							<a href="#"><img src="assets/img6.jpg" alt="" /></a>
 							<div class="artist-details">
@@ -104,7 +128,7 @@
 					<!-- end artist -->
 
 					<!-- artist -->
-					<article class="col-md-6 pic-sq-grid">
+					<article class="col-md-3 pic-sq-grid">
 						<div class="inner-pic-sq-grid border-img">
 							<a href="#"><img src="assets/img4.jpg" alt="" /></a>
 							<div class="artist-details">
@@ -121,7 +145,7 @@
 					<!-- end artist -->
 
 					<!-- artist -->
-					<article class="col-md-6 pic-sq-grid">
+					<article class="col-md-3 pic-sq-grid">
 						<div class="inner-pic-sq-grid border-img">
 							<a href="#"><img src="assets/img7.jpg" alt="" /></a>
 							<div class="artist-details">
@@ -138,7 +162,7 @@
 					<!-- end artist -->
 
 					<!-- artist -->
-					<article class="col-md-6 pic-sq-grid">
+					<article class="col-md-3 pic-sq-grid">
 						<div class="inner-pic-sq-grid border-img">
 							<a href="#"><img src="assets/img3.jpg" alt="" /></a>
 							<div class="artist-details">
@@ -155,7 +179,7 @@
 					<!-- end artist -->
 
 					<!-- artist -->
-					<article class="col-md-6 pic-sq-grid">
+					<article class="col-md-3 pic-sq-grid">
 						<div class="inner-pic-sq-grid border-img">
 							<a href="#"><img src="assets/img9.jpg" alt="" /></a>
 							<div class="artist-details">
@@ -172,7 +196,7 @@
 					<!-- end artist -->
 
 					<!-- artist -->
-					<article class="col-md-6 pic-sq-grid">
+					<article class="col-md-3 pic-sq-grid">
 						<div class="inner-pic-sq-grid border-img">
 							<a href="#"><img src="assets/img1.jpg" alt="" /></a>
 							<div class="artist-details">
@@ -192,168 +216,6 @@
 						<button class="btn" id="home-more">VER MAS</button>
 					</div>
 					
-				</div>
-			</div>
-			<!-- end left col -->
-
-
-			<!-- right col PHOTOS-->
-			<div class="col-md-6 divider-artists-photos">
-				<div class="row">
-					
-					<div class="col-md-12">
-						<h2>Resultados de fotos</h2>
-						<p>Se encontraron <strong>1039</strong> fotos para la busqueda <strong>sarasa</strong>. <a href="#">Ver solo fotos</a></p>
-					</div>
-
-					<!-- left col fotos -->
-					<div class="col-md-6">
-							
-						<article class="pic-sq-grid">
-							<div class="inner-pic-sq-grid border-img">
-								<a href="#"><img src="assets/img7.jpg" alt="" /></a>
-								<div class="pic-details pic-details-block">
-									<p class="caption">Lorem ipsum dolor setem picture super cool</p>
-									<ul class="owner-container clearfix">
-										<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-										<li class="owner-detail">
-											<h2><a href="#">Nombre</a></h2>
-											<p>Ciudad</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</article>
-						
-						<article class="pic-sq-grid">
-							<div class="inner-pic-sq-grid border-img">
-								<a href="#"><img src="assets/img-v.jpg" alt="" /></a>
-								<div class="pic-details pic-details-block">
-									<p class="caption">Lorem ipsum dolor setem picture super cool</p>
-									<ul class="owner-container clearfix">
-										<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-										<li class="owner-detail">
-											<h2><a href="#">Nombre</a></h2>
-											<p>Ciudad</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</article>
-
-						<article class="pic-sq-grid">
-							<div class="inner-pic-sq-grid border-img">
-								<a href="#"><img src="assets/img-h.jpg" alt="" /></a>
-								<div class="pic-details pic-details-block">
-									<p class="caption">Lorem ipsum dolor setem picture super cool</p>
-									<ul class="owner-container clearfix">
-										<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-										<li class="owner-detail">
-											<h2><a href="#">Nombre</a></h2>
-											<p>Ciudad</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</article>
-
-						<article class="pic-sq-grid">
-							<div class="inner-pic-sq-grid border-img">
-								<a href="#"><img src="assets/img-h.jpg" alt="" /></a>
-								<div class="pic-details pic-details-block">
-									<p class="caption">Lorem ipsum dolor setem picture super cool</p>
-									<ul class="owner-container clearfix">
-										<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-										<li class="owner-detail">
-											<h2><a href="#">Nombre</a></h2>
-											<p>Ciudad</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</article>
-						
-					</div>
-					<!-- end left col foto -->
-
-					<!-- right col fotos -->
-					<div class="col-md-6">
-							
-						<article class="pic-sq-grid">
-							<div class="inner-pic-sq-grid border-img">
-								<a href="#"><img src="assets/img-v.jpg" alt="" /></a>
-								<div class="pic-details pic-details-block">
-									<p class="caption">Lorem ipsum dolor setem picture super cool</p>
-									<ul class="owner-container clearfix">
-										<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-										<li class="owner-detail">
-											<h2><a href="#">Nombre</a></h2>
-											<p>Ciudad</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</article>
-						
-						<article class="pic-sq-grid">
-							<div class="inner-pic-sq-grid border-img">
-								<a href="#"><img src="assets/img-h.jpg" alt="" /></a>
-								<div class="pic-details pic-details-block">
-									<p class="caption">Lorem ipsum dolor setem picture super cool</p>
-									<ul class="owner-container clearfix">
-										<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-										<li class="owner-detail">
-											<h2><a href="#">Nombre</a></h2>
-											<p>Ciudad</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</article>
-
-						<article class="pic-sq-grid">
-							<div class="inner-pic-sq-grid border-img">
-								<a href="#"><img src="assets/img-h.jpg" alt="" /></a>
-								<div class="pic-details pic-details-block">
-									<p class="caption">Lorem ipsum dolor setem picture super cool</p>
-									<ul class="owner-container clearfix">
-										<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-										<li class="owner-detail">
-											<h2><a href="#">Nombre</a></h2>
-											<p>Ciudad</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</article>
-
-						<article class="pic-sq-grid">
-							<div class="inner-pic-sq-grid border-img">
-								<a href="#"><img src="assets/img3.jpg" alt="" /></a>
-								<div class="pic-details pic-details-block">
-									<p class="caption">Lorem ipsum dolor setem picture super cool</p>
-									<ul class="owner-container clearfix">
-										<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-										<li class="owner-detail">
-											<h2><a href="#">Nombre</a></h2>
-											<p>Ciudad</p>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</article>
-
-					</div>
-					<!-- end right col foto -->
-
-					<div class="col-md-12 full">
-						<button class="btn" id="home-more">VER MAS</button>
-					</div>
-
-				</div>
-			</div>
-				<!-- end right col -->
-			
 		</div>
 	</section>
 	<!-- end content -->
