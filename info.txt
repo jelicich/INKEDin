@@ -1,0 +1,3 @@
+info:
+ 	- global areas are loaded by the parent class Controller_Master
+ 	- common assets are set in the config file common_assets.php, and loaded in Controler_Master
