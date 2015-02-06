@@ -13,11 +13,14 @@ class Controller_Index extends Controller_Master {
 	   $this->$template->scripts = HTML::script('application/views/Header.js');
 	}
 	*/
+	public function before()
+    {   
+        parent::before();
+        $this->template->head->title = "INKEDin - Tattoo Site";
+    }
 
 	public function action_index()
 	{
-		$this->template->head->title = "Sarasa";
-	
 		//$this->response->body('hello, world!');
 	}
 
