@@ -9,14 +9,14 @@ CREATE TABLE IF NOT EXISTS `styles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `provinces` (
-  `id` smallint(2) unsigned NOT NULL,
+  `id` smallint(2) unsigned NOT NULL AUTO_INCREMENT,
   `province` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 
 CREATE TABLE IF NOT EXISTS `cities` (
-  `id` int(4) unsigned NOT NULL,
+  `id` int(4) unsigned NOT NULL AUTO_INCREMENT,
   `city` varchar(60) NOT NULL,
   `pc` int(4) NOT NULL,
   `province_id` smallint(2) unsigned NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `cities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `ratings` (
-  `id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `total_votes` int(5) NOT NULL DEFAULT '0',
   `total_value` int(5) NOT NULL DEFAULT '0',
   `used_ips` longtext NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `ratings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `photos` (
-  `id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `photo` char(30) NOT NULL,
   `tags` text,
   `description` text,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(60) NOT NULL,
   `last_name` varchar(60) NOT NULL,
   `email` varchar(254) NOT NULL,
@@ -67,14 +67,14 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `followers` (
-  `user_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `follower_id` int(10) unsigned NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`,`follower_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `comment` text NOT NULL,
   `user_id` int unsigned NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS `albums` (
-  `id` int unsigned NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `user_id` int unsigned NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -120,3 +120,12 @@ CREATE TABLE IF NOT EXISTS `messages` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
+-- Kohana Session TABLE 
+
+CREATE TABLE  `sessions` (
+    `session_id` VARCHAR(24) NOT NULL,
+    `last_active` INT UNSIGNED NOT NULL,
+    `contents` TEXT NOT NULL,
+    PRIMARY KEY (`session_id`),
+    INDEX (`last_active`)
+) ENGINE = MYISAM;

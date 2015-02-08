@@ -4,7 +4,6 @@ class Controller_Index extends Controller_Master {
 
 	public $template = 'homeview';
 
-
 	/*
 	public function __construct($request, $response)
 	{

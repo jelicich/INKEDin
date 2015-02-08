@@ -64,7 +64,7 @@ h6{
 .full-header #site-tools{
 	margin-top: 10px;
 }
-.full-header #site-tools ul{
+.full-header #site-tools > ul{
 	padding: 0;
 	border-top: 1px solid #000;
 	box-shadow: 0px -2px 0px 0px #fff, 0px -7px 0px 0px #000;
@@ -73,7 +73,7 @@ h6{
 	margin-right: 0;
 	margin-left: 0;
 }
-.full-header #site-tools ul li{
+.full-header #site-tools > ul li{
 	list-style-type: none;
 	float: left;
 	text-align: right;
@@ -115,6 +115,29 @@ h6{
 	width: 20px;
 	height: 20px;
 }
+/* USER MENU LOGGED IN */
+.full-header .user-menu-buttons-container{
+	padding-right: 0;
+}
+.full-header .user-menu-name{
+	font-size: 16px;
+	margin: 0;
+}
+.full-header .user-menu-buttons{
+	background: rgba(0,0,0,0.1);
+	border-radius: 3px;
+	padding: 0;	
+}
+.full-header .user-menu-buttons li{
+	padding: 0 8.2px;
+	border-right: 1px solid rgba(0,0,0,0.1);
+}
+.full-header .user-menu-buttons li:last-child{
+	border-right: none;
+}
+.full-header .user-menu-buttons li a{
+	color: #000;
+}	
 /* NAV */
 .full-header nav{
 	margin-top: 10px;
@@ -182,14 +205,14 @@ h6{
 }
 .small-header #site-tools{
 }
-.small-header #site-tools ul{
+.small-header #site-tools > ul{
 	padding: 0;
 	margin-top: 2px;
 	padding-top: 10px;
 	margin-right: 0;
 	margin-left: 0;
 }
-.small-header #site-tools ul li{
+.small-header #site-tools > ul li{
 	list-style-type: none;
 	float: left;
 	text-align: right;	
@@ -231,6 +254,32 @@ h6{
 	width: 20px;
 	height: 20px;
 }
+/* USER MENU LOGGED IN */
+.small-header .user-menu{
+	margin-top: -7px;
+}
+.small-header .user-menu-buttons-container{
+	padding-right: 0;
+}
+.small-header .user-menu-name{
+	font-size: 16px;
+	margin: 0;
+}
+.small-header .user-menu-buttons{
+	background: rgba(0,0,0,0.1);
+	border-radius: 3px;
+	padding: 0;	
+}
+.small-header .user-menu-buttons li{
+	padding: 0 8.2px;
+	border-right: 1px solid rgba(0,0,0,0.1);
+}
+.small-header .user-menu-buttons li:last-child{
+	border-right: none;
+}
+.small-header .user-menu-buttons li a{
+	color: #000;
+}	
 /* NAV */
 .small-header nav{
 
@@ -267,6 +316,7 @@ h6{
 
 /*END HEADER SMALL*/
 /*--------------------------------*/
+
 
 
 /* TRANSITION  HEADERS */

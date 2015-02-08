@@ -212,7 +212,7 @@
 			</div>
 				<!-- end right col -->
 			<div class="col-md-12 full">
-				<button class="btn" id="home-more">VER MAS</button>
+				<button class="btn btn-default" id="home-more">VER MAS</button>
 			</div>
 		</div>
 	</section>
