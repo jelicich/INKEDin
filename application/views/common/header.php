@@ -10,7 +10,7 @@
 			</nav>
 
 			<div class="col-md-2" id="site-logo-container">
-				<h1 id="site-logo"><a href="index">INKEDin</a></h1>
+				<h1 id="site-logo"><a href="/">INKEDin</a></h1>
 			</div>
 
 			<div class="col-md-5" id="site-tools">
@@ -20,12 +20,12 @@
 						<input type="submit" value="" id="search-btn">
 					</li>
 					<li class="col-md-3 full id-container">
-						<a href="#" class="id-buttons">Registrarse</a>
+						<a href="/register" class="id-buttons">Registrarse</a>
 					</li>
 					<li class="col-md-3 full id-container">
 						<a href="#" onclick="inked.Common.Header.onClickLogin()" class="id-buttons">Ingresar</a>
 						<div id="login-toggle" class="login-container">
-							<form method="POST" action="auth/login">
+							<form method="POST" action="/auth/login">
 								<label for="username">Usuario</label>
 								<input type="text" name="username" id="username" value="" />
 								<label for="password">Contraseña</label>

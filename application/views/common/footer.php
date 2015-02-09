@@ -3,8 +3,8 @@
 		<div class="row">
 			<div class="col-md-2">
 				<ul id="site-social" class="clearfix">
-					<li><a href=""><img src="assets/fb-icon.jpg" alt="" /></a></li>
-					<li><a href=""><img src="assets/tw-icon.jpg" alt="" /></a></li>
+					<li><a href=""><img src="/assets/common/footer/img/fb-icon.jpg" alt="" /></a></li>
+					<li><a href=""><img src="/assets/common/footer/img/tw-icon.jpg" alt="" /></a></li>
 				</ul>
 			</div>
 			<div class="col-md-2" id="footer-artists">

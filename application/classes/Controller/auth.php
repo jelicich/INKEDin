@@ -15,16 +15,14 @@ class Controller_Auth extends Controller {
 		$username = $this->request->post('username');
 		$password = sha1($this->request->post('password'));
 		
-		
-		
 		$model = new Model_User();
 		$user = $model->select('user.*','photos.*')
 			->where('email', '=', $username)
 			->and_where('password' , '=', $password)
-			->join('photos')
+			->join('photos','LEFT')
 			->on('user.photo_id', '=', 'photos.id')
     		->find();
-
+		
 		if($user->loaded())
 		{
 			$user = $user->as_array();

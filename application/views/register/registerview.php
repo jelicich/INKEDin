@@ -40,7 +40,7 @@
 					<?php endif ?>
 
 
-					<form method="post" action="/INKEDin/register/register">
+					<form method="post" action="/register/register">
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="name">Nombre</label>
@@ -89,7 +89,7 @@
 			<!-- right col -->
 			<div class="col-md-4">
 				<div class="side-register light-bg">
-					<img src="assets/register-img.jpg" alt="" />
+					<img src="/assets/register/img/register-img.jpg" alt="" />
 					<div class="login-button">
 						<h3>Ya estas registrado?</h3>
 						<a href="#" class="btn btn-default btn-lg btn-block" onclick="$('#login-toggle').toggle();">Ingresar</a>

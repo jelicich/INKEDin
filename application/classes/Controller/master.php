@@ -1,7 +1,7 @@
 <?php 
 abstract class Controller_Master extends Controller_Template
 {
-    public $template = 'homeview'; // Default template
+    public $template = 'home/homeview'; // Default template
     public $title = 'INKEDin - Tattoo site'; //Default title;
     private $session;
     

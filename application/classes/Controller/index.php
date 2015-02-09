@@ -2,16 +2,9 @@
 
 class Controller_Index extends Controller_Master {
 
-	public $template = 'homeview';
+	public $template = 'home/homeview';
 
-	/*
-	public function __construct($request, $response)
-	{
-	   parent::__construct($request, $response);
 
-	   $this->$template->scripts = HTML::script('application/views/Header.js');
-	}
-	*/
 	public function before()
     {   
         parent::before();

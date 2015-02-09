@@ -2,7 +2,7 @@
 
 class Controller_Register extends Controller_Master {
 
-	public $template = 'registerview';
+	public $template = 'register/registerview';
 
 	public function before()
     {   
@@ -13,7 +13,7 @@ class Controller_Register extends Controller_Master {
 
 	public function action_index()
 	{
-
+		$this->template->head->custom_scripts = HTML::script('/assets/register/js/Register.js');
 	}
 
 	public function action_register()
@@ -67,7 +67,7 @@ class Controller_Register extends Controller_Master {
 		$common_scripts = Kohana::$config->load('common_assets')->get('scripts');
 		$common_styles = Kohana::$config->load('common_assets')->get('styles');	
 		
-		$this->template = View::factory('successview');
+		$this->template = View::factory('register/successview');
 		if($this->is_logged_in() != true)
         {
             $this->template->header = View::factory('common/header');    
