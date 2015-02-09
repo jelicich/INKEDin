@@ -33,12 +33,7 @@ class Controller_Auth extends Controller {
 			$this->session->set('logged_in', true);
 		}
 		HTTP::redirect('index');
-		/*
-		else
-		{
-			HTTP::redirect('login/ivalid');
-		}
-		*/
+
 	}
 
 	public function action_logout()
@@ -47,5 +42,7 @@ class Controller_Auth extends Controller {
 		$this->session->delete('user');
 		HTTP::redirect('index');
 	}
+
+	
 
 } // End Auth

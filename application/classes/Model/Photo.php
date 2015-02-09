@@ -1,5 +1,5 @@
 <?php
 
-class Photo_User extends ORM{
+class Model_Photo extends ORM{
 	
 }

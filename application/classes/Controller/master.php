@@ -40,7 +40,7 @@ abstract class Controller_Master extends Controller_Template
         return;
     }
 
-    private function is_logged_in()
+    public function is_logged_in()
     {
         return $this->session->get('logged_in');
     }
