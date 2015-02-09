@@ -30,8 +30,31 @@ class Controller_Auth extends Controller {
 			//SI guardo el objeto, despues no puedo levantar la foto desde el master controller
 			$this->session->set('user', $user);
 			$this->session->set('logged_in', true);
+			HTTP::redirect('index');
 		}
-		HTTP::redirect('index');
+		else
+		{
+			
+			$template = View::factory('login/loginview')->set('email', $username);
+
+			$common_scripts = Kohana::$config->load('common_assets')->get('scripts');
+			$common_styles = Kohana::$config->load('common_assets')->get('styles');
+			
+			$template = View::factory('login/loginview')->set('email', $username) ;
+			
+	        $template->head = View::factory('common/head');
+	        $template->header = View::factory('common/header');    
+	        $template->footer = View::factory('common/footer'); 
+	        $template->head->title = 'INKEDin - Login';
+	        $template->head->common_scripts = $common_scripts;
+	        $template->head->common_styles = $common_styles;
+	        $template->head->custom_scripts = HTML::script('/assets/login/js/Login.js');
+
+
+			$this->response->body($template);
+			
+		}
+		
 
 	}
 

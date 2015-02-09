@@ -419,3 +419,29 @@
 2015-02-09 14:52:24 --- CRITICAL: ErrorException [ 1 ]: Call to undefined method Model_User::execute() ~ APPPATH\classes\Controller\register.php [ 106 ] in file:line
 2015-02-09 14:52:24 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
 #1 {main} in file:line
+2015-02-09 18:03:05 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected '.' ~ APPPATH\views\login\loginview.php [ 48 ] in file:line
+2015-02-09 18:03:05 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-09 18:03:21 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: head ~ APPPATH\views\login\loginview.php [ 4 ] in E:\xampp\htdocs\INKEDin\application\views\login\loginview.php:4
+2015-02-09 18:03:21 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\views\login\loginview.php(4): Kohana_Core::error_handler(8, 'Undefined varia...', 'E:\xampp\htdocs...', 4, Array)
+#1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(62): include('E:\xampp\htdocs...')
+#2 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(359): Kohana_View::capture('E:\xampp\htdocs...', Array)
+#3 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(236): Kohana_View->render()
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Response.php(160): Kohana_View->__toString()
+#5 E:\xampp\htdocs\INKEDin\application\classes\Controller\auth.php(38): Kohana_Response->body(Object(View))
+#6 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Auth->action_login()
+#7 [internal function]: Kohana_Controller->execute()
+#8 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Auth))
+#9 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#10 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#11 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#12 {main} in E:\xampp\htdocs\INKEDin\application\views\login\loginview.php:4
+2015-02-09 18:08:52 --- CRITICAL: ErrorException [ 8 ]: Undefined property: Controller_Auth::$title ~ APPPATH\classes\Controller\auth.php [ 48 ] in E:\xampp\htdocs\INKEDin\application\classes\Controller\auth.php:48
+2015-02-09 18:08:52 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\classes\Controller\auth.php(48): Kohana_Core::error_handler(8, 'Undefined prope...', 'E:\xampp\htdocs...', 48, Array)
+#1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Auth->action_login()
+#2 [internal function]: Kohana_Controller->execute()
+#3 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Auth))
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#7 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\auth.php:48

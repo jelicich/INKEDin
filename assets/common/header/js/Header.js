@@ -11,13 +11,14 @@ inked.Common.Header = {
 		    } else{
 		        $("header").removeClass("small-header").addClass("full-header");
 		    }
-		});	
+		});
 	},
 
 	onClickLogin : function()
 	{
+		event.preventDefault ? event.preventDefault() : event.returnValue = false;
 		$('#login-toggle').toggle();
-		$('#username').focus();
+		$('#username').focus();	
 	}
 };
 

@@ -368,11 +368,12 @@ header, header *{
 .login-container{
 	text-align: left;
 	position: absolute;
-	background: rgba(240,221,175,0.8);
+	background: rgba(240,221,175,0.9);
 	padding: 10px;
 	right: 0;
 	margin-top: 10px;
 	display: none;
+	box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.3);
 }
 
 .login-container label{

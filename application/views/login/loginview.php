@@ -8,7 +8,7 @@
 
 </head>
 
-<body class="inked registerview">
+<body class="inked loginview">
 
 <div id="wrapper">
 	<!-- header-->
@@ -22,8 +22,8 @@
 			<!-- left col -->
 			<div class="col-md-8">
 				<div class="register-wrapper">
-					<h2>Registrate en INKEDin</h2>
-					<p>Completa el formulario de registro o ingresa con tu cuenta de Facebook</p>
+					<h2>Error al ingresar</h2>
+					<p>Los datos ingresados son inválidos. <a href="/auth/recover">¿Olvidaste tu contraseña?</a></p>
 					<div class="light-bg register-fb-container">
 						<a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
 					</div>
@@ -40,46 +40,24 @@
 					<?php endif ?>
 
 
-					<form method="post" action="/register/register">
-						<div class="input-container">
-							<div class="input-container-inner">
-								<label for="name">Nombre</label>
-								<input type="text" id="name" name="name" value="" />	
-							</div>							
-							<p class="info-input">Solo letras y espacios</p>
-						</div>
-						<div class="input-container">
-							<div class="input-container-inner">
-								<label for="last_name">Apellido</label>
-								<input type="text" id="last_name" name="last_name" value="" />
-							</div>
-							<p class="info-input">Solo letras y espacios</p>
-						</div>
+					<form method="post" action="/auth/login">
+						
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="email">Email</label>
-								<input type="text" id="email" name="email" value="" />
+								<input type="text" id="email" name="username" value=<?php echo '"'.$email.'"'?> />
 							</div>
-							<p class="info-input">Recibiras la confirmacion</p>
+							<p class="info-input">Campo obligatorio</p>
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="password">Contraseña</label>
-								<input type="text" id="password" name="password" value="" />
+								<input type="password" id="password" name="password" value="" />
 							</div>
-							<p class="info-input">Mas de 4 caracteres</p>
-						</div>
-						<div class="input-container">
-							<input type="radio" id="user-artist" name="role" value="1" />
-							<label for="user-artist">Soy un tatuador</label>
-						</div>
-						<div class="input-container">
-							<input type="radio" id="user-regular" name="role" value="2" />
-							<label for="user-regular">Busco tatuadores</label>
+							<p class="info-input">Campo obligatorio</p>
 						</div>
 						
-						<p class="terms">Al registrarme acepto los <a href="#">terminos y condiciones</a> del sitio</p>
-						<input type="submit" class="btn btn-default btn-lg" value="Registrarme!">
+						<input type="submit" class="btn btn-default btn-lg" value="Ingresar">
 					</form>
 				</div>				
 			</div>
@@ -92,7 +70,7 @@
 					<img src="/assets/register/img/register-img.jpg" alt="" />
 					<div class="login-button">
 						<h3>Ya estas registrado?</h3>
-						<a href="#" id="second-login" class="btn btn-default btn-lg btn-block" onclick="inked.Register.onClickSecondLogin()">Ingresar</a>
+						<a href="#" id="second-login" class="btn btn-default btn-lg btn-block" onclick="inked.Login.onClickSecondLogin()">Ingresar</a>
 					</div>
 
 					<h3>Registrate ahora</h3>

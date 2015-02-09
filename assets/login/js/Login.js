@@ -2,10 +2,10 @@
  * header module
  */
 
-inked.Register = {
+inked.Login = {
 	init : function() 
 	{
-		$('#name').focus();
+		$('#email').focus();
 	},
 
 	onClickSecondLogin : function()
@@ -18,6 +18,6 @@ inked.Register = {
 
 {
 	$(document).ready(function() {
-		inked.Register.init();
+		inked.Login.init();
 	});
 }
