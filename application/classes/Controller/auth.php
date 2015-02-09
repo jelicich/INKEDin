@@ -25,6 +25,7 @@ class Controller_Auth extends Controller {
 		
 		if($user->loaded())
 		{
+			if($user->active == 0) HTTP::redirect('index');
 			$user = $user->as_array();
 			//SI guardo el objeto, despues no puedo levantar la foto desde el master controller
 			$this->session->set('user', $user);

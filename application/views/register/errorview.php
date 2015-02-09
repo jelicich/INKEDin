@@ -8,7 +8,7 @@
 
 </head>
 
-<body class="inked registerview">
+<body class="inked errorview">
 
 <div id="wrapper">
 	<!-- header-->
@@ -22,8 +22,8 @@
 			<!-- left col -->
 			<div class="col-md-8">
 				<div class="register-wrapper">
-					<h2>Registrate en INKEDin</h2>
-					<p>Gracias por registrarte. Verifica tu casilla de email para confirmar tu cuenta</p>
+					<h2>Oops! Hubo un problema con tu activación</h2>
+					<p>El email ingresado o el codigo de activación son incorrectos.</p>
 
 				</div>				
 			</div>

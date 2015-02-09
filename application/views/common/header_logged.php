@@ -31,7 +31,7 @@
 									<li><a href="auth/logout">Salir</a></li>
 								</ul>
 							</div>
-							<a href=<?php echo "profile/".$user['id'] ?> > <?php echo HTML::image('users/'.$user['id'].'/img/'.$user['photo'], array('alt' => $user['tags'], 'class' => 'user-menu-photo col-md-3')); ?> </a>
+							<a href=<?php echo "profile/".$user['id'] ?> > <?php echo $user['photo']; ?> </a>
 						</div>
 					</li>
 				</ul>

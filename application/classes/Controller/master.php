@@ -28,6 +28,20 @@ abstract class Controller_Master extends Controller_Template
         {
             $this->template->header = View::factory('common/header_logged');
             $this->template->header->user = $this->session->get('user');
+            
+            //Profile pic path
+            if(!isset($this->template->header->user['photo']) || empty($this->template->header->user['photo']))
+            {
+                $photo = HTML::image('/assets/common/app/img/default.jpg', array('alt' => 'Profile picture', 'class' => 'user-menu-photo col-md-3'));
+            }
+            else
+            {
+                $user_id = $this->template->header->user['id'];
+                $user_photo = $this->template->header->user['photo'];
+                $user_tags = $this->template->header->user['tags'];
+                $photo = HTML::image('users/'.$user_id.'/img/'.$user_photo, array('alt' => $user_tags, 'class' => 'user-menu-photo col-md-3'));
+            }
+            $this->template->header->user['photo'] = $photo;
         }
 
         $this->template->head = View::factory('common/head');

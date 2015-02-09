@@ -3,7 +3,7 @@ USE inkedin;
 
 
 CREATE TABLE IF NOT EXISTS `styles` (
-  `id` tinyint unsigned NOT NULL AUTO_INCREMENT,
+  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `style` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -58,6 +58,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `rating_id` int unsigned,
   `photo_id` int unsigned,
   `city_id` int(4) unsigned,
+  `hash` char(40) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 0,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`style_id`) REFERENCES `styles`(`id`),

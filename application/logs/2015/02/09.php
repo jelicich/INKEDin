@@ -394,3 +394,28 @@
 #5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #6 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #7 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\register.php:16
+2015-02-09 12:14:31 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected '}' ~ APPPATH\views\common\header_logged.php [ 38 ] in file:line
+2015-02-09 12:14:31 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-09 14:32:18 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: errors ~ APPPATH\classes\Controller\register.php [ 115 ] in E:\xampp\htdocs\INKEDin\application\classes\Controller\register.php:115
+2015-02-09 14:32:18 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\classes\Controller\register.php(115): Kohana_Core::error_handler(8, 'Undefined varia...', 'E:\xampp\htdocs...', 115, Array)
+#1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Register->action_activate()
+#2 [internal function]: Kohana_Controller->execute()
+#3 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Register))
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#7 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\register.php:115
+2015-02-09 14:51:11 --- CRITICAL: ErrorException [ 2 ]: Missing argument 2 for Kohana_ORM::set(), called in E:\xampp\htdocs\INKEDin\application\classes\Controller\register.php on line 105 and defined ~ MODPATH\orm\classes\Kohana\ORM.php [ 714 ] in E:\xampp\htdocs\INKEDin\modules\orm\classes\Kohana\ORM.php:714
+2015-02-09 14:51:11 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\modules\orm\classes\Kohana\ORM.php(714): Kohana_Core::error_handler(2, 'Missing argumen...', 'E:\xampp\htdocs...', 714, Array)
+#1 E:\xampp\htdocs\INKEDin\application\classes\Controller\register.php(105): Kohana_ORM->set(Array)
+#2 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Register->action_activate()
+#3 [internal function]: Kohana_Controller->execute()
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Register))
+#5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#8 {main} in E:\xampp\htdocs\INKEDin\modules\orm\classes\Kohana\ORM.php:714
+2015-02-09 14:52:24 --- CRITICAL: ErrorException [ 1 ]: Call to undefined method Model_User::execute() ~ APPPATH\classes\Controller\register.php [ 106 ] in file:line
+2015-02-09 14:52:24 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
