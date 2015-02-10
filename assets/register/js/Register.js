@@ -14,18 +14,6 @@ inked.Register = {
 		event.preventDefault ? event.preventDefault() : event.returnValue = false;
 		$('#login-toggle').toggle();
 		$('#username').focus();	
-	},
-
-	validateForm : function()
-	{
-		var name = $('#name').val();
-		var last = $('#last_name').val();
-		var user = $('#email').val();
-		var pass = $('#password-reg').val();
-		if(name == '' || last == '' || user == '' || pass == '')
-		{
-			event.preventDefault ? event.preventDefault() : event.returnValue = false;
-		}
 	}
 };
 

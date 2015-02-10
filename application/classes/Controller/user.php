@@ -7,13 +7,33 @@ class Controller_User extends Controller_Master {
 	public function before()
     {   
         parent::before();
-        $this->template->head->title = "INKEDin - Tattoo Site";
-        $this->template->user = $this->session->get('user');
+        if($this->is_logged_in())
+        {
+        	$this->template->head->title = "INKEDin - Mi cuenta";
+        	$this->template->head->custom_scripts = HTML::script('/assets/common/app/js/jquery.validate.min.js').HTML::script('/assets/common/app/js/messages_es.min.js').HTML::script('/assets/user/js/User.js');
+			$this->template->head->custom_styles = HTML::style('/assets/register/css/user.css');
+        	$this->template->user = $this->get_user_info();
+        	
+        }
+        else
+        {
+        	HTTP::redirect('index');	
+        }
+        
     }
 
-	public function action_index()
+	public function action_index(){}
+
+	public function action_update_account()
 	{
-		//$this->response->body('hello, world!');
+		echo 'TODO';
+		die;
+	}
+
+	public function action_update_password()
+	{
+		echo 'TODO';
+		die;
 	}
 
 } // End Welcome

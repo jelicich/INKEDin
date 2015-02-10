@@ -19,7 +19,7 @@ class Controller_Register extends Controller_Master {
 
 	public function action_index()
 	{
-		$this->template->head->custom_scripts = HTML::script('/assets/register/js/jquery.validate.min.js').HTML::script('/assets/register/js/messages_es.min.js').HTML::script('/assets/register/js/Register.js');
+		$this->template->head->custom_scripts = HTML::script('/assets/common/app/js/jquery.validate.min.js').HTML::script('/assets/common/app/js/messages_es.min.js').HTML::script('/assets/register/js/Register.js');
 		$this->template->head->custom_styles = HTML::style('/assets/register/css/register.css');
 	}
 

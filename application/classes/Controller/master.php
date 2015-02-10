@@ -3,7 +3,8 @@ abstract class Controller_Master extends Controller_Template
 {
     public $template = 'home/homeview'; // Default template
     public $title = 'INKEDin - Tattoo site'; //Default title;
-    public $session;
+    private $session;
+    private $user_info;
     
     
     public function before()
@@ -26,8 +27,9 @@ abstract class Controller_Master extends Controller_Template
         }
         else
         {
+            $this->user_info = $this->session->get('user');
             $this->template->header = View::factory('common/header_logged');
-            $this->template->header->user = $this->session->get('user');
+            $this->template->header->user = $this->user_info;
             
             //Profile pic path
             if(!isset($this->template->header->user['photo']) || empty($this->template->header->user['photo']))
@@ -57,4 +59,10 @@ abstract class Controller_Master extends Controller_Template
     {
         return $this->session->get('logged_in');
     }
+
+    public function get_user_info()
+    {
+        return $this->user_info;
+    }
+
 }

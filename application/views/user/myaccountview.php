@@ -57,12 +57,7 @@
 											<input type="email" id="email" name="email" required value=<?php echo '"'.$user['email'].'"'?>/>
 										</div>
 									</div>
-									<div class="input-container">
-										<div class="input-container-inner">
-											<label for="password">Contraseña</label>
-											<input type="password" id="password-reg" name="password" minlength="4" required/>
-										</div>
-									</div>
+									
 									<input type="submit" class="btn btn-default btn-lg" value="Guardar">
 								</form>
 
