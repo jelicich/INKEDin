@@ -33,8 +33,7 @@ class Controller_Auth extends Controller {
 			HTTP::redirect('index');
 		}
 		else
-		{
-			
+		{	
 			$template = View::factory('login/loginview')->set('email', $username);
 
 			$common_scripts = Kohana::$config->load('common_assets')->get('scripts');
@@ -51,10 +50,8 @@ class Controller_Auth extends Controller {
 	        $template->head->custom_scripts = HTML::script('/assets/login/js/Login.js');
 
 
-			$this->response->body($template);
-			
+			$this->response->body($template);	
 		}
-		
 
 	}
 

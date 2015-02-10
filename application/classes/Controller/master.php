@@ -49,7 +49,6 @@ abstract class Controller_Master extends Controller_Template
         $this->template->head->title = $this->title;
         $this->template->head->common_scripts = $common_scripts;
         $this->template->head->common_styles = $common_styles;
-
         
         return;
     }

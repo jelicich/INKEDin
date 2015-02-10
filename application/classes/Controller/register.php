@@ -131,9 +131,6 @@ class Controller_Register extends Controller_Master {
 	        $this->template->head->common_scripts = $common_scripts;
 	        $this->template->head->common_styles = $common_styles;
 		}
-
-		
-
 	}
 
 	private function send_confirmation($post)
