@@ -65,7 +65,7 @@
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="password">Contraseña</label>
-								<input type="text" id="password" name="password" value="" />
+								<input type="password" id="password" name="password" value="" />
 							</div>
 							<p class="info-input">Mas de 4 caracteres</p>
 						</div>

@@ -445,3 +445,23 @@
 #5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #6 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #7 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\auth.php:48
+2015-02-09 23:30:41 --- EMERGENCY: Kohana_Exception [ 0 ]: The active property does not exist in the Model_User class ~ MODPATH/orm/classes/Kohana/ORM.php [ 687 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php:603
+2015-02-09 23:30:41 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(603): Kohana_ORM->get('active')
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Auth.php(28): Kohana_ORM->__get('active')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Auth->action_login()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Auth))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php:603
+2015-02-09 23:31:02 --- EMERGENCY: Kohana_Exception [ 0 ]: The active property does not exist in the Model_User class ~ MODPATH/orm/classes/Kohana/ORM.php [ 687 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php:603
+2015-02-09 23:31:02 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(603): Kohana_ORM->get('active')
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Auth.php(28): Kohana_ORM->__get('active')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Auth->action_login()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Auth))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php:603
