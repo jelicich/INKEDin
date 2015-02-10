@@ -25,7 +25,7 @@
 					<li class="col-md-3 full id-container">
 						<a href="#" onclick="inked.Common.Header.onClickLogin()" class="id-buttons">Ingresar</a>
 						<div id="login-toggle" class="login-container">
-							<form method="POST" action="/auth/login">
+							<form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm()">
 								<label for="username">Usuario</label>
 								<input type="text" name="username" id="username" value="" />
 								<label for="password">Contraseña</label>

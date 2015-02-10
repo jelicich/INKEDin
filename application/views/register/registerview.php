@@ -40,41 +40,41 @@
 					<?php endif ?>
 
 
-					<form method="post" action="/register/register">
+					<form method="post" action="/register/register" id="register-form">
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="name">Nombre</label>
-								<input type="text" id="name" name="name" value="" />	
+								<input type="text" id="name" name="name" value="" maxlength="60" required/>	
 							</div>							
 							<p class="info-input">Solo letras y espacios</p>
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="last_name">Apellido</label>
-								<input type="text" id="last_name" name="last_name" value="" />
+								<input type="text" id="last_name" name="last_name" value="" maxlength="60" required/>
 							</div>
 							<p class="info-input">Solo letras y espacios</p>
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="email">Email</label>
-								<input type="text" id="email" name="email" value="" />
+								<input type="email" id="email" name="email" value="" required/>
 							</div>
 							<p class="info-input">Recibiras la confirmacion</p>
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="password">Contraseña</label>
-								<input type="password" id="password" name="password" value="" />
+								<input type="password" id="password-reg" name="password" value="" minlength="4" required/>
 							</div>
 							<p class="info-input">Mas de 4 caracteres</p>
 						</div>
 						<div class="input-container">
-							<input type="radio" id="user-artist" name="role" value="1" />
+							<input type="radio" id="user-artist" name="role" value="1" required/>
 							<label for="user-artist">Soy un tatuador</label>
 						</div>
 						<div class="input-container">
-							<input type="radio" id="user-regular" name="role" value="2" />
+							<input type="radio" id="user-regular" name="role" value="2" required/>
 							<label for="user-regular">Busco tatuadores</label>
 						</div>
 						

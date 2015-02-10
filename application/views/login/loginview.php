@@ -40,19 +40,19 @@
 					<?php endif ?>
 
 
-					<form method="post" action="/auth/login">
+					<form method="post" action="/auth/login" onsubmit='inked.Login.validateForm()'>
 						
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="email">Email</label>
-								<input type="text" id="email" name="username" value=<?php echo '"'.$email.'"'?> />
+								<input type="text" id="email-view" name="username" value=<?php echo '"'.$email.'"'?> />
 							</div>
 							<p class="info-input">Campo obligatorio</p>
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="password">Contraseña</label>
-								<input type="password" id="password" name="password" value="" />
+								<input type="password" id="password-view" name="password" value="" />
 							</div>
 							<p class="info-input">Campo obligatorio</p>
 						</div>

@@ -1,0 +1,14 @@
+.registerview label.error{
+	font-size: 14px;
+	color: #7A0800;
+	margin-top: -20px;
+	display: block;
+}
+
+.registerview label#role-error{
+	font-size: 14px;
+	color: #7A0800;
+	position: absolute;
+	bottom: -45px;
+	left: 0px;
+}

@@ -711,7 +711,8 @@ header, header *{
 	border-right: 10px solid #f0ddaf; 
 }
 .register-wrapper input[type="text"],
-.register-wrapper input[type="password"]{
+.register-wrapper input[type="password"],
+.register-wrapper input[type="email"]{
 	display: block;
 	margin-bottom: 20px;
 	width: 100%;
