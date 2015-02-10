@@ -3,7 +3,7 @@ abstract class Controller_Master extends Controller_Template
 {
     public $template = 'home/homeview'; // Default template
     public $title = 'INKEDin - Tattoo site'; //Default title;
-    private $session;
+    public $session;
     
     
     public function before()

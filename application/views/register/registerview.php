@@ -64,7 +64,7 @@
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
-								<label for="password">Contraseña</label>
+								<label for="password-reg">Contraseña</label>
 								<input type="password" id="password-reg" name="password" value="" minlength="4" required/>
 							</div>
 							<p class="info-input">Mas de 4 caracteres</p>
