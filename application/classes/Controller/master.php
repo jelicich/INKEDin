@@ -1,17 +1,14 @@
 <?php 
 abstract class Controller_Master extends Controller_Template
 {
+    
     public $template = 'home/homeview'; // Default template
     public $title = 'INKEDin - Tattoo site'; //Default title;
-    private $session;
-    private $user_info;
-    
+    private $model_user;
     
     public function before()
     {
-        //Session
-        Session::$default = 'database';
-        $this->session = Session::instance();
+        $this->model_user = new Model_User();
 
         // Set a local template variable to what template the controller wants to use, by default 'template'
         $template = $this->template; 
@@ -27,9 +24,11 @@ abstract class Controller_Master extends Controller_Template
         }
         else
         {
-            $this->user_info = $this->session->get('user');
+            $user_info = $this->get_user_info();
+            
+
             $this->template->header = View::factory('common/header_logged');
-            $this->template->header->user = $this->user_info;
+            $this->template->header->user = $user_info;
             
             //Profile pic path
             if(!isset($this->template->header->user['photo']) || empty($this->template->header->user['photo']))
@@ -57,12 +56,12 @@ abstract class Controller_Master extends Controller_Template
 
     public function is_logged_in()
     {
-        return $this->session->get('logged_in');
+        return $this->model_user->is_logged_in();
     }
 
     public function get_user_info()
     {
-        return $this->user_info;
+        return $this->model_user->get_user_info();
     }
 
 }
