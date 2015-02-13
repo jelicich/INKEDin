@@ -48,6 +48,10 @@
 									</ul>
 								</div>
 								<?php endif ?>
+								<!-- AJAX MSG CONTAINER -->
+								<div id="user-info-msg" class="msg-ajax">
+								</div>
+								<!-- END AJAX MSG CONTAINER -->
 								<form method="post" action="/user/update_account" id="account-info-form">
 									<div class="input-container">
 										<div class="input-container-inner">
@@ -73,16 +77,20 @@
 
 								<form method="post" action="/user/update_password" id="password-form">
 									<h3>Cambiar contraseña</h3>
+									<!-- AJAX MSG CONTAINER -->
+									<div id="user-password-msg" class="msg-ajax">
+									</div>
+									<!-- END AJAX MSG CONTAINER -->
 									<div class="input-container">
 										<div class="input-container-inner">
-											<label for="old-password">Contraseña</label>
-											<input type="password" id="old-password" name="password" minlength="4" required/>
+											<label for="old_password">Contraseña</label>
+											<input type="password" id="old_password" name="old_password" minlength="4" required/>
 										</div>
 									</div>
 									<div class="input-container">
 										<div class="input-container-inner">
-											<label for="password">Nueva Contraseña</label>
-											<input type="password" id="password-reg" name="password" minlength="4" required/>
+											<label for="new_password">Nueva Contraseña</label>
+											<input type="password" id="new_password" name="new_password" minlength="4" required/>
 										</div>
 									</div>
 									<input type="submit" class="btn btn-default btn-lg" value="Guardar">

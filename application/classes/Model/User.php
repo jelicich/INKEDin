@@ -120,4 +120,20 @@ class Model_User extends ORM{
 
     }
 
+    //UPDATE ACCOUNT INFO
+    public function update_password($password)
+    {        
+        $user_info = $this->get_user_info();
+        $user_id = $user_info['id'];
+        $user = $this->where('id', '=', $user_id )->find();
+        $user->password = $password;
+        $r = $user->save();
+
+        //update session info
+        $session = $this->get_user_info();
+        $session['password'] = $password;
+        $this->session->set('user', $session); 
+
+    }
+
 }

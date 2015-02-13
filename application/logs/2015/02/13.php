@@ -178,3 +178,94 @@
 #5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
 #7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php:61
+2015-02-13 14:56:17 --- EMERGENCY: ErrorException [ 8 ]: Undefined property: Controller_User::$template ~ SYSPATH/classes/Kohana/Controller/Template.php [ 44 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller/Template.php:44
+2015-02-13 14:56:17 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller/Template.php(44): Kohana_Core::error_handler(8, 'Undefined prope...', '/Applications/X...', 44, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(87): Kohana_Controller_Template->after()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller/Template.php:44
+2015-02-13 14:56:50 --- EMERGENCY: ErrorException [ 1 ]: Call to a member function render() on string ~ SYSPATH/classes/Kohana/Controller/Template.php [ 44 ] in file:line
+2015-02-13 14:56:50 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-13 14:57:45 --- EMERGENCY: ErrorException [ 1 ]: Call to undefined method Controller_User::is_logged_in() ~ APPPATH/classes/Controller/User.php [ 10 ] in file:line
+2015-02-13 14:57:45 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-13 15:01:31 --- EMERGENCY: ErrorException [ 8 ]: Array to string conversion ~ SYSPATH/classes/Kohana/Response.php [ 160 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php:160
+2015-02-13 15:01:31 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php(160): Kohana_Core::error_handler(8, 'Array to string...', '/Applications/X...', 160, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php(66): Kohana_Response->body(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_User->action_update_account()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php:160
+2015-02-13 19:04:41 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: old_password ~ APPPATH/classes/Controller/User.php [ 80 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php:80
+2015-02-13 19:04:41 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php(80): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 80, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_User->action_update_password()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php:80
+2015-02-13 19:32:02 --- EMERGENCY: ErrorException [ 8 ]: Array to string conversion ~ APPPATH/classes/Controller/User.php [ 78 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php:78
+2015-02-13 19:32:02 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php(78): Kohana_Core::error_handler(8, 'Array to string...', '/Applications/X...', 78, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_User->action_update_password()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php:78
+2015-02-13 19:43:12 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected ';' ~ APPPATH/classes/Controller/User.php [ 80 ] in file:line
+2015-02-13 19:43:12 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-13 19:53:15 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: 7110eda4d09e062aa5e4a390b0a572ac0d2c0220 ~ SYSPATH/classes/Kohana/Validation.php [ 102 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Validation.php:102
+2015-02-13 19:53:15 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Validation.php(102): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 102, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Valid.php(548): Kohana_Validation->offsetGet('7110eda4d09e062...')
+#2 [internal function]: Kohana_Valid::matches(Object(Validation), '7110eda4d09e062...', '7110eda4d09e062...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Validation.php(391): ReflectionMethod->invokeArgs(NULL, Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php(92): Kohana_Validation->check()
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_User->action_update_password()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#11 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Validation.php:102
+2015-02-13 19:54:53 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: sha1($post["old_password"]) ~ SYSPATH/classes/Kohana/Validation.php [ 102 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Validation.php:102
+2015-02-13 19:54:53 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Validation.php(102): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 102, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Valid.php(548): Kohana_Validation->offsetGet('sha1($post["old...')
+#2 [internal function]: Kohana_Valid::matches(Object(Validation), 'sha1($post["old...', '7110eda4d09e062...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Validation.php(391): ReflectionMethod->invokeArgs(NULL, Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php(92): Kohana_Validation->check()
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_User->action_update_password()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#11 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Validation.php:102
+2015-02-13 20:02:46 --- EMERGENCY: ErrorException [ 8 ]: Array to string conversion ~ SYSPATH/classes/Kohana/Response.php [ 160 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php:160
+2015-02-13 20:02:46 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php(160): Kohana_Core::error_handler(8, 'Array to string...', '/Applications/X...', 160, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php(112): Kohana_Response->body(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_User->action_update_password()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php:160
+2015-02-13 20:03:31 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: errors ~ APPPATH/classes/Controller/User.php [ 101 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php:101
+2015-02-13 20:03:31 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php(101): Kohana_Core::error_handler(8, 'Undefined varia...', '/Applications/X...', 101, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_User->action_update_password()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php:101

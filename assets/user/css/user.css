@@ -1,0 +1,12 @@
+.tab-pane{
+	padding-top: 10px;
+}
+.msg-ajax{
+	text-align: center;
+	padding: 10px;
+	background: linear-gradient(to bottom, rgba(240, 221, 175, 0.196), rgba(240, 221, 175, 0.400)) transparent;
+	display: none;
+}
+.msg-ajax ul{
+	text-align: left;
+}
