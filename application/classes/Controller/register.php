@@ -68,7 +68,7 @@ class Controller_Register extends Controller_Master {
         }
  
         // Validation failed, collect the errors
-        $errors = $val_post->errors('model_user');
+        $errors = $val_post->errors('models/user');
  
         // Display the registration form
         $this->template->post = $this->request->post();

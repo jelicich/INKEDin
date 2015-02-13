@@ -38,6 +38,16 @@
 						<div class="tab-content">
 							<!-- -->
 							<div role="tabpanel" class="tab-pane active" id="account-info">
+								<?php if (isset($errors)): ?>
+								<div class="error-register">
+									<p class="message">Se encontraron los siguientes errores. Por favor verifica la informacion</p>
+									<ul class="errors">
+									<?php foreach ($errors as $message): ?>
+									    <li><?php echo $message ?></li>
+									<?php endforeach ?>
+									</ul>
+								</div>
+								<?php endif ?>
 								<form method="post" action="/user/update_account" id="account-info-form">
 									<div class="input-container">
 										<div class="input-container-inner">
