@@ -13,13 +13,17 @@ class Controller_User extends Controller_Master {
         	$this->template->head->custom_scripts = HTML::script('/assets/common/app/js/jquery.validate.min.js').HTML::script('/assets/common/app/js/messages_es.min.js').HTML::script('/assets/user/js/User.js');
 			$this->template->head->custom_styles = HTML::style('/assets/user/css/user.css');
         	$this->template->user = $this->get_user_info();
+
+        	$styles_model = new Model_Style();
+        	$styles = $styles_model->get_styles();
+        	$this->template->styles = $styles;
         	
         }
         else
         {
         	HTTP::redirect('index');	
         }
-        
+
     }
 
 	public function action_index(){}

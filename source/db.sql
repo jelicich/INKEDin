@@ -8,6 +8,12 @@ CREATE TABLE IF NOT EXISTS `styles` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+CREATE TABLE IF NOT EXISTS `userstyles` (
+  `user_id` int unsigned NOT NULL,
+  `style_id` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY (`user_id`,`style_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
 CREATE TABLE IF NOT EXISTS `provinces` (
   `id` smallint(2) unsigned NOT NULL AUTO_INCREMENT,
   `province` varchar(50) NOT NULL,
@@ -52,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` char(40) NOT NULL,
   `role` tinyint(1) NOT NULL,
   `about` text,
-  `style_id` tinyint unsigned,
+  `availability` text,
   `phone` varchar(20),
   `address` varchar(100),
   `rating_id` int unsigned,
@@ -62,7 +68,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `active` tinyint(1) NOT NULL DEFAULT 0,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`style_id`) REFERENCES `styles`(`id`),
   FOREIGN KEY (`rating_id`) REFERENCES `ratings`(`id`),
   FOREIGN KEY (`photo_id`) REFERENCES `photos`(`id`),
   FOREIGN KEY (`city_id`) REFERENCES `cities`(`id`)
@@ -131,3 +136,5 @@ CREATE TABLE  `sessions` (
     PRIMARY KEY (`session_id`),
     INDEX (`last_active`)
 ) ENGINE = MYISAM;
+
+INSERT INTO `inkedin`.`styles` (`id`, `style`) VALUES (NULL, 'Old School'), (NULL, 'New School'), (NULL, 'Realista'), (NULL, 'Retrato'), (NULL, 'Oriental'), (NULL, 'Maori'), (NULL, 'Tribal'), (NULL, 'Watercolor'), (NULL, 'Celta'), (NULL, 'Otro');

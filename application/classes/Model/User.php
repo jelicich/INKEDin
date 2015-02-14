@@ -53,12 +53,26 @@ class Model_User extends ORM{
     {
     	$result;
 
-    	$user = $this->select('user.*','photos.*')
+    	
+        /*
+        $user = $this->select('user.*','photos.*','styles.*')
 			->where('email', '=', $username)
 			->and_where('password' , '=', $password)
 			->join('photos','LEFT')
 			->on('user.photo_id', '=', 'photos.id')
+            ->join('userstyles','RIGHT')
+            ->on('user.id', '=', 'userstyles.user_id')
+            ->join('styles','RIGHT')
+            ->on('userstyles.style_id', '=', 'styles.id')
     		->find();
+        */
+        $user = $this->select('user.*','photos.*')
+            ->where('email', '=', $username)
+            ->and_where('password' , '=', $password)
+            ->join('photos','LEFT')
+            ->on('user.photo_id', '=', 'photos.id')
+            ->find();
+
 
     	if($user->loaded())
     	{
@@ -68,11 +82,23 @@ class Model_User extends ORM{
     		} 
     		else
     		{
-    			$result = true;
-	    		$this->session->set('logged_in', true);
-	    		//SI guardo el objeto, despues no puedo levantar la foto desde el master controller
-	    		$user = $user->as_array();
+                
+                $q = DB::select('styles.*')
+                ->from('userstyles')
+                ->where('userstyles.user_id','=',$user->id)
+                ->join('styles', 'LEFT')
+                ->on('userstyles.style_id','=','styles.id');
+
+                $styles = $q->execute();
+                $styles = $styles->as_array();
+                
+                $user = $user->as_array();
+                
+                $user['styles'] = $styles;
+                
+	    		$this->session->set('logged_in', true);       
 	    		$this->session->set('user', $user);	
+                $result = true;
     		}
     	}
     	else

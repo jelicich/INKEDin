@@ -107,17 +107,35 @@
 									</div>
 									<div class="input-container">
 										<div class="input-container-inner">
-											<label>Estilos</label>
-											<input type="checkbox" id="style-1" name="styles" value="1" /><label for="style-1">Old School</label>
-											<input type="checkbox" id="style-2" name="styles" value="2" /><label for="style-2">New School</label>
-											<input type="checkbox" id="style-3" name="styles" value="3" /><label for="style-3">Realista</label>
-											<input type="checkbox" id="style-4" name="styles" value="4" /><label for="style-4">Retrato</label>
-											<input type="checkbox" id="style-5" name="styles" value="5" /><label for="style-5">Oriental</label>
-											<input type="checkbox" id="style-6" name="styles" value="6" /><label for="style-6">Maori</label>
-											<input type="checkbox" id="style-7" name="styles" value="7" /><label for="style-7">Tribal</label>
-											<input type="checkbox" id="style-8" name="styles" value="8" /><label for="style-8">Watercolor</label>
-											<input type="checkbox" id="style-9" name="styles" value="9" /><label for="style-9">Celta</label>
-											<input type="checkbox" id="style-10" name="styles" value="10" /><label for="style-10">Otro</label>
+											<label class="block">Estilos</label>
+											<ul class="row styles-container">
+												<?php
+												for($i = 0; $i < sizeof($styles); $i++)
+												{
+													
+													for($j = 0; $j < sizeof($user['styles']); $j++)
+													{
+														
+														if($user['styles'][$j]['id'] == $styles[$i]['id'])
+														{
+															$checked = 'checked';
+															break;
+														}
+														else
+														{
+															$checked = '';
+														}
+														
+													}
+													echo '<li class="col-md-3">
+															<input type="checkbox" id="style-'.$styles[$i]['id'].'" name="styles" value="'.$styles[$i]['id'].'" '.$checked.'/> <label for="style-1">'.$styles[$i]['style'].'</label>
+														</li>';	
+													
+												}
+												
+												?>
+											</ul>
+												
 										</div>
 									</div>
 									<div class="input-container">
@@ -128,10 +146,9 @@
 									</div>
 									<div class="input-container">
 										<div class="input-container-inner">
-											<label>Contacto</label>
 											<label for="phone">Telefono</label>
 											<input type="text" id="phone" name="phone" value=<?php echo '"'.$user['phone'].'"'?>/>
-											<label for="address">Dirección</label>
+											<label for="address">Dirección</label> <span>(Ej: Av. Santa Fe 2503, Buenos Aires, Argentina)</span>
 											<input type="text" id="address" name="address" value=<?php echo '"'.$user['address'].'"'?>/>
 										</div>							
 									</div>
