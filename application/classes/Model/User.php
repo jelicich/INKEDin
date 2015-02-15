@@ -95,7 +95,7 @@ class Model_User extends ORM{
                 $user = $user->as_array();
                 
                 $user['styles'] = $styles;
-                
+
 	    		$this->session->set('logged_in', true);       
 	    		$this->session->set('user', $user);	
                 $result = true;
@@ -158,6 +158,63 @@ class Model_User extends ORM{
         //update session info
         $session = $this->get_user_info();
         $session['password'] = $password;
+        $this->session->set('user', $session); 
+
+    }
+
+    //UPDATE ACCOUNT INFO
+    public function update_about($post)
+    {        
+        $user_info = $this->get_user_info();
+        $user_id = $user_info['id'];
+        $user = $this->where('id', '=', $user_id )->find();
+        $user->about = $post['about'];
+        $user->availability = $post['availability'];
+        $user->phone = $post['phone'];
+        $user->address = $post['address'];
+        $r = $user->save();
+
+        //DELETE CURRENT STYLES
+        DB::delete('userstyles')
+            ->where('user_id','=', $user_id)
+            ->execute();
+
+        //SAVE NEW ONES
+        $query = DB::insert('userstyles', array('user_id', 'style_id'));
+        
+        
+        foreach ($post['styles'] as $key => $value) {
+            $query->values(array($user_id, $value));
+        }
+        
+        $result = $query->execute();
+        
+        /*
+        try {
+            $result = $query->execute();
+        } catch ( Database_Exception $e ) {   
+                echo $e->getMessage();
+        }
+        */
+
+        //update session info
+        $session = $this->get_user_info();
+        $session['about'] = $post['about'];
+        $session['availability'] = $post['availability'];
+        $session['phone'] = $post['phone'];
+        $session['address'] = $post['address'];
+
+        //REQUEST NEW STYLES
+        $q = DB::select('styles.*')
+            ->from('userstyles')
+            ->where('userstyles.user_id','=',$user->id)
+            ->join('styles', 'LEFT')
+            ->on('userstyles.style_id','=','styles.id');
+
+        $styles = $q->execute();
+        $styles = $styles->as_array();
+        $session['styles'] = $styles;
+
         $this->session->set('user', $session); 
 
     }

@@ -30,7 +30,7 @@
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs" role="tablist">
 							<li role="presentation" class="active"><a href="#account-info" aria-controls="account-info" role="tab" data-toggle="tab">Datos de usuario</a></li>
-							<li role="presentation"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">Acerca de mi</a></li>
+							<li role="presentation"><a href="#about-me" aria-controls="about-me" role="tab" data-toggle="tab">Acerca de mi</a></li>
 							<li role="presentation"><a href="#albums" aria-controls="albums" role="tab" data-toggle="tab">Albumes</a></li>
 						</ul>
 
@@ -97,8 +97,12 @@
 								</form>
 							</div>
 							<!-- -->
-							<div role="tabpanel" class="tab-pane" id="about">
-								<form method="post" action="/user/update_about" id="account-info-form">
+							<div role="tabpanel" class="tab-pane" id="about-me">
+								<form method="post" action="/user/update_about" id="account-about-form">
+									<!-- AJAX MSG CONTAINER -->
+									<div id="user-about-msg" class="msg-ajax">
+									</div>
+									<!-- END AJAX MSG CONTAINER -->
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="about">Acerca de mi</label>
@@ -128,7 +132,7 @@
 														
 													}
 													echo '<li class="col-md-3">
-															<input type="checkbox" id="style-'.$styles[$i]['id'].'" name="styles" value="'.$styles[$i]['id'].'" '.$checked.'/> <label for="style-1">'.$styles[$i]['style'].'</label>
+															<input type="checkbox" id="style-'.$styles[$i]['id'].'" name="styles" value="'.$styles[$i]['id'].'" '.$checked.'/> <label for="style-'.$styles[$i]['id'].'">'.$styles[$i]['style'].'</label>
 														</li>';	
 													
 												}
@@ -141,7 +145,7 @@
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="availability">Disponibilidad</label>
-											<textarea name="availability" id="availability"><?php //echo $user['availability'] ?></textarea>		
+											<textarea name="availability" id="availability"><?php echo $user['availability'] ?></textarea>		
 										</div>							
 									</div>
 									<div class="input-container">

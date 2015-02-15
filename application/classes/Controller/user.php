@@ -118,4 +118,20 @@ class Controller_User extends Controller_Master {
      
 	}
 
+	public function action_update_about()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+		$result;
+		$post = $this->request->post();
+		$model_user = Model::factory('user');
+        $model_user->update_about($this->request->post());
+        $result = true;
+ 		
+ 		$this->response->body($result);
+        
+	}
+
 } // End Welcome
