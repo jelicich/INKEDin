@@ -114,6 +114,7 @@
 											<label class="block">Estilos</label>
 											<ul class="row styles-container">
 												<?php
+												$checked = '';
 												for($i = 0; $i < sizeof($styles); $i++)
 												{
 													
@@ -159,7 +160,38 @@
 									<input type="submit" class="btn btn-default btn-lg" value="Guardar">
 								</form>
 							</div>
-							<div role="tabpanel" class="tab-pane" id="albums">ALBUMS</div>
+							<div role="tabpanel" class="tab-pane" id="albums">
+								<!-- AJAX MSG CONTAINER -->
+								<div id="user-album-create-msg" class="msg-ajax">
+								</div>
+								<!-- END AJAX MSG CONTAINER -->
+								<form method="post" action="/user/create_album" id="new-album-form">
+									<div class="input-container">
+										<div class="input-container-inner">
+											<label class="block">Nuevo Album</label>
+											<label for="album-name">Nombre</label>
+											<input type="text" id="album-name" name="name" maxlength="60" required value=""/>	
+										</div>							
+									</div>
+									<input type="submit" class="btn btn-default btn-lg" value="Crear">
+								</form>
+
+								<form id="upload" method="post" action="/user/upload_photo" enctype="multipart/form-data">
+									<div id="drop">
+										Arrastra tus fotos o 
+
+										<a class="btn btn-default btn-lg">Buscar</a>
+										<input type="file" name="upl" multiple />
+										<input type="hidden" name="album_id" id="album-id" />
+									</div>
+
+									<ul>
+										<!-- The file uploads will be shown here -->
+									</ul>
+
+								</form>
+
+							</div>
 						</div>
 
 					</div>
@@ -205,5 +237,14 @@
 	<?php echo $footer ?>
 	
 </div>
+<script src="/assets/user/js/jquery.knob.js"></script>
+
+<!-- jQuery File Upload Dependencies -->
+<script src="/assets/user/js/jquery.ui.widget.js"></script>
+<script src="/assets/user/js/jquery.iframe-transport.js"></script>
+<script src="/assets/user/js/jquery.fileupload.js"></script>
+
+<!-- Our main JS file -->
+<script src="/assets/user/js/script.js"></script>
 </body>
 </html>

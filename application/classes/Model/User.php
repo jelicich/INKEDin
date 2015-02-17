@@ -180,14 +180,19 @@ class Model_User extends ORM{
             ->execute();
 
         //SAVE NEW ONES
-        $query = DB::insert('userstyles', array('user_id', 'style_id'));
+        if(isset($post['styles']))
+        {
+            $query = DB::insert('userstyles', array('user_id', 'style_id'));
         
         
-        foreach ($post['styles'] as $key => $value) {
-            $query->values(array($user_id, $value));
+            foreach ($post['styles'] as $key => $value) {
+                $query->values(array($user_id, $value));
+            }    
+            $result = $query->execute();
         }
         
-        $result = $query->execute();
+        
+        
         
         /*
         try {

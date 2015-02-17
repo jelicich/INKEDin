@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `photos` (
   `tags` text,
   `description` text,
   `album_id` int unsigned NOT NULL,
+  `user_id` int unsigned NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
@@ -99,6 +100,7 @@ CREATE TABLE IF NOT EXISTS `albums` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 ALTER TABLE `photos` ADD FOREIGN KEY (`album_id`) REFERENCES `albums`(`id`);
+ALTER TABLE `photos` ADD FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);
 
 CREATE TABLE IF NOT EXISTS `conversations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
