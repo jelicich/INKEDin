@@ -8,6 +8,14 @@ class Model_Photo extends ORM{
 		$this->album_id = $album;
 		$this->user_id = $user;
 		$id = $this->save();
-		
+
+	}
+
+	public function getPhotosByAlbum($id)
+	{
+		$photos = $this->where('album_id','=',$id)
+			->find();
+		$photos = $photos->as_array();
+		return $photos;
 	}
 }

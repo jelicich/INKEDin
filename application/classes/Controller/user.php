@@ -155,7 +155,7 @@ class Controller_User extends Controller_Master {
 
 	public function action_upload_photo()
 	{
-		// A list of permitted file extensions
+		
 		if($this->request->is_ajax())
 		{	
 			$this->auto_render = false;
@@ -176,6 +176,7 @@ class Controller_User extends Controller_Master {
 		    mkdir($path_sm, 0777, true);
 
 		}
+		// A list of permitted file extensions
 		$allowed = array('png', 'jpg', 'jpeg', 'gif');
 
 		if(isset($_FILES['upl']) && $_FILES['upl']['error'] == 0)
@@ -239,33 +240,20 @@ class Controller_User extends Controller_Master {
 		$this->response->body($result);
 	}
 
-	protected function _save_image($image)
+	public function action_load_album_edit()
 	{
-		if (
-            ! Upload::valid($image) OR
-            ! Upload::not_empty($image) OR
-            ! Upload::type($image, array('jpg', 'jpeg', 'png', 'gif')))
-        {
-            return FALSE;
-        }
- 
-        $directory = DOCROOT.'uploads/';
- 
-        if ($file = Upload::save($image, NULL, $directory))
-        {
-            $filename = strtolower(Text::random('alnum', 20)).'.jpg';
- 
-            Image::factory($file)
-                ->resize(200, 200, Image::AUTO)
-                ->save($directory.$filename);
- 
-            // Delete the temporary file
-            unlink($file);
- 
-            return $filename;
-        }
- 
-        return FALSE;
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+
+		$post = $this->request->post();
+		$photos_model = new Model_Photo();
+		$photos = $photos_model->getPhotosByAlbum($post['album_id']);
+		$view = View::factory('user/editalbumview');
+		//$view->$photos = $photos;
+
+		$this->response->body($view);
 	}
 
 } // End Welcome

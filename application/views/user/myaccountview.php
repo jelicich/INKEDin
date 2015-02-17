@@ -31,7 +31,16 @@
 						<ul class="nav nav-tabs" role="tablist">
 							<li role="presentation" class="active"><a href="#account-info" aria-controls="account-info" role="tab" data-toggle="tab">Datos de usuario</a></li>
 							<li role="presentation"><a href="#about-me" aria-controls="about-me" role="tab" data-toggle="tab">Acerca de mi</a></li>
-							<li role="presentation"><a href="#albums" aria-controls="albums" role="tab" data-toggle="tab">Albumes</a></li>
+							<li role="presentation" class="dropdown">
+							    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+							      Album <span class="caret"></span>
+							    </a>
+							    <ul class="dropdown-menu" role="menu">
+							      <li><a href="#create-album" aria-controls="create-album" role="tab" data-toggle="tab">Crear Album</a></li>
+							      <li><a href="#edit-album" aria-controls="edit-album" role="tab" data-toggle="tab">Editar Album</a></li>
+							    </ul>
+							</li>
+							
 						</ul>
 
 						<!-- Tab panes -->
@@ -96,6 +105,7 @@
 									<input type="submit" class="btn btn-default btn-lg" value="Guardar">
 								</form>
 							</div>
+							
 							<!-- -->
 							<div role="tabpanel" class="tab-pane" id="about-me">
 								<form method="post" action="/user/update_about" id="account-about-form">
@@ -160,7 +170,9 @@
 									<input type="submit" class="btn btn-default btn-lg" value="Guardar">
 								</form>
 							</div>
-							<div role="tabpanel" class="tab-pane" id="albums">
+							
+							<!-- -->
+							<div role="tabpanel" class="tab-pane" id="create-album">
 								<!-- AJAX MSG CONTAINER -->
 								<div id="user-album-create-msg" class="msg-ajax">
 								</div>
@@ -191,6 +203,31 @@
 
 								</form>
 
+								<button class="btn btn-default btn-lg" id="finish-album" onclick="inked.User.finishNewAlbum()">Terminar!</button>
+								<!-- AJAX MSG CONTAINER -->
+								<div id="user-album-finish-msg" class="msg-ajax">
+								</div>
+								<!-- END AJAX MSG CONTAINER -->
+							</div>
+
+							<!-- -->
+							<div role="tabpanel" class="tab-pane" id="edit-album">
+								
+								<form method="post" action="/user/edit_album" id="edit-album-form">
+									<div class="input-container">
+										<label class="block">Editar Album</label>
+										<div class="input-container-inner">
+											<label for="album-name">Foto</label>
+											<input type="checkbox">
+										</div>							
+									</div>
+									<input type="submit" class="btn btn-default btn-lg" value="Guardar">
+								</form>
+
+								<!-- AJAX MSG CONTAINER -->
+								<div id="user-album-edit-msg" class="msg-ajax">
+								</div>
+								<!-- END AJAX MSG CONTAINER -->
 							</div>
 						</div>
 

@@ -198,11 +198,84 @@ inked.User = {
                                         $("#album-name").attr('disabled','true');
                                         $("#upload").fadeIn();
                                         $("#album-id").attr('value', response.album);
+                                        $("#finish-album").css('display', 'block').hide().fadeIn();
+                                        $("#finish-album").css('display', 'block').hide().fadeIn();
 
                                 }
                                 setInterval(function(){
                                         $("#user-album-create-msg").fadeOut();  
                                 },3000);
+                        }
+                });
+        },
+
+        finishNewAlbum : function()
+        {
+                if(typeof jqXHR == 'undefined')
+                {
+                        $("#user-album-finish-msg").html('<span>Sube al menos una foto al album</span>');       
+                        $("#user-album-finish-msg").fadeIn(); 
+                }
+                else
+                {
+                        if(jqXHR.readyState < 4)
+                        {
+                                $("#user-album-finish-msg").html('<span>Hay fotos en cola. Por favor espera.</span>');
+                                $("#user-album-finish-msg").fadeIn(); 
+                        }
+                        else
+                        {
+                                $("a[href='#edit-album']").click();
+                        }       this.loadAlbumEdit();
+                }
+                setInterval(function(){
+                        $("#user-album-finish-msg").fadeOut();  
+                },3000);
+        },
+
+        loadAlbumEdit : function()
+        {
+                var params = {
+                        'album_id' : $('#album-id').val(),
+                }
+                $.ajax({
+                        data:  params,
+                        url:   '/user/load_album_edit',
+                        type:  'post',
+                        beforeSend: function () 
+                        {
+                                $("#user-album-edit-msg").fadeIn();
+                                $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando album...</span>');
+                        },
+                        success:  function (response) 
+                        {
+
+                                $('#edit-album').html(response);
+                                /*
+                                if(response.status == 'error')
+                                {
+                                        var li = '';
+                                        //response = jQuery.parseJSON(response);
+                                        $.each(response, function(key, value) {
+                                                                    li += '<li>'+value+'</li>'; 
+                                                                });
+                                        $("#user-album-create-msg").html('<span>Ocurrio el siguiente error</span><ul>'+li+'</ul>');
+                                }
+                                else
+                                {
+                                        $("#user-album-create-msg").html('<span>Datos guardados!</span>');
+                                        $("#new-album-form input[type='submit']").hide();
+                                        $("#album-name").attr('disabled','true');
+                                        $("#upload").fadeIn();
+                                        $("#album-id").attr('value', response.album);
+                                        $("#finish-album").css('display', 'block').hide().fadeIn();
+                                        $("#finish-album").css('display', 'block').hide().fadeIn();
+
+                                }
+                                setInterval(function(){
+                                        $("#user-album-create-msg").fadeOut();  
+                                },3000);
+                                */
                         }
                 });
         }

@@ -26,3 +26,9 @@ textarea{
 	padding: 0;
 	list-style-type: none;
 }
+
+#finish-album{
+	display: none;
+	margin: 0 auto 20px;
+}
+
