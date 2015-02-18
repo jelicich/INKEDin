@@ -9,8 +9,12 @@ $(function(){
     });
 
     // Initialize the jQuery File Upload plugin
-    $('#upload').fileupload({
 
+    var uploadInfo = {
+        pendingFiles : 0
+    };
+
+    var uploadOptions = {
         // This element will accept file drag/drop uploading
         dropZone: $('#drop'),
 
@@ -44,9 +48,23 @@ $(function(){
 
             });
 
+            uploadInfo.pendingFiles ++;
+
             // Automatically upload the file once it is added to the queue
             //var jqXHR = data.submit();
+            
             jqXHR = data.submit();
+
+            /*
+            .success(function (result, textStatus, jqXHR) {
+                // success
+            }).error(function (jqXHR, textStatus, errorThrown) {
+                // error
+            }).complete(function (result, textStatus, jqXHR) {
+                // complete
+            });
+            */
+            
             //console.log(jqXHR);
         },
 
@@ -64,12 +82,23 @@ $(function(){
             }
         },
 
+        done : function(e, data) {
+            var t = uploadOptions;
+
+            uploadInfo.pendingFiles --;
+
+            if (uploadInfo.pendingFiles == 0) {
+                $('#upload').trigger('inkedUploadFinished');
+            }
+        },
+
         fail:function(e, data){
             // Something has gone wrong!
             data.context.addClass('error');
         }
+    };
 
-    });
+    $('#upload').fileupload(uploadOptions);
 
 
     // Prevent the default action when a file is dropped on the window

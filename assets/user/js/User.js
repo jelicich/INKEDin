@@ -33,8 +33,10 @@ inked.User = {
                         }
                 });
 
-                
-                
+        $('#upload').bind('inkedUploadFinished', function() {
+            console.log('all files uploaded!');
+        });
+
 	},
 
 	saveUserInfo : function()
@@ -211,6 +213,7 @@ inked.User = {
 
         finishNewAlbum : function()
         {
+            /*
                 if(typeof jqXHR == 'undefined')
                 {
                         $("#user-album-finish-msg").html('<span>Sube al menos una foto al album</span>');       
@@ -231,6 +234,7 @@ inked.User = {
                 setInterval(function(){
                         $("#user-album-finish-msg").fadeOut();  
                 },3000);
+                */
         },
 
         loadAlbumEdit : function()
