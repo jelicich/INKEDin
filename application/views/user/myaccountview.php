@@ -177,7 +177,7 @@
 								<div id="user-album-create-msg" class="msg-ajax">
 								</div>
 								<!-- END AJAX MSG CONTAINER -->
-								<form method="post" action="/user/create_album" id="new-album-form">
+								<form method="post" action="/album/create_album" id="new-album-form">
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label class="block">Nuevo Album</label>
@@ -188,7 +188,7 @@
 									<input type="submit" class="btn btn-default btn-lg" value="Crear">
 								</form>
 
-								<form id="upload" method="post" action="/user/upload_photo" enctype="multipart/form-data">
+								<form id="upload" method="post" action="/photo/upload_photo" enctype="multipart/form-data">
 									<div id="drop">
 										Arrastra tus fotos o 
 
@@ -203,7 +203,7 @@
 
 								</form>
 
-								<button class="btn btn-default btn-lg" id="finish-album" onclick="inked.User.finishNewAlbum()">Terminar!</button>
+								<button class="btn btn-default btn-lg disabled" id="finish-album" onclick="inked.Album.loadAlbumEdit()">Terminar!</button>
 								<!-- AJAX MSG CONTAINER -->
 								<div id="user-album-finish-msg" class="msg-ajax">
 								</div>
@@ -274,14 +274,14 @@
 	<?php echo $footer ?>
 	
 </div>
-<script src="/assets/user/js/jquery.knob.js"></script>
+<script src="/assets/album/js/jquery.knob.js"></script>
 
 <!-- jQuery File Upload Dependencies -->
-<script src="/assets/user/js/jquery.ui.widget.js"></script>
-<script src="/assets/user/js/jquery.iframe-transport.js"></script>
-<script src="/assets/user/js/jquery.fileupload.js"></script>
+<script src="/assets/album/js/jquery.ui.widget.js"></script>
+<script src="/assets/album/js/jquery.iframe-transport.js"></script>
+<script src="/assets/album/js/jquery.fileupload.js"></script>
 
 <!-- Our main JS file -->
-<script src="/assets/user/js/script.js"></script>
+<script src="/assets/album/js/script.js"></script>
 </body>
 </html>

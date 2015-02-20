@@ -11,9 +11,9 @@
 				<div class="col-md-3 photo-edit-container">
 					<img src="<?php echo '/users/'.$photos[$i]['user_id'].'/img/sm/'.$photos[$i]['photo']?>" alt="$photos[$i]['description']" class="photo-edit-album"/>
 					<label for="description-<?php echo $photos[$i]['id']?>">Descripción</label>
-					<textarea class="photo-description" id="description-<?php echo $photos[$i]['id']?>" name="description-<?php echo $photos[$i]['id']?>"> <?php echo $photos[$i]['description']?> </textarea>
-					<label for="tags-<?php echo $photos[$i]['id']?>">Tags (separalas por coma)</label>
-					<input class="photo-tags" type="text" id="tags-<?php echo $photos[$i]['id']?>" name="tags-<?php echo $photos[$i]['id']?>" value="<?php echo $photos[$i]['tags']?>">
+					<textarea type="text" id="description-<?php echo $photos[$i]['id']?>" name="description-<?php echo $photos[$i]['id']?>"> <?php echo $photos[$i]['description']?> </textarea>
+					<label for="tags-<?php echo $photos[$i]['id']?>">Tags</label>
+					<input type="text" id="tags-<?php echo $photos[$i]['id']?>" name="tags-<?php echo $photos[$i]['id']?>" value="<?php echo $photos[$i]['tags']?>">
 					<input type="checkbox">
 				</div>	
 				<?php

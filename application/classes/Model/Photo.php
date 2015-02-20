@@ -13,9 +13,16 @@ class Model_Photo extends ORM{
 
 	public function getPhotosByAlbum($id)
 	{
-		$photos = $this->where('album_id','=',$id)
-			->find();
+		$photos = $this->select('photo.*','albums.*')
+			->where('album_id','=',$id)
+			->join('albums')
+            ->on('photo.album_id', '=', 'albums.id')
+			->find_all();
 		$photos = $photos->as_array();
+		for($i = 0; $i < sizeof($photos); $i++)
+		{
+			$photos[$i] = $photos[$i]->as_array();
+		}
 		return $photos;
 	}
 }
