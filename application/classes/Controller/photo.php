@@ -119,5 +119,25 @@ class Controller_Photo extends Controller_Master {
 		$this->response->body($result);
 	}
 
+	public function action_photo_edit()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+		$params = $this->request->post();
+		
+	
+
+		$photo_model = new Model_Photo();
+
+		$photos = $params['photos'];
+		foreach($photos as $photo)
+		{
+			$photo_model->update_photo($photo);
+		}
+
+	}
+
 
 } // End Welcome

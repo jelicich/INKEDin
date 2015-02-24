@@ -11,7 +11,7 @@ class Model_Photo extends ORM{
 
 	}
 
-	public function getPhotosByAlbum($id)
+	public function get_photos_by_album($id)
 	{
 		$photos = $this->select('photo.*','albums.*')
 			->where('album_id','=',$id)
@@ -24,5 +24,19 @@ class Model_Photo extends ORM{
 			$photos[$i] = $photos[$i]->as_array();
 		}
 		return $photos;
+	}
+
+	public function update_photo($photo_arr)
+	{
+		
+		$query = DB::update('photos')->set(array('description' => $photo_arr['description'], 'tags' => $photo_arr['tags']))->where('id', '=', $photo_arr['photoId']);
+		$r = $query->execute();
+		/*
+		$photo = $this->where('id', '=', $photo_arr['photoId'] )->find();
+        $photo->description = $photo_arr['description'];
+        $photo->tags = $photo_arr['tags'];
+        $r = $photo->save();
+        */
+
 	}
 }

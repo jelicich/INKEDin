@@ -249,7 +249,7 @@ class Controller_User extends Controller_Master {
 
 		$post = $this->request->post();
 		$photos_model = new Model_Photo();
-		$photos = $photos_model->getPhotosByAlbum($post['album_id']);
+		$photos = $photos_model->get_photos_by_album($post['album_id']);
 		$view = View::factory('user/editalbumview');
 		//$view->$photos = $photos;
 

@@ -110,18 +110,44 @@ inked.Album = {
             
             console.log($('.photo-description'));
             console.log($('.photo-tags'));
+
+            /*
             var params = {
                     'album_id' : $('#album-id').val(),
             }
+            */
             
+            // Iterate through all pictures
+                // Get picture id, description, tags
+                // Push to data Array
+
+            var x = 1;
+
+            var photosData = [];
+
+            $('#edit-album .photo-edit-container').each(function(i, containerEl) {
+                var $containerEl = $(containerEl);
+                var photoId = $containerEl.find('img').attr('data-photo-id');
+                var description = $containerEl.find('.description').val();
+                var tags = $containerEl.find('.tags').val();
+
+                photosData.push({
+                    photoId : photoId,
+                    description : description,
+                    tags : tags
+                });
+            });
+
             $.ajax({
-                    data:  params,
                     url:   '/photo/photo_edit',
+                    data:  $.param({
+                        'photos' : photosData
+                    }),
                     type:  'post',
                     beforeSend: function () 
                     {
-                            $("#user-album-edit-msg").fadeIn();
-                            $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
+                        $("#user-album-edit-msg").fadeIn();
+                        $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
                     },
                     success:  function (response) 
                     {
