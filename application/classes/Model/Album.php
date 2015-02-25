@@ -18,6 +18,8 @@ class Model_Album extends ORM{
 			->where('album.user_id','=', $id)
 			->join('photos')
 			->on('album.id','=','photos.album_id')
+			->group_by('album.id')
+			->order_by('album.date', 'DESC')
 			->find_all();
 
 		$albums = $albums->as_array();

@@ -28,7 +28,7 @@
 
 </form>
 
-<button class="btn btn-default btn-lg disabled" id="finish-album" onclick="inked.Album.loadAlbumEdit()">Terminar!</button>
+<button class="btn btn-default btn-lg disabled" id="finish-album" onclick="inked.Album.loadAlbumEdit($(this))">Siguiente</button>
 <!-- AJAX MSG CONTAINER -->
 <div id="user-album-finish-msg" class="msg-ajax">
 </div>

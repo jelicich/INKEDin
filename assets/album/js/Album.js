@@ -26,84 +26,84 @@ inked.Album = {
             //event.preventDefault ? event.preventDefault() : event.returnValue = false;               
 
             var params = {
-            "name" : $('#album-name').val(),
+                "name" : $('#album-name').val(),
             };
 
             $.ajax({
-                    data:  params,
-                    url:   '/album/create_album',
-                    type:  'post',
-                    beforeSend: function () 
+                data:  params,
+                url:   '/album/create_album',
+                type:  'post',
+                beforeSend: function () 
+                {
+                    $("#user-album-create-msg").fadeIn();
+                    $("#user-album-create-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
+                },
+                success:  function (response) 
+                {
+                    response = jQuery.parseJSON(response);
+                    if(response.status == 'error')
                     {
-                            $("#user-album-create-msg").fadeIn();
-                            $("#user-album-create-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
-                    },
-                    success:  function (response) 
-                    {
-                            response = jQuery.parseJSON(response);
-                            if(response.status == 'error')
-                            {
-                                    var li = '';
-                                    //response = jQuery.parseJSON(response);
-                                    $.each(response, function(key, value) {
-                                                                li += '<li>'+value+'</li>'; 
-                                                            });
-                                    $("#user-album-create-msg").html('<span>Ocurrio el siguiente error</span><ul>'+li+'</ul>');
-                            }
-                            else
-                            {
-                                    $("#user-album-create-msg").html('<span>Datos guardados!</span>');
-                                    $("#new-album-form input[type='submit']").hide();
-                                    $("#album-name").attr('disabled','true');
-                                    $("#upload").fadeIn();
-                                    $("#album-id").attr('value', response.album);
-                                    $("#finish-album").css('display', 'block').hide().fadeIn();
-                                    $("#finish-album").css('display', 'block').hide().fadeIn();
-
-                            }
-                            setInterval(function(){
-                                    $("#user-album-create-msg").fadeOut();  
-                            },3000);
+                            var li = '';
+                            //response = jQuery.parseJSON(response);
+                            $.each(response, function(key, value) {
+                                                        li += '<li>'+value+'</li>'; 
+                                                    });
+                            $("#user-album-create-msg").html('<span>Ocurrio el siguiente error</span><ul>'+li+'</ul>');
                     }
+                    else
+                    {
+                            $("#user-album-create-msg").html('<span>Datos guardados!</span>');
+                            $("#new-album-form input[type='submit']").hide();
+                            $("#album-name").attr('disabled','true');
+                            $("#upload").fadeIn();
+                            $("#album-id").attr('value', response.album);
+                            $("#finish-album").attr('data-album-id', response.album);
+                            $("#finish-album").css('display', 'block').hide().fadeIn();
+                            $("#finish-album").css('display', 'block').hide().fadeIn();
+
+                    }
+                    setInterval(function(){
+                            $("#user-album-create-msg").fadeOut();  
+                    },3000);
+                }
             });
     },
 
 
-    loadAlbumEdit : function()
+    loadAlbumEdit : function(el)
     {
-            
-            
-            var params = {
-                    'album_id' : $('#album-id').val(),
+          
+        var params = {
+            'album_id' : el.attr('data-album-id'),
+        }
+
+        $.ajax({
+            data:  params,
+            url:   '/album/load_album_edit',
+            type:  'post',
+            beforeSend: function () 
+            {
+                $("#user-album-edit-msg").fadeIn();
+                $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando album...</span>');
+            },
+            success:  function (response) 
+            {
+
+                $('#edit-album').html(response);
+
+                //SET THE VALIDATION TO THE NEW VIEW LOADED
+                $('#edit-album-form').validate({
+                        submitHandler : function(){
+                                var i = inked.Album;
+                                i.savePhotosEdit();
+                        }
+                });
+
             }
+        });
 
-            $.ajax({
-                    data:  params,
-                    url:   '/album/load_album_edit',
-                    type:  'post',
-                    beforeSend: function () 
-                    {
-                        $("#user-album-edit-msg").fadeIn();
-                        $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando album...</span>');
-                    },
-                    success:  function (response) 
-                    {
-
-                        $('#edit-album').html(response);
-
-                        //SET THE VALIDATION TO THE NEW VIEW LOADED
-                        $('#edit-album-form').validate({
-                                submitHandler : function(){
-                                        var i = inked.Album;
-                                        i.savePhotosEdit();
-                                }
-                        });
-
-                    }
-            });
-
-            $("a[href='#edit-album']").tab('show');
-            this.loadCreateAlbum();
+        $("a[href='#edit-album']").tab('show');
+        this.loadCreateAlbum();
 
     },
 
@@ -126,27 +126,27 @@ inked.Album = {
             });
 
             $.ajax({
-                    url:   '/album/save_album_edit',
-                    data:  $.param({
-                        'photos' : photosData
-                    }),
-                    type:  'post',
-                    beforeSend: function () 
-                    {
-                        $("#user-album-edit-msg").fadeIn();
-                        $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
-                    },
-                    success:  function (response) 
-                    {
+                url:   '/album/save_album_edit',
+                data:  $.param({
+                    'photos' : photosData
+                }),
+                type:  'post',
+                beforeSend: function () 
+                {
+                    $("#user-album-edit-msg").fadeIn();
+                    $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
+                },
+                success:  function (response) 
+                {
 
-                        $('#edit-album').html(response);
-                        $("#user-album-edit-msg").html('<span>Datos guardados!</span>');
-                        setInterval(function(){
-                            $("#user-album-edit-msg").fadeOut();  
-                        },3000);
+                    $('#edit-album').html(response);
+                    $("#user-album-edit-msg").html('<span>Datos guardados!</span>');
+                    setInterval(function(){
+                        $("#user-album-edit-msg").fadeOut();  
+                    },3000);
 
-                    }
-                    
+                }
+                
             });
             
     },
@@ -195,10 +195,10 @@ inked.Album = {
                 $('#create-album').html(response);
                 
                 $('#new-album-form').validate({
-                        submitHandler : function(){
-                                var i = inked.Album;
-                                i.createNewAlbum();
-                        }
+                    submitHandler : function(){
+                            var i = inked.Album;
+                            i.createNewAlbum();
+                    }
                 });
 
                 $('#upload').bind('inkedUploadFinished', function() {
