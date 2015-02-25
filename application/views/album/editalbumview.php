@@ -11,7 +11,7 @@
 				<div class="col-md-3 photo-edit-container">
 					<img src="<?php echo '/users/'.$photos[$i]['user_id'].'/img/sm/'.$photos[$i]['photo']?>" alt="$photos[$i]['description']" class="photo-edit-album" data-photo-id="<?php echo $photos[$i]['id']?>"/>
 					<label for="description-<?php echo $photos[$i]['id']?>">Descripción</label>
-					<textarea type="text" id="description-<?php echo $photos[$i]['id']?>" name="description-<?php echo $photos[$i]['id']?>" class="description"> <?php echo $photos[$i]['description']?> </textarea>
+					<textarea type="text" id="description-<?php echo $photos[$i]['id']?>" name="description-<?php echo $photos[$i]['id']?>" class="description"><?php echo $photos[$i]['description']?></textarea>
 					<label for="tags-<?php echo $photos[$i]['id']?>">Tags</label>
 					<input type="text" id="tags-<?php echo $photos[$i]['id']?>" name="tags-<?php echo $photos[$i]['id']?>" value="<?php echo $photos[$i]['tags']?>" class="tags">
 				</div>	

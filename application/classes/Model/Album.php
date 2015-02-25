@@ -12,4 +12,20 @@ class Model_Album extends ORM{
 		return $this->id;
 	}
 
+	public function get_albums_by_user($id)
+	{
+		$albums = $this->select('album.*', 'photos.*')
+			->where('album.user_id','=', $id)
+			->join('photos')
+			->on('album.id','=','photos.album_id')
+			->find_all();
+
+		$albums = $albums->as_array();
+		for($i = 0; $i < sizeof($albums); $i++)
+		{
+			$albums[$i] = $albums[$i]->as_array();
+		}
+		return $albums;	
+	}
+
 }

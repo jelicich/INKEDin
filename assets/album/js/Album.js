@@ -83,45 +83,32 @@ inked.Album = {
                     type:  'post',
                     beforeSend: function () 
                     {
-                            $("#user-album-edit-msg").fadeIn();
-                            $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando album...</span>');
+                        $("#user-album-edit-msg").fadeIn();
+                        $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando album...</span>');
                     },
                     success:  function (response) 
                     {
 
-                            $('#edit-album').html(response);
+                        $('#edit-album').html(response);
 
-                            //SET THE VALIDATION TO THE NEW VIEW LOADED
-                            $('#edit-album-form').validate({
-                                    submitHandler : function(){
-                                            var i = inked.Album;
-                                            i.savePhotosEdit();
-                                    }
-                            });
+                        //SET THE VALIDATION TO THE NEW VIEW LOADED
+                        $('#edit-album-form').validate({
+                                submitHandler : function(){
+                                        var i = inked.Album;
+                                        i.savePhotosEdit();
+                                }
+                        });
 
                     }
             });
 
-            $("a[href='#edit-album']").click();
+            $("a[href='#edit-album']").tab('show');
+            this.loadCreateAlbum();
+
     },
 
     savePhotosEdit : function()
     {
-            
-            console.log($('.photo-description'));
-            console.log($('.photo-tags'));
-
-            /*
-            var params = {
-                    'album_id' : $('#album-id').val(),
-            }
-            */
-            
-            // Iterate through all pictures
-                // Get picture id, description, tags
-                // Push to data Array
-
-            var x = 1;
 
             var photosData = [];
 
@@ -139,7 +126,7 @@ inked.Album = {
             });
 
             $.ajax({
-                    url:   '/photo/photo_edit',
+                    url:   '/album/save_album_edit',
                     data:  $.param({
                         'photos' : photosData
                     }),
@@ -152,16 +139,84 @@ inked.Album = {
                     success:  function (response) 
                     {
 
-                           // $('#edit-album').html(response);
-                           
+                        $('#edit-album').html(response);
+                        $("#user-album-edit-msg").html('<span>Datos guardados!</span>');
+                        setInterval(function(){
+                            $("#user-album-edit-msg").fadeOut();  
+                        },3000);
+
                     }
+                    
             });
             
+    },
 
+    loadAlbumList : function()
+    {
+        $.ajax({
+            url:   '/album/load_album_list',
+            data:  '',
+            type:  'post',
+            beforeSend: function () 
+            {
+                $("#user-album-edit-msg").fadeIn();
+                $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando...</span>');
+            },
+            success:  function (response) 
+            {
+
+                $('#edit-album').html(response);
+                /*
+                $("#user-album-edit-msg").html('<span>Datos guardados!</span>');
+                setInterval(function(){
+                    $("#user-album-edit-msg").fadeOut();  
+                },3000);
+                */
+
+            }
+            
+        });
+    },
+
+    loadCreateAlbum : function()
+    {
+        $.ajax({
+            url:   '/album/load_create_album',
+            data:  '',
+            type:  'post',
+            beforeSend: function () 
+            {
+                //$("#user-album-edit-msg").fadeIn();
+                //$("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando...</span>');
+            },
+            success:  function (response) 
+            {
+
+                $('#create-album').html(response);
+                
+                $('#new-album-form').validate({
+                        submitHandler : function(){
+                                var i = inked.Album;
+                                i.createNewAlbum();
+                        }
+                });
+
+                $('#upload').bind('inkedUploadFinished', function() {
+                    //console.log('all files uploaded!');
+                    $('#finish-album').removeClass('disabled');
+                });
+                inked.Upload.init();
+                /*
+                $("#user-album-edit-msg").html('<span>Datos guardados!</span>');
+                setInterval(function(){
+                    $("#user-album-edit-msg").fadeOut();  
+                },3000);
+                */
+
+            }
+            
+        });   
     }
-
-
-        
 
 };
 

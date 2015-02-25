@@ -151,4 +151,64 @@ class Controller_Album extends Controller_Master {
 		$this->response->body($view);
 	}
 
+	public function action_save_album_edit()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+		$params = $this->request->post();
+		
+	
+
+		$photo_model = new Model_Photo();
+
+		$photos = $params['photos'];
+		foreach($photos as $photo)
+		{
+			$photo_model->update_photo($photo);
+		}
+
+		/*
+		$user = $this->get_user_info();
+		$album_model = new Model_Album();
+		$albums = $album_model->get_albums_by_user($user['id']);
+		$view = View::factory('album/albumlistview');
+		$view->albums = $albums;
+
+		$this->response->body($view);
+		*/
+		$this->action_load_album_list();
+
+
+	}
+
+	public function action_load_album_list()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+
+		$user = $this->get_user_info();
+
+		$album_model = new Model_Album();
+		$albums = $album_model->get_albums_by_user($user['id']);
+		$view = View::factory('album/albumlistview');
+		$view->albums = $albums;
+
+		$this->response->body($view);
+	}
+
+	public function action_load_create_album()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+
+		$view = View::factory('album/createalbumview');
+		$this->response->body($view);
+	}
+
 } // End Welcome

@@ -37,7 +37,7 @@
 							    </a>
 							    <ul class="dropdown-menu" role="menu">
 							      <li><a href="#create-album" aria-controls="create-album" role="tab" data-toggle="tab">Crear Album</a></li>
-							      <li><a href="#edit-album" aria-controls="edit-album" role="tab" data-toggle="tab">Editar Album</a></li>
+							      <li><a href="#edit-album" aria-controls="edit-album" role="tab" data-toggle="tab" onclick="inked.Album.loadAlbumList()">Editar Album</a></li>
 							    </ul>
 							</li>
 							
@@ -173,56 +173,11 @@
 							
 							<!-- -->
 							<div role="tabpanel" class="tab-pane" id="create-album">
-								<!-- AJAX MSG CONTAINER -->
-								<div id="user-album-create-msg" class="msg-ajax">
-								</div>
-								<!-- END AJAX MSG CONTAINER -->
-								<form method="post" action="/album/create_album" id="new-album-form">
-									<div class="input-container">
-										<div class="input-container-inner">
-											<label class="block">Nuevo Album</label>
-											<label for="album-name">Nombre</label>
-											<input type="text" id="album-name" name="name" maxlength="60" required value=""/>	
-										</div>							
-									</div>
-									<input type="submit" class="btn btn-default btn-lg" value="Crear">
-								</form>
-
-								<form id="upload" method="post" action="/photo/upload_photo" enctype="multipart/form-data">
-									<div id="drop">
-										Arrastra tus fotos o 
-
-										<a class="btn btn-default btn-lg">Buscar</a>
-										<input type="file" name="upl" multiple />
-										<input type="hidden" name="album_id" id="album-id" />
-									</div>
-
-									<ul>
-										<!-- The file uploads will be shown here -->
-									</ul>
-
-								</form>
-
-								<button class="btn btn-default btn-lg disabled" id="finish-album" onclick="inked.Album.loadAlbumEdit()">Terminar!</button>
-								<!-- AJAX MSG CONTAINER -->
-								<div id="user-album-finish-msg" class="msg-ajax">
-								</div>
-								<!-- END AJAX MSG CONTAINER -->
+								<?php echo $create_album_view ?>
 							</div>
 
 							<!-- -->
 							<div role="tabpanel" class="tab-pane" id="edit-album">
-								
-								<form method="post" action="/user/edit_album" id="edit-album-form">
-									<div class="input-container">
-										<label class="block">Editar Album</label>
-										<div class="input-container-inner">
-											<label for="album-name">Foto</label>
-											<input type="checkbox">
-										</div>							
-									</div>
-									<input type="submit" class="btn btn-default btn-lg" value="Guardar">
-								</form>
 
 								<!-- AJAX MSG CONTAINER -->
 								<div id="user-album-edit-msg" class="msg-ajax">
@@ -274,14 +229,6 @@
 	<?php echo $footer ?>
 	
 </div>
-<script src="/assets/album/js/jquery.knob.js"></script>
 
-<!-- jQuery File Upload Dependencies -->
-<script src="/assets/album/js/jquery.ui.widget.js"></script>
-<script src="/assets/album/js/jquery.iframe-transport.js"></script>
-<script src="/assets/album/js/jquery.fileupload.js"></script>
-
-<!-- Our main JS file -->
-<script src="/assets/album/js/script.js"></script>
 </body>
 </html>

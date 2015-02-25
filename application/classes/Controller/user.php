@@ -10,14 +10,27 @@ class Controller_User extends Controller_Master {
         if($this->is_logged_in())
         {
         	$this->template->head->title = "INKEDin - Mi cuenta";
-        	$this->template->head->custom_scripts = HTML::script('/assets/common/app/js/jquery.validate.min.js').HTML::script('/assets/common/app/js/messages_es.min.js').HTML::script('/assets/user/js/User.js').HTML::script('/assets/album/js/Album.js');;
+        	$this->template->head->custom_scripts = HTML::script('/assets/common/app/js/jquery.validate.min.js')
+        											.HTML::script('/assets/common/app/js/messages_es.min.js')
+        											.HTML::script('/assets/user/js/User.js')
+        											.HTML::script('/assets/album/js/Album.js')
+        											.HTML::script('/assets/album/js/jquery.knob.js')
+        											.HTML::script('/assets/album/js/jquery.ui.widget.js')
+        											.HTML::script('/assets/album/js/jquery.iframe-transport.js')
+													.HTML::script('/assets/album/js/jquery.fileupload.js')
+													.HTML::script('/assets/album/js/upload.script.js');
+													
+        											
+
 			$this->template->head->custom_styles = HTML::style('/assets/user/css/user.css').HTML::style('/assets/album/css/upload.css');
-			
+	
         	$this->template->user = $this->get_user_info();
 
         	$styles_model = new Model_Style();
         	$styles = $styles_model->get_styles();
         	$this->template->styles = $styles;
+
+        	$this->template->create_album_view = View::factory('album/createalbumview');
         	
         }
         else
