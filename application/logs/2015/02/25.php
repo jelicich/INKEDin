@@ -243,3 +243,144 @@
 #9 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #10 {main} in E:\xampp\htdocs\INKEDin\application\views\user\myaccountview.php:176
 >>>>>>> 74a2303655fd57db6239ac2dad2e01a1278f211d
+
+2015-02-25 21:57:44 --- EMERGENCY: ErrorException [ 8 ]: Undefined offset: 0 ~ APPPATH/views/album/editalbumview.php [ 5 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/album/editalbumview.php:5
+2015-02-25 21:57:44 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/album/editalbumview.php(5): Kohana_Core::error_handler(8, 'Undefined offse...', '/Applications/X...', 5, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(62): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(359): Kohana_View::capture('/Applications/X...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(236): Kohana_View->render()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php(160): Kohana_View->__toString()
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(151): Kohana_Response->body(Object(View))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_load_album_edit()
+#7 [internal function]: Kohana_Controller->execute()
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#11 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#12 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/album/editalbumview.php:5
+2015-02-25 21:59:27 --- EMERGENCY: ErrorException [ 8 ]: Undefined offset: 0 ~ APPPATH/views/album/editalbumview.php [ 5 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/album/editalbumview.php:5
+2015-02-25 21:59:27 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/album/editalbumview.php(5): Kohana_Core::error_handler(8, 'Undefined offse...', '/Applications/X...', 5, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(62): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(359): Kohana_View::capture('/Applications/X...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(236): Kohana_View->render()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php(160): Kohana_View->__toString()
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(151): Kohana_Response->body(Object(View))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_load_album_edit()
+#7 [internal function]: Kohana_Controller->execute()
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#11 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#12 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/album/editalbumview.php:5
+2015-02-25 22:00:20 --- EMERGENCY: ErrorException [ 8 ]: Undefined offset: 0 ~ APPPATH/views/album/editalbumview.php [ 5 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/album/editalbumview.php:5
+2015-02-25 22:00:20 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/album/editalbumview.php(5): Kohana_Core::error_handler(8, 'Undefined offse...', '/Applications/X...', 5, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(62): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(359): Kohana_View::capture('/Applications/X...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(236): Kohana_View->render()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php(160): Kohana_View->__toString()
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(151): Kohana_Response->body(Object(View))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_load_album_edit()
+#7 [internal function]: Kohana_Controller->execute()
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#11 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#12 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/album/editalbumview.php:5
+2015-02-25 22:36:41 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected '$photos' (T_VARIABLE) ~ APPPATH/classes/Controller/Album.php [ 232 ] in file:line
+2015-02-25 22:36:41 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-25 22:37:36 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected '$id' (T_VARIABLE) ~ APPPATH/classes/Model/Album.php [ 35 ] in file:line
+2015-02-25 22:37:36 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-25 22:37:42 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected '$id' (T_VARIABLE) ~ APPPATH/classes/Model/Album.php [ 35 ] in file:line
+2015-02-25 22:37:42 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-25 22:39:52 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: photos ~ APPPATH/classes/Controller/Album.php [ 225 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:225
+2015-02-25 22:39:52 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(225): Kohana_Core::error_handler(8, 'Undefined varia...', '/Applications/X...', 225, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_delete_album()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:225
+2015-02-25 22:40:29 --- EMERGENCY: Kohana_Exception [ 0 ]: Cannot delete album model because it is not loaded. ~ MODPATH/orm/classes/Kohana/ORM.php [ 1434 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/Album.php:36
+2015-02-25 22:40:29 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/Album.php(36): Kohana_ORM->delete()
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(228): Model_Album->delete_album('72')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_delete_album()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/Album.php:36
+2015-02-25 22:41:43 --- EMERGENCY: ErrorException [ 2 ]: unlink(/users/1/img/md/3958_1424912571.jpg): No such file or directory ~ APPPATH/classes/Controller/Album.php [ 232 ] in file:line
+2015-02-25 22:41:43 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(2, 'unlink(/users/1...', '/Applications/X...', 232, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(232): unlink('/users/1/img/md...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_delete_album()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in file:line
+2015-02-25 22:44:44 --- EMERGENCY: ErrorException [ 8 ]: Undefined offset: 2 ~ APPPATH/classes/Controller/Album.php [ 232 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:232
+2015-02-25 22:44:44 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(232): Kohana_Core::error_handler(8, 'Undefined offse...', '/Applications/X...', 232, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_delete_album()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:232
+2015-02-25 22:47:16 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected 'var_dump' (T_STRING) ~ APPPATH/classes/Controller/Album.php [ 228 ] in file:line
+2015-02-25 22:47:16 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-25 22:47:24 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected 'var_dump' (T_STRING) ~ APPPATH/classes/Controller/Album.php [ 228 ] in file:line
+2015-02-25 22:47:24 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-02-25 22:50:34 --- EMERGENCY: ErrorException [ 8 ]: Undefined offset: 2 ~ APPPATH/classes/Controller/Album.php [ 236 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:236
+2015-02-25 22:50:34 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(236): Kohana_Core::error_handler(8, 'Undefined offse...', '/Applications/X...', 236, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_delete_album()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:236
+2015-02-25 23:29:08 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: album_id ~ APPPATH/classes/Controller/Album.php [ 147 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:147
+2015-02-25 23:29:08 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(147): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 147, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_load_album_edit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:147
+2015-02-25 23:32:07 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: album_id ~ APPPATH/classes/Controller/Album.php [ 147 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:147
+2015-02-25 23:32:07 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(147): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 147, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_load_album_edit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:147
+2015-02-25 23:35:39 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: album_id ~ APPPATH/classes/Controller/Album.php [ 147 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:147
+2015-02-25 23:35:39 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(147): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 147, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_load_album_edit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:147
+2015-02-25 23:36:04 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: album_id ~ APPPATH/classes/Controller/Album.php [ 147 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:147
+2015-02-25 23:36:04 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(147): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 147, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_load_album_edit()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php:147

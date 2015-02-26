@@ -30,4 +30,10 @@ class Model_Album extends ORM{
 		return $albums;	
 	}
 
+	public function delete_album($id)
+	{
+		$album = $this->where('id', '=', $id)->find();
+		$album->delete();
+	}
+
 }

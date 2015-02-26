@@ -211,4 +211,36 @@ class Controller_Album extends Controller_Master {
 		$this->response->body($view);
 	}
 
+	public function action_delete_album()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+		
+		$user = $this->get_user_info();
+		
+		$post = $this->request->post();
+		$photos_model = new Model_Photo();
+		$photos = $photos_model->get_photos_by_album($post['album_id']);
+
+		$album_model = new Model_Album();
+		$album_model->delete_album($post['album_id']);
+
+		foreach ($photos as $photo) 
+		{
+			unlink('./users/'.$user['id'].'/img/md/'.$photo['photo']);
+			unlink('./users/'.$user['id'].'/img/reg/'.$photo['photo']);
+			unlink('./users/'.$user['id'].'/img/sm/'.$photo['photo']);
+			unlink('./users/'.$user['id'].'/img/thumb/'.$photo['photo']);	
+		}
+
+		$albums = $album_model->get_albums_by_user($user['id']);
+		$view = View::factory('album/albumlistview');
+		$view->albums = $albums;
+
+		$this->response->body($view);
+
+	}
+
 } // End Welcome

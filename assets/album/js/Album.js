@@ -70,12 +70,13 @@ inked.Album = {
     },
 
 
-    loadAlbumEdit : function(el)
+    loadAlbumEdit : function(event)
     {
           
         var params = {
-            'album_id' : el.attr('data-album-id'),
+            'album_id' : $(event.target).attr('data-album-id'),
         }
+
 
         $.ajax({
             data:  params,
@@ -216,6 +217,35 @@ inked.Album = {
             }
             
         });   
+    },
+
+    deleteAlbum : function(event)
+    {
+        var params = {
+            'album_id' : $(event.target).attr('data-album-id'),
+        }
+
+        $.ajax({
+            data:  params,
+            url:   '/album/delete_album',
+            type:  'post',
+            beforeSend: function () 
+            {
+                $("#user-album-edit-msg").fadeIn();
+                $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando...</span>');
+            },
+            success:  function (response) 
+            {
+                $('#edit-album').html(response);
+                $("#user-album-edit-msg").html('<span>Datos guardados!</span>');
+                setInterval(function(){
+                    $("#user-album-edit-msg").fadeOut();  
+                },3000);
+            }
+        });
+
+        //$("a[href='#edit-album']").tab('show');
+        //this.loadCreateAlbum();
     }
 
 };
