@@ -1,9 +1,9 @@
 inked.Upload = {
-    init : function()
+    init : function(id)
     {
         $(function(){
 
-            var ul = $('#upload ul');
+            var ul = $(id+' ul');
 
             $('#drop a').click(function(){
                 // Simulate a click on the file input button
@@ -91,7 +91,7 @@ inked.Upload = {
                     uploadInfo.pendingFiles --;
 
                     if (uploadInfo.pendingFiles == 0) {
-                        $('#upload').trigger('inkedUploadFinished');
+                        $(id).trigger('inkedUploadFinished');
                     }
                 },
 
@@ -101,7 +101,7 @@ inked.Upload = {
                 }
             };
 
-            $('#upload').fileupload(uploadOptions);
+            $(id).fileupload(uploadOptions);
 
 
             // Prevent the default action when a file is dropped on the window
@@ -131,5 +131,5 @@ inked.Upload = {
 }
 
 $(document).ready(function() {
-    inked.Upload.init();
+    inked.Upload.init('#upload');
 });

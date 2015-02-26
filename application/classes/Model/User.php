@@ -190,17 +190,6 @@ class Model_User extends ORM{
             }    
             $result = $query->execute();
         }
-        
-        
-        
-        
-        /*
-        try {
-            $result = $query->execute();
-        } catch ( Database_Exception $e ) {   
-                echo $e->getMessage();
-        }
-        */
 
         //update session info
         $session = $this->get_user_info();

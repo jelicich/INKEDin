@@ -31,12 +31,12 @@ class Model_Photo extends ORM{
 		
 		$query = DB::update('photos')->set(array('description' => $photo_arr['description'], 'tags' => $photo_arr['tags']))->where('id', '=', $photo_arr['photoId']);
 		$r = $query->execute();
-		/*
-		$photo = $this->where('id', '=', $photo_arr['photoId'] )->find();
-        $photo->description = $photo_arr['description'];
-        $photo->tags = $photo_arr['tags'];
-        $r = $photo->save();
-        */
 
+	}
+
+	public function delete_photo($photo_arr)
+	{
+		$album = $this->where('id', '=', $photo_arr['photoId'])->find();
+		$album->delete();
 	}
 }

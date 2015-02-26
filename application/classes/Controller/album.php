@@ -157,27 +157,35 @@ class Controller_Album extends Controller_Master {
 		{	
 			$this->auto_render = false;
 		}
-		$params = $this->request->post();
+		$post = $this->request->post();
 		
 	
 
 		$photo_model = new Model_Photo();
 
-		$photos = $params['photos'];
+		$photos = $post['photos'];
+		
 		foreach($photos as $photo)
 		{
-			$photo_model->update_photo($photo);
+			if($photo['del'] == 'true')
+			{
+				$photo_model->delete_photo($photo);	
+			}
+			else
+			{
+				$photo_model->update_photo($photo);	
+			}
+			
 		}
 
-		/*
-		$user = $this->get_user_info();
-		$album_model = new Model_Album();
-		$albums = $album_model->get_albums_by_user($user['id']);
-		$view = View::factory('album/albumlistview');
-		$view->albums = $albums;
+		//CHECK IF ALBUM IS EMPTY, THEN DELETE
+		$current_photos = $photo_model->get_photos_by_album($post['album_id']);
+		if(sizeof($current_photos) < 1)
+		{
+			$album_model = new Model_Album();
+			$album_model->delete_album($post['album_id']);
+		}
 
-		$this->response->body($view);
-		*/
 		$this->action_load_album_list();
 
 
@@ -238,6 +246,25 @@ class Controller_Album extends Controller_Master {
 		$albums = $album_model->get_albums_by_user($user['id']);
 		$view = View::factory('album/albumlistview');
 		$view->albums = $albums;
+
+		$this->response->body($view);
+
+	}
+
+	public function action_add_photos()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+		
+		$post = $this->request->post();
+
+		$album_model = new Model_Album();
+		$album = $album_model->get_album_by_id($post['album_id']);
+
+		$view = View::factory('album/addphotosview');
+		$view->album = $album;
 
 		$this->response->body($view);
 

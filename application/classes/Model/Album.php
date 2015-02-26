@@ -30,6 +30,16 @@ class Model_Album extends ORM{
 		return $albums;	
 	}
 
+	public function get_album_by_id($id)
+	{
+		$albums = $this->where('id','=', $id)
+			->find();
+
+		$albums = $albums->as_array();
+
+		return $albums;	
+	}
+
 	public function delete_album($id)
 	{
 		$album = $this->where('id', '=', $id)->find();

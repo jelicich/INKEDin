@@ -48,7 +48,8 @@ section, footer, header, aside{
 -----------------------------*/
 
 
-#upload{
+#upload,
+#upload-add{
     font-family:'PT Sans Narrow', sans-serif;
     background-color:#f0ddaf;
     /*
@@ -105,7 +106,8 @@ section, footer, header, aside{
     display:none;
 }
 
-#upload ul{
+#upload ul,
+#upload-add ul{
     list-style:none;
     margin:0 -30px;
     /*
@@ -115,7 +117,8 @@ section, footer, header, aside{
     padding: 0;
 }
 
-#upload ul li{
+#upload ul li,
+#upload-add ul li{
     /*
     background-color:#c99241;
     
@@ -131,18 +134,21 @@ section, footer, header, aside{
     position: relative;
 }
 
-#upload ul li div{
+#upload ul li div,
+#upload-add ul li div{
     display: block !important;
     width: 48px !important;
     height: 48px !important;
     float: left !important;
 }
 
-#upload ul li input{
+#upload ul li input,
+#upload-add ul li input{
     display: none;
 }
 
-#upload ul li p{
+#upload ul li p,
+#upload-add ul li p{
     width: 144px;
     overflow: hidden;
     white-space: nowrap;
@@ -158,14 +164,16 @@ section, footer, header, aside{
     */
 }
 
-#upload ul li i{
+#upload ul li i,
+#upload-add ul li i{
     font-weight: normal;
     font-style:normal;
     color:#c99241;
     display:block;
 }
 
-#upload ul li canvas{
+#upload ul li canvas,
+#upload-add ul li canvas{
     /*
     top: 15px;
     left: 32px;
@@ -173,7 +181,8 @@ section, footer, header, aside{
     */
 }
 
-#upload ul li span{
+#upload ul li span,
+#upload-add ul li span{
     width: 15px;
     height: 12px;
     background: url('../img/icons.png') no-repeat;
@@ -183,12 +192,14 @@ section, footer, header, aside{
     cursor:pointer;
 }
 
-#upload ul li.working span{
+#upload ul li.working span,
+#upload-add ul li.working span{
     height: 16px;
     background-position: 0 -12px;
 }
 
-#upload ul li.error p{
+#upload ul li.error p,
+#upload-add ul li.error p{
     color:red;
 }
 

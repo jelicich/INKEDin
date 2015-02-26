@@ -27,9 +27,8 @@ inked.User = {
         });
 
 
-
+        //BIND CUSTOM EVENT FOR THE IMG UPLOAD. IT IS FIRED BY THE UPLOAD PLUGIN
         $('#upload').bind('inkedUploadFinished', function() {
-            //console.log('all files uploaded!');
             $('#finish-album').removeClass('disabled');
         });
 
@@ -37,7 +36,6 @@ inked.User = {
 
 	saveUserInfo : function()
 	{
-		//event.preventDefault ? event.preventDefault() : event.returnValue = false;
 		var params = {
                 "name" : $('#name').val(),
                 "last_name" : $('#last_name').val(),
@@ -76,7 +74,6 @@ inked.User = {
 
 	saveUserPassword : function()
 	{
-		//event.preventDefault ? event.preventDefault() : event.returnValue = false;
 		var params = {
                 "old_password" : $('#old_password').val(),
                 "new_password" : $('#new_password').val(),
@@ -114,7 +111,6 @@ inked.User = {
 
     saveUserAbout : function()
     {
-            //event.preventDefault ? event.preventDefault() : event.returnValue = false;
             var selected = [];
             $('.styles-container input:checked').each(function() {
                     selected.push($(this).val());

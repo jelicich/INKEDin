@@ -13,7 +13,6 @@ inked.Album = {
         });
 
         $('#upload').bind('inkedUploadFinished', function() {
-            //console.log('all files uploaded!');
             $('#finish-album').removeClass('disabled');
         });
 
@@ -23,8 +22,6 @@ inked.Album = {
 
     createNewAlbum : function()
     {
-            //event.preventDefault ? event.preventDefault() : event.returnValue = false;               
-
             var params = {
                 "name" : $('#album-name').val(),
             };
@@ -118,18 +115,27 @@ inked.Album = {
                 var photoId = $containerEl.find('img').attr('data-photo-id');
                 var description = $containerEl.find('.description').val();
                 var tags = $containerEl.find('.tags').val();
+                var checkbox = $containerEl.find('.delete');
+                var remove = false;
+                if(checkbox.is(':checked'))
+                {
+                    remove = true;
+                }
 
                 photosData.push({
                     photoId : photoId,
                     description : description,
-                    tags : tags
+                    tags : tags,
+                    del : remove
                 });
+
             });
 
             $.ajax({
                 url:   '/album/save_album_edit',
                 data:  $.param({
-                    'photos' : photosData
+                    'photos' : photosData,
+                    'album_id' : $('#edit-album-form').attr('data-album-id')
                 }),
                 type:  'post',
                 beforeSend: function () 
@@ -165,15 +171,7 @@ inked.Album = {
             },
             success:  function (response) 
             {
-
                 $('#edit-album').html(response);
-                /*
-                $("#user-album-edit-msg").html('<span>Datos guardados!</span>');
-                setInterval(function(){
-                    $("#user-album-edit-msg").fadeOut();  
-                },3000);
-                */
-
             }
             
         });
@@ -203,16 +201,9 @@ inked.Album = {
                 });
 
                 $('#upload').bind('inkedUploadFinished', function() {
-                    //console.log('all files uploaded!');
                     $('#finish-album').removeClass('disabled');
                 });
-                inked.Upload.init();
-                /*
-                $("#user-album-edit-msg").html('<span>Datos guardados!</span>');
-                setInterval(function(){
-                    $("#user-album-edit-msg").fadeOut();  
-                },3000);
-                */
+                inked.Upload.init('#upload');
 
             }
             
@@ -244,8 +235,37 @@ inked.Album = {
             }
         });
 
-        //$("a[href='#edit-album']").tab('show');
-        //this.loadCreateAlbum();
+    },
+
+    addPhotos : function(event)
+    {
+        event.preventDefault();
+        $.ajax({
+            url:   '/album/add_photos',
+            data:  $.param({
+                'album_id' : $('#edit-album-form').attr('data-album-id')
+            }),
+            type:  'post',
+            beforeSend: function () 
+            {
+                $("#user-album-edit-msg").fadeIn();
+                $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando...</span>');
+            },
+            success:  function (response) 
+            {
+
+                //LOAD VIEW addphotosview
+                $('#edit-album').html(response);
+
+                $('#upload-add').bind('inkedUploadFinished', function() {
+                    $('#finish-add').removeClass('disabled');
+                });
+                inked.Upload.init('#upload-add');
+
+            }
+            
+        });
+        
     }
 
 };
