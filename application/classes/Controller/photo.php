@@ -39,6 +39,9 @@ class Controller_Photo extends Controller_Master {
 		{	
 			$this->auto_render = false;
 		}
+		var_dump($this->request->post());
+		var_dump($_FILES);
+		die;
 
 		$user = $this->get_user_info();
 		$path = './users/'.$user['id'].'/img/reg/';

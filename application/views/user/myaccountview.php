@@ -40,7 +40,7 @@
 							      <li><a href="#edit-album" aria-controls="edit-album" role="tab" data-toggle="tab" onclick="inked.Album.loadAlbumList()">Editar Album</a></li>
 							    </ul>
 							</li>
-							
+							<li role="presentation"><a href="#profile-pic" aria-controls="profile-pic" role="tab" data-toggle="tab">Foto de perfil</a></li>
 						</ul>
 
 						<!-- Tab panes -->
@@ -183,6 +183,13 @@
 								<div id="user-album-edit-msg" class="msg-ajax">
 								</div>
 								<!-- END AJAX MSG CONTAINER -->
+							</div>
+
+							<!-- -->
+							<div role="tabpanel" class="tab-pane" id="profile-pic">
+
+								<?php echo $profile_picture_view ?>
+								
 							</div>
 						</div>
 

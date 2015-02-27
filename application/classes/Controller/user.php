@@ -18,7 +18,8 @@ class Controller_User extends Controller_Master {
         											.HTML::script('/assets/album/js/jquery.ui.widget.js')
         											.HTML::script('/assets/album/js/jquery.iframe-transport.js')
 													.HTML::script('/assets/album/js/jquery.fileupload.js')
-													.HTML::script('/assets/album/js/upload.script.js');
+													.HTML::script('/assets/album/js/upload.script.js')
+													.HTML::script('/assets/photo/js/Photo.js');
 													
         											
 
@@ -30,7 +31,9 @@ class Controller_User extends Controller_Master {
         	$styles = $styles_model->get_styles();
         	$this->template->styles = $styles;
 
+        	//LOAD SUBVIEWS
         	$this->template->create_album_view = View::factory('album/createalbumview');
+        	$this->template->profile_picture_view = View::factory('photo/uploadprofilepictureview');
         	
         }
         else
