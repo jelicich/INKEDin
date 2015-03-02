@@ -11,7 +11,7 @@ inked.Photo = {
     validateForm : function(event)
     {
         var file = $(event.target);
-        console.log(file[0].files[0].type);
+        //console.log(file[0].files[0].type);
         switch(file[0].files[0].type)
         {
             case 'image/png':
@@ -40,28 +40,36 @@ inked.Photo = {
     uploadPhoto : function(event)
     {
         event.preventDefault();
-        var formData = new FormData($('profile-pic-form'));
-        formData.append('album_id',0);
-
+        var formData = new FormData();
+        var input = $('#profile-input-file');
+        formData.append('upl',input[0].files[0]);
+        
+        
         $.ajax({
             url: '/photo/upload_photo',  //Server script to process data
             type: 'POST',
             xhr: function() {  // Custom XMLHttpRequest
                 var myXhr = $.ajaxSettings.xhr();
                 if(myXhr.upload){ // Check if upload property exists
-                    myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
+                    //myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
                 }
                 return myXhr;
             },
             //Ajax events
             beforeSend: function () 
             {
+                console.log('before');
                 $("user-profile-picture-msg").fadeIn();
                 $("user-profile-picture-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
             },
             success: function (response)
             {
                 console.log(response);
+            },
+            error: function(r)
+            {
+                console.log('error');
+                console.log(r);
             },
             
             // Form data

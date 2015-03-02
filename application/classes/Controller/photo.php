@@ -39,9 +39,12 @@ class Controller_Photo extends Controller_Master {
 		{	
 			$this->auto_render = false;
 		}
-		var_dump($this->request->post());
+		
+		/*var_dump($this->request->post());
 		var_dump($_FILES);
-		die;
+		return;
+		die;*/
+		
 
 		$user = $this->get_user_info();
 		$path = './users/'.$user['id'].'/img/reg/';
@@ -109,8 +112,11 @@ class Controller_Photo extends Controller_Master {
 	            $photo_model = new Model_Photo();
 	            $user = $this->get_user_info();
 	            $album = $post = $this->request->post();
+	            if(!isset($album['album_id']))
+	            {
+	            	$album['album_id'] = NULL;
+	            }
 	            $photo_model->save_photo($new_name, $album['album_id'], $user['id']);
-
 
 			}
 		}

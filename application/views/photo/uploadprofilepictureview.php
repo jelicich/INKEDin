@@ -6,7 +6,7 @@
 	<div class="input-container">
 		<div class="input-container-inner">
 			<label for="album-name">Seleccionar foto</label>
-			<input type="file" name="upl" onchange="inked.Photo.validateForm(event)"/>
+			<input type="file" name="upl" id="profile-input-file" onchange="inked.Photo.validateForm(event)"/>
 		</div>							
 	</div>
 	
