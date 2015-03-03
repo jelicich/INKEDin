@@ -22,7 +22,7 @@ class Controller_Album extends Controller_Master {
         }
         else
         {
-        	HTTP::redirect('index');	
+        	HTTP::redirect('index');
         }
 
     }
@@ -169,7 +169,7 @@ class Controller_Album extends Controller_Master {
 		{
 			if($photo['del'] == 'true')
 			{
-				$photo_model->delete_photo($photo);	
+				$photo_model->delete_photo($photo['photoId']);	
 			}
 			else
 			{

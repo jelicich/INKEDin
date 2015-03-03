@@ -37,16 +37,16 @@ inked.Photo = {
 
     },
 
-    uploadPhoto : function(event)
+    uploadProfilePhoto : function(event)
     {
         event.preventDefault();
         var formData = new FormData();
         var input = $('#profile-input-file');
         formData.append('upl',input[0].files[0]);
-        
+                
         
         $.ajax({
-            url: '/photo/upload_photo',  //Server script to process data
+            url: '/photo/update_profile_photo',  //Server script to process data
             type: 'POST',
             xhr: function() {  // Custom XMLHttpRequest
                 var myXhr = $.ajaxSettings.xhr();
@@ -64,7 +64,7 @@ inked.Photo = {
             },
             success: function (response)
             {
-                console.log(response);
+                $('#profile-pic').html(response);
             },
             error: function(r)
             {

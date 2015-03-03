@@ -213,4 +213,44 @@ class Model_User extends ORM{
 
     }
 
+    public function update_profile_photo($photo_id)
+    {
+        $user = $this->get_user_info();
+        
+        $user = $this->where('id', '=', $user['id'] )->find();
+        $user->photo_id = $photo_id;
+        $r = $user->save();
+
+        $session = $this->get_user_info();
+        $session['photo_id'] = $photo_id;
+
+        $this->session->set('user', $session); 
+    }
+
+    public function update_session()
+    {
+        $current_session = $this->get_user_info();
+        $mu = new Model_User();
+        $user = $mu->select('user.*','photos.*')
+            ->where('user.id', '=', $current_session['id'])
+            ->join('photos','LEFT')
+            ->on('user.photo_id', '=', 'photos.id')
+            ->find();
+
+        $q = DB::select('styles.*')
+            ->from('userstyles')
+            ->where('userstyles.user_id','=',$user->id)
+            ->join('styles', 'LEFT')
+            ->on('userstyles.style_id','=','styles.id');
+
+        $styles = $q->execute();
+        $styles = $styles->as_array();
+        
+        $user = $user->as_array();
+        
+        $user['styles'] = $styles;
+    
+        $this->session->set('user', $user); 
+    }
+
 }

@@ -8,7 +8,7 @@ class Model_Photo extends ORM{
 		$this->album_id = $album;
 		$this->user_id = $user;
 		$id = $this->save();
-
+		return $id;
 	}
 
 	public function get_photos_by_album($id)
@@ -34,9 +34,9 @@ class Model_Photo extends ORM{
 
 	}
 
-	public function delete_photo($photo_arr)
+	public function delete_photo($photo)
 	{
-		$album = $this->where('id', '=', $photo_arr['photoId'])->find();
+		$album = $this->where('id', '=', $photo)->find();
 		$album->delete();
 	}
 }
