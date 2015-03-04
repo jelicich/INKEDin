@@ -129,14 +129,15 @@ class Model_User extends ORM{
     //UPDATE ACCOUNT INFO
     public function update_account($post)
     {        
-        if($post['province'] == '')
+        if(empty($post['province']))
         {
             $post['province'] = null;
         }
-        if($post['city'] == '')
+        if(empty($post['city']))
         {
             $post['city'] = null;
         }
+        
         $user_info = $this->get_user_info();
         $user_id = $user_info['id'];
         $user = $this->where('id', '=', $user_id )->find();
