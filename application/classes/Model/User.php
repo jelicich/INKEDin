@@ -129,12 +129,23 @@ class Model_User extends ORM{
     //UPDATE ACCOUNT INFO
     public function update_account($post)
     {        
+        if($post['province'] == '')
+        {
+            $post['province'] = null;
+        }
+        if($post['city'] == '')
+        {
+            $post['city'] = null;
+        }
         $user_info = $this->get_user_info();
         $user_id = $user_info['id'];
         $user = $this->where('id', '=', $user_id )->find();
         $user->name = $post['name'];
         $user->last_name = $post['last_name'];
         $user->email = $post['email'];
+
+        $user->province_id = $post['province'];
+        $user->city_id = $post['city'];
         $r = $user->save();
 
         //update session info

@@ -36,9 +36,15 @@ class Controller_User extends Controller_Master {
         	}
         	$this->template->user = $user;
 
+        	//BIND STYLTES
         	$styles_model = new Model_Style();
         	$styles = $styles_model->get_styles();
         	$this->template->styles = $styles;
+
+        	//BIND PROVINCES
+        	$prov_model = new Model_Province();
+        	$provinces = $prov_model->get_provinces();
+        	$this->template->provinces = $provinces;
 
         	//LOAD SUBVIEWS
         	$this->template->create_album_view = View::factory('album/createalbumview');
@@ -161,40 +167,21 @@ class Controller_User extends Controller_Master {
         
 	}
 
-	public function action_create_album()
-	{
-		if($this->request->is_ajax())
-		{	
-			$this->auto_render = false;
-		}
-		$result;
-		$post = $this->request->post();
-		$model_album = Model::factory('album');
-
-        $id_album = $model_album->create_album($this->request->post());
-        $result = '{"status":"success","album":"'.$id_album.'"}';
-
- 		
- 		$this->response->body($result);
-        
-	}
-
-	
-
-	public function action_load_album_edit()
+	public function action_get_cities()
 	{
 		if($this->request->is_ajax())
 		{	
 			$this->auto_render = false;
 		}
 
+		$model_cities = new Model_City();
 		$post = $this->request->post();
-		$photos_model = new Model_Photo();
-		$photos = $photos_model->get_photos_by_album($post['album_id']);
-		$view = View::factory('user/editalbumview');
-		//$view->$photos = $photos;
-
+		$cities = $model_cities->get_cities_by_province($post['province_id']);
+		$view = View::factory('user/citiesview');
+		$view->cities = $cities;
+		$view->user = $this->get_user_info();
 		$this->response->body($view);
 	}
+
 
 } // End Welcome

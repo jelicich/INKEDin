@@ -20,10 +20,14 @@ inked.User = {
 		});
 
         $('#account-about-form').validate({
-                submitHandler : function(){
-                        var i = inked.User;
-                        i.saveUserAbout();
-                }
+            submitHandler : function(){
+                    var i = inked.User;
+                    i.saveUserAbout();
+            }
+        });
+
+        $('#province').change(function(event){
+            inked.User.getCities(event);
         });
 
 
@@ -36,10 +40,13 @@ inked.User = {
 
 	saveUserInfo : function()
 	{
-		var params = {
+
+        var params = {
                 "name" : $('#name').val(),
                 "last_name" : $('#last_name').val(),
                 "email" : $('#email').val(),
+                "province" : $('#province').val(),
+                "city" : $('#city').val(),
                 };
                 $.ajax({
                         data:  params,
@@ -52,10 +59,11 @@ inked.User = {
                         },
                         success:  function (response) 
                         {
+                                console.log(response);
                                 if(response != true)
                                 {
                                 	var li = '';
-                                	response = jQuery.parseJSON(response);
+                                	//response = jQuery.parseJSON(response);
                                 	$.each(response, function(key, value) {
         							    li += '<li>'+value+'</li>'; 
         							});
@@ -109,55 +117,75 @@ inked.User = {
                 });		
 	},
 
-    saveUserAbout : function()
+    saveUserAbout : function(event)
     {
-            var selected = [];
-            $('.styles-container input:checked').each(function() {
-                    selected.push($(this).val());
-            });
-            
+        var selected = [];
+        $('.styles-container input:checked').each(function() {
+                selected.push($(this).val());
+        });
+        
 
-            var params = {
-            "about" : $('#about').val(),
-            "styles" : selected,
-            "availability" : $('#availability').val(),
-            "phone" : $('#phone').val(),
-            "address" : $('#address').val(),
-            };
+        var params = {
+        "about" : $('#about').val(),
+        "styles" : selected,
+        "availability" : $('#availability').val(),
+        "phone" : $('#phone').val(),
+        "address" : $('#address').val(),
+        };
 
-            $.ajax({
-                    data:  params,
-                    url:   '/user/update_about',
-                    type:  'post',
-                    beforeSend: function () 
-                    {
-                            $("#user-about-msg").fadeIn();
-                            $("#user-about-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
-                    },
-                    success:  function (response) 
-                    {
-                            if(response != true)
-                            {
-                                    var li = '';
-                                    response = jQuery.parseJSON(response);
-                                    $.each(response, function(key, value) {
-                                                                li += '<li>'+value+'</li>'; 
-                                                            });
-                                    $("#user-about-msg").html('<span>Ocurrio el siguiente error</span><ul>'+li+'</ul>');
-                            }
-                            else
-                            {
-                                    $("#user-about-msg").html('<span>Datos guardados!</span>');
-                            }
-                            setInterval(function(){
-                                    $("#user-about-msg").fadeOut();  
-                            },3000);
-                    }
-            });
+        $.ajax({
+            data:  params,
+            url:   '/user/update_about',
+            type:  'post',
+            beforeSend: function () 
+            {
+                $("#user-about-msg").fadeIn();
+                $("#user-about-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
+            },
+            success:  function (response) 
+            {
+                if(response != true)
+                {
+                    var li = '';
+                    response = jQuery.parseJSON(response);
+                    $.each(response, function(key, value) {
+                                                li += '<li>'+value+'</li>'; 
+                                            });
+                    $("#user-about-msg").html('<span>Ocurrio el siguiente error</span><ul>'+li+'</ul>');
+                }
+                else
+                {
+                    $("#user-about-msg").html('<span>Datos guardados!</span>');
+                }
+                setInterval(function(){
+                    $("#user-about-msg").fadeOut();  
+                },3000);
+            }
+        });
     },
 
 
+    getCities : function(event)
+    {
+        var params = { "province_id" : $(event.target).val() };
+        $label = $($('label[for="city"]')[0]);
 
+        $.ajax({
+            data:  params,
+            url:   '/user/get_cities',
+            type:  'post',
+            beforeSend: function () 
+            {
+                $label.html('Ciudad <img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/>');
+            },
+            success:  function (response) 
+            {
+                $label.html('Ciudad');   
+                $('#city').html(response);
+
+            }
+        });
+    }
         
 
 };

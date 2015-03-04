@@ -83,8 +83,22 @@
 
 									<div class="input-container">
 										<div class="input-container-inner">
-											<label for="country">Pais</label>
-											<select id="country" name="country">
+											<label for="province">Provincia</label>
+											<select id="province" name="province">
+												<option></option>
+												<?php
+													for($i = 0; $i < sizeof($provinces); $i++)
+													{
+														if($provinces[$i]['id'] == $user['province_id'])
+														{
+															echo '<option value="'.$provinces[$i]['id'].'" selected>'.$provinces[$i]['province'].'</option>';
+														}
+														else
+														{
+															echo '<option value="'.$provinces[$i]['id'].'">'.$provinces[$i]['province'].'</option>';
+														}	
+													}
+												?>
 											</select>
 										</div>
 									</div>
@@ -93,6 +107,7 @@
 										<div class="input-container-inner">
 											<label for="city">Ciudad</label>
 											<select id="city" name="city">
+												<option selected></option>
 											</select>
 										</div>
 									</div>
