@@ -208,7 +208,7 @@ class Controller_Photo extends Controller_Master {
 	            // Delete the temporary file
 	            unlink($file);
 	 			
-	 			$album_id = $this->request->post();
+	 			//$album_id = $this->request->post();
 	 			$result = 'Se actualizo con exito';
 	            
 	            $photo_model = new Model_Photo();

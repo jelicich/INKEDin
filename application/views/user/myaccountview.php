@@ -80,6 +80,22 @@
 											<input type="email" id="email" name="email" required value=<?php echo '"'.$user['email'].'"'?>/>
 										</div>
 									</div>
+
+									<div class="input-container">
+										<div class="input-container-inner">
+											<label for="country">Pais</label>
+											<select id="country" name="country">
+											</select>
+										</div>
+									</div>
+
+									<div class="input-container">
+										<div class="input-container-inner">
+											<label for="city">Ciudad</label>
+											<select id="city" name="city">
+											</select>
+										</div>
+									</div>
 									
 									<input type="submit" class="btn btn-default btn-lg" value="Guardar">
 								</form>

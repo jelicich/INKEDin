@@ -59,12 +59,20 @@ inked.Photo = {
             beforeSend: function () 
             {
                 console.log('before');
-                $("user-profile-picture-msg").fadeIn();
-                $("user-profile-picture-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
+                $("#user-profile-picture-msg").fadeIn();
+                $("#user-profile-picture-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
             },
             success: function (response)
             {
                 $('#profile-pic').html(response);
+                $("#user-profile-picture-msg").show();
+                setInterval(function(){
+                    $("#user-profile-picture-msg").fadeOut();  
+                },3000);
+
+                var src = $('#display-current-photo').attr('src');
+                var $photo = $($('.user-menu-photo')[0]);
+                $photo.attr('src', src);
             },
             error: function(r)
             {
