@@ -1,13 +1,19 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_User extends Controller_Master {
+class Controller_User extends Controller_MasterAjax {
 
 	public $template = 'user/myaccountview';
 
-	public function before()
+	/*public function before()
     {   
-        parent::before();
-        if($this->is_logged_in())
+        parent::before(); 
+    }*/
+
+	public function action_index()
+	{
+		parent::action_index();
+
+		if($this->is_logged_in())
         {
         	$this->template->head->title = "INKEDin - Mi cuenta";
         	$this->template->head->custom_scripts = HTML::script('/assets/common/app/js/jquery.validate.min.js')
@@ -69,10 +75,7 @@ class Controller_User extends Controller_Master {
         {
         	HTTP::redirect('index');	
         }
-
-    }
-
-	public function action_index(){}
+	}
 
 	public function action_update_account()
 	{

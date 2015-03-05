@@ -100,7 +100,7 @@ inked.Album = {
 
                 inked.Album.toggleLabel();
                 $("a[href='#edit-album']").tab('show');
-                this.loadCreateAlbum();
+                inked.Album.loadCreateAlbum();
             }
         });
     },
