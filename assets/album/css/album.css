@@ -1,0 +1,61 @@
+/* -- edit album -- */
+#edit-album textarea,
+#edit-album input[type="text"]{
+	margin-bottom: 5px;
+	display: none;
+}
+#edit-album label{
+	margin-bottom: 2px;
+	display: block;
+	background: url('../img/arrow.png') no-repeat #f0ddaf 145px 8px;
+	cursor: pointer;
+	padding: 0 3px;
+}
+#edit-album label.label-open{
+	background: url('../img/arrow.png') no-repeat #f0ddaf 145px -17px;
+}
+#edit-album label[for*="delete"]{
+	display: inline;
+	background: none;
+	padding: 0;
+}
+.btn-finish-container{
+	text-align: center;
+}
+.btn-finish-container input[type="submit"],
+.btn-finish-container button{
+	display: inline-block;
+	margin: 10px 5px;
+}
+.photo-edit-container{
+	margin-bottom: 20px;
+	position: relative;
+}
+.delete-container{
+	background: #f0ddaf;
+	padding: 0 3px;
+}
+
+
+/* -- List albums -- */
+.album-edit-container-inner{
+	border: 1px solid #f0ddaf;
+	margin-bottom: 20px;
+}
+.album-edit-container-inner h4{
+	padding: 0 5px;
+	font-size: 14px;
+	margin: 5px 0 ;
+}
+.btn-album-container{
+	padding: 5px;
+	border-top: 1px solid #f0ddaf;
+}
+.btn-album-container button:first-child{
+	float: left;
+}
+.btn-album-container button:last-child{
+	float: right;
+}
+
+

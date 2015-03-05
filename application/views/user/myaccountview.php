@@ -87,6 +87,7 @@
 											<select id="province" name="province">
 												<option></option>
 												<?php
+
 													for($i = 0; $i < sizeof($provinces); $i++)
 													{
 														if($provinces[$i]['id'] == $user['province_id'])
@@ -107,7 +108,23 @@
 										<div class="input-container-inner">
 											<label for="city">Ciudad</label>
 											<select id="city" name="city">
-												<option selected></option>
+												<option></option>
+												<?php 
+												if(isset($cities))
+												{
+													for($i = 0; $i < sizeof($cities); $i++)
+													{
+														if($cities[$i]['id'] == $user['city_id'])
+														{
+															echo '<option value="'.$cities[$i]['id'].'" selected>'.$cities[$i]['city'].'</option>';
+														}
+														else
+														{
+															echo '<option value="'.$cities[$i]['id'].'">'.$cities[$i]['city'].'</option>';
+														}	
+													}
+												}
+												?>
 											</select>
 										</div>
 									</div>

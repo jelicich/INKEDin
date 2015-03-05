@@ -11,6 +11,12 @@
 	text-align: left;
 }
 
+/* --- User data --- */
+#province,
+#city{
+	min-width: 150px;
+}
+
 /* --- About me --- */
 label.block{
 	display: block;
@@ -32,3 +38,7 @@ textarea{
 	margin: 0 auto 20px;
 }
 
+label[for="city"],
+label[for="province"]{
+	width: 70px;
+}

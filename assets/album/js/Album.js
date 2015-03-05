@@ -16,6 +16,7 @@ inked.Album = {
             $('#finish-album').removeClass('disabled');
         });
 
+
 	},
 
 	
@@ -97,12 +98,11 @@ inked.Album = {
                         }
                 });
 
+                inked.Album.toggleLabel();
+                $("a[href='#edit-album']").tab('show');
+                this.loadCreateAlbum();
             }
         });
-
-        $("a[href='#edit-album']").tab('show');
-        this.loadCreateAlbum();
-
     },
 
     savePhotosEdit : function()
@@ -266,6 +266,20 @@ inked.Album = {
             
         });
         
+    },
+
+    toggleLabel : function()
+    {        
+                      
+        $('.label-toggle').each(function(i, el){
+            $el = $(el);
+            $el.click(function()
+            {
+                //console.log($(this));
+                $(this).toggleClass('label-open');
+                $(this).next().toggle('fast');
+            });  
+        })
     }
 
 };

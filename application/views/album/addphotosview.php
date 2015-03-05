@@ -2,7 +2,7 @@
 <div id="user-album-create-msg" class="msg-ajax">
 </div>
 <!-- END AJAX MSG CONTAINER -->
-<h2>Agregar fotos al album <i><?php echo $album['name']; ?></i></h2>
+<h3>Agregar fotos al album <i><?php echo $album['name']; ?></i></h3>
 <form id="upload-add" method="post" action="/photo/upload_photo" style="display: block;" enctype="multipart/form-data">
 	
 	<div id="drop">

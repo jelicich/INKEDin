@@ -5,7 +5,7 @@
 <form method="post" action="/album/create_album" id="new-album-form">
 	<div class="input-container">
 		<div class="input-container-inner">
-			<label class="block">Nuevo Album</label>
+			<h3>Nuevo Album</h3>
 			<label for="album-name">Nombre</label>
 			<input type="text" id="album-name" name="name" maxlength="60" required value=""/>	
 		</div>							

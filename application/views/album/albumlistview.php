@@ -1,15 +1,25 @@
 <div class="albums-container">
-	<h2>Editar Albums</h2>
+	<h3>Editar Albums</h3>
 		<div class="row">
 			<?php
 			for($i = 0; $i < sizeof($albums); $i++)
 			{
 			?>
 			<div class="col-md-3 album-edit-container">
-				<img src="<?php echo '/users/'.$albums[$i]['user_id'].'/img/sm/'.$albums[$i]['photo']?>" alt="<?php echo $albums[$i]['name'] ?>" class="album-cover"/>
-				<h3><?php echo $albums[$i]['name'] ?></h3>
-				<button class=" btn btn-default btn-sm" data-album-id="<?php echo $albums[$i]['id']?>" onclick="inked.Album.loadAlbumEdit(event)">Editar</button>
-				<button class=" btn btn-danger btn-sm" data-album-id="<?php echo $albums[$i]['id']?>" onclick="inked.Album.deleteAlbum(event)">Borrar</button>
+				<div class="album-edit-container-inner">
+					<img src="<?php echo '/users/'.$albums[$i]['user_id'].'/img/sm/'.$albums[$i]['photo']?>" alt="<?php echo $albums[$i]['name'] ?>" class="album-cover"/>					
+					<h4><?php 
+					if(strlen($albums[$i]['name'])>20)
+					{
+						$albums[$i]['name'] = substr($albums[$i]['name'], 0,20).'...';
+					}
+					echo $albums[$i]['name'];
+					?></h4>
+					<div class="btn-album-container clearfix">
+						<button class=" btn btn-default btn-xs" data-album-id="<?php echo $albums[$i]['id']?>" onclick="inked.Album.loadAlbumEdit(event)">Editar</button>
+						<button class=" btn btn-danger btn-xs" data-album-id="<?php echo $albums[$i]['id']?>" onclick="inked.Album.deleteAlbum(event)">Borrar</button>
+					</div>
+				</div>				
 			</div>	
 			<?php
 			}

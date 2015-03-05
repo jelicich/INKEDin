@@ -23,7 +23,10 @@ class Controller_User extends Controller_Master {
 													
         											
 
-			$this->template->head->custom_styles = HTML::style('/assets/user/css/user.css').HTML::style('/assets/album/css/upload.css');
+			$this->template->head->custom_styles = HTML::style('/assets/user/css/user.css')
+													.HTML::style('/assets/album/css/upload.css')
+													.HTML::style('/assets/album/css/album.css')
+													.HTML::style('/assets/photo/css/photo.css');
 	
         	$user = $this->get_user_info();
         	if(empty($user['photo']))
@@ -34,6 +37,8 @@ class Controller_User extends Controller_Master {
         	{
         		$user['photo_path'] = '/users/'.$user['id'].'/img/sm/'.$user['photo'];
         	}
+        	
+        	//BIND USER
         	$this->template->user = $user;
 
         	//BIND STYLTES
@@ -45,6 +50,14 @@ class Controller_User extends Controller_Master {
         	$prov_model = new Model_Province();
         	$provinces = $prov_model->get_provinces();
         	$this->template->provinces = $provinces;
+
+        	//BIND CITIES
+        	if(!empty($user['province_id']))
+        	{
+				$model_cities = new Model_City();
+        		$cities = $model_cities->get_cities_by_province($user['province_id']);
+				$this->template->cities = $cities;
+        	}
 
         	//LOAD SUBVIEWS
         	$this->template->create_album_view = View::factory('album/createalbumview');

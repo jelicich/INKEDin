@@ -150,11 +150,7 @@ class Model_User extends ORM{
         $r = $user->save();
 
         //update session info
-        $session = $this->get_user_info();
-        $session['name'] = $post['name'];
-        $session['last_name'] = $post['last_name'];
-        $session['email'] = $post['email'];
-        $this->session->set('user', $session); 
+        $this->update_session();
 
     }
 
@@ -168,10 +164,7 @@ class Model_User extends ORM{
         $r = $user->save();
 
         //update session info
-        $session = $this->get_user_info();
-        $session['password'] = $password;
-        $this->session->set('user', $session); 
-
+        $this->update_session();
     }
 
     //UPDATE ACCOUNT INFO
@@ -204,25 +197,8 @@ class Model_User extends ORM{
         }
 
         //update session info
-        $session = $this->get_user_info();
-        $session['about'] = $post['about'];
-        $session['availability'] = $post['availability'];
-        $session['phone'] = $post['phone'];
-        $session['address'] = $post['address'];
-
-        //REQUEST NEW STYLES
-        $q = DB::select('styles.*')
-            ->from('userstyles')
-            ->where('userstyles.user_id','=',$user->id)
-            ->join('styles', 'LEFT')
-            ->on('userstyles.style_id','=','styles.id');
-
-        $styles = $q->execute();
-        $styles = $styles->as_array();
-        $session['styles'] = $styles;
-
-        $this->session->set('user', $session); 
-
+        $this->update_session();
+       
     }
 
     public function update_profile_photo($photo_id)
@@ -233,10 +209,8 @@ class Model_User extends ORM{
         $user->photo_id = $photo_id;
         $r = $user->save();
 
-        $session = $this->get_user_info();
-        $session['photo_id'] = $photo_id;
-
-        $this->session->set('user', $session); 
+        $this->update_session();
+        
     }
 
     public function update_session()
