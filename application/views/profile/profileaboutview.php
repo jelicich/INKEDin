@@ -22,7 +22,7 @@
 			<!-- COVER PIC -->
 			<div class="col-md-12" id="container-cover-pic">
 				<div id="inner-container-cover-pic">
-					<a href="#"><img src="assets/cover-pic.jpg" id="cover-pic" alt=""></a>
+					<a href="#"><img src="/assets/cover-pic.jpg" id="cover-pic" alt=""></a>
 				</div>
 			</div>
 			<!-- END COVER PIC -->
@@ -32,7 +32,7 @@
 				<div id="profile-fix-wrapper" class="profile-free">
 					<!-- PROFILE PIC -->
 					<div id="profile-pic-container" class="border-img">
-						<a href="#"><img src="assets/img1.jpg" alt=""/></a>
+						<a href="#"><img src="/assets/img1.jpg" alt=""/></a>
 					</div>
 					<!-- END PROFILE PIC -->
 					<div id="profile-rating-container" class="clearfix border-divider">

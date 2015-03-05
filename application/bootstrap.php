@@ -105,6 +105,7 @@ if (isset($_SERVER['KOHANA_ENV']))
 Kohana::init(array(
 	'base_url'   => '/',
 	'index_file' => FALSE,
+	'errors' => TRUE,
 ));
 
 /**
@@ -145,8 +146,19 @@ Cookie::$salt = 'inked';
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+Route::set('profile', 'profile/<profile_id>(/<action>(/<album_id>))')
+	->defaults(array(
+		'controller' => 'profile',
+		'action'     => 'index',
+		//'album_id'   => '',
+		//'param3'   => ''
+	));
+
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
 		'controller' => 'index',
 		'action'     => 'index',
 	));
+
+//Route::set('profile', '(<controller>(/<action>/<profile_id>(/<album_id>(/<param3>))))')
+

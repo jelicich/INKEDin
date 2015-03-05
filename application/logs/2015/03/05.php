@@ -1988,3 +1988,65 @@ function koggle(elem)
 #8 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #9 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #10 {main} in E:\xampp\htdocs\INKEDin\application\views\profile\profileaboutview.php:160
+2015-03-05 19:55:05 --- EMERGENCY: ErrorException [ 1 ]: Call to undefined method Controller_Profile::params() ~ APPPATH/classes/Controller/Profile.php [ 16 ] in file:line
+2015-03-05 19:55:05 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-03-05 19:55:20 --- EMERGENCY: ErrorException [ 1 ]: Call to undefined method Request::params() ~ APPPATH/classes/Controller/Profile.php [ 16 ] in file:line
+2015-03-05 19:55:20 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-03-05 20:07:33 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected '}' ~ APPPATH/classes/Controller/Profile.php [ 20 ] in file:line
+2015-03-05 20:07:33 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-03-05 20:08:10 --- EMERGENCY: ErrorException [ 2 ]: Missing argument 1 for Model_User::get_profile_info_by_id(), called in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Profile.php on line 19 and defined ~ APPPATH/classes/Model/User.php [ 242 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php:242
+2015-03-05 20:08:10 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php(242): Kohana_Core::error_handler(2, 'Missing argumen...', '/Applications/X...', 242, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Profile.php(19): Model_User->get_profile_info_by_id()
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(69): Controller_Profile->before()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php:242
+2015-03-05 20:08:18 --- EMERGENCY: Database_Exception [ 1052 ]: Column 'id' in where clause is ambiguous [ SELECT `user`.*, `photos`.*, `user`.`id` AS `id`, `user`.`name` AS `name`, `user`.`last_name` AS `last_name`, `user`.`email` AS `email`, `user`.`password` AS `password`, `user`.`role` AS `role`, `user`.`about` AS `about`, `user`.`availability` AS `availability`, `user`.`phone` AS `phone`, `user`.`address` AS `address`, `user`.`rating_id` AS `rating_id`, `user`.`photo_id` AS `photo_id`, `user`.`province_id` AS `province_id`, `user`.`city_id` AS `city_id`, `user`.`hash` AS `hash`, `user`.`active` AS `active`, `user`.`date` AS `date` FROM `users` AS `user` LEFT JOIN `photos` ON (`user`.`photo_id` = `photos`.`id`) WHERE `id` IS NULL LIMIT 1 ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php:251
+2015-03-05 20:08:18 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `user`.*...', false, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(1072): Kohana_Database_Query->execute(Object(Database_MySQL))
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(979): Kohana_ORM->_load_result(false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php(248): Kohana_ORM->find()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Profile.php(19): Model_User->get_profile_info_by_id(NULL)
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(69): Controller_Profile->before()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#11 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php:251
+2015-03-05 20:14:27 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: model_user ~ APPPATH/classes/Controller/Profile.php [ 13 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Profile.php:13
+2015-03-05 20:14:27 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Profile.php(13): Kohana_Core::error_handler(8, 'Undefined varia...', '/Applications/X...', 13, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(69): Controller_Profile->before()
+#2 [internal function]: Kohana_Controller->execute()
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#7 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Profile.php:13
+2015-03-05 20:49:28 --- EMERGENCY: ErrorException [ 2 ]: preg_match(): Compilation failed: unmatched parentheses at offset 67 ~ SYSPATH/classes/Kohana/Route.php [ 423 ] in file:line
+2015-03-05 20:49:28 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(2, 'preg_match(): C...', '/Applications/X...', 423, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Route.php(423): preg_match('#^profile/(?P<p...', 'profile', NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(472): Kohana_Route->matches(Object(Request))
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(949): Kohana_Request::process(Object(Request), Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#5 {main} in file:line
+2015-03-05 20:50:28 --- EMERGENCY: ErrorException [ 2 ]: preg_match(): Compilation failed: syntax error in subpattern name (missing terminator) at offset 81 ~ SYSPATH/classes/Kohana/Route.php [ 423 ] in file:line
+2015-03-05 20:50:28 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(2, 'preg_match(): C...', '/Applications/X...', 423, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Route.php(423): preg_match('#^profile/(?P<p...', 'profile/1/saras...', NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(472): Kohana_Route->matches(Object(Request))
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(949): Kohana_Request::process(Object(Request), Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#5 {main} in file:line
+2015-03-05 20:50:30 --- EMERGENCY: ErrorException [ 2 ]: preg_match(): Compilation failed: syntax error in subpattern name (missing terminator) at offset 81 ~ SYSPATH/classes/Kohana/Route.php [ 423 ] in file:line
+2015-03-05 20:50:30 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(2, 'preg_match(): C...', '/Applications/X...', 423, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Route.php(423): preg_match('#^profile/(?P<p...', 'profile/1/saras...', NULL)
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(472): Kohana_Route->matches(Object(Request))
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(949): Kohana_Request::process(Object(Request), Array)
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#5 {main} in file:line

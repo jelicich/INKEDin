@@ -239,4 +239,28 @@ class Model_User extends ORM{
         $this->session->set('user', $user); 
     }
 
+    public function get_profile_info_by_id($id)
+    {
+        $user = $this->select('user.*','photos.*')
+            ->where('user.id', '=', $id)
+            ->join('photos','LEFT')
+            ->on('user.photo_id', '=', 'photos.id')
+            ->find();
+
+        $q = DB::select('styles.*')
+            ->from('userstyles')
+            ->where('userstyles.user_id','=',$id)
+            ->join('styles', 'LEFT')
+            ->on('userstyles.style_id','=','styles.id');
+
+        $styles = $q->execute();
+        $styles = $styles->as_array();
+        
+        $user = $user->as_array();
+        
+        $user['styles'] = $styles;
+
+        return $user;
+    }
+
 }
