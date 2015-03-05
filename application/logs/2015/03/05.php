@@ -1927,3 +1927,64 @@ function koggle(elem)
 #5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #6 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #7 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\user.php:18
+2015-03-05 14:55:19 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: head ~ APPPATH\views\user\myaccountview.php [ 4 ] in E:\xampp\htdocs\INKEDin\application\views\user\myaccountview.php:4
+2015-03-05 14:55:19 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\views\user\myaccountview.php(4): Kohana_Core::error_handler(8, 'Undefined varia...', 'E:\xampp\htdocs...', 4, Array)
+#1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(62): include('E:\xampp\htdocs...')
+#2 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(359): Kohana_View::capture('E:\xampp\htdocs...', Array)
+#3 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller\Template.php(44): Kohana_View->render()
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(87): Kohana_Controller_Template->after()
+#5 [internal function]: Kohana_Controller->execute()
+#6 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#7 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#9 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#10 {main} in E:\xampp\htdocs\INKEDin\application\views\user\myaccountview.php:4
+2015-03-05 14:59:06 --- CRITICAL: ErrorException [ 2 ]: Attempt to assign property of non-object ~ APPPATH\classes\Controller\masterajax.php [ 38 ] in E:\xampp\htdocs\INKEDin\application\classes\Controller\masterajax.php:38
+2015-03-05 14:59:06 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\classes\Controller\masterajax.php(38): Kohana_Core::error_handler(2, 'Attempt to assi...', 'E:\xampp\htdocs...', 38, Array)
+#1 E:\xampp\htdocs\INKEDin\application\classes\Controller\user.php(14): Controller_MasterAjax->action_index()
+#2 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_User->action_index()
+#3 [internal function]: Kohana_Controller->execute()
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#8 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\masterajax.php:38
+2015-03-05 15:02:14 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected '(', expecting ',' or ';' ~ APPPATH\classes\Controller\masterajax.php [ 5 ] in file:line
+2015-03-05 15:02:14 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-03-05 15:02:58 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected '(', expecting ',' or ';' ~ APPPATH\classes\Controller\masterajax.php [ 5 ] in file:line
+2015-03-05 15:02:58 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-03-05 15:04:43 --- CRITICAL: ErrorException [ 1 ]: Call to undefined method Controller_User::template() ~ APPPATH\classes\Controller\user.php [ 73 ] in file:line
+2015-03-05 15:04:43 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-03-05 15:07:21 --- CRITICAL: Kohana_Exception [ 0 ]: View variable is not set: head ~ SYSPATH\classes\Kohana\View.php [ 179 ] in E:\xampp\htdocs\INKEDin\application\classes\Controller\user.php:18
+2015-03-05 15:07:21 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\classes\Controller\user.php(18): Kohana_View->__get('head')
+#1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_User->action_index()
+#2 [internal function]: Kohana_Controller->execute()
+#3 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#7 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\user.php:18
+2015-03-05 15:31:02 --- CRITICAL: ErrorException [ 8 ]: Undefined index: lastname ~ APPPATH\classes\Controller\profile.php [ 12 ] in E:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php:12
+2015-03-05 15:31:02 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php(12): Kohana_Core::error_handler(8, 'Undefined index...', 'E:\xampp\htdocs...', 12, Array)
+#1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(69): Controller_Profile->before()
+#2 [internal function]: Kohana_Controller->execute()
+#3 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#7 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php:12
+2015-03-05 15:31:47 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: user ~ APPPATH\views\profile\profileaboutview.php [ 160 ] in E:\xampp\htdocs\INKEDin\application\views\profile\profileaboutview.php:160
+2015-03-05 15:31:47 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\views\profile\profileaboutview.php(160): Kohana_Core::error_handler(8, 'Undefined varia...', 'E:\xampp\htdocs...', 160, Array)
+#1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(62): include('E:\xampp\htdocs...')
+#2 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(359): Kohana_View::capture('E:\xampp\htdocs...', Array)
+#3 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller\Template.php(44): Kohana_View->render()
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(87): Kohana_Controller_Template->after()
+#5 [internal function]: Kohana_Controller->execute()
+#6 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#7 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#9 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#10 {main} in E:\xampp\htdocs\INKEDin\application\views\profile\profileaboutview.php:160

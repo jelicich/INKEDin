@@ -70,6 +70,7 @@ class Controller_User extends Controller_MasterAjax {
         	$this->template->profile_picture_view = View::factory('photo/uploadprofilepictureview');
         	$this->template->profile_picture_view->user = $user;
         	
+        	
         }
         else
         {
