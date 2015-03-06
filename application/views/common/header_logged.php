@@ -23,7 +23,7 @@
 						<div class="row">
 							<div class="col-md-9 user-menu-buttons-container">
 								<h3 class="user-menu-name">
-									<a href=<?php echo "/profile/index/".$user['id'] ?> ><?php echo $user['name'].' '.$user['last_name'] ?></a>
+									<a href=<?php echo "/profile/".$user['id'] ?> ><?php echo $user['name'].' '.$user['last_name'] ?></a>
 								</h3>
 								<ul class="user-menu-buttons clearfix">
 									<li><a href="/user">Mi Cuenta</a></li>

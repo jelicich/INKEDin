@@ -32,7 +32,7 @@
 				<div id="profile-fix-wrapper" class="profile-free">
 					<!-- PROFILE PIC -->
 					<div id="profile-pic-container" class="border-img">
-						<a href="#"><img src="/assets/img1.jpg" alt=""/></a>
+						<a href="#"><?php echo $profile['photo'] ?></a>
 					</div>
 					<!-- END PROFILE PIC -->
 					<div id="profile-rating-container" class="clearfix border-divider">
@@ -56,9 +56,9 @@
 					</div>
 					<nav class="menu-profile">
 						<ul>
-							<li><a href="#">Información</a></li>
-							<li><a href="#">Albumes</a></li>
-							<li><a href="#">Comentarios</a></li>
+							<li><a href="/profile/<?php echo $profile['id']?>">Información</a></li>
+							<li><a href="/profile/<?php echo $profile['id']?>/albums_list">Albumes</a></li>
+							<li><a href="/profile/<?php echo $profile['id']?>/comments">Comentarios</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -66,47 +66,14 @@
 			<!--END LEFT COL -->
 
 			<!-- MID COL -->
-			<article class="col-md-6" id="profile-mid-col">
-				<h1>Nombre del Artista</h1>
-				<div id="artist-info-container" class="light-bg">
-					<div class="border-divider">
-						<h2>Acerca de mi</h2>
-						<p>I'm jumping in here a little late, but came across this page when pondering it myself. Of course I don't know how Facebook or Twitter justified it, but here is my own thought process for what it's worth. In the end, I concluded that this practice is not that unsemantic (is that a word?). In fact, besides shortness and the nice association of "i is for icon," I think it's actually the most semantic choice for an icon when a straightforward  tag is not practical.</p>
-					</div>
-					<div class="border-divider">
-						<h2>Estilos</h2>
-						<ul>
-							<li>Tradicional</li>
-							<li>Oriental</li>
-							<li>Blanco y Negro</li>
-						</ul>
-					</div>
-					<div class="border-divider">
-						<h2>Disponibilidad</h2>
-						<p>I'm jumping in here a little late, but came across this page when pondering it myself. Of course I don't know how Facebook or Twitter.</p>
-					</div>
-					<div>
-						<h2>Contacto</h2>
-						<dl>
-							<dt>Telefono</dt>
-							<dd>5555-5555</dd>
-							<dt>Dias y Horarios</dt>
-							<dd>Lunes a viernes de 9 a 18</dd>
-							<dt>Direccion</dt>
-							<dd>Guemes 2989</dd>
-						</dl>
-						<div id="map">
-						</div>
-					</div>
-				</div>
-			</article>
+			<?php echo $content ?>
 			<!--END MID COL -->
 
 			<!--RIGHT COL-->
-			<aside class="col-md-3" id="side-content-profile">
-				<div style="height: 300px; background:brown">
-				</div>
-			</aside>
+			<?php 
+			if(isset($sidebar))
+				echo $sidebar 
+			?>
 			<!--RIGHT COL -->
 		</div>
 	</section>
