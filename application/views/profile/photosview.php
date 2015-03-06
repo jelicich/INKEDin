@@ -10,7 +10,7 @@
 		<div class="col-md-4 pic-sq-grid">
 			<div class="inner-pic-sq-grid border-img">
 				<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
-					<img src="<?php echo '/users/'.$photos[$i]['user_id'].'/img/sm/'.$photos[$i]['photo']?>" alt="$photos[$i]['description']" class="photo-edit-album" data-photo-id="<?php echo $photos[$i]['id']?>" data-tags="<?php echo $photos[$i]['tags']?>"/>
+					<img src="<?php echo '/users/'.$photos[$i]['user_id'].'/img/sm/'.$photos[$i]['photo']?>" alt="<?php echo $photos[$i]['description'] ?>" class="photo-edit-album" data-photo-id="<?php echo $photos[$i]['id']?>" data-tags="<?php echo $photos[$i]['tags']?>"/>
 				</a>
 			</div>
 		</div>
@@ -26,7 +26,8 @@
         <div class="modal-body">
             <img src="" id="photo-target" class="img-responsive">
             <div class="modal-tools">
-           		<p><strong>Tags:</strong> old, school, sarasa, patata</p>
+           		<p id="photo-description"></p>
+           		<p class="photo-tags"><strong>Tags:</strong> <span id="photo-tags"></span></p>
            		<a href="#" class="btn btn-default">Guardar <span class="glyphicon glyphicon-picture"></span></a>
             </div>
         </div>

@@ -1,0 +1,4 @@
+.inked.profileview .photo-tags strong,
+.inked.profileview .photo-tags span{
+	color: rgba(0,0,0,0.6);
+}

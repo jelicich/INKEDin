@@ -16,6 +16,10 @@ inked.Modal = {
             var src = $(this).children().attr('src');
             var lg_src = src.replace('/sm/','/reg/');
             $('#photo-target').attr('src', lg_src);        
+            var desc = $(this).children().attr('alt');
+            var tags = $(this).children().attr('data-tags');
+            $('#photo-description').html(desc);
+            $('#photo-tags').html(tags);        
         });
     },
 
