@@ -4,7 +4,8 @@ class Model_Rating extends ORM{
 	
 	public function get_rating_by_id($id)
 	{
-		$rating = $this->select()
+		$mod = new Model_Rating();
+		$rating = $mod->select()
 			->where('id','=',$id)
 			->find();
 		$rating = $rating->as_array();
@@ -14,7 +15,8 @@ class Model_Rating extends ORM{
 
 	public function is_rated($id)
 	{
-		$rating = $this->select('id')
+		$mod = new Model_Rating();
+		$rating = $mod->select('id')
 			->where('id','=',$id)
 			->find();
 		
@@ -38,7 +40,8 @@ class Model_Rating extends ORM{
 
 	public function get_rating_by_ip($ip, $id)
 	{
-		$rating = $this->select('used_ips')
+		$mod = new Model_Rating();
+		$rating = $mod->select('used_ips')
 			->where('used_ips','LIKE', $ip)
 			->and_where('id', '=', $id)
 			->find();
@@ -56,7 +59,8 @@ class Model_Rating extends ORM{
 
 	public function rate($added, $sum, $insertip, $id_sent)
 	{
-		$rating = $this->where('id', '=', $id_sent )->find();
+		$mod = new Model_Rating();
+		$rating = $mod->where('id', '=', $id_sent )->find();
         $rating->total_votes = $added;
         $rating->total_value = $sum;
         $rating->used_ips = $insertip;

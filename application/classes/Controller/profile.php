@@ -27,7 +27,8 @@ class Controller_Profile extends Controller_Master {
         }
         
         $this->template->head->title = "INKEDin - ".$profile['name']." ".$profile['last_name'];
-        $this->template->head->custom_scripts = HTML::script('/assets/profile/js/Profile.js');
+        $this->template->head->custom_scripts = HTML::script('/assets/profile/js/Profile.js')
+                                                .HTML::script('/assets/profile/js/Rating.js');
         $this->template->head->custom_styles = HTML::style('/assets/profile/css/rating.css');
 
         //CHECK PROFILE PIC
@@ -49,11 +50,19 @@ class Controller_Profile extends Controller_Master {
         $rating = $rating_model->get_rating_by_id($this->id);
         if($rating['total_votes'] > 0)
         {
-            $v=$rating['total_votes'];
-            $tv=$rating['total_value'];
+            $v = $rating['total_votes'];
+            $tv = $rating['total_value'];
             $rating['total'] = $tv/$v;
         }
-        $this->template->rating = $rating;
+        else
+        {
+            $v = 0;
+            $tv = 0;
+            $rating['total'] = 0;   
+        }
+        $this->template->ratingview = View::factory('profile/ratingview');
+        $this->template->ratingview->rating = $rating;
+        $this->template->ratingview->profile_id = $profile['id'];
 
 
 
@@ -99,11 +108,16 @@ class Controller_Profile extends Controller_Master {
 
     public function action_rate()
     {
+        if($this->request->is_ajax())
+        {   
+            $this->auto_render = false;
+        }
+
         $id_sent = preg_replace("/[^0-9]/","",$_REQUEST['id']);
         $vote_sent = preg_replace("/[^0-9]/","",$_REQUEST['stars']);
         $ip = $_SERVER['REMOTE_ADDR'];
         $units = 5;
-        
+
         $model_rating = new Model_Rating();
         if(!$model_rating->is_rated($id_sent))
         {
@@ -161,18 +175,24 @@ class Controller_Profile extends Controller_Master {
         // these are new queries to get the new values!
         //$newtotals = mysql_query("SELECT total_votes, total_value, used_ips FROM $rating_tableName WHERE id='$id_sent' ")or die(" Error: ".mysql_error());
         //$numbers = mysql_fetch_assoc($newtotals);
-        $numbers = $model_rating->get_rating_by_id($id_sent);        
+        
+        //$numbers = $model_rating->get_rating_by_id($id_sent);        
+        $rating = $model_rating->get_rating_by_id($id_sent);        
+        
+        /*
         $count = $numbers['total_votes'];//how many votes total
         $current_rating = $numbers['total_value'];//total number of rating added together and stored
         $tense = ($count==1) ? "vote" : "votes"; //plural form votes/vote
 
         // $new_back is what gets 'drawn' on your page after a successful 'AJAX/Javascript' vote
-        /*
+        
+        
         if($voted)
         {
             $sum = $current_rating; 
             $added = $count;
         }
+
         $new_back = array();
         for($i=0; $i < 5; $i++)
         {
@@ -182,18 +202,47 @@ class Controller_Profile extends Controller_Master {
             $new_back[] .= '<div class="star_'.$j.' '.$class.'"></div>';
         }
 
+
         $new_back[] .= ' <div class="total_votes"><p class="voted"> Rating: <strong>'.@number_format($sum/$added,1).'</strong>/'.$units.' ('.$count.' '.$tense.' cast) ';
+        
         if(!$voted)$new_back[] .= '<span class="thanks">Thanks for voting!</span></p>';
         else {$new_back[] .= '<span class="invalid">Already voted for this item</span></p></div>';}
         $allnewback = join("\n", $new_back);
+
 
         // ========================
 
 
         $output = $allnewback;
         echo $output;
-
         */
+        if(!$voted)
+        {
+            $feedback = '<span class="thanks">Thanks for voting!</span></p>';
+        }            
+        else 
+        {
+            $feedback = '<span class="invalid">Already voted for this item</span></p></div>';
+        }
+
+        if($rating['total_votes'] > 0)
+        {
+            $v = $rating['total_votes'];
+            $tv = $rating['total_value'];
+            $rating['total'] = $tv/$v;
+        }
+        else
+        {
+            $v = 0;
+            $tv = 0;
+            $rating['total'] = 0;   
+        }
+        $view = View::factory('profile/ratingview');
+        $view->rating = $rating;
+        $view->profile_id = $id_sent;
+        $view->feedback = $feedback;
+        $this->response->body($view);
+        
     }
 
 } // End Welcome

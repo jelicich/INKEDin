@@ -37,33 +37,9 @@
 					<!-- END PROFILE PIC -->
 					<div id="profile-rating-container" class="clearfix border-divider">
 						
-						<?php
-
-						echo'<div class="product">
-						Rate Item 
-						<div id="rating_'.$rating['id'].'" class="ratings">';
-						for($i = 1; $i < 6; $i++)
-						{
-							if($rating['total']+0.5 > $i)
-							{
-								$class = "star_".$i."  ratings_stars ratings_vote";
-							}
-							else 
-							{
-								$class = "star_".$i." ratings_stars ratings_blank";
-							}	
-								echo '<div class="'.$class.'"></div>';
-						}
-						echo' <div class="total_votes">
-						<p class="voted"> Rating: <strong>'.@number_format($rating['total']).'</strong>/5 ('.$rating['total_votes']. '  vote(s) cast) 
+						<div id="ratingvew-container">
+							<?php echo $ratingview; ?>
 						</div>
-						</div>
-						</div>';
-
-						?>
-
-
-
 
 						<div class="rating rate">
 							<span>4.5</span>

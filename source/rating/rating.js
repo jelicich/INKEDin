@@ -1,13 +1,13 @@
 
-    $(document).ready(function() {
- $('.ratings_stars').hover(
+$(document).ready(function() {
+   $('.ratings_stars').hover(
 
             // Handles the mouseover
 
             function() {
 
                 $(this).prevAll().andSelf().addClass('ratings_over');
-               
+
 
             },
 
@@ -19,19 +19,26 @@
 
             }
 
-        );
+            );
         //send ajax request to rate.php
         $('.ratings_stars').bind('click', function() {
-			
-			var id=$(this).parent().attr("id");
-		    var num=$(this).attr("class");
-			var poststr="id="+id+"&stars="+num;
-		    $.ajax({url:"/profile/"+id+"/rate",cache:0,data:poststr,success:function(result){
-                document.getElementById(id).innerHTML=result;}
-            });	
-		});
 
- 
-        });
+         var id=$(this).parent().attr("id");
+         var num=$(this).attr("class");
+         var poststr="id="+id+"&stars="+num;
+         $.ajax({
+            url:"/profile/"+id+"/rate",
+            cache:0,
+            data:poststr,
+            success:function(result)
+            {
+               $('#ratingvew-container').html(result);
+               // document.getElementById(id).innerHTML=result;
+            }
+        });	
+     });
+
+
+});
 
         
