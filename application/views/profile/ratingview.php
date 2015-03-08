@@ -10,13 +10,21 @@
 				<?php
 				for($i = 1; $i < 6; $i++)
 				{
-					if($rating['total']+0.5 > $i)
+					if($rating['total'] >= $i)
 					{
-						$class = "star_".$i."  ratings_stars ratings_vote";
+						$class = "star_".$i." ratings_stars ratings_vote";		
 					}
 					else 
-					{
-						$class = "star_".$i." ratings_stars ratings_blank";
+					{	
+						if($rating['total'] < $i && $rating['total'] > $i-1)
+						{
+							$class = "star_".$i." ratings_stars ratings_vote_half";		
+						}
+						else
+						{
+							$class = "star_".$i." ratings_stars ratings_blank";	
+						}
+						
 					}
 					echo '<li class="'.$class.'"></li>';
 				}

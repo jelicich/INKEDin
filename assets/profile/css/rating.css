@@ -9,18 +9,21 @@
 }
 */
 .ratings_stars {
-            background: url('../img/star_blank.png') no-repeat;
-            float:      left;
-            height:     28px;
-            padding:    2px;
-            width:      32px;
-        }
+    background: url('../img/star_blank.png') no-repeat;
+    float:      left;
+    height:     28px;
+    padding:    2px;
+    width:      32px;
+}
 .ratings_vote {
-            background: url('../img/star_voted.png') no-repeat;
-        }
+    background: url('../img/star_voted.png') no-repeat;
+}
+.ratings_vote_half {
+    background: url('../img/star_voted_half.png') no-repeat;
+}
 .ratings_over {
-            background: url('../img/star_overs.png') no-repeat;
-        }
+    background: url('../img/star_overs.png') no-repeat;
+}
 		
 .total_votes {  
     background: #eaeaea;  
