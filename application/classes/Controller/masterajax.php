@@ -47,8 +47,8 @@ abstract class Controller_MasterAjax extends Controller_Template
             {
                 $user_id = $this->template->header->user['id'];
                 $user_photo = $this->template->header->user['photo'];
-                $user_tags = $this->template->header->user['tags'];
-                $photo = HTML::image('users/'.$user_id.'/img/sm/'.$user_photo, array('alt' => $user_tags, 'class' => 'user-menu-photo col-md-3'));
+                $name = $this->template->header->user['name'].' '.$this->template->header->user['last_name'];;
+                $photo = HTML::image('users/'.$user_id.'/img/sm/'.$user_photo, array('alt' => $name, 'class' => 'user-menu-photo col-md-3'));
             }
             $this->template->header->user['photo'] = $photo;
         }

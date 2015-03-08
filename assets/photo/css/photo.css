@@ -1,4 +1,11 @@
-#profile-input-file{
+#profile-pic-form{
+	margin-bottom: 20px;
+	border-bottom: 1px solid #f0ddaf;
+	padding-bottom: 20px;
+}
+#profile-input-file,
+#cover-input-file
+{
 	background: #f0ddaf;
 	padding: 5px;
 	width: 100%;

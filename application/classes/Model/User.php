@@ -66,11 +66,13 @@ class Model_User extends ORM{
             ->on('userstyles.style_id', '=', 'styles.id')
     		->find();
         */
-        $user = $this->select('user.*','photos.*')
+        $user = $this->select('user.*',array('profile.photo','photo'),array('cover.photo', 'cover'))
             ->where('email', '=', $username)
             ->and_where('password' , '=', $password)
-            ->join('photos','LEFT')
-            ->on('user.photo_id', '=', 'photos.id')
+            ->join(array('photos','profile'),'LEFT')
+            ->on('user.photo_id', '=', 'profile.id')
+            ->join(array('photos','cover'),'LEFT')
+            ->on('user.cover_id', '=', 'cover.id')
             ->find();
 
 
@@ -213,14 +215,28 @@ class Model_User extends ORM{
         
     }
 
+    public function update_cover_photo($cover_id)
+    {
+        $user = $this->get_user_info();
+        
+        $user = $this->where('id', '=', $user['id'] )->find();
+        $user->cover_id = $cover_id;
+        $r = $user->save();
+
+        $this->update_session();
+        
+    }
+
     public function update_session()
     {
         $current_session = $this->get_user_info();
         $mu = new Model_User();
-        $user = $mu->select('user.*','photos.*')
+        $user = $mu->select('user.*',array('profile.photo','photo'),array('cover.photo', 'cover'))
             ->where('user.id', '=', $current_session['id'])
-            ->join('photos','LEFT')
-            ->on('user.photo_id', '=', 'photos.id')
+            ->join(array('photos','profile'),'LEFT')
+            ->on('user.photo_id', '=', 'profile.id')
+            ->join(array('photos','cover'),'LEFT')
+            ->on('user.cover_id', '=', 'cover.id')
             ->find();
 
         $q = DB::select('styles.*')
@@ -241,10 +257,12 @@ class Model_User extends ORM{
 
     public function get_profile_info_by_id($id)
     {
-        $user = $this->select('user.*','photos.*')
+        $user = $this->select('user.*',array('profile.photo','photo'),array('cover.photo', 'cover'))
             ->where('user.id', '=', $id)
-            ->join('photos','LEFT')
-            ->on('user.photo_id', '=', 'photos.id')
+            ->join(array('photos','profile'),'LEFT')
+            ->on('user.photo_id', '=', 'profile.id')
+            ->join(array('photos','cover'),'LEFT')
+            ->on('user.cover_id', '=', 'cover.id')
             ->find();
 
         $q = DB::select('styles.*')

@@ -35,6 +35,7 @@ class Controller_User extends Controller_MasterAjax {
 													.HTML::style('/assets/photo/css/photo.css');
 	
         	$user = $this->get_user_info();
+        	
         	if(empty($user['photo']))
         	{
         		$user['photo_path'] = '/assets/common/app/img/default.jpg';
@@ -42,6 +43,14 @@ class Controller_User extends Controller_MasterAjax {
         	else
         	{
         		$user['photo_path'] = '/users/'.$user['id'].'/img/sm/'.$user['photo'];
+        	}
+        	if(empty($user['cover']))
+        	{
+        		$user['cover_path'] = '/assets/common/app/img/cover.jpg';
+        	}
+        	else
+        	{
+        		$user['cover_path'] = '/users/'.$user['id'].'/img/sm/'.$user['cover'];
         	}
         	
         	//BIND USER

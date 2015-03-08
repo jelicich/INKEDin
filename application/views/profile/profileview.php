@@ -22,7 +22,7 @@
 			<!-- COVER PIC -->
 			<div class="col-md-12" id="container-cover-pic">
 				<div id="inner-container-cover-pic">
-					<a href="#"><img src="/assets/cover-pic.jpg" id="cover-pic" alt=""></a>
+					<a href="#"><?php echo $profile['cover'] ?></a>
 				</div>
 			</div>
 			<!-- END COVER PIC -->
@@ -41,6 +41,7 @@
 							<?php echo $ratingview; ?>
 						</div>
 
+						<!--
 						<div class="rating rate">
 							<span>4.5</span>
 						</div>
@@ -54,6 +55,7 @@
 							</ol>
 							<span>Calificá a este artista</span>
 						</div>
+						-->
 					</div>
 					<div class="profile-buttons-container border-divider">
 						<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav">AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>

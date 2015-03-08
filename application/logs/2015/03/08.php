@@ -1,0 +1,127 @@
+<?php defined('SYSPATH') OR die('No direct script access.'); ?>
+
+2015-03-08 14:35:23 --- EMERGENCY: Database_Exception [ 1066 ]: Not unique table/alias: 'photos' [ SELECT `user`.*, `photos`.*, `user`.`id` AS `id`, `user`.`name` AS `name`, `user`.`last_name` AS `last_name`, `user`.`email` AS `email`, `user`.`password` AS `password`, `user`.`role` AS `role`, `user`.`about` AS `about`, `user`.`availability` AS `availability`, `user`.`phone` AS `phone`, `user`.`address` AS `address`, `user`.`rating_id` AS `rating_id`, `user`.`photo_id` AS `photo_id`, `user`.`cover_id` AS `cover_id`, `user`.`province_id` AS `province_id`, `user`.`city_id` AS `city_id`, `user`.`hash` AS `hash`, `user`.`active` AS `active`, `user`.`date` AS `date` FROM `users` AS `user` LEFT JOIN `photos` ON (`user`.`photo_id` = `photos`.`id`) LEFT JOIN `photos` ON (`user`.`cover_id` = `photos`.`id`) WHERE `email` = 'jelicich.e@gmail.com' AND `password` = '7110eda4d09e062aa5e4a390b0a572ac0d2c0220' LIMIT 1 ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php:251
+2015-03-08 14:35:23 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `user`.*...', false, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(1072): Kohana_Database_Query->execute(Object(Database_MySQL))
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(979): Kohana_ORM->_load_result(false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php(76): Kohana_ORM->find()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Auth.php(15): Model_User->login_user('jelicich.e@gmai...', '7110eda4d09e062...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Auth->action_login()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Auth))
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#11 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php:251
+2015-03-08 14:49:46 --- EMERGENCY: Database_Exception [ 1051 ]: Unknown table 'photos' [ SELECT `user`.*, `photos`.*, `user`.`id` AS `id`, `user`.`name` AS `name`, `user`.`last_name` AS `last_name`, `user`.`email` AS `email`, `user`.`password` AS `password`, `user`.`role` AS `role`, `user`.`about` AS `about`, `user`.`availability` AS `availability`, `user`.`phone` AS `phone`, `user`.`address` AS `address`, `user`.`rating_id` AS `rating_id`, `user`.`photo_id` AS `photo_id`, `user`.`cover_id` AS `cover_id`, `user`.`province_id` AS `province_id`, `user`.`city_id` AS `city_id`, `user`.`hash` AS `hash`, `user`.`active` AS `active`, `user`.`date` AS `date` FROM `users` AS `user` LEFT JOIN `photos` AS `profile` ON (`user`.`photo_id` = `photos`.`id`) LEFT JOIN `photos` AS `cover` ON (`user`.`cover_id` = `cover`.`id`) WHERE `email` = 'jelicich.e@gmail.com' AND `password` = '7110eda4d09e062aa5e4a390b0a572ac0d2c0220' LIMIT 1 ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php:251
+2015-03-08 14:49:46 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `user`.*...', false, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(1072): Kohana_Database_Query->execute(Object(Database_MySQL))
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(979): Kohana_ORM->_load_result(false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php(76): Kohana_ORM->find()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Auth.php(15): Model_User->login_user('jelicich.e@gmai...', '7110eda4d09e062...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Auth->action_login()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Auth))
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#11 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php:251
+2015-03-08 14:51:12 --- EMERGENCY: Database_Exception [ 1054 ]: Unknown column 'photos.id' in 'on clause' [ SELECT `user`.*, `profile`.*, `cover`.*, `user`.`id` AS `id`, `user`.`name` AS `name`, `user`.`last_name` AS `last_name`, `user`.`email` AS `email`, `user`.`password` AS `password`, `user`.`role` AS `role`, `user`.`about` AS `about`, `user`.`availability` AS `availability`, `user`.`phone` AS `phone`, `user`.`address` AS `address`, `user`.`rating_id` AS `rating_id`, `user`.`photo_id` AS `photo_id`, `user`.`cover_id` AS `cover_id`, `user`.`province_id` AS `province_id`, `user`.`city_id` AS `city_id`, `user`.`hash` AS `hash`, `user`.`active` AS `active`, `user`.`date` AS `date` FROM `users` AS `user` LEFT JOIN `photos` AS `profile` ON (`user`.`photo_id` = `photos`.`id`) LEFT JOIN `photos` AS `cover` ON (`user`.`cover_id` = `cover`.`id`) WHERE `email` = 'jelicich.e@gmail.com' AND `password` = '7110eda4d09e062aa5e4a390b0a572ac0d2c0220' LIMIT 1 ] ~ MODPATH/database/classes/Kohana/Database/MySQL.php [ 194 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php:251
+2015-03-08 14:51:12 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php(251): Kohana_Database_MySQL->query(1, 'SELECT `user`.*...', false, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(1072): Kohana_Database_Query->execute(Object(Database_MySQL))
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/orm/classes/Kohana/ORM.php(979): Kohana_ORM->_load_result(false)
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php(76): Kohana_ORM->find()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Auth.php(15): Model_User->login_user('jelicich.e@gmai...', '7110eda4d09e062...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Auth->action_login()
+#6 [internal function]: Kohana_Controller->execute()
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Auth))
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#11 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/modules/database/classes/Kohana/Database/Query.php:251
+2015-03-08 15:38:09 --- EMERGENCY: Kohana_Exception [ 0 ]: Method find() cannot be called on loaded objects ~ MODPATH/orm/classes/Kohana/ORM.php [ 966 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php:240
+2015-03-08 15:38:09 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php(240): Kohana_ORM->find()
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php(214): Model_User->update_session()
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Photo.php(222): Model_User->update_profile_photo(Object(Model_Photo))
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Photo->action_update_profile_cover_photo()
+#4 [internal function]: Kohana_Controller->execute()
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Photo))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#9 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php:240
+2015-03-08 15:38:47 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: tags ~ APPPATH/classes/Controller/Master.php [ 42 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php:42
+2015-03-08 15:38:47 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php(42): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 42, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Index.php(10): Controller_Master->before()
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(69): Controller_Index->before()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php:42
+2015-03-08 15:39:38 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: tags ~ APPPATH/classes/Controller/Master.php [ 42 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php:42
+2015-03-08 15:39:38 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php(42): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 42, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Index.php(10): Controller_Master->before()
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(69): Controller_Index->before()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php:42
+2015-03-08 15:39:50 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: tags ~ APPPATH/classes/Controller/Master.php [ 42 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php:42
+2015-03-08 15:39:50 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php(42): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 42, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Index.php(10): Controller_Master->before()
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(69): Controller_Index->before()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php:42
+2015-03-08 15:41:22 --- EMERGENCY: ErrorException [ 8 ]: Undefined variable: user ~ APPPATH/classes/Controller/Master.php [ 42 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php:42
+2015-03-08 15:41:22 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php(42): Kohana_Core::error_handler(8, 'Undefined varia...', '/Applications/X...', 42, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Index.php(10): Controller_Master->before()
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(69): Controller_Index->before()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Index))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Master.php:42
+2015-03-08 15:43:04 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: tags ~ APPPATH/classes/Controller/MasterAjax.php [ 50 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/MasterAjax.php:50
+2015-03-08 15:43:04 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/MasterAjax.php(50): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 50, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/User.php(14): Controller_MasterAjax->action_index()
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_User->action_index()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_User))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/MasterAjax.php:50
+2015-03-08 15:43:50 --- EMERGENCY: Kohana_Exception [ 0 ]: Method find() cannot be called on loaded objects ~ MODPATH/orm/classes/Kohana/ORM.php [ 966 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php:240
+2015-03-08 15:43:50 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php(240): Kohana_ORM->find()
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php(214): Model_User->update_session()
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Photo.php(222): Model_User->update_profile_photo(Object(Model_Photo))
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Photo->action_update_profile_cover_photo()
+#4 [internal function]: Kohana_Controller->execute()
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Photo))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#9 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Model/User.php:240
+2015-03-08 15:44:53 --- EMERGENCY: ErrorException [ 8 ]: Undefined index: cover_path ~ APPPATH/views/photo/uploadprofilepictureview.php [ 32 ] in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/photo/uploadprofilepictureview.php:32
+2015-03-08 15:44:53 --- DEBUG: #0 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/photo/uploadprofilepictureview.php(32): Kohana_Core::error_handler(8, 'Undefined index...', '/Applications/X...', 32, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(62): include('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(359): Kohana_View::capture('/Applications/X...', Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/View.php(236): Kohana_View->render()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Response.php(160): Kohana_View->__toString()
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Photo.php(249): Kohana_Response->body(Object(View))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Photo->action_update_profile_cover_photo()
+#7 [internal function]: Kohana_Controller->execute()
+#8 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Photo))
+#9 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#10 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#11 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#12 {main} in /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/views/photo/uploadprofilepictureview.php:32

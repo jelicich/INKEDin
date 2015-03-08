@@ -539,15 +539,14 @@ header, header *{
 	text-align: center;
 	margin-right: 20px;
 }
-#profile-rating-container #rating-scale{
-	padding: 20px 0 0 0;
+#profile-rating-container .rating-scale{
+	padding: 11px 0 0 0;
 }
-#profile-rating-container #rating-scale li{
+#profile-rating-container .rating-scale li{
 	list-style-type: none;
 	/*TODO*/
 	width: 20px;
 	height: 20px;
-	background: #c99241;
 	float: left;
 	margin-right: 10px;
 }

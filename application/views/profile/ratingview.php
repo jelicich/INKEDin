@@ -1,30 +1,42 @@
-<div class="product">
-	Rate Item 
-	<div id="rating_<?php echo $profile_id ?>" class="ratings">
-	<?php
-	for($i = 1; $i < 6; $i++)
-	{
-		if($rating['total']+0.5 > $i)
-		{
-			$class = "star_".$i."  ratings_stars ratings_vote";
-		}
-		else 
-		{
-			$class = "star_".$i." ratings_stars ratings_blank";
-		}
-		echo '<div class="'.$class.'"></div>';
-	}
-	?>
-		
-		<div class="total_votes">
-			<p class="voted"> Rating: <strong><?php echo @number_format($rating['total']) ?></strong>/5 (<?php echo $rating['total_votes'] ?> vote(s) cast) </p>
+
+	
+
+	<div class="ratings clearfix">
+		<div class="rating rate">
+			<span><?php echo @round($rating['total'],1) ?></span>
 		</div>
-		<?php
-		if(isset($feedback))
-		{
-			echo '<div class="rating-feedback><p>'.$feedback.'</p></div>';
-		}
-		?>
+		<div class="rating stars">
+			<ol id="rating_<?php echo $profile_id ?>" class="clearfix rating-scale">
+				<?php
+				for($i = 1; $i < 6; $i++)
+				{
+					if($rating['total']+0.5 > $i)
+					{
+						$class = "star_".$i."  ratings_stars ratings_vote";
+					}
+					else 
+					{
+						$class = "star_".$i." ratings_stars ratings_blank";
+					}
+					echo '<li class="'.$class.'"></li>';
+				}
+				?>
+			</ol>
+			<span class="total-votes"><?php echo $rating['total_votes'] ?> persona(s) votaron</span>
+			<?php
+			if(isset($feedback))
+			{
+				echo '<p class="rating-feedback">'.$feedback.'</p>';
+			}
+			else
+			{
+				echo '<p class="rating-feedback">Calificá a este artista</p>';	
+			}
+			?>
+			
+			
+		</div>
 	</div>
-</div>
+
+	
 

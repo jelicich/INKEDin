@@ -129,19 +129,27 @@ class Controller_Photo extends Controller_Master {
 
 
 
-	public function action_update_profile_photo()
+	public function action_update_profile_cover_photo()
 	{
 		if($this->request->is_ajax())
 		{	
 			$this->auto_render = false;
 		}
 
-
+		
 		$user = $this->get_user_info();
-		if(!empty($user['photo_id']))
+		if($this->request->post('target') == 'profile')
+		{
+			$key = 'photo_id';
+		}
+		elseif($this->request->post('target') == 'cover')
+		{
+			$key = 'cover_id';
+		}
+		if(!empty($user[$key]))
 		{
 			$photo_model = new Model_Photo();
-			$photo_model->delete_photo($user['photo_id']);
+			$photo_model->delete_photo($user[$key]);
 
 			unlink('./users/'.$user['id'].'/img/md/'.$user['photo']);
 			unlink('./users/'.$user['id'].'/img/reg/'.$user['photo']);
@@ -215,9 +223,16 @@ class Controller_Photo extends Controller_Master {
 	            
             	$album['album_id'] = NULL;
             	$id = $photo_model->save_photo($new_name, $album['album_id'], $user['id']);
+            	
             	$model_user = new Model_User();
-            	$model_user->update_profile_photo($id);
-            	$model_user->update_session();           
+            	if($this->request->post('target') == 'profile')
+            	{
+            		$model_user->update_profile_photo($id);
+            	}
+            	elseif($this->request->post('target') == 'cover')
+            	{
+            		$model_user->update_cover_photo($id);
+            	}
 
 			}
 		}
@@ -236,6 +251,14 @@ class Controller_Photo extends Controller_Master {
     	else
     	{
     		$user['photo_path'] = '/users/'.$user['id'].'/img/sm/'.$user['photo'];
+    	}
+    	if(empty($user['cover']))
+    	{
+    		$user['cover_path'] = '/assets/common/app/img/cover.jpg';
+    	}
+    	else
+    	{
+    		$user['cover_path'] = '/users/'.$user['id'].'/img/sm/'.$user['cover'];
     	}
     	$view->user = $user;
     	$view->result = $result;

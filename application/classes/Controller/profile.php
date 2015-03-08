@@ -41,6 +41,16 @@ class Controller_Profile extends Controller_Master {
             $profile['photo'] = HTML::image('users/'.$profile['id'].'/img/sm/'.$profile['photo'], array('alt' => $profile['name'].' '.$profile['name']));   
         }
 
+        //CHECK COVER PIC
+        if(empty($profile['cover']))
+        {
+            $profile['cover'] = HTML::image('/assets/common/app/img/cover.jpg', array('alt' => $profile['name'].' '.$profile['name']));
+        }
+        else
+        {
+            $profile['cover'] = HTML::image('users/'.$profile['id'].'/img/reg/'.$profile['cover'], array('alt' => $profile['name'].' '.$profile['name'], 'id' => 'cover-pic'));   
+        }
+
         $this->profile = $profile;
         $this->template->profile = $profile;
 
@@ -218,11 +228,11 @@ class Controller_Profile extends Controller_Master {
         */
         if(!$voted)
         {
-            $feedback = '<span class="thanks">Thanks for voting!</span></p>';
+            $feedback = 'Gracias por votar!';
         }            
         else 
         {
-            $feedback = '<span class="invalid">Already voted for this item</span></p></div>';
+            $feedback = 'Ya votaste a este artista';
         }
 
         if($rating['total_votes'] > 0)
