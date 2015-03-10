@@ -20,4 +20,9 @@ class Model_Comment extends ORM{
 
         return $comments;
 	}
+
+	public function leave_comment()
+	{
+		
+	}
 }

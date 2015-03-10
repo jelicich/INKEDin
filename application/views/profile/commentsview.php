@@ -1,4 +1,3 @@
-
 <section class="col-md-9" id="profile-mid-col">
 	
 	<h1 class="comments-section">Comments</h1>
@@ -44,7 +43,6 @@
 	<?php 
      	}// end for
 	?>
-
 </section>
 
 <!-- comments_modal -->
@@ -62,7 +60,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default">ENVIAR</button>
+        <button type="button" class="btn btn-default" onclick="inked.Profile.saveComments()">ENVIAR</button>
       </div>
 
     </div>

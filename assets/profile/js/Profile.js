@@ -31,7 +31,15 @@ inked.Profile = {
                 
             }
         });
-    }
+    },
+
+
+    saveComments : function()
+    {
+
+        alert("hola");
+        
+    },
 };
 
 {
