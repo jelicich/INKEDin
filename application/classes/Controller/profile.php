@@ -254,6 +254,7 @@ class Controller_Profile extends Controller_Master {
     {   
         $model_comments = new Model_Comment();
         $comments = $model_comments->get_comments_by_profile($this->id);
+        $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
 
         for ($i=0; $i < sizeof($comments); $i++) { 
            
@@ -270,6 +271,11 @@ class Controller_Profile extends Controller_Master {
         $this->template->content = View::factory('profile/commentsview');   
         $this->template->content->profile = $this->profile;
         $this->template->content->comments = $comments;
+    }
+
+    public function action_leave_comment()
+    {   
+        //TODO
     }
 
 
