@@ -5,131 +5,65 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h2>Resultados de artistas</h2>
-					<p>Se encontraron <strong>239</strong> artistas para la busqueda <strong>sarasa</strong>. <a href="#">Ver solo artistas</a></p>
+					<?php 
+					if(empty($users))
+					{
+					?>
+					<p>No se encontraron artistas para la busqueda <strong><?php echo $search ?></strong>.
+					<?php
+					}
+					else
+					{
+					?>
+					<p>Se encontraron <strong><?php echo sizeof($users)?></strong> artistas para la busqueda <strong><?php echo $search ?></strong>. <a href="#">Ver solo artistas</a></p>
+					<?php
+					}
+					?>
 				</div>
-				<?php var_dump($users) ?>;
-				<!-- artist -->
-				<article class="col-md-6 pic-sq-grid">
-					<div class="inner-pic-sq-grid border-img">
-						<a href="#"><img src="assets/img2.jpg" alt="" /></a>
-						<div class="artist-details">
-							<ul class="owner-container clearfix">
-								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-								<li class="owner-detail">
-									<h2><a href="#">Nombre</a></h2>
-									<p>Ciudad</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</article>
-				<!-- end artist -->
+				
 
-				<!-- artist -->
-				<article class="col-md-6 pic-sq-grid">
-					<div class="inner-pic-sq-grid border-img">
-						<a href="#"><img src="assets/img6.jpg" alt="" /></a>
-						<div class="artist-details">
-							<ul class="owner-container clearfix">
-								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-								<li class="owner-detail">
-									<h2><a href="#">Nombre</a></h2>
-									<p>Ciudad</p>
-								</li>
-							</ul>
+				<?php 
+				if(!empty($users))
+				{
+					for ($i = 0; $i < sizeof($users); $i++) 
+					{ 
+				?>
+					<!-- artist -->
+					<article class="col-md-6 pic-sq-grid">
+						<div class="inner-pic-sq-grid border-img">
+							<a href="#"><img src="<?php echo $users[$i]['photo'] ?>" alt="" /></a>
+							<div class="artist-details">
+								<div class="owner-container clearfix">
+									<div class="owner-detail">
+										<h2><a href="/profile/<?php echo $users[$i]['id']?>"><?php echo $users[$i]['name'].' '.$users[$i]['last_name']?></a></h2>
+										<p>
+										<?php 
+										echo $users[$i]['province'];
+										if(!empty($users[$i]['city']))
+										{
+											echo ', '.$users[$i]['city'];
+										}
+										?>
+										</p>
+									</div>
+								</div>
+							</div>
 						</div>
-					</div>
-				</article>
-				<!-- end artist -->
+					</article>	
+					<!-- end artist -->	
 
-				<!-- artist -->
-				<article class="col-md-6 pic-sq-grid">
-					<div class="inner-pic-sq-grid border-img">
-						<a href="#"><img src="assets/img4.jpg" alt="" /></a>
-						<div class="artist-details">
-							<ul class="owner-container clearfix">
-								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-								<li class="owner-detail">
-									<h2><a href="#">Nombre</a></h2>
-									<p>Ciudad</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</article>
-				<!-- end artist -->
-
-				<!-- artist -->
-				<article class="col-md-6 pic-sq-grid">
-					<div class="inner-pic-sq-grid border-img">
-						<a href="#"><img src="assets/img7.jpg" alt="" /></a>
-						<div class="artist-details">
-							<ul class="owner-container clearfix">
-								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-								<li class="owner-detail">
-									<h2><a href="#">Nombre</a></h2>
-									<p>Ciudad</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</article>
-				<!-- end artist -->
-
-				<!-- artist -->
-				<article class="col-md-6 pic-sq-grid">
-					<div class="inner-pic-sq-grid border-img">
-						<a href="#"><img src="assets/img3.jpg" alt="" /></a>
-						<div class="artist-details">
-							<ul class="owner-container clearfix">
-								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-								<li class="owner-detail">
-									<h2><a href="#">Nombre</a></h2>
-									<p>Ciudad</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</article>
-				<!-- end artist -->
-
-				<!-- artist -->
-				<article class="col-md-6 pic-sq-grid">
-					<div class="inner-pic-sq-grid border-img">
-						<a href="#"><img src="assets/img9.jpg" alt="" /></a>
-						<div class="artist-details">
-							<ul class="owner-container clearfix">
-								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-								<li class="owner-detail">
-									<h2><a href="#">Nombre</a></h2>
-									<p>Ciudad</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</article>
-				<!-- end artist -->
-
-				<!-- artist -->
-				<article class="col-md-6 pic-sq-grid">
-					<div class="inner-pic-sq-grid border-img">
-						<a href="#"><img src="assets/img1.jpg" alt="" /></a>
-						<div class="artist-details">
-							<ul class="owner-container clearfix">
-								<li class="owner-pic"><a href="#"><img src="assets/img1.jpg" alt="" /></a></li>
-								<li class="owner-detail">
-									<h2><a href="#">Nombre</a></h2>
-									<p>Ciudad</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</article>
-				<!-- end artist -->
-
+				<?php 		
+					}//END FOR
+				?>
 				<div class="col-md-12 full">
 					<button class="btn" id="home-more">VER MAS</button>
 				</div>
+				<?php
+				}//END IF
+
+				?>
+				
+				
 				
 			</div>
 		</div>
@@ -237,11 +171,16 @@
 
 				</div>
 				<!-- end right col foto -->
-
-				<div class="col-md-12 full">
-					<button class="btn" id="home-more">VER MAS</button>
-				</div>
-
+				<?php
+				if(!empty($photos))
+				{
+				?>
+					<div class="col-md-12 full">
+						<button class="btn" id="home-more">VER MAS</button>
+					</div>
+				<?php
+				}
+				?>
 			</div>
 		</div>
 			<!-- end right col -->

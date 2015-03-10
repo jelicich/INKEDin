@@ -550,3 +550,17 @@
 #14 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #15 {main} in file:line
 >>>>>>> origin/master
+
+2015-03-10 18:16:13 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected 'if' (T_IF) ~ APPPATH\views\search\searchresultview.php [ 27 ] in file:line
+2015-03-10 18:16:13 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-03-10 18:22:07 --- CRITICAL: ErrorException [ 2 ]: Missing argument 1 for Controller_Search::search_photos(), called in E:\xampp\htdocs\INKEDin\application\classes\Controller\search.php on line 26 and defined ~ APPPATH\classes\Controller\search.php [ 35 ] in E:\xampp\htdocs\INKEDin\application\classes\Controller\search.php:35
+2015-03-10 18:22:07 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\classes\Controller\search.php(35): Kohana_Core::error_handler(2, 'Missing argumen...', 'E:\xampp\htdocs...', 35, Array)
+#1 E:\xampp\htdocs\INKEDin\application\classes\Controller\search.php(26): Controller_Search->search_photos()
+#2 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Search->action_index()
+#3 [internal function]: Kohana_Controller->execute()
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Search))
+#5 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#8 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\search.php:35

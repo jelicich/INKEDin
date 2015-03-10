@@ -21,8 +21,9 @@ class Controller_Search extends Controller_Master {
 	{
         $this->template->content = View::factory('search/searchresultview');
         $this->template->content->search = $this->request->param('param');
-        //$this->search_photos();
         $param = $this->request->param('param');
+        
+        $this->search_photos($param);
         $this->search_users($param);
 	}
 
@@ -40,8 +41,6 @@ class Controller_Search extends Controller_Master {
         }
         else
         {
-            var_dump($param);
-            die;
             $photos = $model_photos->search_photos($param);
 
             for ($i=0; $i < sizeof($photos); $i++) { 
@@ -73,16 +72,14 @@ class Controller_Search extends Controller_Master {
             $users = $model_users->search_users($param);
             for ($i=0; $i < sizeof($users); $i++) { 
                
-                if(empty($users[$i]['profile_photo']))
+                if(empty($users[$i]['photo']))
                 {
-                    $users[$i]['profile_photo'] = '/assets/common/app/img/default.jpg';
+                    $users[$i]['photo'] = '/assets/common/app/img/default.jpg';
                 }
                 else
                 {
-                    $users[$i]['profile_photo'] = '/users/'.$users[$i]['user_id'].'/img/sm/'.$users[$i]['profile_photo'];
+                    $users[$i]['photo'] = '/users/'.$users[$i]['user_id'].'/img/sm/'.$users[$i]['photo'];
                 }
-
-                $users[$i]['photo'] = '/users/'.$users[$i]['user_id'].'/img/thumb/'.$users[$i]['photo'];
             }
         }
         $this->template->content->users = $users;
