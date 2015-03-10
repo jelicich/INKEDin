@@ -38,7 +38,7 @@ class Controller_Profile extends Controller_Master {
         }
         else
         {
-            $profile['photo'] = HTML::image('users/'.$profile['id'].'/img/sm/'.$profile['photo'], array('alt' => $profile['name'].' '.$profile['name']));   
+            $profile['photo'] = HTML::image('/users/'.$profile['id'].'/img/sm/'.$profile['photo'], array('alt' => $profile['name'].' '.$profile['name']));   
         }
 
         //CHECK COVER PIC
@@ -48,7 +48,7 @@ class Controller_Profile extends Controller_Master {
         }
         else
         {
-            $profile['cover'] = HTML::image('users/'.$profile['id'].'/img/reg/'.$profile['cover'], array('alt' => $profile['name'].' '.$profile['name'], 'id' => 'cover-pic'));   
+            $profile['cover'] = HTML::image('/users/'.$profile['id'].'/img/reg/'.$profile['cover'], array('alt' => $profile['name'].' '.$profile['name'], 'id' => 'cover-pic'));   
         }
 
         $this->profile = $profile;
@@ -73,9 +73,6 @@ class Controller_Profile extends Controller_Master {
         $this->template->ratingview = View::factory('profile/ratingview');
         $this->template->ratingview->rating = $rating;
         $this->template->ratingview->profile_id = $profile['id'];
-
-
-
     }
 
 	public function action_index()
@@ -113,7 +110,6 @@ class Controller_Profile extends Controller_Master {
             $this->template->content->profile = $this->profile;
             $this->template->content->photos = $photos;
         }
-        
     }
 
     public function action_rate()
@@ -252,7 +248,30 @@ class Controller_Profile extends Controller_Master {
         $view->profile_id = $id_sent;
         $view->feedback = $feedback;
         $this->response->body($view);
-        
     }
+
+    public function action_comments()
+    {   
+        $model_comments = new Model_Comment();
+        $comments = $model_comments->get_comments_by_profile($this->id);
+
+        for ($i=0; $i < sizeof($comments); $i++) { 
+           
+            if(empty($comments[$i]['photo']))
+            {
+                $comments[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
+            }
+            else
+            {
+                $comments[$i]['photo_path'] = '/users/'.$comments[$i]['user_id'].'/img/sm/'.$comments[$i]['photo'];
+            }
+        }
+
+        $this->template->content = View::factory('profile/commentsview');   
+        $this->template->content->profile = $this->profile;
+        $this->template->content->comments = $comments;
+    }
+
+
 
 } // End Welcome

@@ -10,7 +10,7 @@
 			</nav>
 
 			<div class="col-md-2" id="site-logo-container">
-				<h1 id="site-logo"><a href="index">INKEDin</a></h1>
+				<h1 id="site-logo"><a href="/">INKEDin</a></h1>
 			</div>
 
 			<div class="col-md-5" id="site-tools">
