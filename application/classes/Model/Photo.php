@@ -55,4 +55,28 @@ class Model_Photo extends ORM{
 		}
 		return $photos;
 	}
+
+	public function search_photos($param)
+	{
+		$photos = $this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province')
+			->where('photo.tags', 'LIKE', '%'.$param.'%')
+			->or_where('photo.description', 'LIKE', '%'.$param.'%')
+			->join('users')
+            ->on('photo.user_id', '=', 'users.id')
+            ->join(array('photos', 'profile' ), 'LEFT')
+            ->on('users.photo_id', '=', 'profile.id')
+            ->join('cities','LEFT')
+            ->on('users.city_id','=','cities.id')
+            ->join('provinces', 'LEFT')
+            ->on('users.province_id','=','provinces.id')
+			->find_all();
+
+		$photos = $photos->as_array();
+
+		for($i = 0; $i < sizeof($photos); $i++)
+		{
+			$photos[$i] = $photos[$i]->as_array();
+		}
+		return $photos;
+	}
 }

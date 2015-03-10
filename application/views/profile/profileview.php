@@ -40,22 +40,7 @@
 						<div id="ratingvew-container">
 							<?php echo $ratingview; ?>
 						</div>
-
-						<!--
-						<div class="rating rate">
-							<span>4.5</span>
-						</div>
-						<div class="rating stars">
-							<ol id="rating-scale" class="clearfix">
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-								<li></li>
-							</ol>
-							<span>Calificá a este artista</span>
-						</div>
-						-->
+						
 					</div>
 					<div class="profile-buttons-container border-divider">
 						<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav">AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>

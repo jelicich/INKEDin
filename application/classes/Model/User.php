@@ -281,4 +281,44 @@ class Model_User extends ORM{
         return $user;
     }
 
+    public function search_users($param)
+    {
+
+        // $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
+        //     ->where('user.name','LIKE', '%'.$param.'%')
+        //     ->or_where('user.last_name','LIKE', '%'.$param.'%')
+        //     ->or_where('styles.style','LIKE','%'.$param.'%')
+        //     ->join('cities','LEFT')
+        //     ->on('user.city_id','=','cities.id')
+        //     ->join('provinces','LEFT')
+        //     ->on('user.province_id','=','provinces.id')
+        //     ->join('photos','LEFT')
+        //     ->on('user.photo_id','=','photos.id')
+        //     ->join('userstyles', 'LEFT')
+        //     ->on('user.id','=','userstyles.user_id')
+        //     ->join('styles','LEFT')
+        //     ->on('userstyles.style_id','=','styles.id')
+        //     ->find_all();
+
+        $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province')
+            ->where('user.name','LIKE', '%'.$param.'%')
+            ->or_where('user.last_name','LIKE', '%'.$param.'%')
+            ->join('cities','LEFT')
+            ->on('user.city_id','=','cities.id')
+            ->join('provinces','LEFT')
+            ->on('user.province_id','=','provinces.id')
+            ->join('photos','LEFT')
+            ->on('user.photo_id','=','photos.id')
+            ->find_all();
+
+       // $users = $users->as_array();
+        var_dump($users);
+        die;
+        for($i = 0; $i < sizeof($users); $i++)
+        {
+            $users[$i] = $users[$i]->as_array();
+        }
+        return $users;
+    }
+
 }
