@@ -530,3 +530,23 @@
 #12 {main} in E:\xampp\htdocs\INKEDin\modules\database\classes\Kohana\Database\Query.php:251
 2015-03-10 17:30:53 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected 'die' (T_EXIT) ~ APPPATH\classes\Controller\search.php [ 47 ] in file:line
 2015-03-10 17:30:53 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+=======
+2015-03-10 17:09:52 --- CRITICAL: ErrorException [ 8 ]: A non well formed numeric value encountered ~ APPPATH\views\profile\commentsview.php [ 26 ] in file:line
+2015-03-10 17:09:52 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(8, 'A non well form...', 'C:\\xampp\\htdocs...', 26, Array)
+#1 C:\xampp\htdocs\INKEDin\application\views\profile\commentsview.php(26): date('Y-m-d H:i:s', '2015-03-09 23:4...')
+#2 C:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(62): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(359): Kohana_View::capture('C:\\xampp\\htdocs...', Array)
+#4 C:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(236): Kohana_View->render()
+#5 C:\xampp\htdocs\INKEDin\application\views\profile\profileview.php(76): Kohana_View->__toString()
+#6 C:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(62): include('C:\\xampp\\htdocs...')
+#7 C:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(359): Kohana_View::capture('C:\\xampp\\htdocs...', Array)
+#8 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller\Template.php(44): Kohana_View->render()
+#9 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(87): Kohana_Controller_Template->after()
+#10 [internal function]: Kohana_Controller->execute()
+#11 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#12 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#13 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#14 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#15 {main} in file:line
+>>>>>>> origin/master
