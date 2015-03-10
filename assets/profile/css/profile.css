@@ -2,3 +2,23 @@
 .inked.profileview .photo-tags span{
 	color: rgba(0,0,0,0.6);
 }
+
+
+/* Comments */
+
+.comments-section{
+  border-bottom: 1px solid #c99241;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+#profile-mid-col .pic-sq-grid{
+	background: rgba(240,221,175,0.8);
+	margin-top: 15px;
+}
+
+#profile-mid-col .owner-comment{
+  border-top: 2px solid #c99241;
+  height: auto;
+  padding: 15px 5px 5px 5px;
+}

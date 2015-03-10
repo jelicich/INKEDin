@@ -160,6 +160,7 @@
 #12 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #13 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #14 {main} in C:\xampp\htdocs\INKEDin\application\views\profile\commentsview.php:12
+<<<<<<< HEAD
 2015-03-10 13:50:16 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: model_user ~ APPPATH\classes\Controller\search.php [ 27 ] in E:\xampp\htdocs\INKEDin\application\classes\Controller\search.php:27
 2015-03-10 13:50:16 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\classes\Controller\search.php(27): Kohana_Core::error_handler(8, 'Undefined varia...', 'E:\xampp\htdocs...', 27, Array)
 #1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Search->action_index()
@@ -529,4 +530,3 @@
 #12 {main} in E:\xampp\htdocs\INKEDin\modules\database\classes\Kohana\Database\Query.php:251
 2015-03-10 17:30:53 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected 'die' (T_EXIT) ~ APPPATH\classes\Controller\search.php [ 47 ] in file:line
 2015-03-10 17:30:53 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
-#1 {main} in file:line
