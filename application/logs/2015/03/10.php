@@ -594,3 +594,34 @@
 #6 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #7 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #8 {main} in C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php:9
+2015-03-10 23:10:14 --- CRITICAL: ErrorException [ 4 ]: syntax error, unexpected '$this' (T_VARIABLE) ~ APPPATH\classes\Controller\profile.php [ 275 ] in file:line
+2015-03-10 23:10:14 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-03-10 23:46:50 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: comments ~ APPPATH\classes\Controller\profile.php [ 295 ] in C:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php:295
+2015-03-10 23:46:50 --- DEBUG: #0 C:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php(295): Kohana_Core::error_handler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 295, Array)
+#1 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Profile->action_leave_comment()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#4 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php:295
+2015-03-10 23:51:10 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: comments ~ APPPATH\classes\Controller\profile.php [ 295 ] in C:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php:295
+2015-03-10 23:51:10 --- DEBUG: #0 C:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php(295): Kohana_Core::error_handler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 295, Array)
+#1 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Profile->action_leave_comment()
+#2 [internal function]: Kohana_Controller->execute()
+#3 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#4 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#5 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#6 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#7 {main} in C:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php:295
+2015-03-10 23:55:16 --- CRITICAL: Kohana_Exception [ 0 ]: Method find_all() cannot be called on loaded objects ~ MODPATH\orm\classes\Kohana\ORM.php [ 991 ] in C:\xampp\htdocs\INKEDin\application\classes\Model\Comment.php:13
+2015-03-10 23:55:16 --- DEBUG: #0 C:\xampp\htdocs\INKEDin\application\classes\Model\Comment.php(13): Kohana_ORM->find_all()
+#1 C:\xampp\htdocs\INKEDin\application\classes\Controller\profile.php(291): Model_Comment->get_comments_by_profile('2')
+#2 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Profile->action_leave_comment()
+#3 [internal function]: Kohana_Controller->execute()
+#4 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#5 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#8 {main} in C:\xampp\htdocs\INKEDin\application\classes\Model\Comment.php:13
