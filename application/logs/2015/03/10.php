@@ -564,3 +564,33 @@
 #6 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #7 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #8 {main} in E:\xampp\htdocs\INKEDin\application\classes\Controller\search.php:35
+2015-03-10 18:42:44 --- CRITICAL: ErrorException [ 8 ]: Undefined index: name ~ APPPATH\classes\Model\Album.php [ 9 ] in C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php:9
+2015-03-10 18:42:44 --- DEBUG: #0 C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php(9): Kohana_Core::error_handler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\INKEDin\application\classes\Controller\album.php(43): Model_Album->create_album(Array)
+#2 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Album->action_create_album()
+#3 [internal function]: Kohana_Controller->execute()
+#4 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#5 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#8 {main} in C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php:9
+2015-03-10 18:42:45 --- CRITICAL: ErrorException [ 8 ]: Undefined index: name ~ APPPATH\classes\Model\Album.php [ 9 ] in C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php:9
+2015-03-10 18:42:45 --- DEBUG: #0 C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php(9): Kohana_Core::error_handler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\INKEDin\application\classes\Controller\album.php(43): Model_Album->create_album(Array)
+#2 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Album->action_create_album()
+#3 [internal function]: Kohana_Controller->execute()
+#4 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#5 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#8 {main} in C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php:9
+2015-03-10 18:42:45 --- CRITICAL: ErrorException [ 8 ]: Undefined index: name ~ APPPATH\classes\Model\Album.php [ 9 ] in C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php:9
+2015-03-10 18:42:45 --- DEBUG: #0 C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php(9): Kohana_Core::error_handler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 9, Array)
+#1 C:\xampp\htdocs\INKEDin\application\classes\Controller\album.php(43): Model_Album->create_album(Array)
+#2 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(84): Controller_Album->action_create_album()
+#3 [internal function]: Kohana_Controller->execute()
+#4 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#5 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#8 {main} in C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php:9

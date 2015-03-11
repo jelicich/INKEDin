@@ -34,11 +34,23 @@ inked.Profile = {
     },
 
 
-    saveComments : function()
+    saveComment : function()
     {
+        var comment = $('#comments_modal textarea');
+        var comment_val = comment.val();
 
-        alert("hola");
-        
+        $.ajax({
+                data:  comment_val,
+                url:   '/profile/leave_comment',
+                type:  'post',
+
+                success:  function (response) 
+                {
+                    $('#comments_modal').modal('hide');
+                    alert("sent" + ' ' + comment_val);
+                    comment.val('');
+                }
+            });
     },
 };
 

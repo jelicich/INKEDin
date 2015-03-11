@@ -60,7 +60,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" onclick="inked.Profile.saveComments()">ENVIAR</button>
+        <button type="button" class="btn btn-default" onclick="inked.Profile.saveComment()">ENVIAR</button>
       </div>
 
     </div>
