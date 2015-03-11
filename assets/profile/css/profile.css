@@ -31,10 +31,19 @@
 #comments_modal .modal-footer{
 	border: none;
 }
+
 .owner-detail dl{
 	margin-bottom: 0;
 }
 
 .owner-comment{
 	margin-bottom: 10px;
+}
+
+
+/* Favourites ======== */
+
+#favourite_list{
+	height: 300px; 
+	background:brown;
 }
