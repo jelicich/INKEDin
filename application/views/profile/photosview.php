@@ -28,7 +28,7 @@
             <div class="modal-tools">
            		<p id="photo-description"></p>
            		<p class="photo-tags"><strong>Tags:</strong> <span id="photo-tags"></span></p>
-           		<a href="#" class="btn btn-default">Guardar <span class="glyphicon glyphicon-picture"></span></a>
+           		<a href="#" class="btn btn-default btn-save-photo">Guardar <span class="glyphicon glyphicon-picture"></span></a>
             </div>
         </div>
     </div>

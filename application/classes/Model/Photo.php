@@ -56,7 +56,7 @@ class Model_Photo extends ORM{
 		return $photos;
 	}
 
-	public function search_photos($param)
+	public function search_photos($param, $offset)
 	{
 		$photos = $this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province')
 			->where('photo.tags', 'LIKE', '%'.$param.'%')
@@ -69,6 +69,9 @@ class Model_Photo extends ORM{
             ->on('users.city_id','=','cities.id')
             ->join('provinces', 'LEFT')
             ->on('users.province_id','=','provinces.id')
+            ->order_by('photo.date','DESC')
+            ->limit(15)
+            ->offset($offset)
 			->find_all();
 
 		$photos = $photos->as_array();

@@ -281,7 +281,7 @@ class Model_User extends ORM{
         return $user;
     }
 
-    public function search_users($param)
+    public function search_users($param, $offset)
     {
 
         $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
@@ -300,6 +300,8 @@ class Model_User extends ORM{
             ->join('styles','LEFT')
             ->on('userstyles.style_id','=','styles.id')
             ->group_by('user.id')
+            ->limit(20)
+            ->offset($offset)
             ->find_all();
 
         $users = $users->as_array();
@@ -308,7 +310,7 @@ class Model_User extends ORM{
         {
             $users[$i] = $users[$i]->as_array();
         }
-        
+
         return $users;
 
 

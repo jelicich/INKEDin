@@ -778,3 +778,17 @@ header, header *{
 .loading-gif{
 	width: 16px;
 }
+
+.modal-body .btn-save-photo{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	opacity: 0.2;
+	top: 20px;
+	right: 20px;
+	opacity: 0.2;
+	transition: opacity 0.5s;
+}
+.modal-body .btn-save-photo:hover{
+	opacity: 1;
+}

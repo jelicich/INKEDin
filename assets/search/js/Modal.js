@@ -1,11 +1,6 @@
-/**
- * header module
- */
-
 inked.Modal = {
     init : function() 
     {
-        //$('.modal').on('show.bs.modal', inked.Modal.centerModal);
         $(window).on("resize", function () {
             $('.modal:visible').each(inked.Modal.centerModal);
         });
@@ -14,24 +9,15 @@ inked.Modal = {
         {
             //console.log($(this).children());
             var src = $(this).children().attr('src');
-            var lg_src = src.replace('/sm/','/reg/');
+            var lg_src = src.replace('/thumb/','/reg/');
             $('#photo-target').attr('src', lg_src);        
             var desc = $(this).children().attr('alt');
             var tags = $(this).children().attr('data-tags');
             $('#photo-description').html(desc);
-            $('#photo-tags').html(tags);        
+            $('#photo-tags').html(tags);
+            var $user_info = $($(this).next().find('ul')[0]);
+            $('#photo-owner-info').html($user_info.clone());
         });
-    },
-
-    
-    centerModal : function() 
-    {
-        $(this).css('display', 'block');
-        var $dialog = $(this).find(".modal-dialog");
-        var offset = ($(window).height() - $dialog.height()) / 2;
-        // Center modal vertically in window
-        if(offset < 0) offset = 10;
-        $dialog.css("margin-top", offset);
     },
 };
 

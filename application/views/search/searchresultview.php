@@ -2,7 +2,7 @@
 	<div class="row">
 		<!-- left col USERS-->
 		<div class="col-md-6">
-			<div class="row">
+			<div class="row" id="users-result-container">
 				<div class="col-md-12">
 					<h2>Resultados de artistas</h2>
 					<?php 
@@ -21,42 +21,42 @@
 					?>
 				</div>
 				
-
-				<?php 
-				if(!empty($users))
-				{
-					for ($i = 0; $i < sizeof($users); $i++) 
-					{ 
-				?>
-					<!-- artist -->
-					<article class="col-md-6 pic-sq-grid">
-						<div class="inner-pic-sq-grid border-img">
-							<a href="#"><img src="<?php echo $users[$i]['photo'] ?>" alt="" /></a>
-							<div class="artist-details">
-								<div class="owner-container clearfix">
-									<div class="owner-detail">
-										<h2><a href="/profile/<?php echo $users[$i]['id']?>"><?php echo $users[$i]['name'].' '.$users[$i]['last_name']?></a></h2>
-										<p>
-										<?php 
-										echo $users[$i]['province'];
-										if(!empty($users[$i]['city']))
-										{
-											echo ', '.$users[$i]['city'];
-										}
-										?>
-										</p>
+					<?php 
+					if(!empty($users))
+					{
+						for ($i = 0; $i < sizeof($users); $i++) 
+						{ 
+					?>
+						<!-- artist -->
+						<article class="col-md-6 pic-sq-grid">
+							<div class="inner-pic-sq-grid border-img">
+								<a href="#"><img src="<?php echo $users[$i]['photo'] ?>" alt="" /></a>
+								<div class="artist-details">
+									<div class="owner-container clearfix">
+										<div class="owner-detail">
+											<h2><a href="/profile/<?php echo $users[$i]['id']?>"><?php echo $users[$i]['name'].' '.$users[$i]['last_name']?></a></h2>
+											<p>
+											<?php 
+											echo $users[$i]['province'];
+											if(!empty($users[$i]['city']))
+											{
+												echo ', '.$users[$i]['city'];
+											}
+											?>
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</article>	
-					<!-- end artist -->	
+						</article>	
+						<!-- end artist -->	
 
-				<?php 		
-					}//END FOR
-				?>
-				<div class="col-md-12 full">
-					<button class="btn" id="home-more">VER MAS</button>
+					<?php 		
+						}//END FOR
+					?>
+				
+				<div class="col-md-12">
+					<button class="btn btn-default" id="load-more-users" onclick="inked.Search.loadMoreUsers()" data-query="<?php echo $search ?>">Ver mas</button>
 				</div>
 				<?php
 				}//END IF
@@ -110,7 +110,7 @@
 							$even .= '<article class="pic-sq-grid">
 								<div class="inner-pic-sq-grid border-img">
 									<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
-										<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" />
+										<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'"/>
 									</a>
 									<div class="pic-details pic-details-block">
 										<p class="caption">'.$photos[$i]['description'].'</p>
@@ -149,15 +149,10 @@
 					}//END FOR
 				}//END IF
 
-				/*
-				var_dump($photos);
-				var_dump($odd);
-				var_dump($even);
-				*/
 				?>
 
 				<!-- left col fotos -->
-				<div class="col-md-6">
+				<div class="col-md-6" id="left-col-photos">
 						
 					<?php
 						echo $even;
@@ -167,7 +162,7 @@
 				<!-- end left col foto -->
 
 				<!-- right col fotos -->
-				<div class="col-md-6">
+				<div class="col-md-6" id="right-col-photos">
 					
 					<?php 
 						echo $odd;
@@ -181,7 +176,7 @@
 				{
 				?>
 					<div class="col-md-12 full">
-						<button class="btn" id="home-more">VER MAS</button>
+						<button class="btn btn-default" id="load-more-photos" onclick="inked.Search.loadMorePhotos()" data-query="<?php echo $search ?>">Ver mas</button>
 					</div>
 				<?php
 				}
@@ -192,3 +187,20 @@
 		
 	</div>
 </section>
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="" id="photo-target" class="img-responsive">
+            <div class="modal-tools">
+           		<p id="photo-description"></p>
+           		<p class="photo-tags"><strong>Tags:</strong> <span id="photo-tags"></span></p>
+           		<div id="photo-owner-info"></div>
+           		<a href="#" class="btn btn-default btn-save-photo">Guardar <span class="glyphicon glyphicon-picture"></span></a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

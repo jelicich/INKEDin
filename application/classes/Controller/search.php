@@ -11,9 +11,9 @@ class Controller_Search extends Controller_Master {
         parent::before();
         
         $this->template->head->title = "INKEDin - Resultados de busqueda: ".$this->request->param('id');
-        // $this->template->head->custom_scripts = HTML::script('/assets/profile/js/Profile.js')
-        //                                         .HTML::script('/assets/profile/js/Rating.js');
-        // $this->template->head->custom_styles = HTML::style('/assets/profile/css/rating.css');
+        $this->template->head->custom_scripts = HTML::script('/assets/search/js/Search.js')
+                                                .HTML::script('/assets/search/js/Modal.js');
+        $this->template->head->custom_styles = HTML::style('/assets/search/css/search.css');
 
     }
 
@@ -23,16 +23,55 @@ class Controller_Search extends Controller_Master {
         $this->template->content->search = $this->request->param('param');
         $param = $this->request->param('param');
         
-        $this->search_photos($param);
-        $this->search_users($param);
+        $photos = $this->search_photos($param, 0);
+        $users = $this->search_users($param, 0);
+
+        $this->template->content->photos = $photos;
+        $this->template->content->users = $users;
 	}
 
     public function action_photos()
     {
+        if($this->request->is_ajax())
+        {   
+            $this->auto_render = false;
+
+            $param = $this->request->param('param');
+            $offset = $this->request->param('offset');
+            $photos = $this->search_photos($param, $offset);
+            $view_even = View::factory('search/leftphotosview');
+            $view_even->photos = $photos;
+            $view['even'] = $view_even->render();
+
+            $view_odd = View::factory('search/rightphotosview');
+            $view_odd->photos = $photos;
+            $view['odd'] = $view_odd->render();
+            
+            $view = json_encode($view);
+            $this->response->body($view);
+        }
+    }
+
+    public function action_users()
+    {
+        if($this->request->is_ajax())
+        {   
+            $this->auto_render = false;
+
+            $param = $this->request->param('param');
+            $offset = $this->request->param('offset');
+            $users = $this->search_users($param, $offset);
+
+            $view = View::factory('search/usersview');
+            $view->users = $users;
+            $this->response->body($view);
+        }
 
     }
 
-    private function search_photos($param)
+    //PRIVATE METHODS ====================================================
+
+    private function search_photos($param, $offset)
     {
         $model_photos = new Model_Photo();
         if(empty($param))
@@ -41,7 +80,7 @@ class Controller_Search extends Controller_Master {
         }
         else
         {
-            $photos = $model_photos->search_photos($param);
+            $photos = $model_photos->search_photos($param, $offset);
 
             for ($i=0; $i < sizeof($photos); $i++) { 
                
@@ -57,10 +96,10 @@ class Controller_Search extends Controller_Master {
                 $photos[$i]['photo'] = '/users/'.$photos[$i]['user_id'].'/img/thumb/'.$photos[$i]['photo'];
             }
         }
-        $this->template->content->photos = $photos;
+        return $photos;
     }
 
-    private function search_users($param)
+    private function search_users($param, $offset)
     {
         $model_users = new Model_User();
         if(empty($param))
@@ -69,7 +108,7 @@ class Controller_Search extends Controller_Master {
         }
         else
         {
-            $users = $model_users->search_users($param);
+            $users = $model_users->search_users($param, $offset);
             for ($i=0; $i < sizeof($users); $i++) { 
                
                 if(empty($users[$i]['photo']))
@@ -82,6 +121,6 @@ class Controller_Search extends Controller_Master {
                 }
             }
         }
-        $this->template->content->users = $users;
+        return $users;
     }
 } // End Welcome
