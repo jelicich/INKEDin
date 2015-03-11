@@ -82,28 +82,30 @@ class Controller_Profile extends Controller_Master {
         $this->template->content = View::factory('profile/aboutview');
         $this->template->content->profile = $this->profile;
 
-        // Follower
-        $model_followers = new Model_Follower();
-        $followers = $model_followers->get_followers_by_profile($this->id);
-
-        for ($i=0; $i < sizeof($followers); $i++) { 
-           
-            if(empty($followers[$i]['photo']))
-            {
-                $followers[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
-            }
-            else
-            {
-                $followers[$i]['photo_path'] = '/users/'.$followers[$i]['user_id'].'/img/sm/'.$followers[$i]['photo'];
-            }
-        }
-
-        $this->template->sidebar = View::factory('profile/followersview');
-        $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
-
         $logged_in = $this->is_logged_in();
-        $this->template->sidebar->logged_in = $logged_in;
-        $this->template->sidebar->followers = $followers;
+        
+        // Follower
+        if ($logged_in == true) {
+
+            $model_followers = new Model_Follower();
+            $followers = $model_followers->get_followers_by_profile($this->id);
+
+            for ($i=0; $i < sizeof($followers); $i++) { 
+               
+                if(empty($followers[$i]['photo']))
+                {
+                    $followers[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
+                }
+                else
+                {
+                    $followers[$i]['photo_path'] = '/users/'.$followers[$i]['user_id'].'/img/sm/'.$followers[$i]['photo'];
+                }
+            }
+
+            $this->template->sidebar = View::factory('profile/followersview');
+            $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
+            $this->template->sidebar->followers = $followers;
+        }
     }
 
     public function action_albums_list()

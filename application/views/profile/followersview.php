@@ -1,8 +1,5 @@
 <aside class="col-md-3" id="side-content-profile">
 
-<?php 
-	if ($logged_in == true) {
-?>
 			<div id='favourite_list'>
 <?php 		     
 					for ($i=0; $i < sizeof($followers); $i++) { 
@@ -31,8 +28,8 @@
 			     	}// end for
 ?>
 			</div>
-<?php 
-	}//end if
-?>
+
 
 </aside>
+
+
