@@ -1,6 +1,6 @@
 <section class="col-md-9" id="profile-mid-col">
-	
-	<h1 class="comments-section">Comments</h1>
+	<h1><?php echo $profile['name'].' '.$profile['last_name']?></h1>
+	<h2 class="profile-section">Comentarios</h2>
 
 	<?php 
 		if ($logged_in == true) {
@@ -18,13 +18,11 @@
      
 		for ($i=0; $i < sizeof($comments); $i++) { 
 	?>	
-			<article class="col-md-12 pic-sq-grid">
-				<ul class="owner-container clearfix">
+			<article class="col-md-12 pic-sq-grid light-bg">
+				<ul class="owner-container owner-comment clearfix">
 					
 					<li class="owner-pic">
-						<a href="#">
-							<img src="<?php echo $comments[$i]['photo_path']; ?>" alt="">
-						</a>
+						<img src="<?php echo $comments[$i]['photo_path']; ?>" alt="">
 					</li>
 
 					<li class="owner-detail">
@@ -45,12 +43,10 @@
 							</dd>
 						</dl>
 					</li>
-
-					<li class="owner-comment">
-						<span><?php echo $comments[$i]['comment']; ?></span>
-					</li>
-
 				</ul>
+				<div class="comment-profile">
+					<span><?php echo $comments[$i]['comment']; ?></span>
+				</div>
 			</article>
 	<?php 
      	}// end for
@@ -64,17 +60,20 @@
      
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">DEJA TU COMENTARIO  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></h4>
+        <h4 class="modal-title" id="myModalLabel">DEJA TU COMENTARIO <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></h4>
       </div>
 
-      <div class="modal-body">
-        <textarea></textarea>
-        <input type="hidden" name="profile_id" value="<?php echo $profile_id; ?>">
-      </div>
+      <form method="post" action="/profile/<?php echo $profile_id; ?>/leave_comment" id="comment-form">
+	      <div class="modal-body">
+	        	<textarea name="comment" required></textarea>
+	        	<input type="hidden" name="profile_id" value="<?php echo $profile_id; ?>">
+	        
+	      </div>
 
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" onclick="inked.Profile.saveComment()">ENVIAR</button>
-      </div>
+	      <div class="modal-footer">
+	        <input type="submit" class="btn btn-default" value="Enviar">
+	      </div>
+  	  </form>
 
     </div>
   </div>

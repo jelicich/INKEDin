@@ -16,10 +16,10 @@
 	margin-bottom: 15px;
 }
 
-#profile-mid-col .owner-comment{
-  border-top: 2px solid #c99241;
+#profile-mid-col .comment-profile{
+  border-top: 1px solid #c99241;
   height: auto;
-  padding: 15px 5px 5px 5px;
+  padding: 10px 0 0 0;
 }
 
 #comments_modal textarea{
@@ -30,4 +30,11 @@
 #comments_modal .modal-header,
 #comments_modal .modal-footer{
 	border: none;
+}
+.owner-detail dl{
+	margin-bottom: 0;
+}
+
+.owner-comment{
+	margin-bottom: 10px;
 }

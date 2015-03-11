@@ -27,7 +27,9 @@ class Controller_Profile extends Controller_Master {
         }
         
         $this->template->head->title = "INKEDin - ".$profile['name']." ".$profile['last_name'];
-        $this->template->head->custom_scripts = HTML::script('/assets/profile/js/Profile.js')
+        $this->template->head->custom_scripts = HTML::script('/assets/common/app/js/jquery.validate.min.js')
+                                                .HTML::script('/assets/common/app/js/messages_es.min.js')
+                                                .HTML::script('/assets/profile/js/Profile.js')
                                                 .HTML::script('/assets/profile/js/Rating.js');
         $this->template->head->custom_styles = HTML::style('/assets/profile/css/rating.css');
 
@@ -257,6 +259,7 @@ class Controller_Profile extends Controller_Master {
         $logged_in = $this->is_logged_in();
 
         $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
+        
 
         for ($i=0; $i < sizeof($comments); $i++) { 
            

@@ -10,6 +10,7 @@ class Model_Comment extends ORM{
 			->on('comment.user_id','=','users.id')
 			->join('photos', 'LEFT')
 			->on('users.photo_id','=','photos.id')
+			->order_by('comment.date','DESC')
 			->find_all();
 
 	    $comments = $comments->as_array();

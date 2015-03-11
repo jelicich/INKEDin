@@ -6,6 +6,12 @@ inked.Profile = {
 	init : function() 
 	{
         inked.Profile.dynamicLeftBar();
+        $('#comment-form').validate({
+                submitHandler : function(){
+                        var i = inked.Profile;
+                        i.saveComment();
+                }
+        });
 	},
 
 	
@@ -43,11 +49,18 @@ inked.Profile = {
                 data: { 'comment': comment_val },
                 url:   '/profile/'+ $('#comments_modal input').val() +'/leave_comment',
                 type:  'post',
-
-                success:  function (response) 
+                beforSend : function()
                 {
-                    $('#comments_modal').modal('hide');
-                    comment.val('');
+
+                },
+                success : function (response) 
+                {
+                    $('#comments_modal').remove();
+                    $('#profile-mid-col').css('display','none');
+                    $('#profile-mid-col').after(response);
+                    $('#profile-mid-col').remove();
+
+                    
                 }
             });
     },

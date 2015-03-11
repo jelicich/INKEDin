@@ -15,8 +15,6 @@ inked.Album = {
         $('#upload').bind('inkedUploadFinished', function() {
             $('#finish-album').removeClass('disabled');
         });
-
-
 	},
 
 	
