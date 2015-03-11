@@ -100,6 +100,11 @@
 				{
 					for ($i = 0; $i < sizeof($photos); $i++) 
 					{ 
+						$location = $photos[$i]['province'];
+						if(!empty($photos[$i]['city']))
+						{
+							$location .= ', '.$photos[$i]['city'];
+						}
 						if(($i % 2) == 0)
 						{
 							$even .= '<article class="pic-sq-grid">
@@ -113,7 +118,7 @@
 											<li class="owner-pic"><a href="/profile/'.$photos[$i]['user_id'].'"><img src="'.$photos[$i]['profile_photo'].'" alt="" /></a></li>
 											<li class="owner-detail">
 												<h2><a href="/profile/'.$photos[$i]['user_id'].'">'.$photos[$i]['name'].' '.$photos[$i]['last_name'].'</a></h2>
-												<p>'.$photos[$i]['province'].', '.$photos[$i]['city'].'</p>
+												<p>'.$location.'</p>
 											</li>
 										</ul>
 									</div>
@@ -133,7 +138,7 @@
 											<li class="owner-pic"><a href="/profile/'.$photos[$i]['user_id'].'"><img src="'.$photos[$i]['profile_photo'].'" alt="" /></a></li>
 											<li class="owner-detail">
 												<h2><a href="/profile/'.$photos[$i]['user_id'].'">'.$photos[$i]['name'].' '.$photos[$i]['last_name'].'</a></h2>
-												<p>'.$photos[$i]['province'].', '.$photos[$i]['city'].'</p>
+												<p>'.$location.'</p>
 											</li>
 										</ul>
 									</div>
@@ -155,7 +160,7 @@
 				<div class="col-md-6">
 						
 					<?php
-						echo $odd;
+						echo $even;
 					?>
 					
 				</div>
@@ -165,7 +170,7 @@
 				<div class="col-md-6">
 					
 					<?php 
-						echo $even;
+						echo $odd;
 					?>	
 
 

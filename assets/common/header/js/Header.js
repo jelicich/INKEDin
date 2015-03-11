@@ -29,6 +29,13 @@ inked.Common.Header = {
 		{
 			event.preventDefault ? event.preventDefault() : event.returnValue = false;
 		}
+	},
+
+	buildUrl : function(event)
+	{
+		event.preventDefault();
+		var query = $('#search-input').val();
+		window.location = '/search/'+query;
 	}
 };
 

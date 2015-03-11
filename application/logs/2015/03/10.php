@@ -594,3 +594,36 @@
 #6 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #7 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #8 {main} in C:\xampp\htdocs\INKEDin\application\classes\Model\Album.php:9
+2015-03-10 22:20:43 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected '->' (T_OBJECT_OPERATOR) ~ APPPATH/classes/Model/User.php [ 302 ] in file:line
+2015-03-10 22:20:43 --- DEBUG: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in file:line
+2015-03-10 22:25:49 --- EMERGENCY: ErrorException [ 2 ]: mkdir(): File exists ~ APPPATH/classes/Controller/Photo.php [ 58 ] in file:line
+2015-03-10 22:25:49 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(2, 'mkdir(): File e...', '/Applications/X...', 58, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Photo.php(58): mkdir('./users/1/img/r...', 511, true)
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Photo->action_upload_photo()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Photo))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in file:line
+2015-03-10 22:25:58 --- EMERGENCY: ErrorException [ 2 ]: unlink(./users/1/img/md/4721_1425940068.jpg): No such file or directory ~ APPPATH/classes/Controller/Album.php [ 154 ] in file:line
+2015-03-10 22:25:58 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(2, 'unlink(./users/...', '/Applications/X...', 154, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(154): unlink('./users/1/img/m...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_delete_album()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in file:line
+2015-03-10 22:26:01 --- EMERGENCY: ErrorException [ 2 ]: unlink(./users/1/img/md/9715_1425940017.jpg): No such file or directory ~ APPPATH/classes/Controller/Album.php [ 154 ] in file:line
+2015-03-10 22:26:01 --- DEBUG: #0 [internal function]: Kohana_Core::error_handler(2, 'unlink(./users/...', '/Applications/X...', 154, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/application/classes/Controller/Album.php(154): unlink('./users/1/img/m...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Controller.php(84): Controller_Album->action_delete_album()
+#3 [internal function]: Kohana_Controller->execute()
+#4 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client/Internal.php(97): ReflectionMethod->invoke(Object(Controller_Album))
+#5 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request/Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/system/classes/Kohana/Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#7 /Applications/XAMPP/xamppfiles/htdocs/INKEDin/index.php(118): Kohana_Request->execute()
+#8 {main} in file:line

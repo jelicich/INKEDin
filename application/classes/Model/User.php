@@ -284,10 +284,11 @@ class Model_User extends ORM{
     public function search_users($param)
     {
 
-        $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
+        $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
             ->where('user.name','LIKE', '%'.$param.'%')
             ->or_where('user.last_name','LIKE', '%'.$param.'%')
             ->or_where('styles.style','LIKE','%'.$param.'%')
+            ->and_where('user.role','=', '1')
             ->join('cities','LEFT')
             ->on('user.city_id','=','cities.id')
             ->join('provinces','LEFT')
@@ -298,6 +299,7 @@ class Model_User extends ORM{
             ->on('user.id','=','userstyles.user_id')
             ->join('styles','LEFT')
             ->on('userstyles.style_id','=','styles.id')
+            ->group_by('user.id')
             ->find_all();
 
         $users = $users->as_array();
@@ -306,7 +308,7 @@ class Model_User extends ORM{
         {
             $users[$i] = $users[$i]->as_array();
         }
-
+        
         return $users;
 
 

@@ -16,8 +16,10 @@
 			<div class="col-md-5" id="site-tools">
 				<ul class="clearfix row">
 					<li id="search-box" class="col-md-6 full">
-						<input type="text" name="searchbox" value>
-						<input type="submit" value="" id="search-btn">
+						<form method="GET" action="/search/" onsubmit="inked.Common.Header.buildUrl()" id="search-form">
+							<input type="text" id="search-input" name="search-box" value>
+							<input type="submit" value="" id="search-btn">
+						</form>
 					</li>
 					<li class="col-md-3 full id-container">
 						<a href="/register" class="id-buttons">Registrarse</a>
