@@ -40,13 +40,14 @@ inked.Profile = {
     },
 
 
+
     saveComment : function()
     {
         var comment = $('#comments_modal textarea');
         var comment_val = comment.val();
 
         $.ajax({
-                data: { 'comment': comment_val },
+                data: { comment: comment_val },
                 url:   '/profile/'+ $('#comments_modal input').val() +'/leave_comment',
                 type:  'post',
                 beforSend : function()

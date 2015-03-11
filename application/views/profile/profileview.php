@@ -2,10 +2,7 @@
 <html>
 <head>
 	<?php echo $head ?>
-
 	<!-- Load here view specific css and scripts -->
-
-
 </head>
 
 <body class="inked profileview">
