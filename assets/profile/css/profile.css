@@ -31,3 +31,11 @@
 #comments_modal .modal-footer{
 	border: none;
 }
+
+
+/* Favourites ======== */
+
+#favourite_list{
+	height: 300px; 
+	background:brown;
+}
