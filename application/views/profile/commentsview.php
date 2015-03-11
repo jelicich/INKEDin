@@ -1,9 +1,21 @@
 <section class="col-md-9" id="profile-mid-col">
 	
 	<h1 class="comments-section">Comments</h1>
-	<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-toggle="modal" data-target="#comments_modal">DEJAR UN COMENTARIO  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
 
 	<?php 
+		if ($logged_in == true) {
+	?>
+		<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-toggle="modal" data-target="#comments_modal">DEJAR UN COMENTARIO  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
+	<?php  
+		}else{
+	?>
+
+	<a href="#" class="btn btn-default btn-block btn-profile col-md-5" >REGISTRATE<span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
+	<a href="#" class="btn btn-default btn-block btn-profile col-md-5" >LOGUEATE<span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
+	
+	<?php
+		}
+     
 		for ($i=0; $i < sizeof($comments); $i++) { 
 	?>	
 			<article class="col-md-12 pic-sq-grid">
@@ -57,6 +69,7 @@
 
       <div class="modal-body">
         <textarea></textarea>
+        <input type="hidden" name="profile_id" value="<?php echo $profile_id; ?>">
       </div>
 
       <div class="modal-footer">

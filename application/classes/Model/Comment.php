@@ -11,6 +11,7 @@ class Model_Comment extends ORM{
 			->join('photos', 'LEFT')
 			->on('users.photo_id','=','photos.id')
 			->find_all();
+
 	    $comments = $comments->as_array();
 
         for($i = 0; $i < sizeof($comments); $i++)
@@ -21,8 +22,16 @@ class Model_Comment extends ORM{
         return $comments;
 	}
 
-	public function leave_comment()
+	public function leave_comment($profile_id, $comment)
 	{
-		
+		$model_user = new Model_User();
+		$user = $model_user->get_user_info();
+
+		$this->user_id = $user['id'];
+		$this->profile_id = $profile_id;
+		$this->comment = $comment;
+		$id = $this->save();
+
+		return $id;
 	}
 }

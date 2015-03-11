@@ -254,9 +254,9 @@ class Controller_Profile extends Controller_Master {
     {   
         $model_comments = new Model_Comment();
         $comments = $model_comments->get_comments_by_profile($this->id);
+        $logged_in = $this->is_logged_in();
 
         $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
-        
 
         for ($i=0; $i < sizeof($comments); $i++) { 
            
@@ -272,14 +272,45 @@ class Controller_Profile extends Controller_Master {
 
         $this->template->content = View::factory('profile/commentsview');   
         $this->template->content->profile = $this->profile;
+        $this->template->content->profile_id = $this->id;
         $this->template->content->comments = $comments;
+        $this->template->content->logged_in = $logged_in;
     }
 
     public function action_leave_comment()
     {   
-        
+        if( $this->request->is_ajax() )
+        {   
+            $this->auto_render = false;
+        }
+
+        $model_comments = new Model_Comment();
+        $comment = $this->request->post('comment');
+        $comment_id = $model_comments->leave_comment($this->id, $comment);
+
+        $model_comments = new Model_Comment();
+        $comments = $model_comments->get_comments_by_profile($this->id);
+        $logged_in = $this->is_logged_in();
+
+        for ($i=0; $i < sizeof($comments); $i++) { 
+           
+            if(empty($comments[$i]['photo']))
+            {
+                $comments[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
+            }
+            else
+            {
+                $comments[$i]['photo_path'] = '/users/'.$comments[$i]['user_id'].'/img/sm/'.$comments[$i]['photo'];
+            }
+        }
+
+        $content = View::factory('profile/commentsview');   
+        $content->profile = $this->profile;
+        $content->profile_id = $this->id;
+        $content->comments = $comments;
+        $content->logged_in = $logged_in;
+
+        $this->response->body($content);
     }
-
-
 
 } // End Welcome
