@@ -82,7 +82,9 @@ class Controller_Profile extends Controller_Master {
         $this->template->content = View::factory('profile/aboutview');
         $this->template->content->profile = $this->profile;
 
+
         $logged_in = $this->is_logged_in();
+
         
         // Follower
         if ($logged_in == true) {
@@ -105,6 +107,12 @@ class Controller_Profile extends Controller_Master {
             $this->template->sidebar = View::factory('profile/followersview');
             $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
             $this->template->sidebar->followers = $followers;
+
+            // // revisar bien la condicion para ejecutar estas lineas (if logged_in and ....)
+            // $model_followers = new Model_User();
+            // $user = $model_followers->get_user_info();
+            // $this->template->user = $user;
+       
         }
     }
 
@@ -329,7 +337,7 @@ class Controller_Profile extends Controller_Master {
                 $comments[$i]['photo_path'] = '/users/'.$comments[$i]['user_id'].'/img/sm/'.$comments[$i]['photo'];
             }
         }
-
+        
         $content = View::factory('profile/commentsview');   
         $content->profile = $this->profile;
         $content->profile_id = $this->id;
@@ -337,6 +345,15 @@ class Controller_Profile extends Controller_Master {
         $content->logged_in = $logged_in;
 
         $this->response->body($content);
+    }
+
+    public function action_save_follower()
+    {   
+        $model_followers = new Model_User();
+        $user = $model_followers->get_user_info();
+
+        $model_follower = new Model_Follower();
+        $save_follower = $model_follower->save_follower($this->id, $user['id']);
     }
 
 } // End Welcome

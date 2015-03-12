@@ -64,6 +64,24 @@ inked.Profile = {
                 }
             });
     },
+
+
+
+    saveFollower : function()
+    {   
+        var follow_button = $('#add-fav');
+        var profile_id = follow_button.attr('data-profile-id');
+        var user_id = follow_button.attr('data-user-id');
+
+        $.ajax({
+                url:   '/profile/'+ profile_id +'/save_follower',
+                type:  'post',
+                success : function (response) 
+                {   
+                   
+                }
+            });
+    }
 };
 
 {

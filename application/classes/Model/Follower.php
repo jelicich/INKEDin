@@ -22,4 +22,16 @@ class Model_Follower extends ORM{
 
 		return $followers;	
 	}
+
+
+	public function save_follower($profile_id, $user_id)
+	{
+		$model_follower = new Model_Follower();
+
+		$this->user_id = $user_id;
+		$this->follower_id = $profile_id;
+		$id = $this->save();
+
+		return $id;
+	}
 }
