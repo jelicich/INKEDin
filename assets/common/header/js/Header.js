@@ -35,7 +35,7 @@ inked.Common.Header = {
 	{
 		event.preventDefault();
 		var query = $('#search-input').val();
-		window.location = '/search/'+query;
+		window.location = '/search/all/'+query;
 	}
 };
 

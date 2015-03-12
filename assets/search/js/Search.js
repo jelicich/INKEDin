@@ -1,7 +1,7 @@
 inked.Search = {
     
-    'offset_photos' : 1,
-    'offset_users' : 1,
+    'offset_photos' : 0,
+    'offset_users' : 0,
 
     init : function() 
     {
@@ -12,9 +12,12 @@ inked.Search = {
     {
         this.offset_photos += 15;
         var query = $('#load-more-photos').attr('data-query');
+        var data = {
+            "offset" : this.offset_photos,
+        }
         $.ajax({
-                data: {},
-                url:   '/search/'+ query +'/photos/'+this.offset_photos,
+                data: data,
+                url:   '/search/photos/'+query,
                 type:  'post',
                 beforeSend : function()
                 {
@@ -45,10 +48,15 @@ inked.Search = {
     {
         this.offset_users += 20;
         var query = $('#load-more-users').attr('data-query');
+        var cw = $('#users-result-container').attr('data-column-width');
+        var data = {
+            "offset" : this.offset_users,
+            "cw" : cw,
+        }
 
         $.ajax({
-            data: {},
-            url:   '/search/'+ query +'/users/'+this.offset_users,
+            data: data,
+            url:   '/search/artists/'+ query,
             type:  'post',
             beforeSend : function()
             {
@@ -57,7 +65,7 @@ inked.Search = {
             },
             success : function (response) 
             {
-                console.log(response);
+                //console.log(response);
                 var $last_article = $('#users-result-container').find('article').last();
                 $last_article.after(response);
 

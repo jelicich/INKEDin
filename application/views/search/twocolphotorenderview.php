@@ -1,5 +1,5 @@
 <?php
-$odd = '';
+$html = '';
 if(!empty($photos))
 {
 	for ($i = 0; $i < sizeof($photos); $i++) 
@@ -9,9 +9,9 @@ if(!empty($photos))
 		{
 			$location .= ', '.$photos[$i]['city'];
 		}
-		if(($i % 2) == 1)
+		if(($i % 2) == $module)
 		{
-			$odd .= '<article class="pic-sq-grid">
+			$html .= '<article class="pic-sq-grid">
 				<div class="inner-pic-sq-grid border-img">
 					<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
 						<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'"/>
@@ -32,5 +32,5 @@ if(!empty($photos))
 	}//END FOR
 }//END IF
 
-echo $odd;
+echo $html;
 ?>

@@ -17,15 +17,24 @@ class Controller_Search extends Controller_Master {
 
     }
 
-	public function action_index()
+	//SET AS INDEX IN BOOTSTRAP
+    public function action_all()
 	{
         $this->template->content = View::factory('search/searchresultview');
         $this->template->content->search = $this->request->param('param');
         $param = $this->request->param('param');
         
-        $photos = $this->search_photos($param, 0);
-        $users = $this->search_users($param, 0);
-
+        if(empty($param))
+        {
+            $photos = '';
+            $users = '';
+        }
+        else
+        {
+            $photos = $this->search_photos($param, 0);
+            $users = $this->search_users($param, 0);    
+        }
+        
         $this->template->content->photos = $photos;
         $this->template->content->users = $users;
 	}
@@ -37,34 +46,60 @@ class Controller_Search extends Controller_Master {
             $this->auto_render = false;
 
             $param = $this->request->param('param');
-            $offset = $this->request->param('offset');
+            $offset = $this->request->post('offset');
             $photos = $this->search_photos($param, $offset);
-            $view_even = View::factory('search/leftphotosview');
+            
+            $view_even = View::factory('search/twocolphotorenderview');
             $view_even->photos = $photos;
+            $view_even->module = 0;
             $view['even'] = $view_even->render();
 
-            $view_odd = View::factory('search/rightphotosview');
+            $view_odd = View::factory('search/twocolphotorenderview');
             $view_odd->photos = $photos;
+            $view_odd->module = 1;
             $view['odd'] = $view_odd->render();
             
             $view = json_encode($view);
             $this->response->body($view);
         }
+        else
+        {
+            $this->template->content = View::factory('search/searchphotosview');
+            $this->template->content->search = $this->request->param('param');
+            $param = $this->request->param('param');
+            
+            $photos = $this->search_photos($param, 0);
+            $this->template->content->photos = $photos;
+        }
     }
 
-    public function action_users()
+    public function action_artists()
     {
         if($this->request->is_ajax())
         {   
             $this->auto_render = false;
 
             $param = $this->request->param('param');
-            $offset = $this->request->param('offset');
+            $offset = $this->request->post('offset');
+            $cw = $this->request->post('cw');
             $users = $this->search_users($param, $offset);
 
-            $view = View::factory('search/usersview');
+            $view = View::factory('search/artistsview');
             $view->users = $users;
+            //VAR TO SET COLUMN WIDTH of the new results
+            $view->cw = $cw;
             $this->response->body($view);
+        }
+        else
+        {
+
+            $this->template->content = View::factory('search/searchartistsview');
+            $this->template->content->search = $this->request->param('param');
+            $param = $this->request->param('param');
+            
+            $users = $this->search_users($param, 0);
+            $this->template->content->users = $users;
+
         }
 
     }
@@ -74,53 +109,44 @@ class Controller_Search extends Controller_Master {
     private function search_photos($param, $offset)
     {
         $model_photos = new Model_Photo();
-        if(empty($param))
-        {
-            $photos = '';
-        }
-        else
-        {
-            $photos = $model_photos->search_photos($param, $offset);
+        
+        $photos = $model_photos->search_photos($param, $offset);
 
-            for ($i=0; $i < sizeof($photos); $i++) { 
-               
-                if(empty($photos[$i]['profile_photo']))
-                {
-                    $photos[$i]['profile_photo'] = '/assets/common/app/img/default.jpg';
-                }
-                else
-                {
-                    $photos[$i]['profile_photo'] = '/users/'.$photos[$i]['user_id'].'/img/sm/'.$photos[$i]['profile_photo'];
-                }
-
-                $photos[$i]['photo'] = '/users/'.$photos[$i]['user_id'].'/img/thumb/'.$photos[$i]['photo'];
+        for ($i=0; $i < sizeof($photos); $i++) 
+        { 
+           
+            if(empty($photos[$i]['profile_photo']))
+            {
+                $photos[$i]['profile_photo'] = '/assets/common/app/img/default.jpg';
             }
+            else
+            {
+                $photos[$i]['profile_photo'] = '/users/'.$photos[$i]['user_id'].'/img/sm/'.$photos[$i]['profile_photo'];
+            }
+
+            $photos[$i]['photo'] = '/users/'.$photos[$i]['user_id'].'/img/thumb/'.$photos[$i]['photo'];
         }
+        
         return $photos;
     }
 
     private function search_users($param, $offset)
     {
         $model_users = new Model_User();
-        if(empty($param))
-        {
-            $users = '';
-        }
-        else
-        {
-            $users = $model_users->search_users($param, $offset);
-            for ($i=0; $i < sizeof($users); $i++) { 
-               
-                if(empty($users[$i]['photo']))
-                {
-                    $users[$i]['photo'] = '/assets/common/app/img/default.jpg';
-                }
-                else
-                {
-                    $users[$i]['photo'] = '/users/'.$users[$i]['user_id'].'/img/sm/'.$users[$i]['photo'];
-                }
+
+        $users = $model_users->search_users($param, $offset);
+        for ($i=0; $i < sizeof($users); $i++) { 
+           
+            if(empty($users[$i]['photo']))
+            {
+                $users[$i]['photo'] = '/assets/common/app/img/default.jpg';
+            }
+            else
+            {
+                $users[$i]['photo'] = '/users/'.$users[$i]['user_id'].'/img/sm/'.$users[$i]['photo'];
             }
         }
+        
         return $users;
     }
 } // End Welcome
