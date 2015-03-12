@@ -9,11 +9,11 @@
 
 <div id="wrapper">
 	<!-- header-->
-	<?php echo $header; ?>
+	<?php echo $header;  ?>
 	<!-- end header-->
 
 
-	<!-- content -->
+<!-- content -->
 	<section id="site-content" class="container">
 		<div class="row">
 			<!-- COVER PIC -->
@@ -40,8 +40,17 @@
 						
 					</div>
 					<div class="profile-buttons-container border-divider">
-						<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-profile-id ="<?php echo $profile['id']; ?>" onclick="inked.Profile.saveFollower()" >AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
-						<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+
+					<?php 
+						if ( $profile['id'] != $user['id']  ) {
+					?>
+							<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-profile-id ="<?php echo $profile['id']; ?>" onclick="inked.Profile.saveFollower()" >AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+							<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+					
+					<?php 
+						}// end if
+					?>
+
 					</div>
 					<nav class="menu-profile">
 						<ul>
