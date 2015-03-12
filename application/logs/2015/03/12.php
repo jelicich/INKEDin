@@ -219,3 +219,27 @@
 #8 C:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
 #9 C:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
 #10 {main} in C:\xampp\htdocs\INKEDin\application\views\profile\profileview.php:58
+2015-03-12 15:12:26 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: content ~ APPPATH\views\profile\profileview.php [ 58 ] in E:\xampp\htdocs\INKEDin\application\views\profile\profileview.php:58
+2015-03-12 15:12:26 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\views\profile\profileview.php(58): Kohana_Core::error_handler(8, 'Undefined varia...', 'E:\xampp\htdocs...', 58, Array)
+#1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(62): include('E:\xampp\htdocs...')
+#2 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(359): Kohana_View::capture('E:\xampp\htdocs...', Array)
+#3 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller\Template.php(44): Kohana_View->render()
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(87): Kohana_Controller_Template->after()
+#5 [internal function]: Kohana_Controller->execute()
+#6 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#7 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#9 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#10 {main} in E:\xampp\htdocs\INKEDin\application\views\profile\profileview.php:58
+2015-03-12 15:47:13 --- CRITICAL: ErrorException [ 8 ]: Undefined variable: content ~ APPPATH\views\profile\profileview.php [ 58 ] in E:\xampp\htdocs\INKEDin\application\views\profile\profileview.php:58
+2015-03-12 15:47:13 --- DEBUG: #0 E:\xampp\htdocs\INKEDin\application\views\profile\profileview.php(58): Kohana_Core::error_handler(8, 'Undefined varia...', 'E:\xampp\htdocs...', 58, Array)
+#1 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(62): include('E:\xampp\htdocs...')
+#2 E:\xampp\htdocs\INKEDin\system\classes\Kohana\View.php(359): Kohana_View::capture('E:\xampp\htdocs...', Array)
+#3 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller\Template.php(44): Kohana_View->render()
+#4 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Controller.php(87): Kohana_Controller_Template->after()
+#5 [internal function]: Kohana_Controller->execute()
+#6 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client\Internal.php(97): ReflectionMethod->invoke(Object(Controller_Profile))
+#7 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request\Client.php(114): Kohana_Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#8 E:\xampp\htdocs\INKEDin\system\classes\Kohana\Request.php(997): Kohana_Request_Client->execute(Object(Request))
+#9 E:\xampp\htdocs\INKEDin\index.php(118): Kohana_Request->execute()
+#10 {main} in E:\xampp\htdocs\INKEDin\application\views\profile\profileview.php:58

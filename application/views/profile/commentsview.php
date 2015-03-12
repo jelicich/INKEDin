@@ -71,7 +71,7 @@
 	      </div>
 
 	      <div class="modal-footer">
-	        <input type="submit" class="btn btn-default" value="Enviar">
+	        <button class="btn btn-default">Enviar</button>
 	      </div>
   	  </form>
 

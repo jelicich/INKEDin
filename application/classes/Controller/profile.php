@@ -349,8 +349,12 @@ class Controller_Profile extends Controller_Master {
 
     public function action_save_follower()
     {   
-        $model_followers = new Model_User();
-        $user = $model_followers->get_user_info();
+        if( $this->request->is_ajax() )
+        {   
+            $this->auto_render = false;
+        }
+
+        $user = $this->get_user_info();
 
         $model_follower = new Model_Follower();
         $save_follower = $model_follower->save_follower($this->id, $user['id']);

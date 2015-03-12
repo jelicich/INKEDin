@@ -50,9 +50,10 @@ inked.Profile = {
                 data: { comment: comment_val },
                 url:   '/profile/'+ $('#comments_modal input').val() +'/leave_comment',
                 type:  'post',
-                beforSend : function()
+                beforeSend : function()
                 {
-
+                    $('#comments_modal').find('button.btn.btn-default').addClass('disabled');
+                    $('#comments_modal').find('button.btn.btn-default').html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/>');
                 },
                 success : function (response) 
                 {   
@@ -61,6 +62,12 @@ inked.Profile = {
                     // $('#profile-mid-col').css('display','none');
                     $('#profile-mid-col').after(response);
                     $('#profile-mid-col').remove();
+                    $('#comment-form').validate({
+                            submitHandler : function(){
+                                    var i = inked.Profile;
+                                    i.saveComment();
+                            }
+                    });
                 }
             });
     },

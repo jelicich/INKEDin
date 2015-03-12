@@ -30,7 +30,7 @@
 						<!-- artist -->
 						<article class="col-md-6 pic-sq-grid">
 							<div class="inner-pic-sq-grid border-img">
-								<a href="#"><img src="<?php echo $users[$i]['photo'] ?>" alt="" /></a>
+								<a href="/profile/<?php echo $users[$i]['id']?>"><img src="<?php echo $users[$i]['photo'] ?>" alt="" /></a>
 								<div class="artist-details">
 									<div class="owner-container clearfix">
 										<div class="owner-detail">
