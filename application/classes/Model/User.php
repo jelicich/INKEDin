@@ -257,7 +257,7 @@ class Model_User extends ORM{
 
     public function get_profile_info_by_id($id)
     {
-        $user = $this->select('user.*',array('profile.photo','photo'),array('cover.photo', 'cover'))
+        $user = $this->select('user.*',array('profile.photo','photo'), array('cover.photo', 'cover')/*, array('followers.user_id', 'profile_followers')*/ )
             ->where('user.id', '=', $id)
             ->join(array('photos','profile'),'LEFT')
             ->on('user.photo_id', '=', 'profile.id')
@@ -273,10 +273,18 @@ class Model_User extends ORM{
 
         $styles = $q->execute();
         $styles = $styles->as_array();
-        
+
+        $q = DB::select('followers.user_id')
+            ->from('followers')
+            ->where('followers.follower_id','=', $id);
+
+        $profile_followers = $q->execute();
+        $profile_followers = $profile_followers->as_array();
+
         $user = $user->as_array();
         
         $user['styles'] = $styles;
+        $user['profile_followers'] = $profile_followers;
 
         return $user;
     }

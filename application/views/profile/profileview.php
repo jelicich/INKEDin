@@ -9,7 +9,7 @@
 
 <div id="wrapper">
 	<!-- header-->
-	<?php echo $header;  ?>
+	<?php echo $header; //var_dump($profile);  ?>
 	<!-- end header-->
 
 
@@ -42,18 +42,28 @@
 					
 
 					<?php 
-						if (isset($logged_id)) 
-						{
-							if($logged_id != $profile['id'])
+						  if (isset($logged_in)) 
+						  {	
+						  	$this_profile_followers_list = [];
+
+						  	foreach ($profile['profile_followers'] as $key ) 
+						  	{
+
+						  		$this_profile_followers_list[] = $key['user_id'];
+						  	}
+
+						  	if( $user['id'] != $profile['id']  )
 							{
+							 	if (!in_array( $user['id'], $this_profile_followers_list )) {
 					?>		
-							<div class="profile-buttons-container border-divider">
-								<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-profile-id ="<?php echo $profile['id']; ?>" onclick="inked.Profile.saveFollower()" >AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
-								<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
-							</div>
+									<div class="profile-buttons-container border-divider">
+										<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-profile-id ="<?php echo $profile['id']; ?>" onclick="inked.Profile.saveFollower()" >AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+										<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+									</div>
 					<?php 
-							}
-						}// end if
+								}// end if 3
+							}// end if 2
+						}// end if 1
 					?>
 
 					
