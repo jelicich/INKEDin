@@ -56,9 +56,9 @@ class Model_Photo extends ORM{
 		return $photos;
 	}
 
-	public function search_photos($param, $offset)
+	public function search_photos($param, $offset, $group = FALSE)
 	{
-		$photos = $this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province')
+		$this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province')
 			->where('photo.tags', 'LIKE', '%'.$param.'%')
 			->or_where('photo.description', 'LIKE', '%'.$param.'%')
 			->join('users')
@@ -69,13 +69,17 @@ class Model_Photo extends ORM{
             ->on('users.city_id','=','cities.id')
             ->join('provinces', 'LEFT')
             ->on('users.province_id','=','provinces.id')
-            ->order_by('photo.date','DESC')
-            ->limit(15)
+            ->order_by('photo.date','DESC');
+            if($group)
+            {
+            	$this->group_by('photo.user_id');
+            }
+        $photos = $this->limit(15)
             ->offset($offset)
 			->find_all();
 
 		$photos = $photos->as_array();
-
+		
 		for($i = 0; $i < sizeof($photos); $i++)
 		{
 			$photos[$i] = $photos[$i]->as_array();
