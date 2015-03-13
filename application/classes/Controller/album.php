@@ -38,7 +38,7 @@ class Controller_Album extends Controller_Master {
 		}
 		$result;
 		$post = $this->request->post();
-		$model_album = Model::factory('album');
+		$model_album = new Model_Album();
 
         $id_album = $model_album->create_album($this->request->post());
         $result = '{"status":"success","album":"'.$id_album.'"}';
