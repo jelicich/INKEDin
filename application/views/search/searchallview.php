@@ -15,7 +15,7 @@
 					else
 					{
 					?>
-					<p>Se encontraron <strong><?php echo sizeof($users)?></strong> artistas para la busqueda <strong><?php echo $search ?></strong>. <a href="#">Ver solo artistas</a></p>
+					<p>Se encontraron <strong><?php echo $count_users ?></strong> artistas para la busqueda <strong><?php echo $search ?></strong>. <a href="/search/artists/<?php echo $search ?>">Ver solo artistas</a></p>
 					<?php
 					}
 					?>
@@ -72,7 +72,7 @@
 
 		<!-- right col PHOTOS-->
 		<div class="col-md-6 divider-artists-photos">
-			<div class="row">
+			<div class="row" id="photos-result-container" data-column-number="2">
 				
 				<div class="col-md-12">
 					<h2>Resultados de fotos</h2>
@@ -86,7 +86,7 @@
 					else
 					{
 					?>
-					<p>Se encontraron <strong><?php echo sizeof($photos)?></strong> fotos para la busqueda <strong><?php echo $search ?></strong>. <a href="#">Ver solo fotos</a></p>
+					<p>Se encontraron <strong><?php echo $count_photos ?></strong> fotos para la busqueda <strong><?php echo $search ?></strong>. <a href="/search/photos/<?php echo $search ?>">Ver solo fotos</a></p>
 					<?php
 					}
 					?>

@@ -75,6 +75,13 @@ class Controller_Profile extends Controller_Master {
         $this->template->ratingview = View::factory('profile/ratingview');
         $this->template->ratingview->rating = $rating;
         $this->template->ratingview->profile_id = $profile['id'];
+
+        if($this->is_logged_in())
+        {
+            $user = $this->get_user_info();
+            $this->template->logged_id = $user['id'];
+        }
+        
     }
 
 	public function action_index()
@@ -107,9 +114,8 @@ class Controller_Profile extends Controller_Master {
             $this->template->sidebar->followers = $followers;
 
             // revisar bien la condicion para ejecutar estas lineas (if logged_in and ....)
-            $model_followers = new Model_User();
-            $user = $model_followers->get_user_info();
-            $this->template->user = $user;
+            // $user = $this->get_user_info();
+            // $this->template->user = $user;
        
         }
     }

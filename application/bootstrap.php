@@ -154,7 +154,7 @@ Route::set('profile', 'profile/<profile_id>(/<action>(/<album_id>))')
 		//'param3'   => ''
 	));
 
-Route::set('search', 'search(/<action>(/<param>))')
+Route::set('search', 'search(/<action>(/<param>(/<province>(/<city>))))')
 	->defaults(array(
 		'controller' => 'search',
 		'action'     => 'all',

@@ -3,9 +3,9 @@
 		<div class="row">
 			<nav class="col-md-5">
 				<ul class="clearfix">
-					<li><a href="#">Tatuajes</a></li>
-					<li><a href="#">Artistas</a></li>
-					<li><a href="#">Tops</a></li>
+					<li><a href="/search/photos/">Tatuajes</a></li>
+					<li><a href="/search/artists/">Artistas</a></li>
+					<li><a href="/search/tops/">Tops</a></li>
 				</ul>
 			</nav>
 
@@ -17,7 +17,11 @@
 				<ul class="clearfix row">
 					<li id="search-box" class="col-md-6 full">
 						<form method="GET" action="/search/" onsubmit="inked.Common.Header.buildUrl(event)" id="search-form">
-							<input type="text" id="search-input" value>
+							<?php 
+							if(!isset($search))
+								$search = '';
+							?>
+							<input type="text" id="search-input" value="<?php echo $search ?>">
 							<input type="submit" value="" id="search-btn">
 						</form>
 					</li>

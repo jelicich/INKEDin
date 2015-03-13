@@ -281,15 +281,73 @@ class Model_User extends ORM{
         return $user;
     }
 
-    public function search_users($param, $offset)
+    public function search_users($param, $offset, $province, $city)
     {
+        $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
+            ->where('user.role','=', '1');
+        if(empty($param) && empty($province))
+        {
+            $this->and_where('user.name','LIKE', '%'.$param.'%');
+            
+            $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+            $this->and_where('user.role','=', '1');
+        }
+        elseif(empty($param) && !empty($province))
+        {
+            if(empty($city))
+            {
+                $this->and_where('user.province_id','=', $province);
+            }
+            else
+            {
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.city_id','=', $city);    
+            }            
+        }
+        elseif(!empty($param) && empty($province))
+        {
+            $this->and_where('user.name','LIKE', '%'.$param.'%');
+            
+            $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+            $this->and_where('user.role','=', '1');   
 
-        $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
-            ->where('user.name','LIKE', '%'.$param.'%')
-            ->or_where('user.last_name','LIKE', '%'.$param.'%')
-            ->or_where('styles.style','LIKE','%'.$param.'%')
-            ->and_where('user.role','=', '1')
-            ->join('cities','LEFT')
+            $this->or_where('styles.style','LIKE','%'.$param.'%');
+            $this->and_where('user.role','=', '1');
+        }
+        elseif(!empty($param) && !empty($province))
+        {
+            if(empty($city))
+            {
+                $this->and_where('user.name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);    
+
+                $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.role','=', '1');
+
+                $this->or_where('styles.style','LIKE','%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.role','=', '1');
+            }
+            else
+            {
+                $this->and_where('user.name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);  
+                $this->and_where('user.city_id','=', $city);    
+
+                $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.city_id','=', $city);    
+                $this->and_where('user.role','=', '1');
+
+                $this->or_where('styles.style','LIKE','%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.city_id','=', $city);    
+                $this->and_where('user.role','=', '1');
+            }
+        }
+
+        $users = $this->join('cities','LEFT')
             ->on('user.city_id','=','cities.id')
             ->join('provinces','LEFT')
             ->on('user.province_id','=','provinces.id')
@@ -312,8 +370,89 @@ class Model_User extends ORM{
         }
 
         return $users;
+    }
 
+    public function count_users($param)
+    {
 
+        $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
+            ->where('user.role','=', '1');
+        if(empty($param) && empty($province))
+        {
+            $this->and_where('user.name','LIKE', '%'.$param.'%');
+            
+            $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+            $this->and_where('user.role','=', '1');
+        }
+        elseif(empty($param) && !empty($province))
+        {
+            if(empty($city))
+            {
+                $this->and_where('user.province_id','=', $province);
+            }
+            else
+            {
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.city_id','=', $city);    
+            }            
+        }
+        elseif(!empty($param) && empty($province))
+        {
+            $this->and_where('user.name','LIKE', '%'.$param.'%');
+            
+            $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+            $this->and_where('user.role','=', '1');   
+
+            $this->or_where('styles.style','LIKE','%'.$param.'%');
+            $this->and_where('user.role','=', '1');
+        }
+        elseif(!empty($param) && !empty($province))
+        {
+            if(empty($city))
+            {
+                $this->and_where('user.name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);    
+
+                $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.role','=', '1');
+
+                $this->or_where('styles.style','LIKE','%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.role','=', '1');
+            }
+            else
+            {
+                $this->and_where('user.name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);  
+                $this->and_where('user.city_id','=', $city);    
+
+                $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.city_id','=', $city);    
+                $this->and_where('user.role','=', '1');
+
+                $this->or_where('styles.style','LIKE','%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.city_id','=', $city);    
+                $this->and_where('user.role','=', '1');
+            }
+        }
+
+        $users = $this->join('cities','LEFT')
+            ->on('user.city_id','=','cities.id')
+            ->join('provinces','LEFT')
+            ->on('user.province_id','=','provinces.id')
+            ->join('photos','LEFT')
+            ->on('user.photo_id','=','photos.id')
+            ->join('userstyles', 'LEFT')
+            ->on('user.id','=','userstyles.user_id')
+            ->join('styles','LEFT')
+            ->on('userstyles.style_id','=','styles.id')
+            ->group_by('user.id')
+            ->find_all();
+
+        return $users->count();
     }
 
 }

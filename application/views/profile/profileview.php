@@ -39,19 +39,24 @@
 						</div>
 						
 					</div>
-					<div class="profile-buttons-container border-divider">
+					
 
 					<?php 
-						if ( $profile['id'] != $user['id']  ) {
-					?>
-							<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-profile-id ="<?php echo $profile['id']; ?>" onclick="inked.Profile.saveFollower()" >AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
-							<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
-					
+						if (isset($logged_id)) 
+						{
+							if($logged_id != $profile['id'])
+							{
+					?>		
+							<div class="profile-buttons-container border-divider">
+								<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-profile-id ="<?php echo $profile['id']; ?>" onclick="inked.Profile.saveFollower()" >AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+								<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+							</div>
 					<?php 
+							}
 						}// end if
 					?>
 
-					</div>
+					
 					<nav class="menu-profile">
 						<ul>
 							<li><a href="/profile/<?php echo $profile['id']?>">Información</a></li>

@@ -18,13 +18,13 @@
 						if(empty($search))
 						{
 					?>
-							<p>Se encontraron <strong><?php echo sizeof($users)?></strong> artistas registrados.</p>		
+							<p>Se encontraron <strong><?php echo $count_users ?></strong> artistas registrados.</p>		
 					<?php
 						}
 						else
 						{
 					?>
-							<p>Se encontraron <strong><?php echo sizeof($users)?></strong> artistas para la busqueda <strong><?php echo $search ?></strong>.</p>
+							<p>Se encontraron <strong><?php echo $count_users ?></strong> artistas para la busqueda <strong><?php echo $search ?></strong>.</p>
 					<?php 		
 						}
 					}
@@ -32,23 +32,57 @@
 				</div>
 				<div class="col-md-6">
 					<h2>Buscar artistas</h2>
-					<form method="get" class="artists-filter">
-						<select name="country">
-							<option disabled selected>Pais</option>
-							<option value="1">Argentina</option>
-						</select>
-						<select name="province">
-							<option disabled selected>Provincia</option>
-							<option value="1">Buenos Aires</option>
-							<option value="2">Cordoba</option>
-						</select>
-						<select name="city">
-							<option disabled selected>Ciudad</option>
-							<option value="1">Buenos Aires</option>
-							<option value="2">Rosario</option>
-						</select>
-						<input type="text" name="search-artists" class="input-search input-search-sm"/>
-						<input type="submit" value="Buscar" class="btn btn-default btn-sm" />
+					<form method="get" class="artists-filter" onsubmit="inked.Search.buildUrlArtists(event)">
+						<ul id="search-user-filters" class="clearfix">
+							<li>
+								<label for="province">Provincia</label>
+								<select name="province" id="province" onchange="inked.Search.getCities(event)">
+									<option></option>
+									<?php
+									for($i = 0; $i < sizeof($provinces); $i++)
+									{	
+										if($provinces[$i]['id'] == $province)
+										{
+											echo '<option value="'.$provinces[$i]['id'].'" selected>'.$provinces[$i]['province'].'</option>';
+										}
+										else
+										{
+											echo '<option value="'.$provinces[$i]['id'].'">'.$provinces[$i]['province'].'</option>';
+										}
+									}
+									?>
+								</select>
+							</li>
+							<li>
+								<label for="city">Ciudad</label>
+								<select name="city" id="city">
+									<option></option>
+									<?php 
+									if(!empty($cities))
+									{
+										for($i = 0; $i < sizeof($cities); $i++)
+										{
+											if($cities[$i]['id'] == $city)
+											{
+												echo '<option value="'.$cities[$i]['id'].'" selected>'.$cities[$i]['city'].'</option>';
+											}
+											else
+											{
+												echo '<option value="'.$cities[$i]['id'].'">'.$cities[$i]['city'].'</option>';
+											}	
+										}
+									}
+									?>
+								</select>
+							</li>
+							<li>
+								<input type="text" name="search-artists" class="input-search input-search-sm" value="<?php echo $search ?>"/>
+								<input type="submit" value="Buscar" class="btn btn-default btn-sm" />
+							</li>
+						</ul>
+
+						
+						
 					</form>
 				</div>
 				
@@ -88,11 +122,17 @@
 		<?php 		
 			}//END FOR
 		}
+		
+		if(!empty($users))
+		{
 		?>
 
 		<div class="col-md-12">
 			<button class="btn btn-default" id="load-more-users" onclick="inked.Search.loadMoreUsers()" data-query="<?php echo $search ?>">Ver mas</button>
 		</div>
+		<?php
+		}
+		?>
 	</div>
 </section>
 <!-- end content -->

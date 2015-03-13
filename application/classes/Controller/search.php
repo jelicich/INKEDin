@@ -20,14 +20,18 @@ class Controller_Search extends Controller_Master {
 	//SET AS INDEX IN BOOTSTRAP
     public function action_all()
 	{
-        $this->template->content = View::factory('search/searchresultview');
-        $this->template->content->search = $this->request->param('param');
         $param = $this->request->param('param');
+        $this->template->content = View::factory('search/searchallview');
+        $this->template->content->search = $param;
+        $this->template->header->search = $param;
+        
         
         if(empty($param))
         {
-            $photos = '';
-            $users = '';
+            $photos['photos'] = '';
+            $photos['count'] = '';
+            $users['users'] = '';
+            $users['count'] = '';
         }
         else
         {
@@ -35,8 +39,10 @@ class Controller_Search extends Controller_Master {
             $users = $this->search_users($param, 0);    
         }
         
-        $this->template->content->photos = $photos;
-        $this->template->content->users = $users;
+        $this->template->content->photos = $photos['photos'];
+        $this->template->content->count_photos = $photos['count'];
+        $this->template->content->users = $users['users'];
+        $this->template->content->count_users = $users['count'];
 	}
 
     public function action_photos()
@@ -47,18 +53,49 @@ class Controller_Search extends Controller_Master {
 
             $param = $this->request->param('param');
             $offset = $this->request->post('offset');
-            $photos = $this->search_photos($param, $offset);
+            $cn = $this->request->post('cn');
+            $search = $this->search_photos($param, $offset);
+            $photos = $search['photos'];
             
-            $view_even = View::factory('search/twocolphotorenderview');
-            $view_even->photos = $photos;
-            $view_even->module = 0;
-            $view['even'] = $view_even->render();
+            if($cn == 2)
+            {
+                $view_even = View::factory('search/twocolphotorenderview');
+                $view_even->photos = $photos;
+                $view_even->module = 0;
+                $view['even'] = $view_even->render();
 
-            $view_odd = View::factory('search/twocolphotorenderview');
-            $view_odd->photos = $photos;
-            $view_odd->module = 1;
-            $view['odd'] = $view_odd->render();
-            
+                $view_odd = View::factory('search/twocolphotorenderview');
+                $view_odd->photos = $photos;
+                $view_odd->module = 1;
+                $view['odd'] = $view_odd->render();
+
+                $view['col'] = 2;
+            }
+            elseif($cn == 4)
+            {
+                $view_even = View::factory('search/fourcolphotorenderview');
+                $view_even->photos = $photos;
+                $view_even->module = 1;
+                $view['first'] = $view_even->render();
+
+                $view_odd = View::factory('search/fourcolphotorenderview');
+                $view_odd->photos = $photos;
+                $view_odd->module = 2;
+                $view['second'] = $view_odd->render();
+
+                $view_odd = View::factory('search/fourcolphotorenderview');
+                $view_odd->photos = $photos;
+                $view_odd->module = 3;
+                $view['third'] = $view_odd->render();
+
+                $view_odd = View::factory('search/fourcolphotorenderview');
+                $view_odd->photos = $photos;
+                $view_odd->module = 4;
+                $view['fourth'] = $view_odd->render();
+
+                $view['col'] = 4;
+            }
+       
             $view = json_encode($view);
             $this->response->body($view);
         }
@@ -68,8 +105,10 @@ class Controller_Search extends Controller_Master {
             $this->template->content->search = $this->request->param('param');
             $param = $this->request->param('param');
             
-            $photos = $this->search_photos($param, 0);
+            $search = $this->search_photos($param, 0);
+            $photos = $search['photos'];
             $this->template->content->photos = $photos;
+            $this->template->content->count_photos = $search['count'];
         }
     }
 
@@ -82,7 +121,8 @@ class Controller_Search extends Controller_Master {
             $param = $this->request->param('param');
             $offset = $this->request->post('offset');
             $cw = $this->request->post('cw');
-            $users = $this->search_users($param, $offset);
+            $search = $this->search_users($param, $offset);
+            $users = $search['users'];
 
             $view = View::factory('search/artistsview');
             $view->users = $users;
@@ -91,15 +131,40 @@ class Controller_Search extends Controller_Master {
             $this->response->body($view);
         }
         else
-        {
+        {            
+            $param = $this->request->param('param');
+            $province = $this->request->param('province');
+            $city = $this->request->param('city');
 
             $this->template->content = View::factory('search/searchartistsview');
-            $this->template->content->search = $this->request->param('param');
-            $param = $this->request->param('param');
-            
-            $users = $this->search_users($param, 0);
-            $this->template->content->users = $users;
+            if($param == ' ')
+            {
+                $param = '';
+            }
+                      
+            $prov_model = new Model_Province();
+            $provinces = $prov_model->get_provinces();
+            if(!empty($province))
+            {
+                $model_cities = new Model_City();
+                $cities = $model_cities->get_cities_by_province($province);
+            }
+            else
+            {
+                $cities = '';
+            }
 
+            $search = $this->search_users($param, 0, $province, $city);
+            $users = $search['users'];
+            $count_users = $search['count'];
+            
+            $this->template->content->search = $param;
+            $this->template->content->users = $users;
+            $this->template->content->count_users = $count_users;
+            $this->template->content->provinces = $provinces;
+            $this->template->content->cities = $cities;
+            $this->template->content->province = $province;
+            $this->template->content->city = $city;
         }
 
     }
@@ -110,6 +175,7 @@ class Controller_Search extends Controller_Master {
     {
         $model_photos = new Model_Photo();
         
+        $count = $model_photos->count_photos($param);
         $photos = $model_photos->search_photos($param, $offset);
 
         for ($i=0; $i < sizeof($photos); $i++) 
@@ -127,14 +193,17 @@ class Controller_Search extends Controller_Master {
             $photos[$i]['photo'] = '/users/'.$photos[$i]['user_id'].'/img/thumb/'.$photos[$i]['photo'];
         }
         
-        return $photos;
+        $result['photos'] = $photos;
+        $result['count'] = $count;
+        return $result;
     }
 
-    private function search_users($param, $offset)
+    private function search_users($param, $offset, $province = '', $city = '')
     {
         $model_users = new Model_User();
 
-        $users = $model_users->search_users($param, $offset);
+        $count = $model_users->count_users($param);
+        $users = $model_users->search_users($param, $offset, $province, $city);
         for ($i=0; $i < sizeof($users); $i++) { 
            
             if(empty($users[$i]['photo']))
@@ -146,7 +215,8 @@ class Controller_Search extends Controller_Master {
                 $users[$i]['photo'] = '/users/'.$users[$i]['user_id'].'/img/sm/'.$users[$i]['photo'];
             }
         }
-        
-        return $users;
+        $result['users'] = $users;
+        $result['count'] = $count;
+        return $result;
     }
 } // End Welcome
