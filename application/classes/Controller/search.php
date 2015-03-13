@@ -169,6 +169,27 @@ class Controller_Search extends Controller_Master {
 
     }
 
+    public function action_tops()
+    {
+        $this->template->content = View::factory('search/searchtopsview');
+        $model_user = new Model_User();
+        $users = $model_user->get_top_users();
+        
+        for ($i=0; $i < sizeof($users); $i++) { 
+           
+            if(empty($users[$i]['photo']))
+            {
+                $users[$i]['photo'] = '/assets/common/app/img/default.jpg';
+            }
+            else
+            {
+                $users[$i]['photo'] = '/users/'.$users[$i]['user_id'].'/img/sm/'.$users[$i]['photo'];
+            }
+        }
+        
+        $this->template->content->users = $users;
+    }
+
     //PRIVATE METHODS ====================================================
 
     private function search_photos($param, $offset)

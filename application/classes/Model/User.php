@@ -487,4 +487,30 @@ class Model_User extends ORM{
         return $users->count();
     }
 
+    public function get_top_users()
+    {
+        $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', array(DB::expr('(ratings.total_value/ratings.total_votes)'), 'rating'))
+            ->join('cities','LEFT')
+            ->on('user.city_id','=','cities.id')
+            ->join('provinces','LEFT')
+            ->on('user.province_id','=','provinces.id')
+            ->join('photos','LEFT')
+            ->on('user.photo_id','=','photos.id')
+            ->join('ratings')
+            ->on('user.id','=','ratings.id')
+            ->order_by('rating', 'DESC')
+            ->limit(50)
+            ->find_all();
+
+        $users = $users->as_array();
+        
+        for($i = 0; $i < sizeof($users); $i++)
+        {
+            $users[$i] = $users[$i]->as_array();
+        }
+
+        return $users;
+
+    }
+
 }
