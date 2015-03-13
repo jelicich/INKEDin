@@ -311,6 +311,9 @@ class Model_User extends ORM{
             $this->or_where('user.last_name','LIKE', '%'.$param.'%');
             $this->and_where('user.role','=', '1');   
 
+            $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
+            $this->and_where('user.role','=', '1');  
+
             $this->or_where('styles.style','LIKE','%'.$param.'%');
             $this->and_where('user.role','=', '1');
         }
@@ -325,6 +328,10 @@ class Model_User extends ORM{
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');
 
+                $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.role','=', '1');  
+
                 $this->or_where('styles.style','LIKE','%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');
@@ -336,6 +343,11 @@ class Model_User extends ORM{
                 $this->and_where('user.city_id','=', $city);    
 
                 $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.city_id','=', $city);    
+                $this->and_where('user.role','=', '1');
+
+                $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.city_id','=', $city);    
                 $this->and_where('user.role','=', '1');
@@ -403,6 +415,9 @@ class Model_User extends ORM{
             $this->or_where('user.last_name','LIKE', '%'.$param.'%');
             $this->and_where('user.role','=', '1');   
 
+            $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
+            $this->and_where('user.role','=', '1');  
+
             $this->or_where('styles.style','LIKE','%'.$param.'%');
             $this->and_where('user.role','=', '1');
         }
@@ -417,6 +432,10 @@ class Model_User extends ORM{
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');
 
+                $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.role','=', '1');  
+
                 $this->or_where('styles.style','LIKE','%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');
@@ -428,6 +447,11 @@ class Model_User extends ORM{
                 $this->and_where('user.city_id','=', $city);    
 
                 $this->or_where('user.last_name','LIKE', '%'.$param.'%');
+                $this->and_where('user.province_id','=', $province);
+                $this->and_where('user.city_id','=', $city);    
+                $this->and_where('user.role','=', '1');
+
+                $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.city_id','=', $city);    
                 $this->and_where('user.role','=', '1');
