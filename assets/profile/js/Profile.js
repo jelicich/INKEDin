@@ -58,8 +58,6 @@ inked.Profile = {
                 success : function (response) 
                 {   
                     $('#comments_modal').modal('hide');
-                    //$('#comments_modal').remove();
-                    // $('#profile-mid-col').css('display','none');
                     $('#profile-mid-col').after(response);
                     $('#profile-mid-col').remove();
                     $('#comment-form').validate({
@@ -91,6 +89,9 @@ inked.Profile = {
                 }
             });
     }
+
+
+
 };
 
 {

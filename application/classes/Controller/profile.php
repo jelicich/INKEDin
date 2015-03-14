@@ -56,8 +56,10 @@ class Controller_Profile extends Controller_Master {
         $this->profile = $profile;
         $this->template->profile = $profile;
 
-        //RATING
+        $user = $this->get_user_info();
+        $this->template->user = $user;
 
+        //RATING
         $rating_model = new Model_Rating();
         $rating = $rating_model->get_rating_by_id($this->id);
         if($rating['total_votes'] > 0)
@@ -107,8 +109,8 @@ class Controller_Profile extends Controller_Master {
             $this->template->sidebar->followers = $followers;
             $this->template->logged_in = $logged_in;
 
-            $user = $this->get_user_info();
-            $this->template->user = $user;
+            // $user = $this->get_user_info();
+            // $this->template->user = $user;
        
         }
     }
@@ -117,6 +119,10 @@ class Controller_Profile extends Controller_Master {
     {
         $album_model = new Model_Album();
         $albums = $album_model->get_albums_by_user($this->id);
+
+        // --------------------- modificar
+        $logged_in = $this->is_logged_in();
+        $this->template->logged_in = $logged_in;
 
         $this->template->content = View::factory('profile/albumsview');
         $this->template->content->profile = $this->profile;
@@ -306,6 +312,7 @@ class Controller_Profile extends Controller_Master {
         $this->template->content->profile_id = $this->id;
         $this->template->content->comments = $comments;
         $this->template->content->logged_in = $logged_in;
+        $this->template->logged_in = $logged_in; /////////////////////////// modificar
     }
 
     public function action_leave_comment()
