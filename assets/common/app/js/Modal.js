@@ -1,9 +1,6 @@
 inked.Common.Modal = {
     init : function() 
     {
-        $(window).on("resize", function () {
-            $('.modal:visible').each(inked.Modal.centerModal);
-        });
 
         $('.photo-anchor').click(function()
         {

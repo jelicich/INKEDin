@@ -138,7 +138,7 @@
 			{
 			?>
 				<div class="col-md-12">
-					<button class="btn btn-default" id="load-more-photos" onclick="inked.Search.loadMorePhotos()" data-query="<?php echo $search ?>">Ver mas</button>
+					<button class="btn btn-default" id="load-more-photos" onclick="inked.Search.loadMorePhotos()" data-query="<?php echo $search ?>">VER MAS</button>
 				</div>
 			<?php
 			}

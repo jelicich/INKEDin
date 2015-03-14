@@ -9,13 +9,26 @@ class Controller_Index extends Controller_Master {
     {   
         parent::before();
         $this->template->head->title = "INKEDin - Tattoo Site";
+        $this->template->head->custom_scripts = HTML::script('/assets/home/js/Home.js')
+                                                .HTML::script('/assets/common/app/js/Modal.js');
+        $this->template->head->custom_styles = HTML::style('/assets/home/css/home.css');
     }
 
 	public function action_index()
 	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+			$offset = $this->request->post('offset');
+		}
+		else
+		{
+			$offset = 0;
+		}
 		$model_photos = new Model_Photo();
-		$photos = $model_photos->search_photos('', 0, TRUE);
-        
+		$photos = $model_photos->search_photos('', $offset, 10 ,TRUE);
+        $leftcol = '';
+        $rightcol = '';
         $l_count = 1;
         $r_count = 1;
         for ($i=0; $i < sizeof($photos); $i++) 
@@ -66,8 +79,27 @@ class Controller_Index extends Controller_Master {
 	            $r_count++;
         	}
         }
-        $this->template->leftcol = $leftcol;
-        $this->template->rightcol = $rightcol;
+        if($this->request->is_ajax())
+		{	
+			$view_even = View::factory('home/leftcolrendererview');
+            $view_even->photos = $photos;
+            $view_even->module = 0;
+            $view['leftcol'] = $view_even->render();
+
+            $view_even = View::factory('home/rightcolrendererview');
+            $view_even->photos = $photos;
+            $view_even->module = 0;
+            $view['rightcol'] = $view_even->render();
+
+            $view = json_encode($view);
+            $this->response->body($view);
+		}
+		else
+		{
+			$this->template->leftcol = $leftcol;
+        	$this->template->rightcol = $rightcol;
+		}
+        
         
 	}
 

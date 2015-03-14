@@ -1,7 +1,6 @@
-inked.Search = {
+inked.Home = {
     
     'offset_photos' : 0,
-    'offset_users' : 0,
 
     init : function() 
     {
@@ -10,16 +9,13 @@ inked.Search = {
 
     loadMorePhotos : function()
     {
-        this.offset_photos += 15;
-        var query = $('#load-more-photos').attr('data-query');
-        var cn = $('#photos-result-container').attr('data-column-number');
+        this.offset_photos += 10;
         var data = {
             "offset" : this.offset_photos,
-            "cn" : cn,
         }
         $.ajax({
                 data: data,
-                url:   '/search/photos/'+query,
+                url:   '/index/index',
                 type:  'post',
                 beforeSend : function()
                 {
@@ -29,61 +25,25 @@ inked.Search = {
                 success : function (response) 
                 {
                     response = jQuery.parseJSON(response);
-                    if(response.col == 2)
+                    console.log(response);
+                    $left = $(response.leftcol);
+                    $right = $(response.rightcol);
+                    $left.hide();
+                    $right.hide();
+                    $('#left-col-photos').append($left);
+                    $('#right-col-photos').append($right);
+                    $left.fadeIn(1000);
+                    $right.fadeIn(1000);
+                    $('#load-more-photos').html('VER MAS');
+                    inked.Common.Modal.init();
+                    if(response.leftcol != "" && response.rightcol != "")
                     {
-                        $even = $(response.even);
-                        $odd = $(response.odd);
-                        $even.hide();
-                        $odd.hide();
-                        $('#left-col-photos').append($even);
-                        $('#right-col-photos').append($odd);
-                        $even.fadeIn(1000);
-                        $odd.fadeIn(1000);
-                        $('#load-more-photos').html('VER MAS');
-                        inked.Modal.init();
-
-                        if(response.even != "" && response.odd != "")
-                        {
-                            $('#load-more-photos').removeClass('disabled');
-                        }
-                        else
-                        {
-                           $('#load-more-photos').html('FIN')
-                        }
+                        $('#load-more-photos').removeClass('disabled');
                     }
-                    if(response.col == 4)
+                    else
                     {
-                        $first = $(response.first);
-                        $second = $(response.second);
-                        $third = $(response.third);
-                        $fourth = $(response.fourth);
-                        $first.hide();
-                        $second.hide();
-                        $third.hide();
-                        $fourth.hide();
-                        $('#first-col-photos').append($first);
-                        $('#second-col-photos').append($second);
-                        $('#third-col-photos').append($third);
-                        $('#fourth-col-photos').append($fourth);
-                        $first.fadeIn(1000);
-                        $second.fadeIn(1000);
-                        $third.fadeIn(1000);
-                        $fourth.fadeIn(1000);
-                        
-                        $('#load-more-photos').html('VER MAS');
-                        inked.Modal.init();
-
-                        if(response.first != "" && response.second != "" && response.third != "" && response.fourth != "")
-                        {
-                            $('#load-more-photos').removeClass('disabled');
-                        }
-                        else
-                        {
-                           $('#load-more-photos').html('FIN')
-                        }
+                       $('#load-more-photos').html('FIN')
                     }
-                        
-                    
                 }
             });
     },
@@ -116,7 +76,7 @@ inked.Search = {
                 $last_article.after($response);
                 $response.fadeIn(1000);
 
-                $('#load-more-users').html('VER MAS');
+                $('#load-more-users').html('Ver mas');
 
                 if(response != "")
                 {
@@ -124,7 +84,7 @@ inked.Search = {
                 }
                 else
                 {
-                   $('#load-more-users').html('FIN')
+                   $('#load-more-users').html('Fin')
                 }
             }
         });
@@ -187,6 +147,6 @@ inked.Search = {
 
 {
     $(document).ready(function() {
-        inked.Search.init();
+        inked.Home.init();
     });
 }
