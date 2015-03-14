@@ -254,7 +254,7 @@ class Controller_Photo extends Controller_Master {
     	}
     	if(empty($user['cover']))
     	{
-    		$user['cover_path'] = '/assets/common/app/img/cover.jpg';
+    		$user['cover_path'] = '/assets/common/app/img/cover_thumb.jpg';
     	}
     	else
     	{

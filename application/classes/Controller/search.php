@@ -183,7 +183,7 @@ class Controller_Search extends Controller_Master {
             }
             else
             {
-                $users[$i]['photo'] = '/users/'.$users[$i]['user_id'].'/img/sm/'.$users[$i]['photo'];
+                $users[$i]['photo'] = '/users/'.$users[$i]['id'].'/img/sm/'.$users[$i]['photo'];
             }
         }
         
