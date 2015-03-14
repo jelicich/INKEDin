@@ -107,9 +107,7 @@ class Controller_Profile extends Controller_Master {
             $this->template->sidebar->followers = $followers;
             $this->template->logged_in = $logged_in;
 
-            //Limpiar esto
-            $model_followers = new Model_User();
-            $user = $model_followers->get_user_info();
+            $user = $this->get_user_info();
             $this->template->user = $user;
        
         }

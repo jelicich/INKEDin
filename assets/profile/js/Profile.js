@@ -83,9 +83,11 @@ inked.Profile = {
         $.ajax({
                 url:   '/profile/'+ profile_id +'/save_follower',
                 type:  'post',
-                success : function (response) 
+                success : function () 
                 {   
-                   
+                   follow_button.html('YA ES TU FAVORITO !');
+                   follow_button.removeAttr('onclick id');
+                   follow_button.removeClass('btn-default').addClass('btn-success');
                 }
             });
     }
