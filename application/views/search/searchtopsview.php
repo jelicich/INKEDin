@@ -41,6 +41,7 @@
 					<div class="rating rate">
 						<span><?php echo @round($users[$i]['rating'],1) ?></span>
 					</div>
+					<p class="total-votes"><?php echo $users[$i]['total_votes'] ?> votos</p>
 				</div>
 			</article>	
 			<!-- end artist -->	

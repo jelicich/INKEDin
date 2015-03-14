@@ -489,7 +489,7 @@ class Model_User extends ORM{
 
     public function get_top_users()
     {
-        $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', array(DB::expr('(ratings.total_value/ratings.total_votes)'), 'rating'))
+        $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', array(DB::expr('(ratings.total_value/ratings.total_votes)'), 'rating'), 'ratings.total_votes')
             ->join('cities','LEFT')
             ->on('user.city_id','=','cities.id')
             ->join('provinces','LEFT')
@@ -499,6 +499,7 @@ class Model_User extends ORM{
             ->join('ratings')
             ->on('user.id','=','ratings.id')
             ->order_by('rating', 'DESC')
+            ->order_by('total_votes', 'DESC')
             ->limit(50)
             ->find_all();
 
