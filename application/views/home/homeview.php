@@ -50,7 +50,7 @@
 							<!-- img -->
 							<article class="col-md-<?php echo $col_size ?> pic-sq-grid">
 								<div class="inner-pic-sq-grid border-img">
-									<a href="#"><img src="<?php echo $leftcol[$i]['photo'] ?>" alt="<?php echo $leftcol[$i]['description'] ?>" /></a>
+									<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><img src="<?php echo $leftcol[$i]['photo'] ?>" alt="<?php echo $leftcol[$i]['description'] ?>" data-photo-id="<?php echo $leftcol[$i]['id']?>"/></a>
 									<div class="pic-details">
 										<p class="caption"><?php echo $leftcol[$i]['description'] ?></p>
 										<ul class="owner-container clearfix">
@@ -107,7 +107,7 @@
 							<!-- img -->
 							<article class="col-md-<?php echo $col_size ?> pic-sq-grid">
 								<div class="inner-pic-sq-grid border-img">
-									<a href="#"><img src="<?php echo $rightcol[$i]['photo'] ?>" alt="<?php echo $rightcol[$i]['description'] ?>" /></a>
+									<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><img src="<?php echo $rightcol[$i]['photo'] ?>" alt="<?php echo $rightcol[$i]['description'] ?>" data-photo-id="<?php echo $rightcol[$i]['id']?>"/></a>
 									<div class="pic-details">
 										<p class="caption"><?php echo $rightcol[$i]['description'] ?></p>
 										<ul class="owner-container clearfix">
@@ -141,5 +141,21 @@
 	<?php echo $footer ?>
 	
 </div>
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="" id="photo-target" data-photo-id="" class="img-responsive">
+            <div class="modal-tools">
+           		<p id="photo-description"></p>
+           		<p class="photo-tags"><strong>Tags:</strong> <span id="photo-tags"></span></p>
+           		<a href="#" class="btn btn-default btn-save-photo" id="save-to-favourites" onclick="inked.Common.Modal.saveToFavourites(event);">Guardar <span class="glyphicon glyphicon-picture"></span></a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

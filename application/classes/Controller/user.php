@@ -209,5 +209,35 @@ class Controller_User extends Controller_MasterAjax {
 		$this->response->body($view);
 	}
 
+	public function action_save_to_favourites()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+		$user = $this->get_user_info();
+		$photo_id = $this->request->post('photo_id');
+		$model_favourite = new Model_Favourite();
+		try 
+		{
+			$model_favourite->save_photo($user['id'],$photo_id);
+			$response = '{"status" : "success"}';
+		} 
+		catch (Exception $e) 
+		{
+			if($e->getCode() === 1062)
+			{
+				$message = 'Ya tenes esta foto';
+			}
+			else
+			{
+				$message = 'Error en la BD';
+			}
+			$response = '{"status" : "error", "message" : "'.$message.'"}';
+		}
+		$this->response->body($response);
+		
+
+	}
 
 } // End Welcome
