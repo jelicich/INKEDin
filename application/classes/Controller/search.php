@@ -12,8 +12,10 @@ class Controller_Search extends Controller_Master {
         
         $this->template->head->title = "INKEDin - Resultados de busqueda: ".$this->request->param('id');
         $this->template->head->custom_scripts = HTML::script('/assets/search/js/Search.js')
-                                                .HTML::script('/assets/search/js/Modal.js');
+                                                .HTML::script('/assets/common/app/js/Modal.js');
         $this->template->head->custom_styles = HTML::style('/assets/search/css/search.css');
+
+        $this->template->is_logged_in = $this->is_logged_in();
 
     }
 
@@ -43,6 +45,7 @@ class Controller_Search extends Controller_Master {
         $this->template->content->count_photos = $photos['count'];
         $this->template->content->users = $users['users'];
         $this->template->content->count_users = $users['count'];
+    
 	}
 
     public function action_photos()

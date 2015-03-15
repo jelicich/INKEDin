@@ -99,8 +99,8 @@ class Controller_Index extends Controller_Master {
 			$this->template->leftcol = $leftcol;
         	$this->template->rightcol = $rightcol;
 		}
-        
-        
+
+        $this->template->is_logged_in = $this->is_logged_in();
 	}
 
 } // End Welcome

@@ -1,6 +1,10 @@
 inked.Common.Modal = {
     init : function() 
     {
+        $('#myModal').on('hidden.bs.modal', function () {
+            $("#save-to-favourites").html('Guardar <span class="glyphicon glyphicon-picture"></span>');
+            $("#save-to-favourites").removeClass('disabled');
+        })
 
         $('.photo-anchor').click(function()
         {
@@ -31,6 +35,7 @@ inked.Common.Modal = {
     },
     saveToFavourites : function(event)
     {        
+        event.preventDefault();
         var photo_id = $('#photo-target').attr('data-photo-id');
         var data = {
             'photo_id' : photo_id,
@@ -43,9 +48,9 @@ inked.Common.Modal = {
             {
                 $("#save-to-favourites").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/>');
             },
-            success:  function (response) 
+            success:  function(response) 
             {
-                console.log(response);
+                //console.log(response);
                 response = jQuery.parseJSON(response);
                 if(response.status == 'error')
                 {

@@ -19,7 +19,22 @@
 			<!-- COVER PIC -->
 			<div class="col-md-12" id="container-cover-pic">
 				<div id="inner-container-cover-pic">
-					<a href="#"><?php echo $profile['cover'] ?></a>
+					<?php 
+					$pos = strpos($profile['cover'], 'cover');
+					if($pos !== false) 
+					{
+					?>
+						<?php echo $profile['cover'] ?>
+					<?php
+					}
+					else
+					{
+					?>
+						<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><?php echo $profile['cover'] ?></a>
+					<?php
+					}
+					?>
+
 				</div>
 			</div>
 			<!-- END COVER PIC -->
@@ -29,7 +44,21 @@
 				<div id="profile-fix-wrapper" class="profile-free">
 					<!-- PROFILE PIC -->
 					<div id="profile-pic-container" class="border-img">
-						<a href="#"><?php echo $profile['photo'] ?></a>
+						<?php 
+						$pos = strpos($profile['photo'], 'default');
+						if($pos !== false) 
+						{
+						?>
+							<?php echo $profile['photo'] ?>
+						<?php
+						}
+						else
+						{
+						?>
+							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><?php echo $profile['photo'] ?></a>
+						<?php
+						}
+						?>
 					</div>
 					<!-- END PROFILE PIC -->
 					<div id="profile-rating-container" class="clearfix border-divider">
@@ -111,6 +140,28 @@
 
 </div>
 
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <img src="" id="photo-target" data-photo-id="" class="img-responsive">
+            <div class="modal-tools">
+           		<p id="photo-description"></p>
+           		<p class="photo-tags"><strong>Tags:</strong> <span id="photo-tags"></span></p>
+           		<?php 
+           		if($is_logged_in)
+           		{
+           		?>
+           			<a href="#" class="btn btn-default btn-save-photo" id="save-to-favourites" onclick="inked.Common.Modal.saveToFavourites(event);">Guardar <span class="glyphicon glyphicon-picture"></span></a>
+           		<?php	
+           		}
+           		?>
+           		
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
 
 
 </body>

@@ -215,29 +215,30 @@ class Controller_User extends Controller_MasterAjax {
 		{	
 			$this->auto_render = false;
 		}
-		$user = $this->get_user_info();
-		$photo_id = $this->request->post('photo_id');
-		$model_favourite = new Model_Favourite();
-		try 
+		if($this->is_logged_in())
 		{
-			$model_favourite->save_photo($user['id'],$photo_id);
-			$response = '{"status" : "success"}';
-		} 
-		catch (Exception $e) 
-		{
-			if($e->getCode() === 1062)
+			$user = $this->get_user_info();
+			$photo_id = $this->request->post('photo_id');
+			$model_favourite = new Model_Favourite();
+			try 
 			{
-				$message = 'Ya tenes esta foto';
-			}
-			else
+				$model_favourite->save_photo($user['id'],$photo_id);
+				$response = '{"status" : "success"}';
+			} 
+			catch (Exception $e) 
 			{
-				$message = 'Error en la BD';
+				if($e->getCode() === 1062)
+				{
+					$message = 'Ya tenes esta foto';
+				}
+				else
+				{
+					$message = 'Error en la BD';
+				}
+				$response = '{"status" : "error", "message" : "'.$message.'"}';
 			}
-			$response = '{"status" : "error", "message" : "'.$message.'"}';
+			$this->response->body($response);
 		}
-		$this->response->body($response);
-		
-
 	}
 
 } // End Welcome

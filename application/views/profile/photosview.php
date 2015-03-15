@@ -20,17 +20,3 @@
 	</div>
 </article>
 
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-body">
-            <img src="" id="photo-target" class="img-responsive">
-            <div class="modal-tools">
-           		<p id="photo-description"></p>
-           		<p class="photo-tags"><strong>Tags:</strong> <span id="photo-tags"></span></p>
-           		<a href="#" class="btn btn-default btn-save-photo">Guardar <span class="glyphicon glyphicon-picture"></span></a>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>

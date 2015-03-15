@@ -29,8 +29,10 @@ class Controller_Profile extends Controller_Master {
         $this->template->head->title = "INKEDin - ".$profile['name']." ".$profile['last_name'];
         $this->template->head->custom_scripts = HTML::script('/assets/common/app/js/jquery.validate.min.js')
                                                 .HTML::script('/assets/common/app/js/messages_es.min.js')
+                                                .HTML::script('/assets/common/app/js/Modal.js')
                                                 .HTML::script('/assets/profile/js/Profile.js')
                                                 .HTML::script('/assets/profile/js/Rating.js');
+
         $this->template->head->custom_styles = HTML::style('/assets/profile/css/rating.css');
 
         //CHECK PROFILE PIC
@@ -77,6 +79,8 @@ class Controller_Profile extends Controller_Master {
         $this->template->ratingview = View::factory('profile/ratingview');
         $this->template->ratingview->rating = $rating;
         $this->template->ratingview->profile_id = $profile['id'];
+
+        $this->template->is_logged_in = $this->is_logged_in();
     }
 
 	public function action_index()
@@ -140,7 +144,7 @@ class Controller_Profile extends Controller_Master {
         }
         else
         {
-            $this->template->head->custom_scripts .= HTML::script('/assets/profile/js/Modal.js');
+            //$this->template->head->custom_scripts .= HTML::script('/assets/profile/js/Modal.js');
             $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
             $this->template->content = View::factory('profile/photosview');
             $this->template->content->profile = $this->profile;
