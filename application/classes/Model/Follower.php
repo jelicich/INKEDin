@@ -35,3 +35,6 @@ class Model_Follower extends ORM{
 		return $id;
 	}
 }
+
+
+?>

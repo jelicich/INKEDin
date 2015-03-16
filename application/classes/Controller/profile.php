@@ -31,7 +31,8 @@ class Controller_Profile extends Controller_Master {
                                                 .HTML::script('/assets/common/app/js/messages_es.min.js')
                                                 .HTML::script('/assets/common/app/js/Modal.js')
                                                 .HTML::script('/assets/profile/js/Profile.js')
-                                                .HTML::script('/assets/profile/js/Rating.js');
+                                                .HTML::script('/assets/profile/js/Rating.js')
+                                                .HTML::script('/assets/Message/js/Message.js');
 
         $this->template->head->custom_styles = HTML::style('/assets/profile/css/rating.css');
 

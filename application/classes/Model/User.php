@@ -200,7 +200,6 @@ class Model_User extends ORM{
 
         //update session info
         $this->update_session();
-       
     }
 
     public function update_profile_photo($photo_id)
@@ -212,7 +211,6 @@ class Model_User extends ORM{
         $r = $user->save();
 
         $this->update_session();
-        
     }
 
     public function update_cover_photo($cover_id)
@@ -224,7 +222,6 @@ class Model_User extends ORM{
         $r = $user->save();
 
         $this->update_session();
-        
     }
 
     public function update_session()
@@ -511,7 +508,6 @@ class Model_User extends ORM{
         }
 
         return $users;
-
     }
 
 }
