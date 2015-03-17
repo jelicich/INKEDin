@@ -31,7 +31,7 @@
 						<ul class="nav nav-tabs" role="tablist">
 							<li role="presentation" class="active"><a href="#account-info" aria-controls="account-info" role="tab" data-toggle="tab">Datos de usuario</a></li>
 							<li role="presentation"><a href="#profile-pic" aria-controls="profile-pic" role="tab" data-toggle="tab">Perfil / Portada</a></li>
-							<li role="presentation"><a href="#favourite-pics" aria-controls="favourite-pics" role="tab" data-toggle="tab">Fotos favoritas</a></li>
+							<li role="presentation"><a href="#favourite-pics" aria-controls="favourite-pics" onclick="inked.Photo.loadFavouritePhotos()" role="tab" data-toggle="tab">Fotos favoritas</a></li>
 						</ul>
 
 						<!-- Tab panes -->

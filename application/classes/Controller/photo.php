@@ -265,6 +265,21 @@ class Controller_Photo extends Controller_Master {
 		$this->response->body($view);
 	}
 
+	public function load_favourites()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+
+		$model_favourite = new Model_Favourite();
+		$user = $this->get_user_info();
+
+		$photos = $model_favourite->get_favourites($user['id']);
+		$view = View::factory('photo/favouritelistview');
+		$view->photos = $photos;
+		$this->response->body($view)
+	}
 	
 
 } // End Welcome

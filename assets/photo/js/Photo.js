@@ -94,51 +94,26 @@ inked.Photo = {
         });   
     },	
 
-    createNewAlbum : function()
+    loadFavouritePhotos : function()
     {
-            var params = {
-                "name" : $('#album-name').val(),
-            };
+          
+        $.ajax({
+            url:   '/photo/load_favourites',
+            data:  '',
+            type:  'post',
+            beforeSend: function () 
+            {
+                $("#user-album-edit-msg").fadeIn();
+                $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando...</span>');
+            },
+            success:  function (response) 
+            {
+                $('#edit-album').html(response);
+            }
+            
+        });
+    },
 
-            $.ajax({
-                data:  params,
-                url:   '/album/create_album',
-                type:  'post',
-                beforeSend: function () 
-                {
-                    $("#user-album-create-msg").fadeIn();
-                    $("#user-album-create-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Guardando...</span>');
-                },
-                success:  function (response) 
-                {
-                    response = jQuery.parseJSON(response);
-                    if(response.status == 'error')
-                    {
-                            var li = '';
-                            //response = jQuery.parseJSON(response);
-                            $.each(response, function(key, value) {
-                                                        li += '<li>'+value+'</li>'; 
-                                                    });
-                            $("#user-album-create-msg").html('<span>Ocurrio el siguiente error</span><ul>'+li+'</ul>');
-                    }
-                    else
-                    {
-                            $("#user-album-create-msg").html('<span>Datos guardados!</span>');
-                            $("#new-album-form input[type='submit']").hide();
-                            $("#album-name").attr('disabled','true');
-                            $("#upload").fadeIn();
-                            $("#album-id").attr('value', response.album);
-                            $("#finish-album").attr('data-album-id', response.album);
-                            $("#finish-album").css('display', 'block').hide().fadeIn();
-                            $("#finish-album").css('display', 'block').hide().fadeIn();
-
-                    }
-                    setInterval(function(){
-                            $("#user-album-create-msg").fadeOut();  
-                    },3000);
-                }
-            });
-    }
 
 };
 
