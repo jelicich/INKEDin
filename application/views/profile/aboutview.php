@@ -1,4 +1,4 @@
-<?php var_dump($profile); exit;?>
+<?php //var_dump($profile); exit;?>
 
 <article class="col-md-6" id="profile-mid-col">
 	<h1><?php echo $profile['name'].' '.$profile['last_name']?></h1>
@@ -34,7 +34,7 @@
 			<div id="map">
 			  <div id="map_canvas" style="width:100%; height:200px"></div>
 			</div>
-			
+
 		</div>
 	</div>
 </article>
