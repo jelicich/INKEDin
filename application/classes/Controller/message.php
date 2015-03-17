@@ -10,12 +10,10 @@ class Controller_Message extends Controller_Master {
         $user = $this->get_user_info();
         // $profile_id = $this->request->param();
 
-        // esto iria dentro del if
-        $this->template->head->custom_styles = HTML::style('/assets/user/css/user.css');
         if($this->is_logged_in())
         {
             $this->template->head->title = "INKEDin - Inbox";
-         
+            $this->template->head->custom_styles = HTML::style('/assets/user/css/user.css');
             $this->template->user = $user;
         }
     }

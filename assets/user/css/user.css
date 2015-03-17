@@ -45,7 +45,6 @@ label[for="province"]{
 
 
 /* inbox*/
-
 #inbox{
 	min-height: 150px;
 }
@@ -96,11 +95,6 @@ label[for="province"]{
 #conversation-list li:last-child{
 	border: none;
 }*/
-
-.messages-column{
- 
-}
-
 
 .messages-header{
  	 border-bottom: 1px solid #E8C898;
