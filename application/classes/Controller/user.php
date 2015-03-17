@@ -2,12 +2,26 @@
 
 class Controller_User extends Controller_MasterAjax {
 
-	public $template = 'user/myaccountview';
+	//public $template = 'user/myaccountview';
+	private $user;
 
-	/*public function before()
+	public function before()
     {   
-        parent::before(); 
-    }*/
+        parent::before();
+        if($this->is_logged_in())
+        {
+        	$this->user = $this->get_user_info();
+
+			if($this->user['role'] == 1)
+        	{
+        		$this->template = View::factory('user/myaccountview');	
+        	}
+        	else
+        	{
+        		$this->template = View::factory('user/clientaccountview');	
+        	}
+        }
+    }
 
 	public function action_index()
 	{
@@ -15,6 +29,59 @@ class Controller_User extends Controller_MasterAjax {
 
 		if($this->is_logged_in())
         {
+			$user = $this->user;
+			if(empty($user['photo']))
+        	{
+        		$user['photo_path'] = '/assets/common/app/img/default.jpg';
+        	}
+        	else
+        	{
+        		$user['photo_path'] = '/users/'.$user['id'].'/img/sm/'.$user['photo'];
+        	}
+        	
+        	if($user['role'] == 1)
+        	{
+	        	if(empty($user['cover']))
+	        	{
+	        		$user['cover_path'] = '/assets/common/app/img/cover_thumb.jpg';
+	        	}
+	        	else
+	        	{
+	        		$user['cover_path'] = '/users/'.$user['id'].'/img/sm/'.$user['cover'];
+	        	}
+
+	        	//BIND STYLTES
+	        	$styles_model = new Model_Style();
+	        	$styles = $styles_model->get_styles();
+	        	$this->template->styles = $styles;
+
+	        	//BIND PROVINCES
+	        	$prov_model = new Model_Province();
+	        	$provinces = $prov_model->get_provinces();
+	        	$this->template->provinces = $provinces;
+
+	        	//BIND CITIES
+	        	if(!empty($user['province_id']))
+	        	{
+					$model_cities = new Model_City();
+	        		$cities = $model_cities->get_cities_by_province($user['province_id']);
+					$this->template->cities = $cities;
+	        	}
+
+	        	//LOAD SUBVIEWS
+	        	$this->template->create_album_view = View::factory('album/createalbumview');
+	        	$this->template->profile_picture_view = View::factory('photo/uploadprofilepictureview');
+	        	$this->template->profile_picture_view->user = $user;
+        	}
+        	else
+        	{
+        		$this->template->profile_picture_view = View::factory('photo/clientuploadprofilepictureview');
+	        	$this->template->profile_picture_view->user = $user;
+        	}	
+
+        	//BIND USER
+			$this->template->user = $user;
+        	
         	$this->template->head->title = "INKEDin - Mi cuenta";
         	$this->template->head->custom_scripts = HTML::script('/assets/common/app/js/jquery.validate.min.js')
         											.HTML::script('/assets/common/app/js/messages_es.min.js')
@@ -26,60 +93,11 @@ class Controller_User extends Controller_MasterAjax {
 													.HTML::script('/assets/album/js/jquery.fileupload.js')
 													.HTML::script('/assets/album/js/upload.script.js')
 													.HTML::script('/assets/photo/js/Photo.js');
-													
-        											
 
 			$this->template->head->custom_styles = HTML::style('/assets/user/css/user.css')
 													.HTML::style('/assets/album/css/upload.css')
 													.HTML::style('/assets/album/css/album.css')
 													.HTML::style('/assets/photo/css/photo.css');
-	
-        	$user = $this->get_user_info();
-        	
-        	if(empty($user['photo']))
-        	{
-        		$user['photo_path'] = '/assets/common/app/img/default.jpg';
-        	}
-        	else
-        	{
-        		$user['photo_path'] = '/users/'.$user['id'].'/img/sm/'.$user['photo'];
-        	}
-        	if(empty($user['cover']))
-        	{
-        		$user['cover_path'] = '/assets/common/app/img/cover_thumb.jpg';
-        	}
-        	else
-        	{
-        		$user['cover_path'] = '/users/'.$user['id'].'/img/sm/'.$user['cover'];
-        	}
-        	
-        	//BIND USER
-        	$this->template->user = $user;
-
-        	//BIND STYLTES
-        	$styles_model = new Model_Style();
-        	$styles = $styles_model->get_styles();
-        	$this->template->styles = $styles;
-
-        	//BIND PROVINCES
-        	$prov_model = new Model_Province();
-        	$provinces = $prov_model->get_provinces();
-        	$this->template->provinces = $provinces;
-
-        	//BIND CITIES
-        	if(!empty($user['province_id']))
-        	{
-				$model_cities = new Model_City();
-        		$cities = $model_cities->get_cities_by_province($user['province_id']);
-				$this->template->cities = $cities;
-        	}
-
-        	//LOAD SUBVIEWS
-        	$this->template->create_album_view = View::factory('album/createalbumview');
-        	$this->template->profile_picture_view = View::factory('photo/uploadprofilepictureview');
-        	$this->template->profile_picture_view->user = $user;
-        	
-        	
         }
         else
         {
@@ -205,7 +223,7 @@ class Controller_User extends Controller_MasterAjax {
 		$cities = $model_cities->get_cities_by_province($post['province_id']);
 		$view = View::factory('user/citiesview');
 		$view->cities = $cities;
-		$view->user = $this->get_user_info();
+		$view->user = $this->user;
 		$this->response->body($view);
 	}
 
@@ -217,7 +235,7 @@ class Controller_User extends Controller_MasterAjax {
 		}
 		if($this->is_logged_in())
 		{
-			$user = $this->get_user_info();
+			$user = $this->user;
 			$photo_id = $this->request->post('photo_id');
 			$model_favourite = new Model_Favourite();
 			try 
