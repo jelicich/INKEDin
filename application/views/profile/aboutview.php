@@ -1,3 +1,5 @@
+<?php var_dump($profile); exit;?>
+
 <article class="col-md-6" id="profile-mid-col">
 	<h1><?php echo $profile['name'].' '.$profile['last_name']?></h1>
 	<div id="artist-info-container" class="light-bg">
@@ -26,10 +28,13 @@
 				<dt>Telefono</dt>
 				<dd><?php echo $profile['phone']?></dd>
 				<dt>Direccion</dt>
-				<dd><?php echo $profile['address']?></dd>
+				<dd id='address'><?php echo $profile['address']?></dd>
 			</dl>
+
 			<div id="map">
+			  <div id="map_canvas" style="width:100%; height:200px"></div>
 			</div>
+			
 		</div>
 	</div>
 </article>
