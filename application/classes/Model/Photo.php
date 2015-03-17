@@ -105,4 +105,5 @@ class Model_Photo extends ORM{
 
 		return $photos;
 	}
+
 }

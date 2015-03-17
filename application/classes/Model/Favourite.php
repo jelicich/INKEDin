@@ -8,4 +8,31 @@ class Model_Favourite extends ORM{
 		$this->photo_id = $photo_id;
 		$this->save();	
 	}
+
+	public function get_favourites($user_id)
+	{
+		$photos = $this->select('favourite.*','photos.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province')
+			->where('favourite.photo_id', '=', $user_id)
+			->join('photos')
+            ->on('favourite.photo_id', '=', 'photos.id')
+            ->join('users')
+            ->on('photos.user_id','=','user.id')
+            ->join(array('photos', 'profile' ), 'LEFT')
+            ->on('users.photo_id', '=', 'profile.id')
+            ->join('cities','LEFT')
+            ->on('users.city_id','=','cities.id')
+            ->join('provinces', 'LEFT')
+            ->on('users.province_id','=','provinces.id')
+            ->order_by('favourite.date','DESC')
+			->find_all();
+
+		$photos = $photos->as_array();
+		
+		for($i = 0; $i < sizeof($photos); $i++)
+		{
+			$photos[$i] = $photos[$i]->as_array();
+		}
+		
+		return $photos;
+	}
 }
