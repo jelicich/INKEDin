@@ -12,6 +12,8 @@ class Controller_Message extends Controller_Master {
 
         $model_message = new Model_Message();
         $message_id = $model_message->save_message($profile_id, $user_id, $message);
+
+        HTTP::redirect('/profile/'.$profile_id);
     }
 
 }
