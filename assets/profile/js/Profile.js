@@ -42,7 +42,7 @@ inked.Profile = {
         function codeAddress() {
 
             var sAddress = $('#address').text();
-             alert(sAddress);
+             // alert(sAddress);
             geocoder.geocode( { 'address': sAddress}, function(results, status) {
 
                 if (status == google.maps.GeocoderStatus.OK) {
