@@ -42,3 +42,98 @@ label[for="city"],
 label[for="province"]{
 	width: 70px;
 }
+
+
+/* inbox*/
+
+#inbox{
+	min-height: 150px;
+}
+
+.conversations-column{
+	  border-right: 1px solid #c99241;
+	  min-height: 150px;
+	  padding-left: 0;
+	  padding-right: 0;
+}
+
+.conversations-column h2{
+	 border-bottom: 1px solid #E8C898;
+	 min-height: 50px;
+	  margin-left: 15px;
+  	  margin-right: 15px;
+	 margin-bottom: 0;
+}
+
+#conversation-list{
+	padding: 0;
+	margin-bottom: 0;
+	height: auto;
+	list-style-type: none;
+}
+
+#conversation-list a{
+  display: block;
+  height: 100px;
+  padding: 15px 0;
+}
+
+#conversation-list a:hover{
+  background-color: #E8C898;
+}
+
+#conversation-list li{
+	border-bottom: 1px solid #E8C898;
+	margin-bottom: 0;
+	min-height: 100px;
+	padding: 0;
+}
+
+.conversation-date{
+	color: rgb(145, 144, 144);
+}
+/*
+#conversation-list li:last-child{
+	border: none;
+}*/
+
+.messages-column{
+ 
+}
+
+
+.messages-header{
+ 	 border-bottom: 1px solid #E8C898;
+	 min-height: 70px;
+	 padding: 15px 0;
+	 margin-bottom: 0;
+}
+
+.messages-body{
+	padding: 15px;
+}
+
+.each-message{
+	
+	padding-top: 15px;
+}
+
+.each-message-header .conversation-date{
+	padding-top: 6px;
+}
+
+.each-message-header{
+	padding: 0 0 15px 0;
+}
+
+.messages-body img{
+	max-width: 40px;
+}
+
+.my-messgage{
+	background-color: #FAECD7;
+}
+
+.their-messages{
+	background-color: #E8C898;
+}

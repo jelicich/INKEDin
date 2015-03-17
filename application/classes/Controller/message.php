@@ -2,6 +2,24 @@
 
 class Controller_Message extends Controller_Master {
 
+    public $template = 'user/inboxview';
+
+    public function action_inbox()
+    {   
+        $this->template->is_logged_in = $this->is_logged_in();
+        $user = $this->get_user_info();
+        // $profile_id = $this->request->param();
+
+        if($this->is_logged_in())
+        {
+            $this->template->head->title = "INKEDin - Inbox";
+            $this->template->head->custom_styles = HTML::style('/assets/user/css/user.css');
+            $this->template->user = $user;
+        }
+    }
+
+
+
     public function action_save_message()
     {   
         $this->template->is_logged_in = $this->is_logged_in();
@@ -10,7 +28,6 @@ class Controller_Message extends Controller_Master {
         $user_id = $this->request->param('user_id');
         $message = $this->request->post('message');
 
-        // mandar a controller
         $model_conversation = new Model_Conversation();
         $conversation_id = $model_conversation->save_conversation($profile_id, $user_id);
 

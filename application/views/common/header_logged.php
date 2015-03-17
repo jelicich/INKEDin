@@ -33,7 +33,7 @@
 								</h3>
 								<ul class="user-menu-buttons clearfix">
 									<li><a href="/user">Mi Cuenta</a></li>
-									<li><a href="#">Mensajes</a></li>
+									<li><a href="<?php echo "/message/inbox/".$user['id'] ?>" >Inbox</a></li>
 									<li><a href="/auth/logout">Salir</a></li>
 								</ul>
 							</div>

@@ -174,15 +174,17 @@
 
       <div class="modal-body">
 	        <form method="post" action="/message/<?php echo $profile['id']; ?>/<?php echo $user['id']; ?>/save_message" id="message-form">
+	        	
 	        	<div class="form-group">
 		            <label for="message-text" class="control-label">Mensaje</label>
 		            <textarea class="form-control" id="message-text" name="message" required></textarea>
-	            </div>
+            	</div>
 	       
 	      
-			      <div class="modal-footer">
+		     	<div class="modal-footer">
 			        <button type="submit" class="btn btn-primary">Enviar</button>
-			      </div>
+			    </div>
+			    
 	       </form>
        </div>
 

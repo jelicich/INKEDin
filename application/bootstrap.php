@@ -175,5 +175,12 @@ Route::set('message', 'message/<profile_id>/<user_id>/<action>')
 		'action'     => 'save_message',
 	));
 
+// revisar estas lineas
+Route::set('inbox', 'message/<profile_id>/<action>')
+	->defaults(array(
+		'controller' => 'message',
+		'action'     => 'inbox',
+	));
+
 //Route::set('profile', '(<controller>(/<action>/<profile_id>(/<album_id>(/<param3>))))')
 

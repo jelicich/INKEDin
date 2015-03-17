@@ -369,4 +369,6 @@ class Controller_Profile extends Controller_Master {
         $save_follower = $model_follower->save_follower($this->id, $user['id']);
     }
 
+    
+
 } // End Welcome
