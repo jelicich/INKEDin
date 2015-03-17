@@ -7,10 +7,9 @@ class Model_Message extends ORM{
 		
 	}
 
-	public function save_message($profile_id, $user_id, $message)
-	{
-		$model_conversation = new Model_Conversation();
-		$conversation_id = $model_conversation->save_conversation($profile_id, $user_id);
+	public function save_message($profile_id, $user_id, $message, $conversation_id)
+	{	 
+
 
 		$model_message = new Model_Message();
 		$this->user_id = $user_id;

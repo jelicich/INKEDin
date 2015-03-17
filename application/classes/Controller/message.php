@@ -10,8 +10,12 @@ class Controller_Message extends Controller_Master {
         $user_id = $this->request->param('user_id');
         $message = $this->request->post('message');
 
+        // mandar a controller
+        $model_conversation = new Model_Conversation();
+        $conversation_id = $model_conversation->save_conversation($profile_id, $user_id);
+
         $model_message = new Model_Message();
-        $message_id = $model_message->save_message($profile_id, $user_id, $message);
+        $message_id = $model_message->save_message($profile_id, $user_id, $message, $conversation_id);
 
         HTTP::redirect('/profile/'.$profile_id);
     }
