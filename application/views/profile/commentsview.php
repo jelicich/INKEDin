@@ -65,7 +65,7 @@
 
       <form method="post" action="/profile/<?php echo $profile_id; ?>/leave_comment" id="comment-form">
 	      <div class="modal-body">
-	        	<textarea name="comment" required></textarea>
+	        	<textarea name="comment" required ></textarea>
 	        	<input type="hidden" name="profile_id" value="<?php echo $profile_id; ?>">
 	        
 	      </div>

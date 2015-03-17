@@ -168,5 +168,12 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 		'action'     => 'index',
 	));
 
+// revisar estas lineas
+Route::set('message', 'message/<profile_id>/<user_id>/<action>')
+	->defaults(array(
+		'controller' => 'message',
+		'action'     => 'save_message',
+	));
+
 //Route::set('profile', '(<controller>(/<action>/<profile_id>(/<album_id>(/<param3>))))')
 

@@ -95,7 +95,7 @@
 							  	if( $user['id'] != $profile['id']  )
 								{		
 						?>
-										<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg" data-toggle="modal" data-target="#sendMessage" data-whatever="@mdo"  onclick="inked.Message.saveMessage()"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+										<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $profile['name'].' '.$profile['last_name']; ?>"  onclick="inked.Message.saveMessage()"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
 						<?php							
 								 	if (!in_array( $user['id'], $this_profile_followers_list )) {
 						?>		
@@ -166,21 +166,26 @@
 <div class="modal fade" id="sendMessage" tabindex="-1" role="dialog" aria-labelledby="sendMessageLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+      
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="sendMessageLabel">Nuevo mensaje</h4>
       </div>
+
       <div class="modal-body">
-        <form>
-        	<div class="form-group">
-	            <label for="message-text" class="control-label">Mensaje</label>
-	            <textarea class="form-control" id="message-text"></textarea>
-            </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Enviar</button>
-      </div>
+	        <form method="post" action="/message/<?php echo $profile['id']; ?>/<?php echo $user['id']; ?>/save_message" id="message-form">
+	        	<div class="form-group">
+		            <label for="message-text" class="control-label">Mensaje</label>
+		            <textarea class="form-control" id="message-text" name="message" required></textarea>
+	            </div>
+	       
+	      
+			      <div class="modal-footer">
+			        <button type="submit" class="btn btn-primary">Enviar</button>
+			      </div>
+	       </form>
+       </div>
+
     </div>
   </div>
 </div>
