@@ -35,7 +35,7 @@ class Controller_Profile extends Controller_Master {
                                                 .HTML::script('/assets/Message/js/Message.js');
                                                 
 
-        if ( isset($profile['address']) || isset($profile['city_name']) || isset($profile['province_name']) ) {
+        if ( $profile['address'] != null || $profile['city_name'] != null || $profile['province_name'] != null ) {
                 
                 $this->template->head->custom_scripts .=  HTML::script('http://maps.googleapis.com/maps/api/js?key=AIzaSyAIB2GEEl0YnI4zYdp3KHA6n41ZNwnJsdk&sensor=false')
                                                          .HTML::script('http://maps.gstatic.com/maps-api-v3/api/js/20/4/intl/en_gb/map.js');

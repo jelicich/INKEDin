@@ -33,7 +33,7 @@
 
 					$map_or_default = '';
 
-					if ( isset($profile['address']) || isset($profile['city_name']) || isset($profile['province_name']) ) {
+					if ( $profile['address'] != null || $profile['city_name'] != null || $profile['province_name'] != null ) {
 						
 							echo $profile['address'].' '.$profile['city_name'].' '.$profile['province_name']; 
 							$map_or_default = "<div id='map_canvas' style='width:100%; min-height:200px'></div>";

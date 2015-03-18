@@ -32,7 +32,7 @@ inked.Profile = {
                   center: latlng,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
-            
+
                 map = new google.maps.Map(map_canvas, options);
 
                 codeAddress();
@@ -53,11 +53,7 @@ inked.Profile = {
                             map: map, 
                             position: results[0].geometry.location
                         });
-
-                } else {
-
-                    alert("Status: " + status);
-                }
+                } 
             });
         }
 

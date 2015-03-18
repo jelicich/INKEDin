@@ -260,9 +260,9 @@ class Model_User extends ORM{
             ->on('user.photo_id', '=', 'profile.id')
             ->join(array('photos','cover'),'LEFT')
             ->on('user.cover_id', '=', 'cover.id')
-            ->join('provinces')
+            ->join('provinces', 'LEFT')
             ->on('user.province_id', '=', 'provinces.id')
-            ->join('cities')
+            ->join('cities', 'LEFT')
             ->on('user.city_id', '=', 'cities.id')
             ->find();
 
