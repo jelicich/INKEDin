@@ -103,8 +103,8 @@ inked.Photo = {
             type:  'post',
             beforeSend: function () 
             {
-                $("#favourite-pics").fadeIn();
-                $("#favourite-pics").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando...</span>');
+                $("#favourites-edit-msg").fadeIn();
+                $("#favourites-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando...</span>');
             },
             success:  function (response) 
             {

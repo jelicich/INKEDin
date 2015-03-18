@@ -53,3 +53,7 @@
 	width: 95%;
 	margin: 0 2.5%;
 }
+
+#profile-left-col.profile-client-col{
+	min-height: initial;
+}

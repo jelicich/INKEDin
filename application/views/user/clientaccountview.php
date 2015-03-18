@@ -106,8 +106,11 @@
 							<!-- -->
 							<div role="tabpanel" class="tab-pane" id="favourite-pics">
 
-								
-								
+								<!-- AJAX MSG CONTAINER -->
+								<div id="favourites-edit-msg" class="msg-ajax">
+								</div>
+								<!-- END AJAX MSG CONTAINER -->
+
 							</div>
 						</div>
 

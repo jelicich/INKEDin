@@ -40,8 +40,29 @@
 			<!-- END COVER PIC -->
 
 			<!-- LEFT COL -->
-			<article class="col-md-3" id="profile-left-col">
-				<div id="profile-fix-wrapper" class="profile-free">
+			<?php
+			if($profile['role'] == 2)
+			{
+				$class='profile-client-col';
+			}
+			else
+			{
+				$class = '';
+			}
+			?>
+			<article class="col-md-3 <?php echo $class?>" id="profile-left-col">
+				<?php 
+				//CHECK ROLE
+				if($profile['role'] == 1)
+				{
+					$id = 'id = "profile-fix-wrapper"';
+				}
+				else
+				{
+					$id = "";
+				}
+				?>
+				<div <?php echo $id ?> class="profile-free">
 					<!-- PROFILE PIC -->
 					<div id="profile-pic-container" class="border-img">
 						<?php 
@@ -60,6 +81,12 @@
 						}
 						?>
 					</div>
+				
+				<?php 
+				//CHECK ROLE
+				if($profile['role'] == 1)
+				{
+				?>
 					<!-- END PROFILE PIC -->
 					<div id="profile-rating-container" class="clearfix border-divider">
 						
@@ -82,8 +109,8 @@
 					<div class="profile-buttons-container <?php echo $border_bottom; ?>"  >
 
 						<?php 
-							  if (isset($logged_in)) 
-							  {	
+							if (isset($logged_in)) 
+							{	
 							  	$this_profile_followers_list = [];
 
 							  	foreach ($profile['profile_followers'] as $key ) 
@@ -97,11 +124,14 @@
 						?>
 										<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $profile['name'].' '.$profile['last_name']; ?>"  onclick="inked.Message.saveMessage()"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
 						<?php							
-								 	if (!in_array( $user['id'], $this_profile_followers_list )) {
+								 	if (!in_array( $user['id'], $this_profile_followers_list )) 
+								 	{
 						?>		
 										<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-profile-id ="<?php echo $profile['id']; ?>" onclick="inked.Profile.saveFollower()" >AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
 						<?php 
-									}else{
+									}
+									else
+									{
 						?>				
 										<a href="#" class="btn btn-success btn-block btn-profile" >YA ES TU FAVORITO !</span></a>
 						<?php 		}
@@ -119,6 +149,9 @@
 						</ul>
 					</nav>
 				</div>
+				<?php
+				}//END IF ROLE
+				?>
 			</article>
 			<!--END LEFT COL -->
 

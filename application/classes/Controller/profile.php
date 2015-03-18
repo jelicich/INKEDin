@@ -94,37 +94,63 @@ class Controller_Profile extends Controller_Master {
 
 	public function action_index()
 	{   
-        $this->template->content = View::factory('profile/aboutview');
-        $this->template->content->profile = $this->profile;
+        if($this->profile['role'] == 1)
+        {
+            $this->template->content = View::factory('profile/aboutview');
+            $this->template->content->profile = $this->profile;
 
-        $logged_in = $this->is_logged_in();
+            $logged_in = $this->is_logged_in();
 
-        // Follower
-        if ($logged_in == true) {
+            // Follower
+            if ($logged_in == true) {
 
-            $model_followers = new Model_Follower();
-            $followers = $model_followers->get_followers_by_profile($this->id);
+                $model_followers = new Model_Follower();
+                $followers = $model_followers->get_followers_by_profile($this->id);
 
-            for ($i=0; $i < sizeof($followers); $i++) { 
-               
-                if(empty($followers[$i]['photo']))
+                for ($i=0; $i < sizeof($followers); $i++) { 
+                   
+                    if(empty($followers[$i]['photo']))
+                    {
+                        $followers[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
+                    }
+                    else
+                    {
+                        $followers[$i]['photo_path'] = '/users/'.$followers[$i]['user_id'].'/img/sm/'.$followers[$i]['photo'];
+                    }
+                }
+
+                $this->template->sidebar = View::factory('profile/followersview');
+                $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
+                $this->template->sidebar->followers = $followers;
+                $this->template->logged_in = $logged_in;
+
+                // $user = $this->get_user_info();
+                // $this->template->user = $user;
+            }
+        }
+        else
+        {
+            $this->template->content = View::factory('profile/clientview');
+            $this->template->content->profile = $this->profile;
+
+            $model_favourite = new Model_Favourite();
+            $photos = $model_favourite->get_favourites($this->id);
+
+            for($i = 0; $i < sizeof($photos); $i++)
+            {
+                if(empty($photos[$i]['profile_photo']))
                 {
-                    $followers[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
+                    $photos[$i]['profile_photo'] = '/assets/common/app/img/default.jpg';
                 }
                 else
                 {
-                    $followers[$i]['photo_path'] = '/users/'.$followers[$i]['user_id'].'/img/sm/'.$followers[$i]['photo'];
-                }
+                    $photos[$i]['profile_photo'] = '/users/'.$photos[$i]['owner_id'].'/img/sm/'.$photos[$i]['profile_photo'];
+                }   
             }
 
-            $this->template->sidebar = View::factory('profile/followersview');
             $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
-            $this->template->sidebar->followers = $followers;
-            $this->template->logged_in = $logged_in;
 
-            // $user = $this->get_user_info();
-            // $this->template->user = $user;
-       
+            $this->template->content->photos = $photos;
         }
     }
 
