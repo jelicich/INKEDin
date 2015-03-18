@@ -254,12 +254,16 @@ class Model_User extends ORM{
 
     public function get_profile_info_by_id($id)
     {
-        $user = $this->select('user.*',array('profile.photo','photo'), array('cover.photo', 'cover')/*, array('followers.user_id', 'profile_followers')*/ )
+        $user = $this->select('user.*',array('profile.photo','photo'), array('cover.photo', 'cover'), array('provinces.province', 'province_name'), array('cities.city', 'city_name') )
             ->where('user.id', '=', $id)
             ->join(array('photos','profile'),'LEFT')
             ->on('user.photo_id', '=', 'profile.id')
             ->join(array('photos','cover'),'LEFT')
             ->on('user.cover_id', '=', 'cover.id')
+            ->join('provinces')
+            ->on('user.province_id', '=', 'provinces.id')
+            ->join('cities')
+            ->on('user.city_id', '=', 'cities.id')
             ->find();
 
         $q = DB::select('styles.*')

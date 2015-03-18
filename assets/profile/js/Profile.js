@@ -4,7 +4,10 @@
 
 inked.Profile = {
 	init : function() 
-	{
+	{    
+        var map_canvas = document.getElementById("map_canvas");
+        if ( map_canvas ) { inked.Profile.dynamicMap(); };
+      
         inked.Profile.dynamicLeftBar();
         $('#comment-form').validate({
                 submitHandler : function(){
@@ -12,9 +15,7 @@ inked.Profile = {
                         i.saveComment();
                 }
         });
-
-         inked.Profile.dynamicMap();
-	},
+    },
 
 
     dynamicMap : function(){
@@ -26,15 +27,14 @@ inked.Profile = {
 
                 geocoder = new google.maps.Geocoder();
                 var latlng = new google.maps.LatLng(42.095287, -79.3185139);
-                var myOptions = {
+                var options = {
                   zoom: 15,
                   center: latlng,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
+            
+                map = new google.maps.Map(map_canvas, options);
 
-
-                map = new google.maps.Map(document.getElementById("map_canvas"),
-                    myOptions);
                 codeAddress();
         }
               
@@ -42,23 +42,23 @@ inked.Profile = {
         function codeAddress() {
 
             var sAddress = $('#address').text();
-             // alert(sAddress);
+
             geocoder.geocode( { 'address': sAddress}, function(results, status) {
 
                 if (status == google.maps.GeocoderStatus.OK) {
 
-                    map.setCenter(results[0].geometry.location);
+                        map.setCenter(results[0].geometry.location);
 
-                    var marker = new google.maps.Marker({
-                        map: map, 
-                        position: results[0].geometry.location
-                    });
+                        var marker = new google.maps.Marker({
+                            map: map, 
+                            position: results[0].geometry.location
+                        });
 
                 } else {
 
-                    alert("Geocode was not successful for the following reason: " + status);
+                    alert("Status: " + status);
                 }
-              });
+            });
         }
 
         google.maps.event.addDomListener(window, "load", initialize);
@@ -139,8 +139,6 @@ inked.Profile = {
                 }
             });
     }
-
-
 
 };
 

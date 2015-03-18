@@ -28,11 +28,26 @@
 				<dt>Telefono</dt>
 				<dd><?php echo $profile['phone']?></dd>
 				<dt>Direccion</dt>
-				<dd id='address'><?php echo $profile['address']?></dd>
+				<dd id='address'>
+				<?php
+
+					$map_or_default = '';
+
+					if ( isset($profile['address']) || isset($profile['city_name']) || isset($profile['province_name']) ) {
+						
+							echo $profile['address'].' '.$profile['city_name'].' '.$profile['province_name']; 
+							$map_or_default = "<div id='map_canvas' style='width:100%; min-height:200px'></div>";
+					}else{
+							
+							echo 'Direccion desconocida';
+							$map_or_default = "<img src='/assets/common/app/img/map_default.jpg' alt='' style='width:100%; min-height:200px' >";
+					}
+				?>
+				 </dd>
 			</dl>
 
 			<div id="map">
-			  <div id="map_canvas" style="width:100%; height:200px"></div>
+				<?php echo $map_or_default; ?>
 			</div>
 
 		</div>
