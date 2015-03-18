@@ -9,7 +9,7 @@
 								
 								<a href="<?php echo '/profile/'.$followers[$i]['follower_id']; ?>">
 									<li class="owner-pic">
-										<img src="<?php echo $followers[$i]['photo_path']; ?>" alt="">
+										<img src="<?php echo $followers[$i]['photo_path']; ?>" alt="" class="img-circle">
 									</li>
 
 									<li class="owner-detail">
