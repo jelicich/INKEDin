@@ -11,13 +11,13 @@ class Model_Favourite extends ORM{
 
 	public function get_favourites($user_id)
 	{
-		$photos = $this->select('favourite.*','photos.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province')
-			->where('favourite.photo_id', '=', $user_id)
+		$photos = $this->select('favourite.*','photos.*',array('users.id', 'owner_id'), 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province')
+			->where('favourite.user_id', '=', $user_id)
 			->join('photos')
             ->on('favourite.photo_id', '=', 'photos.id')
             ->join('users')
-            ->on('photos.user_id','=','user.id')
-            ->join(array('photos', 'profile' ), 'LEFT')
+            ->on('photos.user_id','=','users.id')
+            ->join(array('photos', 'profile'), 'LEFT')
             ->on('users.photo_id', '=', 'profile.id')
             ->join('cities','LEFT')
             ->on('users.city_id','=','cities.id')
@@ -34,5 +34,18 @@ class Model_Favourite extends ORM{
 		}
 		
 		return $photos;
+	}
+
+	public function delete_favourite($user_id, $photo_id)
+	{
+		/*$fav = $this->where('user_id', '=', $user_id)
+		->and_where('photo_id','=',$photo_id)
+		->find();
+		$fav->remove();*/
+		$q = DB::delete('favourites')
+			->where('user_id', '=', $user_id)
+            ->and_where('photo_id', '=', $photo_id);
+		$r = $q->execute(Database::instance());
+		
 	}
 }

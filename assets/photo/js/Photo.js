@@ -103,16 +103,52 @@ inked.Photo = {
             type:  'post',
             beforeSend: function () 
             {
-                $("#user-album-edit-msg").fadeIn();
-                $("#user-album-edit-msg").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando...</span>');
+                $("#favourite-pics").fadeIn();
+                $("#favourite-pics").html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/> <span>Cargando...</span>');
             },
             success:  function (response) 
             {
-                $('#edit-album').html(response);
+                $('#favourite-pics').html(response);
             }
             
         });
     },
+
+    deleteFavourite : function(event)
+    {
+        var photo_id = $(event.target).next().attr('data-photo-id');
+        console.log(photo_id);
+        var data = {
+            "photo_id" : photo_id,
+        };
+        $.ajax({
+            url:   '/photo/delete_favourite',
+            data:  data,
+            type:  'post',
+            beforeSend : function () 
+            {
+                $(event.target).removeClass('btn-danger');
+                $(event.target).addClass('btn-default');
+                $(event.target).html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/>');
+            },
+            success : function (response) 
+            {
+                $(event.target).parent().parent().remove();
+                /*
+                if(respone.status == 'success')
+                {
+                    
+                }
+                else
+                {
+                    $(event.target).html(response.message);
+                }
+                */
+            }
+            
+        });
+
+    }
 
 
 };

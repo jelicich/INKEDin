@@ -10,17 +10,16 @@
 					$location .= ', '.$photos[$i]['city'];
 				}
 			?>
-				<article class="pic-sq-grid">
+				<article class="col-md-4 pic-sq-grid fav-container">
 					<div class="inner-pic-sq-grid border-img">
-						<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
-							<img src="<?php echo '/users/'.$photos['user_id'].'/img/sm/'.$photos[$i]['photo'] ?>" alt="<?php echo $photos[$i]['description'] ?>" data-tags="<?php echo $photos[$i]['tags'] ?>"/>
-						</a>
+						<button class="btn btn-danger btn-sm btn-delete-favourite" onclick="inked.Photo.deleteFavourite(event)">Borrar</button>
+						<img src="<?php echo '/users/'.$photos[$i]['owner_id'].'/img/sm/'.$photos[$i]['photo'] ?>" alt="<?php echo $photos[$i]['description'] ?>" data-tags="<?php echo $photos[$i]['tags'] ?>" data-photo-id="<?php echo $photos[$i]['photo_id'] ?>"/>
 						<div class="pic-details pic-details-block">
 							<p class="caption"><?php echo $photos[$i]['description'] ?></p>
 							<ul class="owner-container clearfix">
-								<li class="owner-pic"><a href="/profile/<?php echo $photos[$i]['user_id'] ?>"><img src="<?php echo $photos[$i]['profile_photo'] ?>" alt="" /></a></li>
+								<li class="owner-pic"><a href="/profile/<?php echo $photos[$i]['owner_id'] ?>"><img src="<?php echo $photos[$i]['profile_photo'] ?>" alt="" /></a></li>
 								<li class="owner-detail">
-									<h2><a href="/profile/<?php echo $photos[$i]['user_id'] ?>"><?php echo $photos[$i]['name'].' '.$photos[$i]['last_name'] ?></a></h2>
+									<h2><a href="/profile/<?php echo $photos[$i]['owner_id'] ?>"><?php echo $photos[$i]['name'].' '.$photos[$i]['last_name'] ?></a></h2>
 									<p><?php echo $location ?></p>
 								</li>
 							</ul>

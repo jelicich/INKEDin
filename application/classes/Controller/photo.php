@@ -265,20 +265,51 @@ class Controller_Photo extends Controller_Master {
 		$this->response->body($view);
 	}
 
-	public function load_favourites()
+	public function action_load_favourites()
 	{
 		if($this->request->is_ajax())
 		{	
 			$this->auto_render = false;
 		}
 
-		$model_favourite = new Model_Favourite();
 		$user = $this->get_user_info();
+		$model_favourite = new Model_Favourite();
 
 		$photos = $model_favourite->get_favourites($user['id']);
+
+		for($i = 0; $i < sizeof($photos); $i++)
+		{
+			if(empty($photos[$i]['profile_photo']))
+	    	{
+	    		$photos[$i]['profile_photo'] = '/assets/common/app/img/default.jpg';
+	    	}
+	    	else
+	    	{
+	    		$photos[$i]['profile_photo'] = '/users/'.$photos[$i]['owner_id'].'/img/sm/'.$photos[$i]['profile_photo'];
+	    	}	
+		}
+		
+
 		$view = View::factory('photo/favouritelistview');
 		$view->photos = $photos;
-		$this->response->body($view)
+		$this->response->body($view);		
+	}
+
+	public function action_delete_favourite()
+	{
+		if($this->request->is_ajax())
+		{	
+			$this->auto_render = false;
+		}
+
+		$user = $this->get_user_info();
+		$photo_id = $this->request->post('photo_id');
+		$model_favourite = new Model_Favourite();
+
+		$r = $model_favourite->delete_favourite($user['id'], $photo_id);	
+		//$response = '{"status":"success"}';	
+		//$response = '{"status":"error", "message":"'.$e->getMessage().'"}';		
+
 	}
 	
 

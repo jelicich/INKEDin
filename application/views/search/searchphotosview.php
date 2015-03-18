@@ -64,7 +64,7 @@
 					$html = '<article class="pic-sq-grid">
 							<div class="inner-pic-sq-grid border-img">
 								<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
-									<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'"/>
+									<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'" data-photo-id="'.$photos[$i]['id'].'"/>
 								</a>
 								<div class="pic-details pic-details-block">
 									<p class="caption">'.$photos[$i]['description'].'</p>

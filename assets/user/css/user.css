@@ -131,3 +131,19 @@ label[for="province"]{
 .their-messages{
 	background-color: #E8C898;
 }
+
+.fav-container{
+	position: relative;
+}
+
+.btn-delete-favourite{
+	position: absolute;
+	top:10px;
+	right: 10px;
+	opacity: 0.2;
+	transition: opacity 0.5s;
+}
+
+.btn-delete-favourite:hover{
+	opacity: 1
+}
