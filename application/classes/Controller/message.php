@@ -8,13 +8,18 @@ class Controller_Message extends Controller_Master {
     {   
         $this->template->is_logged_in = $this->is_logged_in();
         $user = $this->get_user_info();
-        // $profile_id = $this->request->param();
+        $profile_id = $this->request->param();
 
         if($this->is_logged_in())
-        {
+        {   
+            $model_conversation = new Model_Conversation();
+            $conversations = $model_conversation->get_conversations_by_profile($profile_id);
+
             $this->template->head->title = "INKEDin - Inbox";
             $this->template->head->custom_styles = HTML::style('/assets/user/css/user.css');
             $this->template->user = $user;
+            $this->template->conversations = $conversations;
+
         }
     }
 

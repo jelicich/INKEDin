@@ -26,10 +26,10 @@ inked.Profile = {
         function initialize() {
 
                 geocoder = new google.maps.Geocoder();
-                var latlng = new google.maps.LatLng(42.095287, -79.3185139);
+                // var latlng = new google.maps.LatLng(42.095287, -79.3185139);
                 var options = {
                   zoom: 15,
-                  center: latlng,
+                  // center: latlng,
                   mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
 
@@ -41,9 +41,9 @@ inked.Profile = {
 
         function codeAddress() {
 
-            var sAddress = $('#address').text();
+            var address = $('#address').text();
 
-            geocoder.geocode( { 'address': sAddress}, function(results, status) {
+            geocoder.geocode( { 'address': address}, function(results, status) {
 
                 if (status == google.maps.GeocoderStatus.OK) {
 

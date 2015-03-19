@@ -10,7 +10,7 @@
 	<!-- header-->
 	<?php echo $header; ?>
 	<!-- end header-->
-
+	<?php echo var_dump($conversations); exit; ?>
 	<!-- content -->
 	<section id="site-content" class="container">
 		<div class="row">
@@ -44,74 +44,6 @@
 							</a>
 						</li>
 
-						<li>
-							<a href="/profile/4">
-								
-								<div class="col-md-3">
-									<img src="/assets/common/app/img/default.jpg" alt="" class="img-circle">
-								</div>
-
-								<div class="col-md-7">
-									<dl>
-										<dt>Julieta Molinari</dt>
-										<dd class="conversation-date">27 de Marzo</dd>
-										<dd>Tengo el pelo de concha....</dd>
-									</dl>
-								</div>
-
-								<div class="col-md-2">
-									<span><strong>Leido</strong></span>
-								</div>
-								
-							</a>
-						</li>
-
-
-
-						<li>
-							<a href="/profile/4">
-								
-								<div class="col-md-3">
-									<img src="/assets/common/app/img/default.jpg" alt="" class="img-circle">
-								</div>
-
-								<div class="col-md-7">
-									<dl>
-										<dt>Julieta Molinari</dt>
-										<dd class="conversation-date">27 de Marzo</dd>
-										<dd>Tengo el pelo de concha....</dd>
-									</dl>
-								</div>
-
-								<div class="col-md-2">
-									<span><strong>Leido</strong></span>
-								</div>
-								
-							</a>
-						</li>
-
-
-						<li>
-							<a href="/profile/4">
-								
-								<div class="col-md-3">
-									<img src="/assets/common/app/img/default.jpg" alt="" class="img-circle">
-								</div>
-
-								<div class="col-md-7">
-									<dl>
-										<dt>Julieta Molinari</dt>
-										<dd class="conversation-date">27 de Marzo</dd>
-										<dd>Tengo el pelo de concha....</dd>
-									</dl>
-								</div>
-
-								<div class="col-md-2">
-									<span><strong>Leido</strong></span>
-								</div>
-								
-							</a>
-						</li>
 					</ul>
 				</div>
 
