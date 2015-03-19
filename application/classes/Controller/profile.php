@@ -329,31 +329,60 @@ class Controller_Profile extends Controller_Master {
 
     public function action_comments()
     {   
-        $model_comments = new Model_Comment();
-        $comments = $model_comments->get_comments_by_profile($this->id);
-        $logged_in = $this->is_logged_in();
+        if($this->request->is_ajax())
+        {   
 
-        $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
-        
+            $this->auto_render = false;
 
-        for ($i=0; $i < sizeof($comments); $i++) { 
-           
-            if(empty($comments[$i]['photo']))
-            {
-                $comments[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
+            $offset = $this->request->post('offset');
+            $model_comments = new Model_Comment();
+            $comments = $model_comments->get_comments_by_profile($this->id, $offset);
+            for ($i=0; $i < sizeof($comments); $i++) { 
+               
+                if(empty($comments[$i]['photo']))
+                {
+                    $comments[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
+                }
+                else
+                {
+                    $comments[$i]['photo_path'] = '/users/'.$comments[$i]['user_id'].'/img/sm/'.$comments[$i]['photo'];
+                }
             }
-            else
-            {
-                $comments[$i]['photo_path'] = '/users/'.$comments[$i]['user_id'].'/img/sm/'.$comments[$i]['photo'];
-            }
+
+            $view = View::factory('profile/commentslistview');
+            $view->comments = $comments;
+            $this->response->body($view);
         }
+        else
+        {
 
-        $this->template->content = View::factory('profile/commentsview');   
-        $this->template->content->profile = $this->profile;
-        $this->template->content->profile_id = $this->id;
-        $this->template->content->comments = $comments;
-        $this->template->content->logged_in = $logged_in;
-        $this->template->logged_in = $logged_in; /////////////////////////// modificar
+            $model_comments = new Model_Comment();
+            $comments = $model_comments->get_comments_by_profile($this->id, 0);
+            $logged_in = $this->is_logged_in();
+
+            $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
+            
+
+            for ($i=0; $i < sizeof($comments); $i++) { 
+               
+                if(empty($comments[$i]['photo']))
+                {
+                    $comments[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
+                }
+                else
+                {
+                    $comments[$i]['photo_path'] = '/users/'.$comments[$i]['user_id'].'/img/sm/'.$comments[$i]['photo'];
+                }
+            }
+
+            $this->template->content = View::factory('profile/commentsview');   
+            $this->template->content->profile = $this->profile;
+            $this->template->content->profile_id = $this->id;
+            $this->template->content->comments = $comments;
+            $this->template->content->logged_in = $logged_in;
+            $this->template->logged_in = $logged_in; /////////////////////////// modificar
+        }
+            
     }
 
     public function action_leave_comment()

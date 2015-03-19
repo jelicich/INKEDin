@@ -2,7 +2,7 @@
 
 class Model_Comment extends ORM{
 	
-	public function get_comments_by_profile($profile_id)
+	public function get_comments_by_profile($profile_id, $offset = 0)
 	{
 		$comments = $this->select('comment.*','users.name','users.last_name','users.id','users.photo_id','photos.photo')
 			->where('profile_id', '=', $profile_id)
@@ -11,6 +11,8 @@ class Model_Comment extends ORM{
 			->join('photos', 'LEFT')
 			->on('users.photo_id','=','photos.id')
 			->order_by('comment.date','DESC')
+			->limit(20)
+			->offset($offset)
 			->find_all();
 
 	    $comments = $comments->as_array();

@@ -3,7 +3,9 @@
  */
 
 inked.Profile = {
-	init : function() 
+	'offset_comments' : 0,
+
+    init : function() 
 	{    
         var map_canvas = document.getElementById("map_canvas");
         if ( map_canvas ) { inked.Profile.dynamicMap(); };
@@ -134,7 +136,46 @@ inked.Profile = {
                    follow_button.removeClass('btn-default').addClass('btn-success');
                 }
             });
-    }
+    },
+
+    loadMoreComments : function()
+    {
+        this.offset_comments += 21;
+        var profile_id = $('#load-more-comments').attr('data-profile-id');
+        var data = {
+            "offset" : this.offset_comments,
+        }
+
+        $.ajax({
+            data: data,
+            url:   '/profile/' + profile_id + '/comments/',
+            type:  'post',
+            beforeSend : function()
+            {
+                $('#load-more-comments').addClass('disabled');
+                $('#load-more-comments').html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/>');
+            },
+            success : function (response) 
+            {
+                var $last_comment = $('#profile-mid-col').find('article').last();
+                $response = $(response);
+                $response.hide();
+                $last_comment.after($response);
+                $response.fadeIn(1000);
+
+                $('#load-more-comments').html('VER MAS');
+
+                if(response != "")
+                {
+                    $('#load-more-comments').removeClass('disabled');
+                }
+                else
+                {
+                   $('#load-more-comments').html('FIN')
+                }
+            }
+        });
+    },
 
 };
 

@@ -601,6 +601,8 @@ header, header *{
 }
 #profile-pic-container{
 	margin: 0 0 10px 10px;
+	/* border-radius: 50%; */
+	overflow: hidden;
 }
 #artist-info-container{
 	padding: 10px;
