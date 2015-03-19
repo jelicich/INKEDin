@@ -3,6 +3,14 @@ inked.Upload = {
     {
         $(function(){
 
+            $('#upload').bind('inkedUploadFinished', function() {
+                $('#finish-album').removeClass('disabled');
+            });
+
+            $('#upload').bind('inkedUploadInProgress', function() {
+                $('#finish-album').addClass('disabled');
+            });
+
             var ul = $(id+' ul');
 
             $('#drop a').click(function(){
@@ -83,6 +91,8 @@ inked.Upload = {
                     if(progress == 100){
                         data.context.removeClass('working');
                     }
+
+                    $(id).trigger('inkedUploadInProgress');
                 },
 
                 done : function(e, data) {
