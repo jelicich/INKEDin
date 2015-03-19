@@ -15,10 +15,6 @@ inked.Album = {
         $('#upload').bind('inkedUploadFinished', function() {
             $('#finish-album').removeClass('disabled');
         });
-
-        $('#upload').bind('inkedUploadInProgress', function() {
-            $('#finish-album').addClass('disabled');
-        });
 	},
 
 	
@@ -59,7 +55,7 @@ inked.Album = {
                             $("#album-id").attr('value', response.album);
                             $("#finish-album").attr('data-album-id', response.album);
                             $("#finish-album").css('display', 'block').hide().fadeIn();
-                           // $("#finish-album").css('display', 'block').hide().fadeIn();
+                            $("#finish-album").css('display', 'block').hide().fadeIn();
 
                     }
                     setInterval(function(){
@@ -204,10 +200,6 @@ inked.Album = {
 
                 $('#upload').bind('inkedUploadFinished', function() {
                     $('#finish-album').removeClass('disabled');
-                });
-
-                $('#upload').bind('inkedUploadInProgress', function() {
-                    $('#finish-album').addClass('disabled');
                 });
                 inked.Upload.init('#upload');
 

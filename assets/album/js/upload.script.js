@@ -83,9 +83,6 @@ inked.Upload = {
                     if(progress == 100){
                         data.context.removeClass('working');
                     }
-
-                    $(id).trigger('inkedUploadInProgress');
-                    
                 },
 
                 done : function(e, data) {
