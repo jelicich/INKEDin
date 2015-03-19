@@ -16,7 +16,7 @@ class Controller_Message extends Controller_Master {
         $profile_id = $this->request->param('param_2'); // cambiar por user id
         $user_id = $this->request->param('param_1');
         $message = $this->request->post('message');
-        
+
         $model_conversation = new Model_Conversation();
         $conversation_id = $model_conversation->save_conversation($profile_id, $user_id);
 
@@ -40,6 +40,7 @@ class Controller_Message extends Controller_Master {
         $this->load_common_inbox_stuff();
         $this->template->user_from = $user_from;
         $this->template->messages = $messages;
+        //$this->template->head->custom_scripts = HTML::script('/assets/Message/js/Message.js');
     }
 
     private function load_common_inbox_stuff()

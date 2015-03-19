@@ -81,7 +81,7 @@
 									echo '<h4>Conversacion con '.$user_from['name'].' '.$user_from['last_name'].'</h4></div>'; // closes div col-md-8; 
 						?>
 									<div class="col-md-4">
-										<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo 'julieta Molinari'; //echo $profile['name'].' '.$profile['last_name']; ?>"  onclick="inked.Message.saveMessage()">Responder</a>
+										<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $user['name'].' '.$user['last_name']; ?>"  onclick="inked.Message.saveMessage()">Responder</a>
 									</div>
 						<?php
 								}else{
