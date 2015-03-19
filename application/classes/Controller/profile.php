@@ -47,7 +47,7 @@ class Controller_Profile extends Controller_Master {
         //CHECK PROFILE PIC
         if(empty($profile['photo']))
         {
-            $profile['photo'] = HTML::image('/assets/common/app/img/default.jpg', array('alt' => $profile['name'].' '.$profile['name']));
+            $profile['photo'] = HTML::image('/assets/common/app/img/default.jpg', array('alt' => $profile['name'].' '.$profile['name'],));
         }
         else
         {
@@ -107,16 +107,18 @@ class Controller_Profile extends Controller_Master {
                 $model_followers = new Model_Follower();
                 $followers = $model_followers->get_followers_by_profile($this->id);
 
-                for ($i=0; $i < sizeof($followers); $i++) { 
-                   
+                for ($i=0; $i < sizeof($followers); $i++) 
+                { 
+
                     if(empty($followers[$i]['photo']))
                     {
-                        $followers[$i]['photo_path'] = '/assets/common/app/img/default.jpg';
+                        $followers[$i]['photo_path'] = HTML::image('/assets/common/app/img/default.jpg', array('alt' => $followers[$i]['name'].' '.$followers[$i]['name'], 'class' => 'img-circle'));
                     }
                     else
                     {
-                        $followers[$i]['photo_path'] = '/users/'.$followers[$i]['user_id'].'/img/sm/'.$followers[$i]['photo'];
+                         $followers[$i]['photo_path'] = HTML::image('/users/'.$followers[$i]['follower_id'].'/img/sm/'.$followers[$i]['photo'], array('alt' => $followers[$i]['name'].' '.$followers[$i]['name'], 'class' => 'img-circle'));
                     }
+                
                 }
 
                 $this->template->sidebar = View::factory('profile/followersview');

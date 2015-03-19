@@ -10,39 +10,55 @@
 	<!-- header-->
 	<?php echo $header; ?>
 	<!-- end header-->
-	<?php echo var_dump($conversations); exit; ?>
+
 	<!-- content -->
 	<section id="site-content" class="container">
 		<div class="row">
 
 			<div id="inbox" class="light-bg clearfix">
-				
+				<?php //var_dump($conversations); ?>
 				<div class="conversations-column col-md-4">
 					
 					<h2>Inbox</h2>
 					<ul id="conversation-list">
 
-						<li>
-							<a href="/profile/4">
-								
-								<div class="col-md-3">
-									<img src="/assets/common/app/img/default.jpg" alt="" class="img-circle">
-								</div>
+					<?php 
+						for ($i=0; $i < sizeof($conversations); $i++) { 
+					?>
+								<li>
+									<a href=" <?php echo '/message/messages_list/'.$conversations[$i]['from_id']; ?>" >
+										
+										<div class="col-md-3">
+											<?php echo $conversations[$i]['photo']; ?>
+										</div>
 
-								<div class="col-md-7">
-									<dl>
-										<dt>Julieta Molinari</dt>
-										<dd class="conversation-date">27 de Marzo</dd>
-										<dd>Tengo el pelo de concha....</dd>
-									</dl>
-								</div>
+										<div class="col-md-7">
+											<dl>
+												<dt><?php echo $conversations[$i]['name'].' '.$conversations[$i]['last_name']; ?></dt>
+												<dd class="conversation-date">
+													<?php 
+														 echo $conversations[$i][0]['date'];
+													?>
+												</dd>
+												<dd><?php echo $conversations[$i][0]['message'].'...'; ?></dd>
+											</dl>
+										</div>
 
-								<div class="col-md-2">
-									<span><strong>Leido</strong></span>
-								</div>
-								
-							</a>
-						</li>
+										<div class="col-md-2">
+											<?php 
+
+												if ($conversations[$i][0]['status'] == 0){
+
+														echo "<span class='glyphicon glyphicon-ok' style='color:#c99241'></span>";
+												}
+											?>
+										</div>
+										
+									</a>
+								</li>
+					<?php
+						} // end for
+					?>
 
 					</ul>
 				</div>
