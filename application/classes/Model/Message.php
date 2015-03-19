@@ -17,11 +17,12 @@ class Model_Message extends ORM{
 
 	public function get_messages_by_conversation_id($conversation_id)
 	{	
-		$messages = $this->select()
+		$messages = $this->select('message.*') // limpiar esta consulta, trae cosas q no necesito y formatear fecha desde aca
 		->where('conversation_id','=', $conversation_id)
+		->order_by('date', 'ASC')
 		->find_all();
 
-		$messages = $conversations->as_array();
+		$messages = $messages->as_array();
 
 		for($i = 0; $i < sizeof($messages); $i++)
 		{

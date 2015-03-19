@@ -16,7 +16,14 @@
 		<div class="row">
 
 			<div id="inbox" class="light-bg clearfix">
-				<?php //var_dump($conversations); ?>
+				<?php 
+				// if(isset($messages)) { 
+				// 	var_dump($messages); 
+				// 	//var_dump($conversations);
+				// 	//var_dump($user_from);
+				// 	exit;
+				// }
+				 ?>
 				<div class="conversations-column col-md-4">
 					
 					<h2>Inbox</h2>
@@ -26,7 +33,7 @@
 						for ($i=0; $i < sizeof($conversations); $i++) { 
 					?>
 								<li>
-									<a href=" <?php echo '/message/messages_list/'.$conversations[$i]['from_id']; ?>" >
+									<a href=" <?php echo '/message/'.$conversations[$i]['conversation_id'].'/'.$conversations[$i]['from_id'].'/messages_list'; ?>" >
 										
 										<div class="col-md-3">
 											<?php echo $conversations[$i]['photo']; ?>
@@ -66,56 +73,67 @@
 				<div class="messages-column col-md-8">
 					
 					<div class="messages-header col-md-12">
+							
+						<div class="col-md-8">
+							
+						<?php 
+								if(isset($user_from)) {  
+									echo '<h4>Conversacion con '.$user_from['name'].' '.$user_from['last_name'].'</h4></div>'; // closes div col-md-8; 
+						?>
+									<div class="col-md-4">
+										<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo 'julieta Molinari'; //echo $profile['name'].' '.$profile['last_name']; ?>"  onclick="inked.Message.saveMessage()">Responder</a>
+									</div>
+						<?php
+								}else{
+									echo '<h4>Bandeja de enrtada</h4></div>';// closes div col-md-8
+								}
+						?>
+					</div> <!-- closes messages header -->
 
-						<div class="col-md-8"><h4>Conversacion con Julieta Molinari</h4></div>
-						<div class="col-md-4">
-							<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo 'julieta Molinari'; //echo $profile['name'].' '.$profile['last_name']; ?>"  onclick="inked.Message.saveMessage()">Responder</a>
-						</div>
+					<?php 
+						if(isset($messages)) {  
 
-					</div>
+							$messages_class = '';
+							$message_from = '';
 
+							for ($i=0; $i < sizeof($messages); $i++) { 
+								
+								if ( $messages[$i]['user_id'] == $user['id'] ) {
+									
+									$messages_class = "class='each-message my-messgage col-md-12'";
+									$message_from = $user['name'].' '.$user['last_name'];
+								
+								}else{
+
+									$messages_class = "class='each-message their-messages col-md-12'";
+									$message_from = $user_from['name'].' '.$user_from['last_name'];
+								}
+					?>
 					<div class="messages-body col-md-12">
 						
-						<div class="each-message their-messages col-md-12">
+						<div <?php echo $messages_class; ?> >
 
 							<div class="each-message-header col-md-12">
 
 								<div class="col-md-9">
 									<img src="/assets/common/app/img/default.jpg" alt="" class="img-circle">
-									<span><strong>Julieta Molinari</strong></span>
+									<span><strong><?php echo $message_from; ?></strong></span>
 								</div>
 
 								<div class="col-md-3 conversation-date">
-									<span>27 de Marzo 14:45</span>
+									<span><?php echo $messages[$i]['date']; ?></span>
 								</div>
 							</div>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-						
+							<p><?php echo $messages[$i]['message']; ?></p>
 						</div>
 					</div>
+					<?php			
+							} //end for
+						} // end if
+					?>
 
-
-					<div class="messages-body col-md-12">
-						
-						<div class="each-message my-messgage col-md-12">
-
-							<div class="each-message-header col-md-12">
-								<div class="col-md-9">
-									<img src="/assets/common/app/img/default.jpg" alt="" class="img-circle">
-									<span><strong>Julan Pena</strong></span>
-								</div>
-
-								<div class="col-md-3 conversation-date">
-									<span>27 de Marzo 14:53</span>
-								</div>
-							</div>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-						
-						</div>
-					</div>
-				</div>
+			
 
 			</div>
 

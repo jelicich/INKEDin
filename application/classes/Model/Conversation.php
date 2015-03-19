@@ -4,6 +4,7 @@ class Model_Conversation extends ORM{
 
 	public function save_conversation($profile_id, $user_id)
 	{
+		
 		$model_conversation = new Model_Conversation();
 
 		$existing_conversations =  $this->select('conversation.id')
@@ -19,21 +20,19 @@ class Model_Conversation extends ORM{
 
        }else{
 
+       		$this->user_1_id = $user_id;
        		$this->user_2_id = $profile_id;
-			$this->user_1_id = $user_id;
 
-			$id = $this->save(); 
+       		$id = $this->save(); 
 			return $id;
 		}
     }
 
-
-
-	public function get_conversations_by_profile($profile_id)
+    public function get_inbox_headers_by_profile($profile_id)
 	{	
 
 		$conversations = DB::query(Database::SELECT, "
-			SELECT u.id as from_id, c.id, u.name, u.last_name, u.photo_id, p.photo
+			SELECT u.id as from_id, c.id as conversation_id, u.name, u.last_name, u.photo_id, p.photo
             FROM conversations c, users u
             LEFT JOIN photos p
             ON u.photo_id = p.id
@@ -54,7 +53,7 @@ class Model_Conversation extends ORM{
 
 		for ($i=0; $i < sizeof($conversations); $i++) { 
 			
-			$conversation_id = $conversations[$i]['id'];
+			$conversation_id = $conversations[$i]['conversation_id'];
 
 			$last_message_piece = DB::query(Database::SELECT, "
 				SELECT m.id, 
@@ -71,4 +70,5 @@ class Model_Conversation extends ORM{
 
 		return $conversations;
 	}
+
 }

@@ -169,7 +169,7 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 	));
 
 // revisar estas lineas
-Route::set('message', 'message/<profile_id>/<user_id>/<action>')
+Route::set('message', 'message/<param_1>/<param_2>/<action>')
 	->defaults(array(
 		'controller' => 'message',
 		'action'     => 'save_message',
@@ -181,6 +181,13 @@ Route::set('inbox', 'message/<profile_id>/<action>')
 		'controller' => 'message',
 		'action'     => 'inbox',
 	));
+
+// revisar estas lineas
+// Route::set('messages_list', 'message/<conversation_id>/<from_id>/<action>')
+// 	->defaults(array(
+// 		'controller' => 'message',
+// 		'action'     => 'messages_list',
+// 	));
 
 //Route::set('profile', '(<controller>(/<action>/<profile_id>(/<album_id>(/<param3>))))')
 
