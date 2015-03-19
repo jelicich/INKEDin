@@ -158,7 +158,7 @@
       </div>
 
       <div class="modal-body">
-	        <form method="post" action="/message/<?php// echo $profile['id']; ?>/<?php //echo $user['id']; ?>/save_message" id="message-form">
+	        <form method="post" action="/message/<?php  if(isset($user_from)){ echo $user['id'].'/'.$user_from['id']; }  ?>/save_message" id="message-form">
 	        	
 	        	<div class="form-group">
 		            <label for="message-text" class="control-label">Mensaje</label>

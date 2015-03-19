@@ -40,7 +40,7 @@ class Controller_Message extends Controller_Master {
         $this->load_common_inbox_stuff();
         $this->template->user_from = $user_from;
         $this->template->messages = $messages;
-        //$this->template->head->custom_scripts = HTML::script('/assets/Message/js/Message.js');
+        $this->template->head->custom_scripts = HTML::script('/assets/Message/js/Message.js');
     }
 
     private function load_common_inbox_stuff()
