@@ -51,6 +51,9 @@
 	<?php 
      	}// end for
 	?>
+		<div class="col-md-12">
+			<button class="btn btn-default" id="load-more-comments" onclick="inked.Profile.loadMoreComments()" data-profile-id="<?php echo $profile_id ?>">VER MAS</button>
+		</div>
 </section>
 
 <!-- comments_modal -->

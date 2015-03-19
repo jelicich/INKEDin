@@ -57,3 +57,8 @@
 #profile-left-col.profile-client-col{
 	min-height: initial;
 }
+
+#load-more-comments{
+	display: block;
+	margin: 0 auto;
+}
