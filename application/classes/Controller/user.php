@@ -39,46 +39,39 @@ class Controller_User extends Controller_MasterAjax {
         		$user['photo_path'] = '/users/'.$user['id'].'/img/sm/'.$user['photo'];
         	}
         	
-        	if($user['role'] == 1)
+    	
+        	if(empty($user['cover']))
         	{
-	        	if(empty($user['cover']))
-	        	{
-	        		$user['cover_path'] = '/assets/common/app/img/cover_thumb.jpg';
-	        	}
-	        	else
-	        	{
-	        		$user['cover_path'] = '/users/'.$user['id'].'/img/sm/'.$user['cover'];
-	        	}
-
-	        	//BIND STYLTES
-	        	$styles_model = new Model_Style();
-	        	$styles = $styles_model->get_styles();
-	        	$this->template->styles = $styles;
-
-	        	//BIND PROVINCES
-	        	$prov_model = new Model_Province();
-	        	$provinces = $prov_model->get_provinces();
-	        	$this->template->provinces = $provinces;
-
-	        	//BIND CITIES
-	        	if(!empty($user['province_id']))
-	        	{
-					$model_cities = new Model_City();
-	        		$cities = $model_cities->get_cities_by_province($user['province_id']);
-					$this->template->cities = $cities;
-	        	}
-
-	        	//LOAD SUBVIEWS
-	        	$this->template->create_album_view = View::factory('album/createalbumview');
-	        	$this->template->profile_picture_view = View::factory('photo/uploadprofilepictureview');
-	        	$this->template->profile_picture_view->user = $user;
+        		$user['cover_path'] = '/assets/common/app/img/cover_thumb.jpg';
         	}
         	else
         	{
-        		$this->template->profile_picture_view = View::factory('photo/clientuploadprofilepictureview');
-	        	$this->template->profile_picture_view->user = $user;
-        	}	
+        		$user['cover_path'] = '/users/'.$user['id'].'/img/sm/'.$user['cover'];
+        	}
 
+        	//BIND STYLTES
+        	$styles_model = new Model_Style();
+        	$styles = $styles_model->get_styles();
+        	$this->template->styles = $styles;
+
+        	//BIND PROVINCES
+        	$prov_model = new Model_Province();
+        	$provinces = $prov_model->get_provinces();
+        	$this->template->provinces = $provinces;
+
+        	//BIND CITIES
+        	if(!empty($user['province_id']))
+        	{
+				$model_cities = new Model_City();
+        		$cities = $model_cities->get_cities_by_province($user['province_id']);
+				$this->template->cities = $cities;
+        	}
+
+        	//LOAD SUBVIEWS
+        	$this->template->create_album_view = View::factory('album/createalbumview');
+        	$this->template->profile_picture_view = View::factory('photo/uploadprofilepictureview');
+        	$this->template->profile_picture_view->user = $user;
+    	
         	//BIND USER
 			$this->template->user = $user;
         	
@@ -259,4 +252,41 @@ class Controller_User extends Controller_MasterAjax {
 		}
 	}
 
+	public function action_delete_account()
+	{
+		$user = $this->get_user_info();
+		$model_user = new Model_User();
+		try 
+		{
+			$model_user->delete_account($user['id']);
+			$this->delete_path('/users/'.$user['id']);	
+		} 
+		catch (Exception $e) 
+		{
+			echo $e;
+		}
+		
+	}
+
+	private function delete_path($path)
+	{
+	    if (is_dir($path) === true)
+	    {
+	        $files = array_diff(scandir($path), array('.', '..'));
+
+	        foreach ($files as $file)
+	        {
+	            Delete(realpath($path) . '/' . $file);
+	        }
+
+	        return rmdir($path);
+	    }
+
+	    else if (is_file($path) === true)
+	    {
+	        return unlink($path);
+	    }
+
+	    return false;
+	}
 } // End Welcome

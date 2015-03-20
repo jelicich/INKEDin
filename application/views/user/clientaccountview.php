@@ -32,6 +32,7 @@
 							<li role="presentation" class="active"><a href="#account-info" aria-controls="account-info" role="tab" data-toggle="tab">Datos de usuario</a></li>
 							<li role="presentation"><a href="#profile-pic" aria-controls="profile-pic" role="tab" data-toggle="tab">Perfil / Portada</a></li>
 							<li role="presentation"><a href="#favourite-pics" aria-controls="favourite-pics" onclick="inked.Photo.loadFavouritePhotos()" role="tab" data-toggle="tab">Fotos favoritas</a></li>
+							<li role="presentation"><a href="#delete-account" aria-controls="delete-account" role="tab" data-toggle="tab">Cuenta</a></li>
 						</ul>
 
 						<!-- Tab panes -->
@@ -112,6 +113,15 @@
 								<!-- END AJAX MSG CONTAINER -->
 
 							</div>
+
+							<div role="tabpanel" class="tab-pane" id="delete-account">
+
+								<p>Podes eliminar tu cuenta haciendo click en el siguiente boton, tene en cuenta que toda tu informacion sera borrada asi como tambien las fotos que hayas subido. Esta accion no se puede deshacer.</p>
+								<p>Si tenes algun comentario no dudes en escribirnos a <a href="mailto:hola@inkedin.com">hola@inkedin.com</a></p>
+								<a href="/user/delete_account" class="btn btn-danger">CERRAR CUENTA</a>
+								
+							</div>
+
 						</div>
 
 					</div>

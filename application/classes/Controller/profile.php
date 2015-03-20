@@ -19,7 +19,7 @@ class Controller_Profile extends Controller_Master {
 
         $model_user = new Model_User();
         $profile = $model_user->get_profile_info_by_id($this->id);
-
+        $this->profile = $profile;
         //IF INVALID ID TODO show error page
         if(empty($profile))
         {
@@ -33,14 +33,6 @@ class Controller_Profile extends Controller_Master {
                                                 .HTML::script('/assets/profile/js/Profile.js')
                                                 .HTML::script('/assets/profile/js/Rating.js')
                                                 .HTML::script('/assets/Message/js/Message.js');
-                                                
-
-        if ( $profile['address'] != null || $profile['city_name'] != null || $profile['province_name'] != null ) {
-                
-                $this->template->head->custom_scripts .=  HTML::script('http://maps.googleapis.com/maps/api/js?key=AIzaSyAIB2GEEl0YnI4zYdp3KHA6n41ZNwnJsdk&sensor=false')
-                                                         .HTML::script('http://maps.gstatic.com/maps-api-v3/api/js/20/4/intl/en_gb/map.js');
-        }
-
 
         $this->template->head->custom_styles = HTML::style('/assets/profile/css/rating.css');
 
@@ -64,7 +56,7 @@ class Controller_Profile extends Controller_Master {
             $profile['cover'] = HTML::image('/users/'.$profile['id'].'/img/reg/'.$profile['cover'], array('alt' => $profile['name'].' '.$profile['name'], 'id' => 'cover-pic'));   
         }
 
-        $this->profile = $profile;
+        
         $this->template->profile = $profile;
 
         $user = $this->get_user_info();
@@ -96,6 +88,11 @@ class Controller_Profile extends Controller_Master {
 	{   
         if($this->profile['role'] == 1)
         {
+            if ( $this->profile['address'] != null || $this->profile['city_name'] != null || $this->profile['province_name'] != null ) {
+                
+                $this->template->head->custom_scripts .=  HTML::script('http://maps.googleapis.com/maps/api/js?key=AIzaSyAIB2GEEl0YnI4zYdp3KHA6n41ZNwnJsdk&sensor=false')
+                                                         .HTML::script('http://maps.gstatic.com/maps-api-v3/api/js/20/4/intl/en_gb/map.js');
+            }
             $this->template->content = View::factory('profile/aboutview');
             $this->template->content->profile = $this->profile;
 
