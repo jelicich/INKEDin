@@ -78,7 +78,7 @@ class Model_User extends ORM{
 
     	if($user->loaded())
     	{
-    		if($user->active == 0)
+    		if($user->active == 0 || $user->delete == 1)
     		{
     			$result = false;	
     		} 
@@ -292,14 +292,17 @@ class Model_User extends ORM{
 
     public function search_users($param, $offset, $province, $city)
     {
-        $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
-            ->where('user.role','=', '1');
+        $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*', 'user.delete')
+            ->where('user.role','=', '1')
+            ->and_where('user.delete','=', '0');
         if(empty($param) && empty($province))
         {
             $this->and_where('user.name','LIKE', '%'.$param.'%');
             
             $this->or_where('user.last_name','LIKE', '%'.$param.'%');
             $this->and_where('user.role','=', '1');
+            $this->and_where('user.delete','=', '0');
+
         }
         elseif(empty($param) && !empty($province))
         {
@@ -318,13 +321,15 @@ class Model_User extends ORM{
             $this->and_where('user.name','LIKE', '%'.$param.'%');
             
             $this->or_where('user.last_name','LIKE', '%'.$param.'%');
-            $this->and_where('user.role','=', '1');   
+            $this->and_where('user.role','=', '1'); 
+            $this->and_where('user.delete','=', '0');  
 
             $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
             $this->and_where('user.role','=', '1');  
 
             $this->or_where('styles.style','LIKE','%'.$param.'%');
             $this->and_where('user.role','=', '1');
+            $this->and_where('user.delete','=', '0');
         }
         elseif(!empty($param) && !empty($province))
         {
@@ -336,14 +341,17 @@ class Model_User extends ORM{
                 $this->or_where('user.last_name','LIKE', '%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
 
                 $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');  
+                $this->and_where('user.delete','=', '0');
 
                 $this->or_where('styles.style','LIKE','%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
             }
             else
             {
@@ -355,16 +363,19 @@ class Model_User extends ORM{
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.city_id','=', $city);    
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
 
                 $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.city_id','=', $city);    
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
 
                 $this->or_where('styles.style','LIKE','%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.city_id','=', $city);    
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
             }
         }
 
@@ -397,13 +408,15 @@ class Model_User extends ORM{
     {
 
         $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
-            ->where('user.role','=', '1');
+            ->where('user.role','=', '1')
+            ->and_where('user.delete','=', '0');
         if(empty($param) && empty($province))
         {
             $this->and_where('user.name','LIKE', '%'.$param.'%');
             
             $this->or_where('user.last_name','LIKE', '%'.$param.'%');
             $this->and_where('user.role','=', '1');
+            $this->and_where('user.delete','=', '0');
         }
         elseif(empty($param) && !empty($province))
         {
@@ -423,12 +436,15 @@ class Model_User extends ORM{
             
             $this->or_where('user.last_name','LIKE', '%'.$param.'%');
             $this->and_where('user.role','=', '1');   
+            $this->and_where('user.delete','=', '0');
 
             $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
             $this->and_where('user.role','=', '1');  
+            $this->and_where('user.delete','=', '0');
 
             $this->or_where('styles.style','LIKE','%'.$param.'%');
             $this->and_where('user.role','=', '1');
+            $this->and_where('user.delete','=', '0');
         }
         elseif(!empty($param) && !empty($province))
         {
@@ -440,14 +456,17 @@ class Model_User extends ORM{
                 $this->or_where('user.last_name','LIKE', '%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
 
                 $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');  
+                $this->and_where('user.delete','=', '0');
 
                 $this->or_where('styles.style','LIKE','%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
             }
             else
             {
@@ -459,16 +478,19 @@ class Model_User extends ORM{
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.city_id','=', $city);    
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
 
                 $this->or_where(array(DB::expr('CONCAT(user.name," ",user.last_name)'), 'full_name'),'LIKE', '%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.city_id','=', $city);    
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
 
                 $this->or_where('styles.style','LIKE','%'.$param.'%');
                 $this->and_where('user.province_id','=', $province);
                 $this->and_where('user.city_id','=', $city);    
                 $this->and_where('user.role','=', '1');
+                $this->and_where('user.delete','=', '0');
             }
         }
 
@@ -491,6 +513,8 @@ class Model_User extends ORM{
     public function get_top_users()
     {
         $users = $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', array(DB::expr('(ratings.total_value/ratings.total_votes)'), 'rating'), 'ratings.total_votes')
+            ->where('user.active','=', '1')
+            ->and_where('user.delete','=', '0')
             ->join('cities','LEFT')
             ->on('user.city_id','=','cities.id')
             ->join('provinces','LEFT')
@@ -512,6 +536,13 @@ class Model_User extends ORM{
         }
 
         return $users;
+    }
+
+    public function delete_account($user_id)
+    {
+        $user = $this->where('id', '=', $user_id )->find();
+        $user->delete = 1;
+        $user->save();
     }
 
 }

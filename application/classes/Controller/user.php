@@ -256,37 +256,10 @@ class Controller_User extends Controller_MasterAjax {
 	{
 		$user = $this->get_user_info();
 		$model_user = new Model_User();
-		try 
-		{
-			$model_user->delete_account($user['id']);
-			$this->delete_path('/users/'.$user['id']);	
-		} 
-		catch (Exception $e) 
-		{
-			echo $e;
-		}
 		
+		$model_user->delete_account($user['id']);
+		HTTP::redirect('/auth/logout');
 	}
 
-	private function delete_path($path)
-	{
-	    if (is_dir($path) === true)
-	    {
-	        $files = array_diff(scandir($path), array('.', '..'));
-
-	        foreach ($files as $file)
-	        {
-	            Delete(realpath($path) . '/' . $file);
-	        }
-
-	        return rmdir($path);
-	    }
-
-	    else if (is_file($path) === true)
-	    {
-	        return unlink($path);
-	    }
-
-	    return false;
-	}
+	
 } // End Welcome

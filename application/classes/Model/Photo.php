@@ -58,9 +58,11 @@ class Model_Photo extends ORM{
 
 	public function search_photos($param, $offset, $limit = 15 , $group = FALSE)
 	{
-		$this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province')
+		$this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province', 'users.delete')
 			->where('photo.tags', 'LIKE', '%'.$param.'%')
+			->and_where('users.delete','=',0)
 			->or_where('photo.description', 'LIKE', '%'.$param.'%')
+			->and_where('users.delete','=',0)
 			->join('users')
             ->on('photo.user_id', '=', 'users.id')
             ->join(array('photos', 'profile' ), 'LEFT')
@@ -91,7 +93,9 @@ class Model_Photo extends ORM{
 	{
 		$photos = $this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province')
 			->where('photo.tags', 'LIKE', '%'.$param.'%')
+			->and_where('users.delete','=',0)
 			->or_where('photo.description', 'LIKE', '%'.$param.'%')
+			->and_where('users.delete','=',0)
 			->join('users')
             ->on('photo.user_id', '=', 'users.id')
             ->join(array('photos', 'profile' ), 'LEFT')
