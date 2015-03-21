@@ -18,8 +18,8 @@
 			<div id="inbox" class="light-bg clearfix">
 				<?php 
 				// if(isset($messages)) { 
-				// 	var_dump($messages); 
-				// 	//var_dump($conversations);
+				// 	// var_dump($messages); 
+				// 	var_dump($conversations);
 				// 	//var_dump($user_from);
 				// 	exit;
 				// }
@@ -27,11 +27,24 @@
 				<div class="conversations-column col-md-4">
 					
 					<h2>Inbox</h2>
-					<ul id="conversation-list">
+					<ul id="conversation-list" >
 
 					<?php 
+
+						$message_status = '';
+
 						for ($i=0; $i < sizeof($conversations); $i++) { 
-					?>
+
+							if ($conversations[$i][0]['status'] == 1 ){
+
+								$message_status = "<span class='glyphicon glyphicon-ok' style='color:#c99241'></span>";
+							
+							}else{
+
+								$message_status = "<span class='glyphicon glyphicon-record' style='color:#c99241'></span>";
+							
+							}
+					?>			
 								<li>
 									<a href=" <?php echo '/message/'.$conversations[$i]['conversation_id'].'/'.$conversations[$i]['from_id'].'/messages_list'; ?>" >
 										
@@ -53,11 +66,7 @@
 
 										<div class="col-md-2">
 											<?php 
-
-												if ($conversations[$i][0]['status'] == 0){
-
-														echo "<span class='glyphicon glyphicon-ok' style='color:#c99241'></span>";
-												}
+												echo $message_status;
 											?>
 										</div>
 										
@@ -81,7 +90,7 @@
 									echo '<h4>Conversacion con '.$user_from['name'].' '.$user_from['last_name'].'</h4></div>'; // closes div col-md-8; 
 						?>
 									<div class="col-md-4">
-										<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $user['name'].' '.$user['last_name']; ?>"  onclick="inked.Message.saveMessage()">Responder</a>
+										<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $user_from['name'].' '.$user_from['last_name']; ?>"  onclick="inked.Message.saveMessage()">Responder</a>
 									</div>
 						<?php
 								}else{
@@ -158,11 +167,12 @@
       </div>
 
       <div class="modal-body">
-	        <form method="post" action="/message/<?php  if(isset($user_from)){ echo $user['id'].'/'.$user_from['id']; }  ?>/save_message" id="message-form">
+	        <form method="post" action="/message/<?php  if(isset($user_from)){ echo $user_from['id'].'/'.$user['id']; }  ?>/save_message" id="message-form">
 	        	
 	        	<div class="form-group">
 		            <label for="message-text" class="control-label">Mensaje</label>
 		            <textarea class="form-control" id="message-text" name="message" required></textarea>
+		            <input type="hidden" name="inbox_reply_button" value="inbox_reply_button">
             	</div>
 	       
 	      

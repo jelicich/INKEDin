@@ -19,7 +19,7 @@ class Model_Message extends ORM{
 	{	
 		$messages = $this->select('message.*') // limpiar esta consulta, trae cosas q no necesito y formatear fecha desde aca
 		->where('conversation_id','=', $conversation_id)
-		->order_by('date', 'ASC')
+		->order_by('date', 'DESC')
 		->find_all();
 
 		$messages = $messages->as_array();
