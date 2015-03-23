@@ -146,7 +146,7 @@ class Controller_Register extends Controller_Master {
 		Tu cuenta fue creada con exito, para poder empezar a usarla hacé click en el siguiente link: 
 
 		 
-		http://inked.loc/register/activation?email='.$post['email'].'&hash='.$post['hash'].'
+		http://inked.loc/register/activate?email='.$post['email'].'&hash='.$post['hash'].'
 		 
 		'; // Our message above including the link
 		                     
