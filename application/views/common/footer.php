@@ -10,12 +10,14 @@
 			<div class="col-md-2" id="footer-artists">
 				<h3>Artistas</h3>
 				<ul>	
-					<li><a href="">Sarasa</a></li>
-					<li><a href="">Lorem</a></li>
-					<li><a href="">Ipsum</a></li>
-					<li><a href="">Dolor</a></li>
-					<li><a href="">Bla</a></li>
-					<li><a href="">Lorem</a></li>
+					<?php 
+					for($i = 0; $i < sizeof($styles); $i++)
+					{
+					?>
+						<li><a href="/search/artists/<?php echo $styles[$i]['style']?>"><?php echo $styles[$i]['style']?></a></li>
+					<?php	
+					}
+					?>
 				</ul>
 			</div>
 			<div class="col-md-2" id="footer-tags">
@@ -38,7 +40,7 @@
 				</ul>
 			</div>
 			<div class="col-md-4">
-				<p id="privacy">2015 Copyright. Todos los derechos reservados. <a href="#">Terminos y Condiciones</a>. <a href="#">Privacidad</a>. </p>
+				<p id="privacy">2015 Copyright. Todos los derechos reservados. <a href="/terms">Terminos y Condiciones</a>.</p>
 			</div>
 		</div>
 	</div>

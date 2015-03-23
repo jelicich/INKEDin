@@ -453,7 +453,7 @@ header, header *{
 	background: url('../img/footer-bg.jpg');
 	padding-top: 30px;
 	padding-bottom: 30px;
-	height: 210px;
+	height: 290px;
 	position:absolute;
     bottom:0;
     width:100%;
@@ -488,7 +488,7 @@ header, header *{
 	margin-right: 10px;
 }
 #site-content{
-	padding-bottom: 230px;
+	padding-bottom: 320px;
 }
 #footer-tags-2{
 	padding-top: 29px;
