@@ -1,0 +1,8 @@
+.error-register{
+	  text-align: center;
+	  padding: 10px;
+	  background: linear-gradient(to bottom, rgba(240, 221, 175, 0.196), rgba(240, 221, 175, 0.400)) transparent;
+}
+.errors{
+	text-align: left;
+}

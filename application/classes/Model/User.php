@@ -545,4 +545,13 @@ class Model_User extends ORM{
         $user->save();
     }
 
+    public function get_hash($email)
+    {
+        $user = $this->select('hash')
+            ->where('email','=',$email)
+            ->find();
+        $user = $user->as_array();
+        return $user['hash'];
+    }
+
 }
