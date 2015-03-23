@@ -56,6 +56,7 @@ abstract class Controller_MasterAjax extends Controller_Template
         $this->template->head = View::factory('common/head');
         $this->template->footer = View::factory('common/footer');
         $this->template->footer->styles = Helper_Footer::get_styles(); 
+        $this->template->footer->searches = Helper_Footer::get_searches();
         $this->template->head->title = $this->title;
         $this->template->head->common_scripts = $common_scripts;
         $this->template->head->common_styles = $common_styles;

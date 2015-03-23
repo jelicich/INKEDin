@@ -26,6 +26,8 @@ class Controller_Auth extends Controller {
 	        $template->head = View::factory('common/head');
 	        $template->header = View::factory('common/header');    
 	        $template->footer = View::factory('common/footer'); 
+	        $template->footer->styles = Helper_Footer::get_styles();
+	        $template->footer->searches = Helper_Footer::get_searches();
 	        $template->head->title = 'INKEDin - Login';
 	        $template->head->common_scripts = $common_scripts;
 	        $template->head->common_styles = $common_styles;
@@ -59,6 +61,8 @@ class Controller_Auth extends Controller {
         $template->head = View::factory('common/head');
         $template->header = View::factory('common/header');    
         $template->footer = View::factory('common/footer'); 
+        $template->footer->styles = Helper_Footer::get_styles();
+        $template->footer->searches = Helper_Footer::get_searches();
         $template->head->title = 'INKEDin - Recuperar contraseña';
         $template->head->common_scripts = $common_scripts;
         $template->head->common_styles = $common_styles;
@@ -83,6 +87,8 @@ class Controller_Auth extends Controller {
         $template->head = View::factory('common/head');
         $template->header = View::factory('common/header');    
         $template->footer = View::factory('common/footer'); 
+        $template->footer->styles = Helper_Footer::get_styles();
+        $template->footer->searches = Helper_Footer::get_searches();
         $template->head->title = 'INKEDin - Resetear contraseña';
         $template->head->common_scripts = $common_scripts;
         $template->head->common_styles = $common_styles;
@@ -155,6 +161,8 @@ class Controller_Auth extends Controller {
 		$template->head = View::factory('common/head');
         $template->header = View::factory('common/header');    
         $template->footer = View::factory('common/footer'); 
+        $template->footer->styles = Helper_Footer::get_styles();
+        $template->footer->searches = Helper_Footer::get_searches();
         $template->head->title = 'INKEDin - Nueva Contraseña';
         $template->head->common_scripts = $common_scripts;
         $template->head->common_styles = $common_styles;

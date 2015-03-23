@@ -45,6 +45,11 @@ class Controller_Search extends Controller_Master {
         $this->template->content->count_photos = $photos['count'];
         $this->template->content->users = $users['users'];
         $this->template->content->count_users = $users['count'];
+
+        $now = date("Y-m-d H:i:s");
+        
+        //SAVE SEARCH TERM
+        Model_Search::save_term($param, $now);
     
 	}
 

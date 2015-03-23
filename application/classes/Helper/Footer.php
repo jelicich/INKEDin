@@ -6,5 +6,11 @@ class Helper_Footer{
     	$styles = $styles_model->get_styles();
     	return $styles;
 	}
+
+	public static function get_searches()
+	{
+		$searches = Model_Search::get_searches();
+		return $searches;
+	}
 }
 ?>
