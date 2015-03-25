@@ -17,12 +17,13 @@
 
 			<div id="inbox" class="light-bg clearfix">
 				<?php 
-				// if(isset($messages)) { 
-				// 	// var_dump($messages); 
-				// 	var_dump($conversations);
-				// 	//var_dump($user_from);
-				// 	exit;
-				// }
+				if(isset($messages)) { 
+					// var_dump($messages); 
+					//var_dump($user);
+					//var_dump($user_from);
+					// var_dump($conversations); exit;
+					//exit;
+				}
 				 ?>
 				<div class="conversations-column col-md-4">
 					
@@ -35,7 +36,7 @@
 
 						for ($i=0; $i < sizeof($conversations); $i++) { 
 
-							if ($conversations[$i][0]['status'] == 1 ){
+							if ($conversations[$i][0]['status'] == 1 /* && $conversations[$i][0]['user_id'] != $user['id'] */ ){
 
 								$message_status = "<span class='glyphicon glyphicon-ok' style='color:#c99241'></span>";
 							
@@ -104,6 +105,8 @@
 
 							$messages_class = '';
 							$message_from = '';
+							$message_photo = '';
+							$profile_url = '';
 
 							for ($i=0; $i < sizeof($messages); $i++) { 
 								
@@ -111,11 +114,16 @@
 									
 									$messages_class = "class='each-message my-messgage col-md-12'";
 									$message_from = $user['name'].' '.$user['last_name'];
-								
+									$message_photo = $conversations[0]['profile_photo'];
+									$profile_url = "/profile/".$user['id'];
+									
 								}else{
 
 									$messages_class = "class='each-message their-messages col-md-12'";
 									$message_from = $user_from['name'].' '.$user_from['last_name'];
+									$message_photo = $conversations[0]['photo'];
+									$profile_url = "/profile/".$user_from['id'];
+								    
 								}
 					?>
 					<div class="messages-body col-md-12">
@@ -125,8 +133,12 @@
 							<div class="each-message-header col-md-12">
 
 								<div class="col-md-9">
-									<img src="/assets/common/app/img/default.jpg" alt="" class="img-circle">
-									<span><strong><?php echo $message_from; ?></strong></span>
+									<div class="row">
+										<a href="<?php echo $profile_url; ?>">
+											<?php echo $message_photo; ?>
+											<span style="margin-left: 5px;"><strong><?php echo $message_from; ?></strong></span>
+										</a>
+									</div>
 								</div>
 
 								<div class="col-md-3 conversation-date">
