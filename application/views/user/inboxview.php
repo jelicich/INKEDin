@@ -36,14 +36,14 @@
 
 						for ($i=0; $i < sizeof($conversations); $i++) { 
 
-							if ($conversations[$i][0]['status'] == 1 /* && $conversations[$i][0]['user_id'] != $user['id'] */ ){
 
-								$message_status = "<span class='glyphicon glyphicon-ok' style='color:#c99241'></span>";
+							if ( $conversations[$i][0]['status'] == 1 ){
+
+								 $message_status = "<span class='glyphicon glyphicon-ok' style='color:#c99241'></span>";
 							
 							}else{
 
 								$message_status = "<span class='glyphicon glyphicon-record' style='color:#c99241'></span>";
-							
 							}
 					?>			
 								<li>
@@ -61,7 +61,16 @@
 														 echo $conversations[$i][0]['date'];
 													?>
 												</dd>
-												<dd><?php echo $conversations[$i][0]['message'].'...'; ?></dd>
+												<dd>
+													<?php 
+
+														if( $conversations[$i][0]['user_id'] == $user['id']){
+															echo "<span style='color:#c99241'>Yo: </span>";// buscar icono apropiado
+														}
+
+														echo $conversations[$i][0]['message'].'...'; 
+													?>
+												</dd>
 											</dl>
 										</div>
 

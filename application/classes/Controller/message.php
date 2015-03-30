@@ -46,13 +46,12 @@ class Controller_Message extends Controller_Master {
         $model_message = new Model_Message(); // no deberia andar con this esto en vez de instanciar el model ?
         $messages = $model_message->get_messages_by_conversation_id($conversation_id);
 
-        $user = $this->get_user_info(); // esto ya esta en load_common_inbox_stuff(). ordenar
-
-        // if ( end($messages)['user_id'] !=  $user['id'])
-        // {
+        if ( end( $messages )['user_id'] !=  $user_from['id'] )
+        {
             $query = DB::update('messages')->set( array('status' => 1) )->where('conversation_id', '=', $conversation_id );
             $query->execute();
-        // }
+
+        }
 
         $this->load_common_inbox_stuff();
         $this->template->user_from = $user_from;
@@ -60,7 +59,7 @@ class Controller_Message extends Controller_Master {
         $this->template->head->custom_scripts = HTML::script('/assets/Message/js/Message.js');
     }
 
-    private function img_path_alt($user_id, $user_photo, $alt_name, $alt_lastname)
+    private function img_path_alt($user_id, $user_photo, $alt_name, $alt_lastname) // ver si esta funcion agiliza o no...
     {
         return  HTML::image('/users/'.$user_id.'/img/sm/'.$user_photo, array('alt' => $alt_name.' '.$alt_lastname, 'class' => 'img-circle'));   
     }
