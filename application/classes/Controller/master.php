@@ -25,12 +25,19 @@ abstract class Controller_Master extends Controller_Template
         else
         {
             $user_info = $this->get_user_info();
-            
 
             $this->template->header = View::factory('common/header_logged');
             $this->template->header->user = $user_info;
-            
-            //Profile pic path
+
+            // messages alert
+            $user = $this->model_user->get_user_info();
+
+            $model_conversation = new Model_Conversation();
+            $messages_amount = $model_conversation->get_messages_amount( $user['id'] );
+
+            $this->template->header->messages_amount = $messages_amount;
+
+             //Profile pic path
             if(!isset($this->template->header->user['photo']) || empty($this->template->header->user['photo']))
             {
                 $photo = HTML::image('/assets/common/app/img/default.jpg', array('alt' => 'Profile picture', 'class' => 'user-menu-photo col-md-3 img-circle'));

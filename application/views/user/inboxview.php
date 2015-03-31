@@ -16,15 +16,7 @@
 		<div class="row">
 
 			<div id="inbox" class="light-bg clearfix">
-				<?php 
-				if(isset($messages)) { 
-					// var_dump($messages); 
-					//var_dump($user);
-					//var_dump($user_from);
-					// var_dump($conversations); exit;
-					//exit;
-				}
-				 ?>
+				
 				<div class="conversations-column col-md-4">
 					
 					<h2>Inbox</h2>
@@ -33,17 +25,27 @@
 					<?php 
 
 						$message_status = '';
+						$me = '';
 
-						for ($i=0; $i < sizeof($conversations); $i++) { 
+						for ($i=0; $i < sizeof($conversations); $i++){ 
 
 
 							if ( $conversations[$i][0]['status'] == 1 ){
 
 								 $message_status = "<span class='glyphicon glyphicon-ok' style='color:#c99241'></span>";
-							
+							}
+
+							if ( $user['id'] != $conversations[$i][0]['user_id'] ){
+								
+								if ( $conversations[$i][0]['status'] == 0 ){
+
+										$message_status = "<span class='glyphicon glyphicon-record' style='color:#c99241'></span>";
+								}
+
 							}else{
 
-								$message_status = "<span class='glyphicon glyphicon-record' style='color:#c99241'></span>";
+								$message_status = '';
+								$me = "<span style='color:#c99241'>Yo: </span>";// buscar icono apropiado
 							}
 					?>			
 								<li>
@@ -63,12 +65,7 @@
 												</dd>
 												<dd>
 													<?php 
-
-														if( $conversations[$i][0]['user_id'] == $user['id']){
-															echo "<span style='color:#c99241'>Yo: </span>";// buscar icono apropiado
-														}
-
-														echo $conversations[$i][0]['message'].'...'; 
+													echo $me.' '.$conversations[$i][0]['message'].'...'; 
 													?>
 												</dd>
 											</dl>

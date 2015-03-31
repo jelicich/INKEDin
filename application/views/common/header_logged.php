@@ -1,3 +1,4 @@
+
 <header id="site-header" class="full-header">
 	<div class="container">
 		<div class="row">
@@ -33,7 +34,18 @@
 								</h3>
 								<ul class="user-menu-buttons clearfix">
 									<li><a href="/user">Mi Cuenta</a></li>
-									<li><a href="<?php echo "/message/inbox/"; ?>" >Inbox</a></li>
+									<li><a href="<?php echo "/message/inbox/"; ?>" >Inbox 
+											
+												<?php 
+													if (isset($messages_amount) && $messages_amount[0]['total_messages'] != 0) {
+														
+														echo "<span id='messages-alert'>". $messages_amount[0]['total_messages']."</span>";
+													}
+													 
+												?> 
+											
+										</a>
+									</li>
 									<li><a href="/auth/logout">Salir</a></li>
 								</ul>
 							</div>

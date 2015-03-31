@@ -128,6 +128,14 @@ h6{
 	border-radius: 3px;
 	padding: 0;	
 }
+
+#messages-alert{
+	  background: rgba(175, 115, 42, 0.35);
+	  padding: 2px 5px;
+	  margin-right: -4px;
+}
+
+
 .full-header .user-menu-buttons li{
 	padding: 0 8.2px;
 	border-right: 1px solid rgba(0,0,0,0.1);

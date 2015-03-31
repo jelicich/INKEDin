@@ -33,10 +33,15 @@ abstract class Controller_MasterAjax extends Controller_Template
         else
         {
             $user_info = $this->get_user_info();
-            
 
             $this->template->header = View::factory('common/header_logged');
             $this->template->header->user = $user_info;
+
+            // messages alert
+            $model_conversation = new Model_Conversation();
+            $messages_amount = $model_conversation->get_messages_amount( $user_info['id'] );
+
+            $this->template->header->messages_amount = $messages_amount;
             
             //Profile pic path
             if(!isset($this->template->header->user['photo']) || empty($this->template->header->user['photo']))

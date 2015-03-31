@@ -71,4 +71,18 @@ class Model_Conversation extends ORM{
 		return $conversations;
 	}
 
+
+	public function get_messages_amount($user_id)
+	{
+		$messages_amount =  DB::select(array(DB::expr('COUNT(message)'), 'total_messages'))
+    	        ->from('conversations')
+		        ->join('messages')
+		        ->on('messages.conversation_id', '=', 'conversations.id')
+		        ->where('messages.status', '=', 0)
+		        ->and_where('messages.user_id', '!=', $user_id)
+		        ->execute();
+
+		$messages_amount = $messages_amount->as_array();
+		return $messages_amount;
+	}
 }

@@ -22,7 +22,7 @@ class Controller_Message extends Controller_Master {
         $conversation_id = $model_conversation->save_conversation($profile_id, $user_id);
 
         $model_message = new Model_Message();
-        $message_id = $model_message->save_message($profile_id, $user_id, $message, $conversation_id);
+        $message_id = $model_message->save_message($user_id, $message, $conversation_id);
 
         if ( isset($inbox_reply_button) ) {
              
@@ -42,22 +42,17 @@ class Controller_Message extends Controller_Master {
         
         $model_user = new Model_User();
         $user_from = $model_user->get_profile_info_by_id($user_from);
+        $user = $model_user->get_user_info();
        
         $model_message = new Model_Message(); // no deberia andar con this esto en vez de instanciar el model ?
-        $messages = $model_message->get_messages_by_conversation_id($conversation_id);
-
-        if ( end( $messages )['user_id'] !=  $user_from['id'] )
-        {
-            $query = DB::update('messages')->set( array('status' => 1) )->where('conversation_id', '=', $conversation_id );
-            $query->execute();
-
-        }
+        $messages = $model_message->get_messages_by_conversation_id($conversation_id, $user['id']);
 
         $this->load_common_inbox_stuff();
         $this->template->user_from = $user_from;
         $this->template->messages = $messages;
         $this->template->head->custom_scripts = HTML::script('/assets/Message/js/Message.js');
     }
+
 
     private function img_path_alt($user_id, $user_photo, $alt_name, $alt_lastname) // ver si esta funcion agiliza o no...
     {
@@ -70,7 +65,6 @@ class Controller_Message extends Controller_Master {
 
         if($this->is_logged_in())
         { 
-        
             $user = $this->get_user_info();
             $profile_id = $user['id']; 
 
