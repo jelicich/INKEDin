@@ -23,6 +23,7 @@ class Controller_Register extends Controller_Master {
 											.HTML::script('/assets/common/app/js/messages_es.min.js')
 											.HTML::script('/assets/register/js/Register.js');
 		$this->template->head->custom_styles = HTML::style('/assets/register/css/register.css');
+		$this->template->head->title = "INKEDin - Registro";
 	}
 
 	public function action_register()
@@ -87,7 +88,9 @@ class Controller_Register extends Controller_Master {
         $this->template->head = View::factory('common/head');
         $this->template->header = View::factory('common/header');    
         $this->template->footer = View::factory('common/footer'); 
-        $this->template->head->title = $this->title;
+        $this->template->footer->styles = Helper_Footer::get_styles();
+        $this->template->footer->searches = Helper_Footer::get_searches();
+        $this->template->head->title = "INKEDin - Nueva cuenta";
         $this->template->head->common_scripts = $common_scripts;
         $this->template->head->common_styles = $common_styles;
 
@@ -116,7 +119,9 @@ class Controller_Register extends Controller_Master {
 	        $this->template->head = View::factory('common/head');
 	        $this->template->header = View::factory('common/header');    
 	        $this->template->footer = View::factory('common/footer'); 
-	        $this->template->head->title = $this->title;
+	        $this->template->footer->styles = Helper_Footer::get_styles();
+        	$this->template->footer->searches = Helper_Footer::get_searches();
+	        $this->template->head->title = "INKEDin - Cuenta activada";
 	        $this->template->head->common_scripts = $common_scripts;
 	        $this->template->head->common_styles = $common_styles;
 		}
@@ -129,8 +134,10 @@ class Controller_Register extends Controller_Master {
 			
 	        $this->template->head = View::factory('common/head');
 	        $this->template->header = View::factory('common/header');    
-	        $this->template->footer = View::factory('common/footer'); 
-	        $this->template->head->title = $this->title;
+	        $this->template->footer = View::factory('common/footer');
+	        $this->template->footer->styles = Helper_Footer::get_styles();
+        	$this->template->footer->searches = Helper_Footer::get_searches();
+	        $this->template->head->title = "INKEDin - Error de activacion";
 	        $this->template->head->common_scripts = $common_scripts;
 	        $this->template->head->common_styles = $common_styles;
 		}

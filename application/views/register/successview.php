@@ -32,6 +32,7 @@
 
 			<!-- right col -->
 			<div class="col-md-4">
+				<!--
 				<div class="side-register light-bg">
 					<img src="/assets/register/img/register-img.jpg" alt="" />
 					<div class="login-button">
@@ -53,6 +54,7 @@
 						<li>Contactar a los tatuadores</li>
 					</ul>
 				</div>
+				-->
 				
 			</div>
 			<!-- end right col -->

@@ -1,3 +1,5 @@
+CREATE DATABASE inkedin;
+USE inkedin;
 -- phpMyAdmin SQL Dump
 -- version 4.2.11
 -- http://www.phpmyadmin.net

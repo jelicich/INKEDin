@@ -147,3 +147,9 @@ label[for="province"]{
 .btn-delete-favourite:hover{
 	opacity: 1
 }
+
+.side-register h3{
+	border-top: 1px solid #c99241;
+	border-bottom: 1px solid #c99241;
+	padding: 10px;
+}
