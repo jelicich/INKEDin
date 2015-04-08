@@ -20,10 +20,11 @@ class Controller_Profile extends Controller_Master {
         $model_user = new Model_User();
         $profile = $model_user->get_profile_info_by_id($this->id);
         $this->profile = $profile;
+        $temp_profile = array_filter($profile);
         //IF INVALID ID TODO show error page
-        if(empty($profile))
+        if(empty($temp_profile))
         {
-            HTTP::redirect('index');
+            throw new HTTP_Exception_404;
         }
         
         $this->template->head->title = "INKEDin - ".$profile['name']." ".$profile['last_name'];
