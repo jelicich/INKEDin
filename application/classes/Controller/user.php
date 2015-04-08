@@ -194,7 +194,7 @@ class Controller_User extends Controller_MasterAjax {
 		{	
 			$this->auto_render = false;
 		}
-		$result;
+		
 		$post = $this->request->post();
 		$model_user = Model::factory('user');
         $model_user->update_about($this->request->post());

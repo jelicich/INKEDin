@@ -82,6 +82,12 @@ class Controller_Profile extends Controller_Master {
         $this->template->ratingview->profile_id = $profile['id'];
 
         $this->template->is_logged_in = $this->is_logged_in();
+        if($this->is_logged_in())
+        {
+            $user = $this->get_user_info();
+            $this->template->role = $user['role'];
+        }
+        
     }
 
 	public function action_index()
@@ -431,6 +437,5 @@ class Controller_Profile extends Controller_Master {
         $save_follower = $model_follower->save_follower($this->id, $user['id']);
     }
 
-    
 
 } // End Welcome
