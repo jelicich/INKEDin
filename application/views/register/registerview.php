@@ -78,7 +78,7 @@
 							<label for="user-regular">Busco tatuadores</label>
 						</div>
 						
-						<p class="terms">Al registrarme acepto los <a href="#">terminos y condiciones</a> del sitio</p>
+						<p class="terms">Al registrarme acepto los <a href="/terms" target="_blank">terminos y condiciones</a> del sitio</p>
 						<input type="submit" class="btn btn-default btn-lg" value="Registrarme!">
 					</form>
 				</div>				
@@ -92,7 +92,7 @@
 					<img src="/assets/register/img/register-img.jpg" alt="" />
 					<div class="login-button">
 						<h3>Ya estas registrado?</h3>
-						<a href="#" id="second-login" class="btn btn-default btn-lg btn-block" onclick="inked.Register.onClickSecondLogin()">Ingresar</a>
+						<a href="#" id="second-login" class="btn btn-default btn-lg btn-block" onclick="inked.Register.onClickSecondLogin(event)">Ingresar</a>
 					</div>
 
 					<h3>Registrate ahora</h3>

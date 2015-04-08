@@ -34,7 +34,7 @@
            		<p id="photo-description"></p>
            		<p class="photo-tags"><strong>Tags:</strong> <span id="photo-tags"></span></p>
            		<?php 
-           		if($is_logged_in)
+           		if($is_logged_in && $role == 2)
            		{
            		?>
            			<a href="#" class="btn btn-default btn-save-photo" id="save-to-favourites" onclick="inked.Common.Modal.saveToFavourites(event);">Guardar <span class="glyphicon glyphicon-picture"></span></a>

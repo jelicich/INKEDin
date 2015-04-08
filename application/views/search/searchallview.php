@@ -109,7 +109,7 @@
 						$html = '<article class="pic-sq-grid">
 								<div class="inner-pic-sq-grid border-img">
 									<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
-										<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'"/>
+										<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'" data-photo-id="'.$photos[$i]['id'].'"/>
 									</a>
 									<div class="pic-details pic-details-block">
 										<p class="caption">'.$photos[$i]['description'].'</p>
@@ -175,18 +175,3 @@
 </section>
 
 
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-body">
-            <img src="" id="photo-target" class="img-responsive">
-            <div class="modal-tools">
-           		<p id="photo-description"></p>
-           		<p class="photo-tags"><strong>Tags:</strong> <span id="photo-tags"></span></p>
-           		<div id="photo-owner-info"></div>
-           		<a href="#" class="btn btn-default btn-save-photo">Guardar <span class="glyphicon glyphicon-picture"></span></a>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>

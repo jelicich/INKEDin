@@ -22,8 +22,8 @@
 			<!-- left col -->
 			<div class="col-md-8">
 				<div class="register-wrapper">
-					<h2>Registrate en INKEDin</h2>
-					<p>Gracias por registrarte. Verifica tu casilla de email para confirmar tu cuenta</p>
+					<h2><?php echo $error_title ?></h2>
+					<p><?php echo $error_description ?></p>
 
 				</div>				
 			</div>

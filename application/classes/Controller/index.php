@@ -12,6 +12,13 @@ class Controller_Index extends Controller_Master {
         $this->template->head->custom_scripts = HTML::script('/assets/home/js/Home.js')
                                                 .HTML::script('/assets/common/app/js/Modal.js');
         $this->template->head->custom_styles = HTML::style('/assets/home/css/home.css');
+
+        $this->template->is_logged_in = $this->is_logged_in();
+        if($this->is_logged_in())
+        {
+            $user = $this->get_user_info();
+            $this->template->role = $user['role'];
+        }
     }
 
 	public function action_index()

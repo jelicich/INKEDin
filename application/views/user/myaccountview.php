@@ -261,24 +261,14 @@
 			<!-- right col -->
 			<div class="col-md-4">
 				<div class="side-register light-bg">
-					<img src="/assets/register/img/register-img.jpg" alt="" />
-					<div class="login-button">
-						<h3>Ya estas registrado?</h3>
-						<a href="#" id="second-login" class="btn btn-default btn-lg btn-block" onclick="inked.Register.onClickSecondLogin()">Ingresar</a>
-					</div>
-
-					<h3>Registrate ahora</h3>
-					<p>Como tatuador podes:</p>
+					<img src="/assets/user/img/account-img.jpg" alt="" />
+					<h3>Editá tu información</h3>
+					<p>En esta sección podes editar todo lo que se muestra en tu perfil:</p>
 					<ul>
-						<li>Subir fotos de tus trabajos</li>
-						<li>Publicar informacion para que te contacten</li>
-						<li>Recibir mensajes</li>
-					</ul>
-					<p>Como entusiasta podes:</p>
-					<ul>
-						<li>Buscar tatuadores y fotos</li>
-						<li>Armar tu lista de favoritos</li>
-						<li>Contactar a los tatuadores</li>
+						<li>Datos persoanles</li>
+						<li>Información profesional</li>
+						<li>Albumes de fotos</li>
+						<li>Fotos de perfil y portada</li>
 					</ul>
 				</div>
 				

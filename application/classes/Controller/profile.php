@@ -20,10 +20,11 @@ class Controller_Profile extends Controller_Master {
         $model_user = new Model_User();
         $profile = $model_user->get_profile_info_by_id($this->id);
         $this->profile = $profile;
+        $temp_profile = array_filter($profile);
         //IF INVALID ID TODO show error page
-        if(empty($profile))
+        if(empty($temp_profile))
         {
-            HTTP::redirect('index');
+            throw new HTTP_Exception_404;
         }
         
         $this->template->head->title = "INKEDin - ".$profile['name']." ".$profile['last_name'];
@@ -82,6 +83,12 @@ class Controller_Profile extends Controller_Master {
         $this->template->ratingview->profile_id = $profile['id'];
 
         $this->template->is_logged_in = $this->is_logged_in();
+        if($this->is_logged_in())
+        {
+            $user = $this->get_user_info();
+            $this->template->role = $user['role'];
+        }
+        
     }
 
 	public function action_index()
@@ -431,6 +438,5 @@ class Controller_Profile extends Controller_Master {
         $save_follower = $model_follower->save_follower($this->id, $user['id']);
     }
 
-    
 
 } // End Welcome

@@ -29,7 +29,7 @@
 						<a href="/register" class="id-buttons">Registrarse</a>
 					</li>
 					<li class="col-md-3 full id-container">
-						<a href="#" onclick="inked.Common.Header.onClickLogin()" class="id-buttons">Ingresar</a>
+						<a href="#" onclick="inked.Common.Header.onClickLogin(event)" class="id-buttons">Ingresar</a>
 						<div id="login-toggle" class="login-container">
 							<form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm()">
 								<label for="username">Usuario</label>
