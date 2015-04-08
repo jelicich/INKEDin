@@ -97,7 +97,7 @@
 									echo '<h4>Conversacion con '.$user_from['name'].' '.$user_from['last_name'].'</h4></div>'; // closes div col-md-8; 
 						?>
 									<div class="col-md-4">
-										<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $user_from['name'].' '.$user_from['last_name']; ?>"  onclick="inked.Message.saveMessage()">Responder</a>
+										<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $user_from['name'].' '.$user_from['last_name']; ?>">Responder</a>
 									</div>
 						<?php
 								}else{
@@ -192,9 +192,8 @@
 		            <textarea class="form-control" id="message-text" name="message" required></textarea>
 		            <input type="hidden" name="inbox_reply_button" value="inbox_reply_button">
             	</div>
-	       
-	      
-		     	<div class="modal-footer">
+
+            	<div class="modal-footer">
 			        <button type="submit" class="btn btn-primary">Enviar</button>
 			    </div>
 			    

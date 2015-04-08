@@ -30,10 +30,8 @@ abstract class Controller_Master extends Controller_Template
             $this->template->header->user = $user_info;
 
             // messages alert
-            $user = $this->model_user->get_user_info();
-
             $model_conversation = new Model_Conversation();
-            $messages_amount = $model_conversation->get_messages_amount( $user['id'] );
+            $messages_amount = $model_conversation->get_messages_amount( $user_info['id'] );
 
             $this->template->header->messages_amount = $messages_amount;
 

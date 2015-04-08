@@ -80,6 +80,7 @@ class Controller_Message extends Controller_Master {
                         $conversations[$i]['photo'] = $default_img;
 
                     }else{
+                       
                         $conversations[$i]['photo'] = $this->img_path_alt($conversations[$i]['from_id'], $conversations[$i]['photo'], $conversations[$i]['name'], $conversations[$i]['name']);
                     }
 
