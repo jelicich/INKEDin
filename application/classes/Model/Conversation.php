@@ -2,34 +2,32 @@
 
 class Model_Conversation extends ORM{
 
-	public function get_conversation_id($profile_id, $user_id){
+	public function get_conversation_id($user_id, $profile_id = NULL){
 
 		$model_conversation = new Model_Conversation();
 
-		$conversation_id =  $this->select('conversation.id')
+		if ( $profile_id != NULL ) {
+			
+			$conversation_id =  $this->select('conversation.id')
 							    	->where('user_1_id','=', $profile_id)
 							        ->and_where('user_2_id' , '=', $user_id)
 							        ->or_where('user_1_id','=', $user_id)
 							        ->and_where('user_2_id' , '=', $profile_id)
 							        ->find();
 
-        // $conversation_id =  $conversation_id->as_array();
+		}else{
+
+			$conversation_id =  $this->select('conversation.id')
+						         ->where('user_2_id' , '=', $user_id)
+						         ->or_where('user_1_id','=', $user_id)
+						         ->find();
+		}
 
 		return $conversation_id;
 	}
 
 	public function save_conversation($profile_id, $user_id)
 	{
-		
-		// $model_conversation = new Model_Conversation();
-
-		// $existing_conversations =  $this->select('conversation.id')
-		// 					    	->where('user_1_id','=', $profile_id)
-		// 					        ->and_where('user_2_id' , '=', $user_id)
-		// 					        ->or_where('user_1_id','=', $user_id)
-		// 					        ->and_where('user_2_id' , '=', $profile_id)
-		// 					        ->find();
-
 		$existing_conversations = $this->get_conversation_id( $profile_id, $user_id );
 
 	   if( $existing_conversations->loaded() ) { 
@@ -94,12 +92,14 @@ class Model_Conversation extends ORM{
 
 
 	public function get_messages_amount($user_id)
-	{
+	{	
+		$conversation_id = $this->get_conversation_id($user_id);
+		$conversation_id =  $conversation_id->as_array();
+
 		$messages_amount =  DB::select(array(DB::expr('COUNT(message)'), 'total_messages'))
-    	        ->from('conversations')
-		        ->join('messages')
-		        ->on('messages.conversation_id', '=', 'conversations.id')
-		        ->where('messages.status', '=', 0)
+    	        ->from('messages')
+		        ->where('messages.conversation_id', '=', $conversation_id['id'])
+		        ->and_where('messages.status', '=', 0)
 		        ->and_where('messages.user_id', '!=', $user_id)
 		        ->execute();
 

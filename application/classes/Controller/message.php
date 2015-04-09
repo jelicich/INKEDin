@@ -22,7 +22,7 @@ class Controller_Message extends Controller_Master {
         $conversation_id = $model_conversation->save_conversation($profile_id, $user_id);
 
         $model_message = new Model_Message();
-        $message_id = $model_message->save_message($user_id, $message, $conversation_id);
+        $message_id = $model_message->save_message($user_id, $message, $conversation_id['id']);
 
         if ( isset($inbox_reply_button) ) {
              
@@ -30,8 +30,7 @@ class Controller_Message extends Controller_Master {
 
         }else{
 
-            HTTP::redirect('/profile/'.$profile_id);
-
+             HTTP::redirect('/profile/'.$profile_id);
         }
     }
 
@@ -44,7 +43,7 @@ class Controller_Message extends Controller_Master {
         $user = $model_user->get_user_info();
        
         $model_message = new Model_Message();
-        $messages = $model_message->get_messages_by_conversation_id($user_from['id'], $user['id']);
+        $messages = $model_message->get_messages_by_conversation_id( $user_from['id'], $user['id'] );
 
         $this->load_common_inbox_stuff();
         $this->template->user_from = $user_from;
