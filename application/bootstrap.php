@@ -168,18 +168,11 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 		'action'     => 'index',
 	));
 
-// revisar estas lineas a ver si solo debo setearlo una vez por controller
-Route::set('message', 'message/<param_1>/<param_2>/<action>')
+
+Route::set('message', 'message/<param_1>(/<param_2>)/<action>')
 	->defaults(array(
 		'controller' => 'message',
 		'action'     => 'save_message',
-	));
-
-// revisar estas lineas a ver si solo debo setearlo una vez por controller
-Route::set('inbox', 'message/<profile_id>/<action>')
-	->defaults(array(
-		'controller' => 'message',
-		'action'     => 'inbox',
 	));
 
 

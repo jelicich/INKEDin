@@ -2,24 +2,45 @@
 
 class Model_Conversation extends ORM{
 
-	public function save_conversation($profile_id, $user_id)
-	{
-		
+	public function get_conversation_id($profile_id, $user_id){
+
 		$model_conversation = new Model_Conversation();
 
-		$existing_conversations =  $this->select('conversation.id')
+		$conversation_id =  $this->select('conversation.id')
 							    	->where('user_1_id','=', $profile_id)
 							        ->and_where('user_2_id' , '=', $user_id)
 							        ->or_where('user_1_id','=', $user_id)
 							        ->and_where('user_2_id' , '=', $profile_id)
 							        ->find();
 
-       if( $existing_conversations->loaded() ) { 
+        // $conversation_id =  $conversation_id->as_array();
 
-       		return $existing_conversations->id;
+		return $conversation_id;
+	}
+
+	public function save_conversation($profile_id, $user_id)
+	{
+		
+		// $model_conversation = new Model_Conversation();
+
+		// $existing_conversations =  $this->select('conversation.id')
+		// 					    	->where('user_1_id','=', $profile_id)
+		// 					        ->and_where('user_2_id' , '=', $user_id)
+		// 					        ->or_where('user_1_id','=', $user_id)
+		// 					        ->and_where('user_2_id' , '=', $profile_id)
+		// 					        ->find();
+
+		$existing_conversations = $this->get_conversation_id( $profile_id, $user_id );
+
+	   if( $existing_conversations->loaded() ) { 
+
+	   		$existing_conversations =  $existing_conversations->as_array();
+
+       		return $existing_conversations;
 
        }else{
 
+       		$model_conversation = new Model_Conversation();
        		$this->user_1_id = $user_id;
        		$this->user_2_id = $profile_id;
 

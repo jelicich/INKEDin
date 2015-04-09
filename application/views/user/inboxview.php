@@ -49,7 +49,7 @@
 							}
 					?>			
 								<li>
-									<a href=" <?php echo '/message/'.$conversations[$i]['conversation_id'].'/'.$conversations[$i]['from_id'].'/messages_list'; ?>" >
+									<a href=" <?php echo '/message/messages_list/'.$conversations[$i]['from_id']; ?>" >
 										
 										<div class="col-md-3">
 											<?php echo $conversations[$i]['photo']; ?>
@@ -185,7 +185,7 @@
       </div>
 
       <div class="modal-body">
-	        <form method="post" action="/message/<?php  if(isset($user_from)){ echo $user_from['id'].'/'.$user['id']; }  ?>/save_message" id="message-form">
+	        <form method="post" action="/message/save_message/<?php  if(isset($user_from)){ echo $user_from['id']; }  ?>" id="message-form">
 	        	
 	        	<div class="form-group">
 		            <label for="message-text" class="control-label">Mensaje</label>

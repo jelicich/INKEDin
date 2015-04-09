@@ -15,9 +15,13 @@ class Model_Message extends ORM{
 	}
 
 
-	public function get_messages_by_conversation_id($conversation_id, $user_id)
+	public function get_messages_by_conversation_id($user_from, $user_id)
 	{	
-		$messages = $this->select('message.*') // limpiar esta consulta, trae cosas q no necesito y formatear fecha desde aca
+
+		$model_conversation = new Model_Conversation();
+		$conversation_id = $model_conversation->get_conversation_id( $user_from, $user_id );
+
+		$messages = $this->select('message.*') 
 		->where('conversation_id','=', $conversation_id)
 		->order_by('date', 'DESC')
 		->find_all();

@@ -13,11 +13,11 @@ class Controller_Message extends Controller_Master {
     {   
         $this->template->is_logged_in = $this->is_logged_in();
 
-        $profile_id = $this->request->param('param_1'); // cambiar por user id
-        $user_id = $this->request->param('param_2');
+        $user_id = $this->get_user_info()['id'];
+        $profile_id = $this->request->param('id'); 
         $message = $this->request->post('message');
         $inbox_reply_button = $this->request->post('inbox_reply_button');
-
+       
         $model_conversation = new Model_Conversation();
         $conversation_id = $model_conversation->save_conversation($profile_id, $user_id);
 
@@ -26,7 +26,7 @@ class Controller_Message extends Controller_Master {
 
         if ( isset($inbox_reply_button) ) {
              
-             HTTP::redirect("message/".$conversation_id."/".$profile_id."/messages_list");
+             HTTP::redirect("message/messages_list/".$profile_id);
 
         }else{
 
@@ -37,15 +37,14 @@ class Controller_Message extends Controller_Master {
 
     public function action_messages_list()
     {   
-        $conversation_id = $this->request->param('param_1');
-        $user_from = $this->request->param('param_2');
+        $user_from = $this->request->param();
         
         $model_user = new Model_User();
         $user_from = $model_user->get_profile_info_by_id($user_from);
         $user = $model_user->get_user_info();
        
-        $model_message = new Model_Message(); // no deberia andar con this esto en vez de instanciar el model ?
-        $messages = $model_message->get_messages_by_conversation_id($conversation_id, $user['id']);
+        $model_message = new Model_Message();
+        $messages = $model_message->get_messages_by_conversation_id($user_from['id'], $user['id']);
 
         $this->load_common_inbox_stuff();
         $this->template->user_from = $user_from;
