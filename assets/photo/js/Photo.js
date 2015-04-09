@@ -11,7 +11,14 @@ inked.Photo = {
     validateForm : function(event)
     {
         var file = $(event.target);
-        //console.log(file[0].files[0].type);
+        
+        $('.img-error').remove();
+
+        if(file[0].files[0].size > 1048576)
+        {
+            $(event.target).next().after('<p class="img-error">El archivo debe pesar menos de 1mb</p>');
+            return;
+        }
         switch(file[0].files[0].type)
         {
             case 'image/png':

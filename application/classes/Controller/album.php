@@ -59,8 +59,13 @@ class Controller_Album extends Controller_Master {
 		$post = $this->request->post();
 		$photos_model = new Model_Photo();
 		$photos = $photos_model->get_photos_by_album($post['album_id']);
+		
+		$album_model = new Model_Album();
+		$album = $album_model->get_album_by_id($post['album_id']);
+
 		$view = View::factory('album/editalbumview');
 		$view->photos = $photos;
+		$view->album = $album;
 
 		$this->response->body($view);
 	}
@@ -71,37 +76,42 @@ class Controller_Album extends Controller_Master {
 		{	
 			$this->auto_render = false;
 		}
+
 		$post = $this->request->post();
 		
 	
-
-		$photo_model = new Model_Photo();
-
-		$photos = $post['photos'];
-		
-		foreach($photos as $photo)
+		if(!empty($post['photos']))
 		{
-			if($photo['del'] == 'true')
-			{
-				$photo_model->delete_photo($photo['photoId']);	
-			}
-			else
-			{
-				$photo_model->update_photo($photo);	
-			}
+			$photo_model = new Model_Photo();
+
+			$photos = $post['photos'];
 			
+			foreach($photos as $photo)
+			{
+				if($photo['del'] == 'true')
+				{
+					$photo_model->delete_photo($photo['photoId']);	
+				}
+				else
+				{
+					$photo_model->update_photo($photo);	
+				}
+				
+			}	
 		}
+		
 
 		//CHECK IF ALBUM IS EMPTY, THEN DELETE
+		/*
 		$current_photos = $photo_model->get_photos_by_album($post['album_id']);
 		if(sizeof($current_photos) < 1)
 		{
 			$album_model = new Model_Album();
 			$album_model->delete_album($post['album_id']);
 		}
-
+		*/
 		$this->action_load_album_list();
-
+		
 
 	}
 

@@ -16,7 +16,7 @@ class Model_Album extends ORM{
 	{
 		$albums = $this->select('album.*', 'photos.*')
 			->where('album.user_id','=', $id)
-			->join('photos')
+			->join('photos', 'LEFT')
 			->on('album.id','=','photos.album_id')
 			->group_by('album.id')
 			->order_by('album.date', 'DESC')

@@ -1,8 +1,8 @@
 
-<form method="post" action="/photo/edit_photo" id="edit-album-form" data-album-id="<?php echo $photos[0]['album_id']; ?>">
+<form method="post" action="/photo/edit_photo" id="edit-album-form" data-album-id="<?php echo $album['id']; ?>">
 
 	<div class="input-container">
-		<h3>Editar Album <i><?php echo $photos[0]['name']; ?></i></h3>
+		<h3>Editar Album <i><?php echo $album['name']; ?></i></h3>
 			<div class="row">
 				<?php
 				for($i = 0; $i < sizeof($photos); $i++)

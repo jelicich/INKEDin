@@ -7,7 +7,17 @@
 			?>
 			<div class="col-md-3 album-edit-container">
 				<div class="album-edit-container-inner">
-					<img src="<?php echo '/users/'.$albums[$i]['user_id'].'/img/sm/'.$albums[$i]['photo']?>" alt="<?php echo $albums[$i]['name'] ?>" class="album-cover"/>					
+					<?php
+					if(empty($albums[$i]['photo']))
+					{
+						$path = '/assets/common/app/img/default_album.jpg';
+					}
+					else
+					{
+						$path = '/users/'.$albums[$i]['user_id'].'/img/sm/'.$albums[$i]['photo'];
+					}
+					?>
+					<img src="<?php echo $path ?>" alt="<?php echo $albums[$i]['name'] ?>" class="album-cover"/>					
 					<h4><?php 
 					if(strlen($albums[$i]['name'])>20)
 					{
