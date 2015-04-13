@@ -12,7 +12,35 @@ inked.Common.Header = {
 		        $("header").removeClass("small-header").addClass("full-header");
 		    }
 		});
+
+		inked.Common.Header.sidebarMenu();
 	},
+
+	sidebarMenu : function()
+	{
+		 function check_width()
+		 {
+		 		if(window.innerWidth < 768){
+
+            	    $("#wrapper").addClass("toggled");
+
+            	}else{
+					
+				    $("#wrapper").removeClass("toggled");
+				}
+		 }
+
+		$(".menu-toggle").on("click", function() {
+   	    	
+   	    		$("#wrapper").toggleClass("toggled");
+   	    		$("#wrapper .toggled").css("overflow", "inherit");
+	    });
+
+        check_width();
+
+ 		$(window).on('resize', check_width);
+	},
+
 
 	onClickLogin : function(event)
 	{

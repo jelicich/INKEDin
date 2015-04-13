@@ -1,6 +1,64 @@
-<header id="site-header" class="full-header">
+<header id="site-header" class="full-header navbar navbar-default">
 	<div class="container">
 		<div class="row">
+
+		<div class="navbar-header">
+		     <!--  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> -->
+		     <button class="navbar-toggle collapsed menu-toggle" id="menu-toggle">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+	    </div>
+
+
+
+
+
+	<div id="sidebar-wrapper" class="menu-toggle">
+	    <ul class="sidebar-nav ">
+	        
+	         <li class="sidebar-brand">
+	            <a href="#">
+	                
+	            </a>
+	        </li> 
+
+	        <li>
+	            <a href="#">Registrarse</a>
+	        </li>
+
+	        <li>
+	            <a href="#">Ingresar</a>
+	        </li>
+
+
+	        <li>
+	            <a href="/search/photos/">Tatuajes</a>
+	        </li>
+	        
+	        <li>
+	            <a href="/search/artists/">Artistas</a>
+	        </li>
+
+	        <li>
+	            <a href="/search/tops/">Tops</a>
+	        </li>
+
+
+	         <!-- <li id="search-box" class="col-md-6 full">
+				<form method="GET" action="/search/" onsubmit="inked.Common.Header.buildUrl(event)" id="search-form">
+												<input type="text" id="search-input" value="">
+					<input type="submit" value="" id="search-btn">
+				</form>
+			</li>  -->
+	       
+	    </ul>
+	</div>
+ 
+
+		<div class="collapse navbar-collapse">
 			<nav class="col-md-5">
 				<ul class="clearfix">
 					<li><a href="/search/photos/">Tatuajes</a></li>
@@ -45,6 +103,24 @@
 					</li>
 				</ul>
 			</div>
+			</div>
+
+
+
+
+
+
+
+
+
 		</div>
 	</div>
+
+
+
+
 </header>	
+
+
+
+

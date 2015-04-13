@@ -19,6 +19,9 @@ body{
 	height: 100%
 }
 
+
+
+
 /**[class^='col'],div[class*=' col']{ 
 	padding:10px;
 }*/
@@ -799,3 +802,44 @@ header, header *{
 .modal-body .btn-save-photo:hover{
 	opacity: 1;
 }
+
+
+
+
+/* NEW 13/4/2015 */
+
+
+body{
+	padding-top: 0px;
+	height: 100%
+}
+
+#site-content-wrapper{
+	padding-top: 160px;
+}
+
+#sidebar-wrapper{
+    margin-top: -90px !important;
+}
+
+#sidebar-wrapper{
+    margin-top: -90px !important;
+    overflow: hidden;
+}
+
+@media (max-width: 768px){
+
+	#wrapper {
+	  overflow: hidden;
+	}
+
+}
+
+
+
+
+
+
+
+
+

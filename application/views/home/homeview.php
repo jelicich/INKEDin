@@ -17,7 +17,7 @@
 
 
 	<!-- content -->
-	<section id="site-content" class="container">
+	<section id="site-content-wrapper" class="container">
 		<div class="row">
 			<!-- left col -->
 			<div class="col-md-6">
@@ -134,6 +134,7 @@
 				<!-- end right col -->
 			<div class="col-md-12 full">
 				<button class="btn btn-default" id="load-more-photos" onclick="inked.Home.loadMorePhotos()">VER MAS</button>
+				 <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
 			</div>
 		</div>
 	</section>
@@ -164,6 +165,36 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+<script type="text/javascript">
+
+		// function check_width(){
+
+  //               if(window.innerWidth < 768){
+
+  //           	    $("#wrapper").addClass("toggled");
+
+  //           	}else{
+					
+		// 		    $("#wrapper").removeClass("toggled");
+		// 		}
+		// }//end check_width
+
+		// $(".menu-toggle").click(function() {
+   	    	
+  //  	    		$("#wrapper").toggleClass("toggled");
+  //  	    		$("#wrapper.toggled").css("overflow", "inherit");
+	 //    });
+
+  //       check_width();
+
+ 	// 	$(window).on('resize', check_width);
+
+</script> 
 
 </body>
 </html>
