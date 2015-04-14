@@ -18,8 +18,8 @@ inked.Common.Header = {
 
 	sidebarMenu : function()
 	{
-		 function check_width()
-		 {
+		function check_width()
+		{
 		 		if(window.innerWidth < 768){
 
             	    $("#wrapper").addClass("toggled");
@@ -28,7 +28,7 @@ inked.Common.Header = {
 					
 				    $("#wrapper").removeClass("toggled");
 				}
-		 }
+		}
 
 		$(".menu-toggle").on("click", function() {
    	    	
