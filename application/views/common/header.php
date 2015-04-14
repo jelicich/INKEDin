@@ -15,8 +15,9 @@
 		    <div id="sidebar-wrapper" class="menu-toggle">
 			    <ul class="sidebar-nav ">
 
-			    	<li class="col-md-3 full id-container">
-						<a href="/register" class="id-buttons">Registrarse</a>
+
+			    	<li>
+						<a href="#" class="id-buttons" data-toggle="modal" data-target="#modal-login">Ingresar</a>
 					</li>
 
 					<li>
@@ -69,23 +70,7 @@
 
 						<li class="col-md-3 full id-container">
 
-							<!-- onclick="inked.Common.Header.onClickLogin(event)" -->
-							<a href="#" class="id-buttons" data-toggle="modal" data-target="#myModal">Ingresar</a>
-							
-							<!-- <div id="login-toggle" class="login-container">
-								
-								<form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm()">
-									<label for="username">Usuario</label>
-									<input type="text" name="username" id="username" value="" />
-									<label for="password">Contraseña</label>
-									<input type="password" name="password" id="password" value="" />
-									<input type="submit" id="submit-login" class="btn btn-default btn-block" value="Ingresar" />
-									<div class="fb-btn-container">
-										<a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
-									</div>
-								</form>
-
-							</div> -->
+							<a href="#" class="id-buttons" data-toggle="modal" data-target="#modal-login">Ingresar</a>
 
 						</li>
 
@@ -101,7 +86,7 @@
 
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
      
