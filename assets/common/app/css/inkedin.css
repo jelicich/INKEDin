@@ -46,9 +46,13 @@ h6{
 	width: 100%;
 	z-index: 10;
 }
+
+/*
+
 .full-header #site-logo-container{
 	margin-top: -15px;
 }
+
 .full-header #site-logo{
 	background: url('../img/inkedin-logo.png') no-repeat;
 	height: 123px;
@@ -56,14 +60,15 @@ h6{
 	width: 75%;
 	margin: 0 auto;
 	border-radius: 50%;
-	overflow: hidden;
+overflow: hidden;
 }
 .full-header #site-logo a{
 	display: block;
 	text-indent: -9999px;
 	width: 100%;
 	height: 100%;
-}
+}*/
+
 .full-header #site-tools{
 	margin-top: 10px;
 }
@@ -188,6 +193,7 @@ h6{
 /*END HEADER FULL*/
 
 /*HEADER DINAMICO SMALL*/
+
 #site-header.small-header{
 	background: url('../img/header-bg-3.jpg') 0 -77px;
 	height: 50px;
@@ -196,9 +202,14 @@ h6{
 	width: 100%;
 	z-index: 10;
 }
+/*
 .small-header #site-logo-container{
 	margin-top: -15px;
 }
+
+*/
+
+/*
 .small-header #site-logo{
 	background: url('../img/inkedin-logo.png') no-repeat;
 	height: 83px;
@@ -216,6 +227,7 @@ h6{
 }
 .small-header #site-tools{
 }
+*/
 .small-header #site-tools > ul{
 	padding: 0;
 	margin-top: 2px;
@@ -493,14 +505,17 @@ header, header *{
 #site-social{
 	padding: 0;
 }
+
 #site-social li{
 	list-style-type: none;
 	float: left;
 	margin-right: 10px;
 }
+
 #site-content{
 	padding-bottom: 320px;
 }
+
 #footer-tags-2{
 	padding-top: 29px;
 }
@@ -820,15 +835,65 @@ body{
 
 #sidebar-wrapper{
     margin-top: -90px !important;
+	-webkit-box-shadow: inset -20px 2px 77px 24px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset -20px 2px 77px 24px rgba(0,0,0,0.75);
+    box-shadow: inset -20px 2px 77px 24px rgba(0,0,0,0.75);
 }
 
 #sidebar-wrapper{
-    margin-top: -90px !important;
+    margin-top: -41px !important;
     overflow: hidden;
+    background-color: #222;
+}
+
+.sidebar-nav{
+	font-size: 20px;
 }
 
 .form-control {
 	margin-bottom: 15px;
+}
+
+#site-logo {
+	margin-top: -25px;
+}
+
+#site-logo img{
+	max-width: 150px;
+}
+
+.small-header #site-logo img{
+	max-width: 90px;
+}
+
+/* burger */
+.navbar-default .navbar-toggle {
+	 background-color: transparent;
+}
+
+.navbar-default .navbar-toggle {
+   border-color: transparent; 
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+	background-color: #000;
+}
+
+.navbar-default .navbar-toggle:hover {
+  background-color: rgba(131, 6, 6, 0.11);
+}
+
+.navbar-default .navbar-toggle:focus{
+	background-color: transparent;
+}
+/* end burger */
+
+#site-tools-mobile{
+	  list-style-type: none;
+	  margin-bottom: 25px;
+	  padding: 24px 0;
+	  border-bottom: 1px solid rgba(153, 153, 153, 0.16);
+
 }
 
 @media (max-width: 768px){
@@ -837,11 +902,68 @@ body{
 	  overflow: hidden;
 	}
 
+	.navbar-header{
+		float: left;
+  		min-width: 42%;
+	}
+
+	.navbar-header button{
+		float: left;
+	}
+
+	#site-logo{
+		  float: left;
+		  min-width: 50%;
+	}
+
+	#site-logo img {
+	  max-width: 90px;
+	}
+
+	#site-header.full-header {
+		height: 130px; /* achicar marron claro tambine*/
+	}
+
+	#site-footer{
+		height: 120px;
+	}
+
+	#footer-tags-2,
+	#footer-tags, 
+	#footer-artists {
+		display: none;
+	}
+
+	#site-social{
+	    width: 93px;
+		margin: 0 auto !important;
+		padding-bottom: 10px !important;
+	}
+
+	#privacy, 
+	#privacy a{
+		 margin: 0 auto;
+	     width: 265px;
+ 		 display: block;
+	}
+
+	#privacy a{
+		width: 145px;
+	}
+ 
+
 }
 
 
 
+@media (max-width: 300px){
 
+	.navbar-header{
+  		min-width: 38%;
+	}
+
+	
+}
 
 
 

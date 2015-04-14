@@ -20,7 +20,7 @@ inked.Common.Header = {
 	{
 		function check_width()
 		{
-		 		if(window.innerWidth < 768){
+		 		if(window.innerWidth < 769){
 
             	    $("#wrapper").addClass("toggled");
 
@@ -42,12 +42,13 @@ inked.Common.Header = {
 	},
 
 
-	onClickLogin : function(event)
-	{
-		event.preventDefault ? event.preventDefault() : event.returnValue = false;
-		$('#login-toggle').toggle();
-		$('#username').focus();	
-	},
+	// onClickLogin : function(event)
+	// {
+	// 	event.preventDefault ? event.preventDefault() : event.returnValue = false;
+	// 	$('#login-toggle').toggle();
+	// 	$('#username').focus();	
+	// },
+
 
 	validateForm : function()
 	{
