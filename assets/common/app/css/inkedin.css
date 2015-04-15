@@ -821,7 +821,7 @@ header, header *{
 
 
 
-/* NEW 13/4/2015 */
+/* NEW 13/4/2015  --------------------------------------------------------- */
 
 
 body{
@@ -829,7 +829,8 @@ body{
 	height: 100%
 }
 
-#site-content-wrapper{
+#site-content-wrapper,
+#site-content{
 	padding-top: 160px;
 }
 
@@ -841,7 +842,7 @@ body{
 }
 
 #sidebar-wrapper{
-    margin-top: -41px !important;
+    margin-top: -36px !important;
     overflow: hidden;
     background-color: #222;
 }
@@ -893,13 +894,108 @@ body{
 	  margin-bottom: 25px;
 	  padding: 24px 0;
 	  border-bottom: 1px solid rgba(153, 153, 153, 0.16);
+}
 
+/* modal login */
+.modal-dialog {
+	margin: 50px auto;
+	max-width: 350px;
+	padding: 0 15px;
+}
+
+.modal-header,
+.modal-body {
+  border-bottom: 1px solid #B0742B;
+}
+
+.modal-body {
+  border-bottom: transparent;
+}
+
+#modal-login .modal-body a{
+	margin-top: 5px;
+}
+
+/* end modal login */
+
+@media (max-width: 1200px){
+
+	.navbar-collapse a{
+		font-size: 24px;
+	}
+
+	.navbar-collapse #site-tools a{
+		font-size: 16px;
+	}
+
+	#site-logo img {
+	  max-width: 150px;
+	  margin-top: -25px;
+	}
+}
+
+@media (max-width: 992px){
+
+	#site-header .col-md-5{
+		max-width: 40%;
+		float: left;
+	}
+
+	#site-header .col-md-2{
+		max-width: 20%;
+		float: left;
+	}
+
+	.navbar-collapse a {
+	  	font-size: 15px;
+	}
+
+	
+	#site-header.full-header {
+		padding-top: 35px;
+	}
+
+	.full-header #site-tools > ul li {
+		  float: right;
+	}
+
+	.id-container{
+		float: left !important;
+	}
+
+	#site-tools > ul > li:nth-child(2){
+		margin-top: -45px;
+	}
+
+	.id-container:last-child{
+		margin-top: -45px;
+  		margin-left: 115px;
+	}
+
+	.full-header #site-tools #search-box {
+	 	 padding: 5px 0 0 0;
+	 	 max-height: 20px;
+	 	 margin-top: 25px;
+	 	 width: 100%;
+	}
+
+	.full-header #site-tools #search-box input[type="submit"],
+	.full-header #site-tools #search-box input[type="submit"]:hover, 
+	.full-header #site-tools #search-box input[type="submit"]:active{
+		right: 1px;
+		top: 8px;
+	}
 }
 
 @media (max-width: 768px){
 
 	#wrapper {
 	  overflow: hidden;
+	}
+
+	#site-header .col-md-2{
+		max-width: 100%;
+		float: none;
 	}
 
 	.navbar-header{
@@ -918,6 +1014,7 @@ body{
 
 	#site-logo img {
 	  max-width: 90px;
+	   margin-top: 0;
 	}
 
 	#site-header.full-header {
@@ -950,19 +1047,13 @@ body{
 	#privacy a{
 		width: 145px;
 	}
- 
-
 }
-
-
 
 @media (max-width: 300px){
 
 	.navbar-header{
   		min-width: 38%;
 	}
-
-	
 }
 
 

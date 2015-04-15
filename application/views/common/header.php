@@ -128,11 +128,9 @@
 	        <h4 class="modal-title" id="myModalLabel">Ingresar</h4>
 	    </div>
       
-
-	    <form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm()">
-		   
-		    <div class="modal-body">
-	        
+		<div class="modal-body">
+	        	
+	        	<form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm()">
 		        	<div class="form-group">
 						<label for="username" class="col-sm-3 control-label">Usuario</label>
 						<div class="col-sm-9">
@@ -144,17 +142,17 @@
 						<div class="col-sm-9">
 						<input type="password" class="form-control" id="password" placeholder="Password" name="password"></div>
 					</div>
-			</div>
-
-			<div class="modal-footer">
+			
 
 			        <input type="submit" id="submit-login" class="btn btn-default btn-block" value="Ingresar" />
-			        <a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
-			</div>
+			     
+			     </form>
 
-        </form>
+			     <a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
 
-	</div>
+		</div>
+
+     </div>
   </div>
 </div>
 

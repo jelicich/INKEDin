@@ -167,34 +167,5 @@
 </div>
 
 
-
-
-
-<script type="text/javascript">
-
-		// function check_width(){
-
-  //               if(window.innerWidth < 768){
-
-  //           	    $("#wrapper").addClass("toggled");
-
-  //           	}else{
-					
-		// 		    $("#wrapper").removeClass("toggled");
-		// 		}
-		// }//end check_width
-
-		// $(".menu-toggle").click(function() {
-   	    	
-  //  	    		$("#wrapper").toggleClass("toggled");
-  //  	    		$("#wrapper.toggled").css("overflow", "inherit");
-	 //    });
-
-  //       check_width();
-
- 	// 	$(window).on('resize', check_width);
-
-</script> 
-
 </body>
 </html>
