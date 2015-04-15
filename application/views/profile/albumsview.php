@@ -5,13 +5,20 @@
 	<?php
 	for ($i=0; $i < sizeof($albums); $i++) 
 	{ 
+		if(empty($albums[$i]['photo']))
+		{
+			$path = '/assets/common/app/img/default_album.jpg';
+			$content = '<h3>' . $albums[$i]['name'] .' <em>(Vacio)</em></h3><img src="'.$path.'" alt="'. $albums[$i]['name'].'" class="album-cover"/>';
+		}
+		else
+		{
+			$path = '/users/'.$albums[$i]['user_id'].'/img/sm/'.$albums[$i]['photo'];
+			$content = '<a href="/profile/' . $albums[$i]['user_id'] . '/album/' . $albums[$i]['id'] . '" class="album-anchor"><h3>'. $albums[$i]['name'] .'</h3><img src="'. $path .'" alt="'. $albums[$i]['name'] .'" class="album-cover"/></a>';
+		}
 	?>
 		<div class="col-md-4 pic-sq-grid">
 			<div class="inner-pic-sq-grid border-img album-container">
-				<a href="/profile/<?php echo $albums[$i]['user_id']?>/album/<?php echo $albums[$i]['id']?>" class="album-anchor">
-					<h3><?php echo $albums[$i]['name'] ?></h3>
-					<img src="<?php echo '/users/'.$albums[$i]['user_id'].'/img/sm/'.$albums[$i]['photo']?>" alt="<?php echo $albums[$i]['name'] ?>" class="album-cover"/>					
-				</a>
+				<?php echo $content ?>
 			</div>
 		</div>
 	<?php

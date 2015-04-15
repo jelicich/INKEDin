@@ -4,6 +4,7 @@ inked.Common.Modal = {
         $('#myModal').on('hidden.bs.modal', function () {
             $("#save-to-favourites").html('Guardar <span class="glyphicon glyphicon-picture"></span>');
             $("#save-to-favourites").removeClass('disabled');
+            $('.modal-tools').find('.owner-container').remove();
         })
 
         $('.photo-anchor').click(function()
@@ -30,7 +31,10 @@ inked.Common.Modal = {
             var desc = $(this).children().attr('alt');
             var tags = $(this).children().attr('data-tags');
             $('#photo-description').html(desc);
-            $('#photo-tags').html(tags);        
+            $('#photo-tags').html(tags);
+
+            //console.log($(this));
+            $(this).parent().find('.owner-container').clone().appendTo('.modal-tools');
         });
     },
     saveToFavourites : function(event)
