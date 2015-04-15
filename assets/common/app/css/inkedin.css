@@ -987,7 +987,7 @@ body{
 	}
 }
 
-@media (max-width: 768px){
+@media (max-width: 767px){
 
 	#wrapper {
 	  overflow: hidden;
@@ -1049,7 +1049,7 @@ body{
 	}
 }
 
-@media (max-width: 300px){
+@media (max-width: 320px){
 
 	.navbar-header{
   		min-width: 38%;
