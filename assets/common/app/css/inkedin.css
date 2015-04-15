@@ -830,7 +830,7 @@ body{
 }
 
 #site-content-wrapper,
-#site-content{
+#site-content{ /* unificar estas dos clases */
 	padding-top: 160px;
 }
 
@@ -915,8 +915,19 @@ body{
 #modal-login .modal-body a{
 	margin-top: 5px;
 }
-
 /* end modal login */
+
+
+/* header logged */
+.full-header .user-menu-buttons {
+  	margin-top: 5px;
+}
+
+.user-menu-photo{
+	padding-right: 0;
+}
+/* end header logged */
+
 
 @media (max-width: 1200px){
 
@@ -932,6 +943,12 @@ body{
 	  max-width: 150px;
 	  margin-top: -25px;
 	}
+
+	/*
+	.user-menu-buttons a{
+		font-size: 12px !important;
+	}*/
+
 }
 
 @media (max-width: 992px){

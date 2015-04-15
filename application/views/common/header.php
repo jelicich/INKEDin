@@ -46,7 +46,7 @@
 			</div>
  
 			<!-- default menu -->
-			<div class="col-md-5">
+			<div class="col-md-5 full">
 				<div class="collapse navbar-collapse">
 					
 					<nav>
@@ -79,7 +79,7 @@
 			</div>
 
 			<!-- default log reg -->
-			<div class="col-md-5">
+			<div class="col-md-5 full">
 				<div class="collapse navbar-collapse">
 					
 					<div id="site-tools">
