@@ -10,6 +10,8 @@ inked.Message = {
               modal.find('.modal-title').text('Nuevo mensaje para ' + recipient);
         });
 
+        var height = $('#inbox').height();
+        $('#conversation-list').height(height);
       
         jQuery.fn.preventDoubleSubmission = function() {
 
