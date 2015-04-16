@@ -1,4 +1,4 @@
-<header id="site-header" class="full-header navbar navbar-default">
+<header id="site-header" class="full-header navbar navbar-default header-logged">
 	<div class="container">
 		<div class="row">
 
