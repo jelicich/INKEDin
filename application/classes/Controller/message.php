@@ -22,7 +22,7 @@ class Controller_Message extends Controller_Master {
         $conversation_id = $model_conversation->save_conversation($profile_id, $user_id);
 
         $model_message = new Model_Message();
-        $message_id = $model_message->save_message($user_id, $message, $conversation_id['id']);
+        $message_id = $model_message->save_message($user_id, $message, $conversation_id);
 
         if ( isset($inbox_reply_button) ) {
              

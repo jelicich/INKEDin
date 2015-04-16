@@ -122,7 +122,7 @@
 							  	if( $user['id'] != $profile['id']  )
 								{		
 						?>
-										<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $profile['name'].' '.$profile['last_name']; ?>"  onclick="inked.Message.saveMessage()"  >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
+										<a href="#" class="btn btn-default btn-block btn-profile" id="send-msg" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $profile['name'].' '.$profile['last_name']; ?>"    >ENVIAR MENSAJE <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a>
 						<?php							
 								 	if (!in_array( $user['id'], $this_profile_followers_list )) 
 								 	{
