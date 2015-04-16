@@ -32,9 +32,9 @@ class Model_Conversation extends ORM{
 
 	   if( $existing_conversations->loaded() ) { 
 
-	   		$existing_conversations =  $existing_conversations->as_array();
+	   		//$existing_conversations =  $existing_conversations->as_array();
 
-       		return $existing_conversations;
+       		return $existing_conversations->id;
 
        }else{
 

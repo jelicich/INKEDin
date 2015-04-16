@@ -169,11 +169,11 @@ Route::set('default', '(<controller>(/<action>(/<id>)))')
 	));
 
 
-Route::set('message', 'message/<param_1>(/<param_2>)/<action>')
-	->defaults(array(
-		'controller' => 'message',
-		'action'     => 'save_message',
-	));
+// Route::set('message', 'message/<param_1>(/<param_2>)/<action>')
+// 	->defaults(array(
+// 		'controller' => 'message',
+// 		'action'     => 'save_message',
+// 	));
 
 
 
