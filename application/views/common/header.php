@@ -16,18 +16,6 @@
 							<a href="#" data-toggle="modal" data-target="#modal-login">Ingresar</a>
 						</li>
 
-					<!-- 	<li  class="col-md-6 full">
-								
-								<form method="GET" action="/search/" onsubmit="inked.Common.Header.buildUrl(event)" id="search-form">
-									<?php 
-									if(!isset($search))
-										$search = '';
-									?>
-									<input type="text" id="search-input" value="<?php echo $search ?>">
-									<input type="submit" value="" id="search-btn">
-								</form>
-						</li> -->
-
 			    	</ul>
 
 			    	<li>
@@ -41,6 +29,18 @@
 			        <li>
 			            <a href="/search/tops/">Tops</a>
 			        </li>
+
+			        <li>
+			        	<form method="GET" action="/search/" onsubmit="inked.Common.Header.buildUrl(event)" class="col-md-10">
+							
+							<?php 
+								if(!isset($search))
+									$search = '';
+							?>
+
+							<input type="text" value="" placeholder="Buscar..." class="form-control search-mobile" <?php echo $search; ?> >
+						</form>
+					</li> 
 
 				</ul>
 			</div>

@@ -5,35 +5,32 @@
 			<!-- sidebar menu -->
 		    <div id="sidebar-wrapper" class="menu-toggle">
 			    <ul class="sidebar-nav">
-
-			    	<ul id="site-tools-mobile" class="col-md-6 full user-menu clearfix">
-								<div class="row">
-									<div class="col-md-9 user-menu-buttons-container">
-										<h3 class="user-menu-name">
-											<a href=<?php echo "/profile/".$user['id'] ?> ><?php echo $user['name'].' '.$user['last_name'] ?></a>
-										</h3>
-										<ul class="user-menu-buttons clearfix">
-											<li><a href="/user">Mi Cuenta</a></li>
-											<li><a href="<?php echo "/message/inbox/"; ?>" >Inbox 
-													
-														<?php 
-															if (isset($messages_amount) && $messages_amount[0]['total_messages'] != 0) {
-																
-																echo "<span id='messages-alert'>". $messages_amount[0]['total_messages']."</span>";
-															}
-															 
-														?> 
-													
-												</a>
-											</li>
-											<li><a href="/auth/logout">Salir</a></li>
-										</ul>
-									</div>
-									<a href=<?php echo "/profile/".$user['id'] ?> > <?php echo $user['photo']; ?> </a>
-								</div>
-					</ul>
-
 			    	<li>
+				    	<ul id="site-tools-mobile">
+					    	<li id='my-img-mobile'>
+					    		<h3 class="user-menu-name">
+									<a href=<?php echo "/profile/".$user['id'] ?> > <?php echo $user['photo'];  echo $user['name'].' '.$user['last_name'];  ?></a>
+								</h3>
+							</li>
+												
+							<li><a href="/user">Mi Cuenta</a></li>
+							<li><a href="<?php echo "/message/inbox/"; ?>" >Inbox 
+									
+										<?php 
+											if (isset($messages_amount) && $messages_amount[0]['total_messages'] != 0) {
+												
+												echo "<span id='messages-alert'>". $messages_amount[0]['total_messages']."</span>";
+											}
+											 
+										?> 
+									
+								</a>
+							</li>
+							<li><a href="/auth/logout">Salir</a></li>
+						</ul>
+					</li>
+
+					<li>
 			            <a href="/search/photos/">Tatuajes</a>
 			        </li>
 
@@ -44,6 +41,18 @@
 			        <li>
 			            <a href="/search/tops/">Tops</a>
 			        </li>
+
+			        <li>
+			        	<form method="GET" action="/search/" onsubmit="inked.Common.Header.buildUrl(event)" class="col-md-10">
+							
+							<?php 
+								if(!isset($search))
+									$search = '';
+							?>
+
+							<input type="text" value="" placeholder="Buscar..." class="form-control search-mobile" <?php echo $search; ?> >
+						</form>
+					</li> 
 
 				</ul>
 			</div>
