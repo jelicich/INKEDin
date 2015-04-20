@@ -136,7 +136,7 @@
 						
 						<div <?php echo $messages_class; ?> >
 
-							<div class="each-message-header col-md-12">
+							<div class="each-message-header col-md-12 clearfix">
 
 								<div class="col-md-9">
 									<div class="row">
@@ -147,7 +147,7 @@
 									</div>
 								</div>
 
-								<div class="col-md-3 conversation-date">
+								<div class="col-md-3 conversation-date ">
 									<span><?php echo $messages[$i]['date']; ?></span>
 								</div>
 							</div>

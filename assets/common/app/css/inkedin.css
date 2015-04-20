@@ -1061,7 +1061,12 @@ body{
 	}
 
 	.messages-column{
-		min-width: 65%;
+		 min-width: 59%;
+  		float: left;
+	}
+
+	.messages-body {
+	  padding: 15px 0 0 0 !important;
 	}
 
 	#conversation-list > li > a > div.col-md-3 > img{
@@ -1081,6 +1086,17 @@ body{
 	#inbox > div.messages-column.col-md-8 > div > div > h4{
 		margin-left: 15px;
  	 	float: left;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div.messages-header.col-md-12 > div.col-md-4 > a{
+		max-width: 20%;
+		float: right;
+	}
+
+	.each-message-header .col-md-9,
+	.each-message-header .col-md-3{
+		float: left;
+		max-width:  50%;
 	}
 }
 
