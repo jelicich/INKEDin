@@ -4,8 +4,6 @@
 	<?php echo $head ?>
 
 	<!-- Load here view specific css and scripts -->
-
-
 </head>
 
 <body class="inked homeview">
@@ -17,7 +15,7 @@
 
 
 	<!-- content -->
-	<section id="site-content-wrapper" class="container">
+	<section id="site-content" class="container">
 		<div class="row">
 			<!-- left col -->
 			<div class="col-md-6">

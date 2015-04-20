@@ -140,9 +140,8 @@ overflow: hidden;
 #messages-alert{
 	  background: rgba(175, 115, 42, 0.35);
 	  padding: 2px 5px;
-	  margin-right: -4px;
+	  margin-right: -8px;
 }
-
 
 .full-header .user-menu-buttons li{
 	padding: 0 8.2px;
@@ -154,6 +153,12 @@ overflow: hidden;
 .full-header .user-menu-buttons li a{
 	color: #000;
 }	
+
+.full-header .user-menu-buttons li a:hover{
+	text-decoration: none;
+	opacity: 0.6;
+}
+
 /* NAV */
 .full-header nav{
 	margin-top: 10px;
@@ -829,7 +834,7 @@ body{
 	height: 100%
 }
 
-#site-content-wrapper,
+/*#site-content-wrapper,*/
 #site-content{ /* unificar estas dos clases */
 	padding-top: 160px;
 }
@@ -931,6 +936,7 @@ body{
 
 .full-header .user-menu-buttons {
   	margin-top: 5px;
+  	min-width: 171px;
 }
 
 .user-menu-photo{
@@ -1038,6 +1044,44 @@ body{
 		padding-left: 15px;
 		padding-right: 15px;
 	}
+
+	#site-footer .container .row div{
+		max-width: 20%;
+		float: left;
+	}
+
+	#site-footer .container .row div:last-child{
+		max-width: 100%;
+		float: none;
+	}
+
+	.conversations-column{
+		min-width: 35%;
+		float: left;
+	}
+
+	.messages-column{
+		min-width: 65%;
+	}
+
+	#conversation-list > li > a > div.col-md-3 > img{
+		max-width: 52px;
+	}
+
+	#conversation-list > li > a > div.col-md-3{
+		  max-width: 30%;
+		  float: left;
+	}
+
+	#conversation-list > li > a > div.col-md-7,
+	#conversation-list > li > a > div.col-md-2{
+		float: left;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div > div > h4{
+		margin-left: 15px;
+ 	 	float: left;
+	}
 }
 
 @media (max-width: 767px){
@@ -1088,6 +1132,16 @@ body{
 	    width: 93px;
 		margin: 0 auto !important;
 		padding-bottom: 10px !important;
+		float: none;
+	}
+
+	#site-header{
+		background: url('../img/header-bg-3.jpg') 0 -77px;
+		height: 50px;
+		position: fixed;
+		top:0;
+		width: 100%;
+		z-index: 10;
 	}
 
 	#privacy, 
@@ -1097,8 +1151,20 @@ body{
  		 display: block;
 	}
 
+	#messages-alert {
+	  background: rgba(153, 153, 153, 1);
+	  padding: 2px 5px;
+	  margin-right: -4px;
+	  font-size: 12px;
+	}
+
 	#privacy a{
 		width: 145px;
+	}
+
+	#site-footer .container .row div:first-child{
+		max-width: 100%;
+		float: none;
 	}
 
 	#my-img-mobile{
@@ -1147,8 +1213,6 @@ body{
 	 {
 	     color:    #222;
 	 }
-
-
 }
 
 @media (max-width: 320px){

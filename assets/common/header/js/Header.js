@@ -5,8 +5,6 @@
 inked.Common.Header = {
 	init : function() 
 	{
-		
-
 		inked.Common.Header.sidebarMenu();
 	},
 
@@ -22,18 +20,18 @@ inked.Common.Header = {
 					
 				    $("#wrapper").removeClass("toggled");
 
-				    if(window.innerWidth > 992){
-				    	$(document).on("scroll",function(){
-						    if($(document).scrollTop()>50){
+				  //   if(window.innerWidth > 992){
+				  //   	$(document).on("scroll",function(){
+						//     if($(document).scrollTop()>50){
 						      
-						        $("header").removeClass("full-header").addClass("small-header");
+						//         $("header").removeClass("full-header").addClass("small-header");
 
-						    } else{
+						//     } else{
 
-						        $("header").removeClass("small-header").addClass("full-header");
-						    }
-						});
-				    }
+						//         $("header").removeClass("small-header").addClass("full-header");
+						//     }
+						// });
+				  //   }
 				    
 				}
 		}

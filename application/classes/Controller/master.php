@@ -32,7 +32,7 @@ abstract class Controller_Master extends Controller_Template
             // messages alert
             $model_conversation = new Model_Conversation();
             $messages_amount = $model_conversation->get_messages_amount( $user_info['id'] );
-
+            
             $this->template->header->messages_amount = $messages_amount;
 
              //Profile pic path

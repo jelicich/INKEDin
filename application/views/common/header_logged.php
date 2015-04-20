@@ -3,7 +3,7 @@
 		<div class="row">
 
 			<!-- sidebar menu -->
-		    <div id="sidebar-wrapper" class="menu-toggle">
+		    <div id="sidebar-wrapper">
 			    <ul class="sidebar-nav">
 			    	<li>
 				    	<ul id="site-tools-mobile">
@@ -19,7 +19,7 @@
 										<?php 
 											if (isset($messages_amount) && $messages_amount[0]['total_messages'] != 0) {
 												
-												echo "<span id='messages-alert'>". $messages_amount[0]['total_messages']."</span>";
+												echo "<span id='messages-alert'>".$messages_amount[0]['total_messages']."</span>";
 											}
 											 
 										?> 
@@ -145,9 +145,6 @@
 		</div>
 	</div>
 </header>	
-
-
-
 
 <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">

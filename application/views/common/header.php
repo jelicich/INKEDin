@@ -3,7 +3,7 @@
 		<div class="row">
 
 			<!-- sidebar menu -->
-		    <div id="sidebar-wrapper" class="menu-toggle">
+		    <div id="sidebar-wrapper">
 			    <ul class="sidebar-nav ">
 
 			    	<ul id="site-tools-mobile">
@@ -115,8 +115,6 @@
 		</div>
 	</div>
 </header>	
-
-
 
 
 <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -4,7 +4,7 @@ class Model_Conversation extends ORM{
 
 	public function get_conversation_id($user_id, $profile_id = NULL){
 
-		$model_conversation = new Model_Conversation();
+		// $model_conversation = new Model_Conversation();
 
 		if ( $profile_id != NULL ) {
 			
@@ -18,9 +18,9 @@ class Model_Conversation extends ORM{
 		}else{
 
 			$conversation_id =  $this->select('conversation.id')
-						         ->where('user_2_id' , '=', $user_id)
-						         ->or_where('user_1_id','=', $user_id)
-						         ->find();
+							         ->where('user_2_id' , '=', $user_id)
+							         ->or_where('user_1_id','=', $user_id)
+							         ->find_all();
 		}
 
 		return $conversation_id;
@@ -98,14 +98,20 @@ class Model_Conversation extends ORM{
 		$conversation_id = $this->get_conversation_id($user_id);
 		$conversation_id =  $conversation_id->as_array();
 
-		$messages_amount =  DB::select(array(DB::expr('COUNT(message)'), 'total_messages'))
+		for($i = 0; $i < sizeof($conversation_id); $i++)
+        {
+            $conversation_id[$i] = $conversation_id[$i]->as_array();
+
+             $messages_amount =  DB::select(array(DB::expr('COUNT(message)'), 'total_messages'))
     	        ->from('messages')
-		        ->where('messages.conversation_id', '=', $conversation_id['id'])
+		        ->where('messages.conversation_id', '=', $conversation_id[$i]['id'])
 		        ->and_where('messages.status', '=', 0)
 		        ->and_where('messages.user_id', '!=', $user_id)
 		        ->execute();
-
-		$messages_amount = $messages_amount->as_array();
-		return $messages_amount;
-	}
+        }
+        
+        	
+        	$messages_amount = $messages_amount->as_array();
+			return $messages_amount;
+    }
 }
