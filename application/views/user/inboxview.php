@@ -16,8 +16,22 @@
 		<div class="row">
 
 			<div id="inbox" class="light-bg clearfix">
+			
+			<?php 
+
+				$hide_inbox_headers = '';
+				$back_button = '';
+				$hide_messages_list = 'hide-messages-list';
+
+				if (isset($messages)) {
+									
+						$hide_inbox_headers = "hide-inbox-header";
+						$back_button = "<a href='/message/inbox/' class='btn btn-default btn-md btn-block'>Volver</a>";
+						$hide_messages_list = '';
+				}
+			?>	
 				
-				<div class="conversations-column col-md-4">
+				<div class="<?php echo 'conversations-column col-md-4 '.$hide_inbox_headers; ?>">
 					
 					<h2>Inbox</h2>
 					<ul id="conversation-list" >
@@ -86,9 +100,9 @@
 					</ul>
 				</div>
 
-				<div class="messages-column col-md-8">
+				<div class="<?php echo 'messages-column col-md-8 '.$hide_messages_list; ?>">
 					
-					<div class="messages-header col-md-12">
+					<div class="messages-header col-md-12 clearfix">
 							
 						<div class="col-md-8">
 							
@@ -98,6 +112,7 @@
 						?>
 									<div class="col-md-4">
 										<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $user_from['name'].' '.$user_from['last_name']; ?>">Responder</a>
+										<?php echo $back_button; ?>
 									</div>
 						<?php
 								}else{
@@ -159,7 +174,7 @@
 							} //end for
 						} // end if
 					?>
-
+					
 			
 
 			</div>

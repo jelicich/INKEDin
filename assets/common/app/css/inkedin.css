@@ -847,7 +847,7 @@ body{
 }
 
 #sidebar-wrapper{
-    margin-top: -36px !important;
+    margin-top: -1px !important;
     overflow: hidden;
     background-color: #222;
 }
@@ -1131,7 +1131,7 @@ body{
 	}
 
 	#site-header.full-header {
-		height: 130px; /* achicar marron claro tambine*/
+		padding-top: 0;
 	}
 
 	#site-footer{
@@ -1152,12 +1152,12 @@ body{
 	}
 
 	#site-header{
-		background: url('../img/header-bg-3.jpg') 0 -77px;
-		height: 50px;
-		position: fixed;
-		top:0;
-		width: 100%;
-		z-index: 10;
+		background: url('../img/header-bg-3.jpg') 0 -77px !important;
+		height: 50px !important;
+		position: fixed !important;
+		top: 0 !important;
+		width: 100% !important;
+		z-index: 10 !important;
 	}
 
 	#privacy, 
@@ -1229,6 +1229,45 @@ body{
 	 {
 	     color:    #222;
 	 }
+
+	.conversations-column {
+	  min-width: 100%;
+	}
+
+	#site-content {
+	  padding-top: 50px;
+	  /*padding-bottom: 0px;  cuidado con este padding segun seccion */
+	}
+
+	.conversations-column {
+		  border-right: transparent !important;
+	}
+
+	#conversation-list > li > a > div.col-md-3 {
+	  max-width: 22%;
+	}
+    
+    .messages-column {
+    	min-width: 100%;
+    }
+
+	.hide-inbox-header,
+	.hide-messages-list{
+		display: none;
+	}
+
+	.messages-header .col-md-4{
+		float: left;
+		width: 100%;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div.messages-header.col-md-12 > div.col-md-4 > a {
+		max-width: 100%;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div > div > h4{
+		margin-left: 0;
+	}
 }
 
 @media (max-width: 320px){

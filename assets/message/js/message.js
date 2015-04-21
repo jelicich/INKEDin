@@ -33,8 +33,7 @@ inked.Message = {
         };
 
         $('form').preventDoubleSubmission();
-
-    }
+      }
 };
 
 
