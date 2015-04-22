@@ -26,7 +26,7 @@
 				if (isset($messages)) {
 									
 						$hide_inbox_headers = "hide-inbox-header";
-						$back_button = "<a href='/message/inbox/' class='btn btn-default btn-md btn-block'>Volver</a>";
+						$back_button = "<a href='/message/inbox/' class='btn btn-default btn-md btn-block btn-back'>Volver</a>";
 						$hide_messages_list = '';
 				}
 			?>	
@@ -108,7 +108,7 @@
 							
 						<?php 
 								if(isset($user_from)) {  
-									echo '<h4>Conversacion con '.$user_from['name'].' '.$user_from['last_name'].'</h4></div>'; // closes div col-md-8; 
+									echo '<h4>Conversacion con <span>'.$user_from['name'].' '.$user_from['last_name'].'</span></h4></div>'; // closes div col-md-8; 
 						?>
 									<div class="col-md-4">
 										<a href='#' class="btn btn-default btn-md btn-block" data-toggle="modal" data-target="#sendMessage" data-whatever="<?php echo $user_from['name'].' '.$user_from['last_name']; ?>">Responder</a>
@@ -196,7 +196,7 @@
       
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="sendMessageLabel">Nuevo mensaje para</h4>
+        <h4 class="modal-title" id="sendMessageLabel"></h4>
       </div>
 
       <div class="modal-body">

@@ -5,6 +5,7 @@
 				<ul id="site-social" class="clearfix">
 					<li><a href=""><img src="/assets/common/footer/img/fb-icon.jpg" alt="" /></a></li>
 					<li><a href=""><img src="/assets/common/footer/img/tw-icon.jpg" alt="" /></a></li>
+					<li><a href="#wrapper" class="anchor"><span class="glyphicon glyphicon-chevron-up"></span></a></li>
 				</ul>
 			</div>
 			<div class="col-md-2" id="footer-artists">
@@ -89,3 +90,17 @@
 		</div>
 	</div>
 </footer>
+
+ <!-- Ver donde poner este js -->
+<script type="text/javascript">
+
+	$('.anchor').on('click', function(event){
+
+		$('html, body').animate({
+   			 scrollTop: $( $(this).attr('href') ).offset().top
+	    }, 500);
+	    return false;
+
+    });
+
+</script>
