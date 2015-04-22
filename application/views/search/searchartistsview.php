@@ -3,9 +3,13 @@
 	<div class="row" id="users-result-container" data-column-width='3'>
 		
 		<div class="col-md-12">
-			<div class="row bg" >
+			
+		  <button class="btn btn-toggler" data-toggle="collapse" data-target="#section-results-box"><span class="glyphicon glyphicon-search">&nbsp;</span> Buscar artistas</button>
+	      
+	      <div id="section-results-box" class="row bg collapse" >
 				<div class="col-md-6">
-					<h2>Resultados de artistas</h2>
+
+				    <h2>Resultados de artistas</h2>
 					<?php 
 					if(empty($users))
 					{
