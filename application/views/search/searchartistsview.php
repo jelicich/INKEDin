@@ -3,7 +3,7 @@
 	<div class="row" id="users-result-container" data-column-width='3'>
 		
 		<div class="col-md-12">
-			<div class="row" >
+			<div class="row bg" >
 				<div class="col-md-6">
 					<h2>Resultados de artistas</h2>
 					<?php 
@@ -36,7 +36,7 @@
 						<ul id="search-user-filters" class="clearfix">
 							<li>
 								<label for="province">Provincia</label>
-								<select name="province" id="province" onchange="inked.Search.getCities(event)">
+								<select name="province" id="province" onchange="inked.Search.getCities(event)" class="input-search input-search-sm">
 									<option></option>
 									<?php
 									for($i = 0; $i < sizeof($provinces); $i++)
@@ -55,7 +55,7 @@
 							</li>
 							<li>
 								<label for="city">Ciudad</label>
-								<select name="city" id="city">
+								<select name="city" id="city" class="input-search input-search-sm">
 									<option></option>
 									<?php 
 									if(!empty($cities))
@@ -76,7 +76,7 @@
 								</select>
 							</li>
 							<li>
-								<input type="text" name="search-artists" class="input-search input-search-sm" value="<?php echo $search ?>"/>
+								<input type="text" name="search-artists" placeholder=" Buscar..." class="input-search input-search-sm" value="<?php echo $search ?>"/>
 								<input type="submit" value="Buscar" class="btn btn-default btn-sm" />
 							</li>
 						</ul>

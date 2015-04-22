@@ -24,6 +24,7 @@
 }
 #search-user-filters li:nth-child(3){
 	width: 50%;
+	padding-top: 15px;
 }
 #search-user-filters select{
 	width: 100%;
@@ -59,3 +60,13 @@
 	z-index: 5;
 	color: #fff;
 }
+
+#users-result-container .bg{
+	background-color: rgb(240, 221, 175);
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-bottom: 10px;
+	
+}
+
+
