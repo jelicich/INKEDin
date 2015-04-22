@@ -1,10 +1,10 @@
 <!-- content -->
-<section id="site-content" class="container">
+<section id="site-content" class="container top-section">
 	<div class="row" id="users-result-container" data-column-width='3'>
 		
 		<div class="col-md-12">
 			<div class="row" >
-				<div class="col-md-12">
+				<div class="col-md-12" >
 					<h2>Top 50</h2>
 					<p>Mostrando los mejores 50 artistas del sitio</p>
 				</div>

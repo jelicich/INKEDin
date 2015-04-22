@@ -3,7 +3,11 @@
 		<div class="row">			
 
 			<div class="col-md-12">
-				<div class="row" id="photos-result-container" data-column-number="4">
+			 
+			 <button class="btn btn-toggler" data-toggle="collapse" data-target="#section-results-box"><span class="glyphicon glyphicon-search">&nbsp;</span> Buscar Fotos</button>
+	      
+
+				<div id="section-results-box" class="row bg collapse"  data-column-number="4">
 					<div class="col-md-6">
 						<h2>Resultados de fotos</h2>
 						<?php 

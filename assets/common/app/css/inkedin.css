@@ -994,7 +994,10 @@ body{
   outline: inherit !important; 
 }
 
-
+.date-format{
+	color: #999;
+	text-transform: capitalize;
+}
 
 
 
@@ -1352,7 +1355,8 @@ body{
 	  width: 100% !important;
 	}
 
-	.artists-filter .input-search-sm {
+	.artists-filter .input-search-sm,
+	#section-results-box.bg .input-search{
 	  width: 100%;
 	  margin-bottom: 10px;
 	}
@@ -1377,10 +1381,27 @@ body{
 		margin-top: 25px;
 	}
 
-	#section-results-box {
+	#section-results-box,
+	#photos-result-container {
 		margin-top: 15px;
 	}
+
+	#users-result-container .pic-sq-grid{
+		max-width: 33.3% !important;
+		float: left !important;
+	}
+
 }
+
+
+@media (max-width: 600px){
+
+	#users-result-container .pic-sq-grid{
+		max-width: 100% !important;
+		float: none !important;
+	}
+}
+
 
 @media (max-width: 320px){
 

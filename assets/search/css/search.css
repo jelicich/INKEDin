@@ -51,6 +51,7 @@
 	font-weight: bold;
 	font-size: 20px;
 }
+
 .total-votes{
 	position: absolute;
 	top: -5px;
@@ -61,7 +62,8 @@
 	color: #fff;
 }
 
-#users-result-container .bg{
+#users-result-container .bg,
+#section-results-box.bg{
 	background-color: rgb(240, 221, 175);
 	margin-left: 0px;
 	margin-right: 0px;
