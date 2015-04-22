@@ -1425,6 +1425,7 @@ body{
 		border-right: 1px solid #c99241;
 */		background-color: #f0ddaf;
 		margin-bottom: 0;
+		border-bottom: 1px solid #c99241;
 	}
 
 	.register-wrapper .nav-tabs>li.active>a, 
@@ -1456,7 +1457,7 @@ body{
 		color: #fff;
 	}
 
-	#site-content > div > div.col-md-8 > div > div:nth-child(2) > ul > li:nth-child(1){
+	/*#site-content > div > div.col-md-8 > div > div:nth-child(2) > ul > li:nth-child(1){
 		background-color: #FDEABB;
 	}
 
@@ -1474,7 +1475,7 @@ body{
 
 	#site-content > div > div.col-md-8 > div > div:nth-child(2) > ul > li:nth-child(5){
 		background-color: #B09759;
-	}
+	}*/
 
 
 	#my-account-header{
@@ -1482,7 +1483,7 @@ body{
 		  margin-left: -15px;
 		  margin-right: -15px;
 		  padding: 5px 15px 5px 15px;
-		  /*border-bottom: 1px solid rgb(201, 146, 65);*/
+		  border-bottom: 1px solid rgb(201, 146, 65);
 	}
 }
 

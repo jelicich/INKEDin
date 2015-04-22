@@ -46,14 +46,14 @@ abstract class Controller_MasterAjax extends Controller_Template
             //Profile pic path
             if(!isset($this->template->header->user['photo']) || empty($this->template->header->user['photo']))
             {
-                $photo = HTML::image('/assets/common/app/img/default.jpg', array('alt' => 'Profile picture', 'class' => 'user-menu-photo col-md-3'));
+                $photo = HTML::image('/assets/common/app/img/default.jpg', array('alt' => 'Profile picture', 'class' => 'user-menu-photo col-md-3 img-circle'));
             }
             else
             {
                 $user_id = $this->template->header->user['id'];
                 $user_photo = $this->template->header->user['photo'];
                 $name = $this->template->header->user['name'].' '.$this->template->header->user['last_name'];;
-                $photo = HTML::image('users/'.$user_id.'/img/sm/'.$user_photo, array('alt' => $name, 'class' => 'user-menu-photo col-md-3'));
+                $photo = HTML::image('users/'.$user_id.'/img/sm/'.$user_photo, array('alt' => $name, 'class' => 'user-menu-photo col-md-3 img-circle'));
             }
             $this->template->header->user['photo'] = $photo;
         }
