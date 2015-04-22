@@ -1138,6 +1138,11 @@ body{
 	#site-social{
 	    width: 125px;
 	}
+
+	#users-result-container .pic-sq-grid{
+		max-width: 33.3%;
+		float: left;
+	}
 }
 
 @media (max-width: 767px){
@@ -1341,6 +1346,11 @@ body{
 
 	#users-result-container .bg h2{
 		font-size: 25px;
+	}
+
+	#users-result-container .pic-sq-grid{
+		max-width: 100%;
+		float: none;
 	}
 }
 
