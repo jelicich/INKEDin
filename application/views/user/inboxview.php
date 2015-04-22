@@ -72,9 +72,9 @@
 										<div class="col-md-7">
 											<dl>
 												<dt><?php echo $conversations[$i]['name'].' '.$conversations[$i]['last_name']; ?></dt>
-												<dd class="conversation-date">
-													<?php 
-														 echo $conversations[$i][0]['date'];
+												<dd class="conversation-date date-format">
+													<?php
+														echo Helper_Datetime::date_format($conversations[$i][0]['date']);
 													?>
 												</dd>
 												<dd>
@@ -163,7 +163,7 @@
 								</div>
 
 								<div class="col-md-3 conversation-date ">
-									<span><?php echo $messages[$i]['date']; ?></span>
+									<span class="date-format"><?php echo Helper_Datetime::date_format($messages[$i]['date']); ?></span>
 								</div>
 							</div>
 

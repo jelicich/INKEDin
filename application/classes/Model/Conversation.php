@@ -77,8 +77,7 @@ class Model_Conversation extends ORM{
 			$conversation_id = $conversations[$i]['conversation_id'];
 
 			$last_message_piece = DB::query(Database::SELECT, "
-				SELECT m.id, 
-				DATE_FORMAT(m.date, '%W %d %M %Y %H:%i') as date, 
+				SELECT m.id, m.date,
 				LEFT(m.message, 30) as message, 
 				m.user_id, 
 				m.status FROM messages m WHERE m.conversation_id = '$conversation_id' ORDER BY m.date DESC LIMIT 1")
