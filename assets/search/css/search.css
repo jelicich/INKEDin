@@ -43,7 +43,7 @@
 	position: absolute;
 	top: -25px;
 	left: -25px;
-	z-index: 10;
+	z-index: 7;
 }
 .rate span {
 	display: inline-block;

@@ -22,9 +22,10 @@
 			<!-- left col -->
 			<div class="col-md-8">
 				<div class="register-wrapper">
-					<h2>Mi Cuenta | <?php echo $user['name'].' '.$user['last_name'] ?></h2>
-					<p>Editá tu información y administrá tus albumes de fotos.</p>
-
+					<div id="my-account-header">
+						<h2>Mi Cuenta | <span><?php echo $user['name'].' '.$user['last_name'] ?></span></h2>
+						<p>Editá tu información y administrá tus albumes de fotos.</p>
+					</div>
 					<div role="tabpanel">
 
 						<!-- Nav tabs -->

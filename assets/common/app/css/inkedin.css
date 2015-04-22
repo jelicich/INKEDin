@@ -999,6 +999,10 @@ body{
 	text-transform: capitalize;
 }
 
+.register-wrapper h2 span{
+	  color: #7B0404;
+}
+
 
 
 @media (max-width: 1200px){
@@ -1361,13 +1365,20 @@ body{
 	  margin-bottom: 10px;
 	}
 
-	#users-result-container .bg{
+	#users-result-container .bg,
+	#section-results-box.bg,
+	#register-wrapper .bg {
 		margin-left: -15px !important;
 		margin-right: -15px !important;
-		/*display: none;*/
 	}
 
-	#users-result-container .bg h2{
+	.register-wrapper .bg{
+		background-color: red;
+		width: 100%;
+		height: auto;
+	}
+
+	.bg h2{
 		font-size: 25px;
 	}
 
@@ -1391,6 +1402,88 @@ body{
 		float: left !important;
 	}
 
+	.register-wrapper{
+		border: none;
+		padding: 0;
+	}
+
+	.register-wrapper h2{
+		font-size: 25px;
+		margin-top: 30px;
+	}
+
+
+	.side-register{
+		display: none;
+	}
+
+	.register-wrapper .nav.nav-tabs li{
+		width: 100%;
+	/*	border-color: transparent;
+		border-bottom: 1px solid #c99241;
+		border-left: 1px solid #c99241;
+		border-right: 1px solid #c99241;
+*/		background-color: #f0ddaf;
+		margin-bottom: 0;
+	}
+
+	.register-wrapper .nav-tabs>li.active>a, 
+	.register-wrapper .nav-tabs>li.active>a:focus, 
+	.register-wrapper .nav-tabs>li.active>a:hover{
+		;
+		margin-right: 0;
+		border-radius: 0;
+		border: transparent;
+	}
+
+	.register-wrapper .nav.nav-tabs{
+		   margin-left: -15px;
+		  margin-right: -15px;
+	}
+
+
+	.register-wrapper .nav>li>a:focus, 
+	.register-wrapper .nav>li>a:hover {
+		background-color: #B5AFAA;
+		border-color: transparent;
+		margin-right: 0;
+		border-radius: 0;
+		color: #fff;
+	}
+
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+		background-color: #BE7F49;
+		color: #fff;
+	}
+
+	#site-content > div > div.col-md-8 > div > div:nth-child(2) > ul > li:nth-child(1){
+		background-color: #FDEABB;
+	}
+
+	#site-content > div > div.col-md-8 > div > div:nth-child(2) > ul > li:nth-child(2){
+		background-color: #E8D5A6;
+	}
+
+	#site-content > div > div.col-md-8 > div > div:nth-child(2) > ul > li:nth-child(3){
+		background-color: #DAC799;
+	}
+
+	#site-content > div > div.col-md-8 > div > div:nth-child(2) > ul > li:nth-child(4){
+		background-color: #D0B981;
+	}
+
+	#site-content > div > div.col-md-8 > div > div:nth-child(2) > ul > li:nth-child(5){
+		background-color: #B09759;
+	}
+
+
+	#my-account-header{
+		  background-color: rgb(240, 221, 175);
+		  margin-left: -15px;
+		  margin-right: -15px;
+		  padding: 5px 15px 5px 15px;
+		  /*border-bottom: 1px solid rgb(201, 146, 65);*/
+	}
 }
 
 
