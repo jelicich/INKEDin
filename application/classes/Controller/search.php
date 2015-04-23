@@ -42,7 +42,7 @@ class Controller_Search extends Controller_Master {
         }
         else
         {
-            $photos = $this->search_photos($param, 0);
+            $photos = $this->search_photos($param, 0, 16);
             $users = $this->search_users($param, 0);    
         }
         
@@ -67,9 +67,9 @@ class Controller_Search extends Controller_Master {
             $param = $this->request->param('param');
             $offset = $this->request->post('offset');
             $cn = $this->request->post('cn');
-            $search = $this->search_photos($param, $offset);
+            $search = $this->search_photos($param, $offset, 16);
             $photos = $search['photos'];
-            
+
             if($cn == 2)
             {
                 $view_even = View::factory('search/twocolphotorenderview');
@@ -86,30 +86,35 @@ class Controller_Search extends Controller_Master {
             }
             elseif($cn == 4)
             {
-                $view_even = View::factory('search/fourcolphotorenderview');
-                $view_even->photos = $photos;
-                $view_even->module = 1;
-                $view['first'] = $view_even->render();
+                $view_one = View::factory('search/fourcolphotorenderview');
+                $view_one->photos = $photos;
+                $view_one->module = 1;
+                $view['first'] = $view_one->render();
 
-                $view_odd = View::factory('search/fourcolphotorenderview');
-                $view_odd->photos = $photos;
-                $view_odd->module = 2;
-                $view['second'] = $view_odd->render();
+                $view_two = View::factory('search/fourcolphotorenderview');
+                $view_two->photos = $photos;
+                $view_two->module = 2;
+                $view['second'] = $view_two->render();
 
-                $view_odd = View::factory('search/fourcolphotorenderview');
-                $view_odd->photos = $photos;
-                $view_odd->module = 3;
-                $view['third'] = $view_odd->render();
+                $view_three = View::factory('search/fourcolphotorenderview');
+                $view_three->photos = $photos;
+                $view_three->module = 3;
+                $view['third'] = $view_three->render();
 
-                $view_odd = View::factory('search/fourcolphotorenderview');
-                $view_odd->photos = $photos;
-                $view_odd->module = 4;
-                $view['fourth'] = $view_odd->render();
+                $view_four = View::factory('search/fourcolphotorenderview');
+                $view_four->photos = $photos;
+                $view_four->module = 4;
+                $view['fourth'] = $view_four->render();
 
                 $view['col'] = 4;
             }
-       
+
+            if(empty($view))
+            {
+                $view = [];
+            }
             $view = json_encode($view);
+            
             $this->response->body($view);
         }
         else
@@ -118,7 +123,7 @@ class Controller_Search extends Controller_Master {
             $this->template->content->search = $this->request->param('param');
             $param = $this->request->param('param');
             
-            $search = $this->search_photos($param, 0);
+            $search = $this->search_photos($param, 0, 16);
             $photos = $search['photos'];
             $this->template->content->photos = $photos;
             $this->template->content->count_photos = $search['count'];
@@ -205,12 +210,12 @@ class Controller_Search extends Controller_Master {
 
     //PRIVATE METHODS ====================================================
 
-    private function search_photos($param, $offset)
+    private function search_photos($param, $offset, $limit = 15)
     {
         $model_photos = new Model_Photo();
         
         $count = $model_photos->count_photos($param);
-        $photos = $model_photos->search_photos($param, $offset);
+        $photos = $model_photos->search_photos($param, $offset, $limit);
 
         for ($i=0; $i < sizeof($photos); $i++) 
         { 

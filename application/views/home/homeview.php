@@ -147,7 +147,6 @@
         <div class="modal-body">
             <img src="" id="photo-target" data-photo-id="" class="img-responsive">
             <div class="modal-tools">
-           		<p id="photo-description"></p>
            		<p class="photo-tags"><strong>Tags:</strong> <span id="photo-tags"></span></p>
            		<?php 
            		if($is_logged_in && $role == 2)

@@ -37,6 +37,10 @@ if(!empty($photos))
 							<p>'.$location.'</p>
 						</li>
 					</ul>
+					<span class="date-format">'.Helper_Datetime::date_format($photos[$i]['photo-date']).'</span>
+					<p class="fav-date date-format">
+						Guardada el '.Helper_Datetime::date_format($photos[$i]['date']).'
+					</p>
 				</div>
 			</div>
 		</article>';

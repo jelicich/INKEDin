@@ -10,7 +10,7 @@ inked.Search = {
 
     loadMorePhotos : function()
     {
-        this.offset_photos += 15;
+        this.offset_photos += 16;
         var query = $('#load-more-photos').attr('data-query');
         var cn = $('#photos-result-container').attr('data-column-number');
         var data = {
@@ -29,61 +29,74 @@ inked.Search = {
                 success : function (response) 
                 {
                     response = jQuery.parseJSON(response);
-                    if(response.col == 2)
+                    if(response == '')
                     {
-                        $even = $(response.even);
-                        $odd = $(response.odd);
-                        $even.hide();
-                        $odd.hide();
-                        $('#left-col-photos').append($even);
-                        $('#right-col-photos').append($odd);
-                        $even.fadeIn(1000);
-                        $odd.fadeIn(1000);
-                        $('#load-more-photos').html('VER MAS');
-                        inked.Modal.init();
-
-                        if(response.even != "" && response.odd != "")
-                        {
-                            $('#load-more-photos').removeClass('disabled');
-                        }
-                        else
-                        {
-                           $('#load-more-photos').html('FIN')
-                        }
+                        console.log('sarasa');
+                        $('#load-more-photos').html('FIN')
                     }
-                    if(response.col == 4)
+                    else
                     {
-                        $first = $(response.first);
-                        $second = $(response.second);
-                        $third = $(response.third);
-                        $fourth = $(response.fourth);
-                        $first.hide();
-                        $second.hide();
-                        $third.hide();
-                        $fourth.hide();
-                        $('#first-col-photos').append($first);
-                        $('#second-col-photos').append($second);
-                        $('#third-col-photos').append($third);
-                        $('#fourth-col-photos').append($fourth);
-                        $first.fadeIn(1000);
-                        $second.fadeIn(1000);
-                        $third.fadeIn(1000);
-                        $fourth.fadeIn(1000);
-                        
-                        $('#load-more-photos').html('VER MAS');
-                        inked.Modal.init();
+                        if(response.col == 2)
+                        {
+                            $even = $(response.even);
+                            $odd = $(response.odd);
+                            $even.hide();
+                            $odd.hide();
+                            $('#left-col-photos').append($even);
+                            $('#right-col-photos').append($odd);
+                            $even.fadeIn(1000);
+                            $odd.fadeIn(1000);
+                            $('#load-more-photos').html('VER MAS');
+                            //inked.Common.Modal.init();
+                            inked.Common.Modal.setOnClickModal($even.find('.photo-anchor'));
+                            inked.Common.Modal.setOnClickModal($odd.find('.photo-anchor'));
 
-                        if(response.first != "" && response.second != "" && response.third != "" && response.fourth != "")
-                        {
-                            $('#load-more-photos').removeClass('disabled');
+
+                            if(response.even != "" && response.odd != "")
+                            {
+                                $('#load-more-photos').removeClass('disabled');
+                            }
+                            else
+                            {
+                               $('#load-more-photos').html('FIN')
+                            }
                         }
-                        else
+                        if(response.col == 4)
                         {
-                           $('#load-more-photos').html('FIN')
+                            $first = $(response.first);
+                            $second = $(response.second);
+                            $third = $(response.third);
+                            $fourth = $(response.fourth);
+                            $first.hide();
+                            $second.hide();
+                            $third.hide();
+                            $fourth.hide();
+                            $('#first-col-photos').append($first);
+                            $('#second-col-photos').append($second);
+                            $('#third-col-photos').append($third);
+                            $('#fourth-col-photos').append($fourth);
+                            $first.fadeIn(1000);
+                            $second.fadeIn(1000);
+                            $third.fadeIn(1000);
+                            $fourth.fadeIn(1000);
+                            
+                            $('#load-more-photos').html('VER MAS');
+                            //inked.Common.Modal.init();
+                            inked.Common.Modal.setOnClickModal($first.find('.photo-anchor'));
+                            inked.Common.Modal.setOnClickModal($second.find('.photo-anchor'));
+                            inked.Common.Modal.setOnClickModal($third.find('.photo-anchor'));
+                            inked.Common.Modal.setOnClickModal($fourth.find('.photo-anchor'));
+
+                            if(response.first != "" && response.second != "" && response.third != "" && response.fourth != "")
+                            {
+                                $('#load-more-photos').removeClass('disabled');
+                            }
+                            else
+                            {
+                               $('#load-more-photos').html('FIN')
+                            }
                         }
-                    }
-                        
-                    
+                    }                    
                 }
             });
     },

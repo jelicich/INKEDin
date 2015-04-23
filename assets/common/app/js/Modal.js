@@ -1,13 +1,25 @@
 inked.Common.Modal = {
     init : function() 
     {
+        
+        inked.Common.Modal.setEventListenerModal();
+        
+        inked.Common.Modal.setOnClickModal($('.photo-anchor'));
+        
+    },
+
+    setEventListenerModal : function()
+    {
         $('#myModal').on('hidden.bs.modal', function () {
             $("#save-to-favourites").html('Guardar <span class="glyphicon glyphicon-picture"></span>');
             $("#save-to-favourites").removeClass('disabled');
-            $('.modal-tools').find('.owner-container').remove();
+            $('.modal-tools').find('.pic-details').remove();
         })
+    },
 
-        $('.photo-anchor').click(function()
+    setOnClickModal : function($el)
+    {
+        $el.click(function(event)
         {
             //console.log($(this).children());
             var src = $(this).children().attr('src');
@@ -30,13 +42,14 @@ inked.Common.Modal = {
             $('#photo-target').attr('data-photo-id', photo_id);        
             var desc = $(this).children().attr('alt');
             var tags = $(this).children().attr('data-tags');
-            $('#photo-description').html(desc);
+            //$('#photo-description').html(desc);
             $('#photo-tags').html(tags);
 
             //console.log($(this));
-            $(this).parent().find('.owner-container').clone().appendTo('.modal-tools');
+            $(this).parent().find('.pic-details').clone().appendTo('.modal-tools');
         });
     },
+
     saveToFavourites : function(event)
     {        
         event.preventDefault();

@@ -11,7 +11,7 @@ class Model_Favourite extends ORM{
 
 	public function get_favourites($user_id)
 	{
-		$photos = $this->select('favourite.*','photos.*',array('users.id', 'owner_id'), 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province', 'users.delete')
+		$photos = $this->select('favourite.*','photos.*',array('photos.date','photo-date'),array('users.id', 'owner_id'), 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province', 'users.delete')
 			->where('favourite.user_id', '=', $user_id)
 			->and_where('users.delete','=',0)
 			->join('photos')

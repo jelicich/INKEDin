@@ -25,6 +25,7 @@ if(!empty($photos))
 								<p>'.$location.'</p>
 							</li>
 						</ul>
+						<span class="date-format">'.Helper_Datetime::date_format($photos[$i]['date']).'</span>
 					</div>
 				</div>
 			</article>';

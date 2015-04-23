@@ -7,8 +7,8 @@
 			 <button class="btn btn-toggler" data-toggle="collapse" data-target="#section-results-box"><span class="glyphicon glyphicon-search">&nbsp;</span> Buscar Fotos</button>
 	      
 
-				<div id="section-results-box" class="row bg collapse"  data-column-number="4">
-					<div class="col-md-6">
+				<div id="section-results-box" class="row bg collapse">
+					<div class="col-md-6" id="photos-result-container" data-column-number="4">
 						<h2>Resultados de fotos</h2>
 						<?php 
 						if(empty($photos))
@@ -79,6 +79,7 @@
 											<p>'.$location.'</p>
 										</li>
 									</ul>
+									<span class="date-format">'.Helper_Datetime::date_format($photos[$i]['date']).'</span>
 								</div>
 							</div>
 						</article>';

@@ -453,7 +453,7 @@ header, header *{
 }
 .owner-container{
 	padding: 0;
-	margin: 0
+	margin: 0 0 10px 0;
 }
 .owner-container li{
 	list-style-type: none;
@@ -689,6 +689,13 @@ header, header *{
 	background-color: #f0ddaf;
 	border-radius: 0;
 }
+.photo-tags{
+	margin: 0;
+	opacity: 0.4;
+}
+.pic-details-block.cp p.caption{
+	margin: 0;
+}
 
 /*-----------------------*/
 
@@ -913,6 +920,18 @@ body{
   border-bottom: 1px solid #B0742B;
 }
 
+.modal-header.empty{
+	border: none;
+	padding: 0;
+	position: relative;
+	min-height: 0;
+}
+.modal-header.empty button{
+	position: absolute;
+	right: 3px;
+ 	z-index: 100;
+}
+
 .modal-body {
   border-bottom: transparent;
 }
@@ -995,8 +1014,13 @@ body{
 }
 
 .date-format{
-	color: #999;
+	opacity: 0.4;
 	text-transform: capitalize;
+}
+
+.fav-date{
+	font-size: 12px;
+	margin: 0;
 }
 
 .register-wrapper h2 span{

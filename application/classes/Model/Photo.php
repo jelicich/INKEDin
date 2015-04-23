@@ -56,7 +56,7 @@ class Model_Photo extends ORM{
 		return $photos;
 	}
 
-	public function search_photos($param, $offset, $limit = 15 , $group = FALSE)
+	public function search_photos($param, $offset, $limit, $group = FALSE)
 	{
 		$this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province', 'users.delete')
 			->where('photo.tags', 'LIKE', '%'.$param.'%')

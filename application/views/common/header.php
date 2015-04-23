@@ -5,18 +5,20 @@
 			<!-- sidebar menu -->
 		    <div id="sidebar-wrapper">
 			    <ul class="sidebar-nav ">
-
-			    	<ul id="site-tools-mobile">
+			    	<li>
+			    		<ul id="site-tools-mobile">
 			    		
-			    		<li>
-							<a href="/register">Registrarse</a>
-						</li>
+				    		<li>
+								<a href="/register">Registrarse</a>
+							</li>
 
-				    	<li>
-							<a href="#" data-toggle="modal" data-target="#modal-login">Ingresar</a>
-						</li>
+					    	<li>
+								<a href="#" data-toggle="modal" data-target="#modal-login">Ingresar</a>
+							</li>
 
-			    	</ul>
+				    	</ul>
+			    	</li>
+			    	
 
 			    	<li>
 			            <a href="/search/photos/">Tatuajes</a>

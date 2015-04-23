@@ -12,6 +12,12 @@
 				<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
 					<img src="<?php echo '/users/'.$photos[$i]['user_id'].'/img/sm/'.$photos[$i]['photo']?>" alt="<?php echo $photos[$i]['description'] ?>" class="photo-edit-album" data-photo-id="<?php echo $photos[$i]['id']?>" data-tags="<?php echo $photos[$i]['tags']?>"/>
 				</a>
+				<div class="hidden">
+					<div class="pic-details pic-details-block cp">
+						<p class="caption"><?php echo $photos[$i]['description'] ?></p>
+						<span class="date-format"><?php echo Helper_Datetime::date_format($photos[$i]['date']) ?></span>
+					</div>
+				</div>
 			</div>
 		</div>
 	<?php 
