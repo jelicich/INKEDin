@@ -422,7 +422,7 @@ header, header *{
 	border-top: 1px solid #553200;
 }
 .pic-sq-grid{
-	padding-bottom: 15px;
+	/*padding-bottom: 15px;*/
 	padding-top: 15px;
 }
 .inner-pic-sq-grid{
@@ -464,7 +464,7 @@ header, header *{
 	margin-right: 10px;
 }
 .owner-detail h2{
-	margin-top: 7px;
+	margin-top: 15px;
 	margin-bottom: 3px;
 	font-size: 18px;
 }
@@ -614,7 +614,7 @@ header, header *{
 #profile-left-col{
 	position: relative;
 	margin-top: -200px;
-	min-height: 790px;
+	min-height: 860px;
 }
 #profile-left-col .profile-absolute{
 	position: absolute;
@@ -1032,6 +1032,11 @@ body{
 	  color: #7B0404;
 }
 
+/*.menu-profile .glyphicon{
+	  opacity: 0.5;
+	  margin-right: 10px;
+	  color: rgb(240, 221, 175);
+}*/
 
 
 @media (max-width: 1200px){
@@ -1530,7 +1535,7 @@ body{
 	#profile-pic-form, 
 	#profile-cover-form{
 		  margin: 0 auto;
-  		  min-width: 450px;
+  		  max-width: 450px;
 	}
 
 	#upload, 

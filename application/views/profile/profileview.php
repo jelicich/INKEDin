@@ -143,9 +143,9 @@
 					
 					<nav class="menu-profile">
 						<ul>
-							<li><a href="/profile/<?php echo $profile['id']?>">Información</a></li>
-							<li><a href="/profile/<?php echo $profile['id']?>/albums_list">Albumes</a></li>
-							<li><a href="/profile/<?php echo $profile['id']?>/comments">Comentarios</a></li>
+							<li><a href="/profile/<?php echo $profile['id']?>" class="btn btn-default btn-sm btn-profile">Información</a></li>
+							<li><a href="/profile/<?php echo $profile['id']?>/albums_list" class="btn btn-default btn-sm btn-profile">Albumes</a></li>
+							<li><a href="/profile/<?php echo $profile['id']?>/comments" class="btn btn-default btn-sm btn-profile">Comentarios</a></li>
 						</ul>
 					</nav>
 				</div>

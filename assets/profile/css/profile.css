@@ -41,15 +41,17 @@
 }
 
 
+
 /* Favourites ======== */
 
 #favourite_list{
 	height: 300px; 
-	background:brown;
+    background: rgb(240, 221, 175);
+	/*border-radius: 10px;*/
 }
 
 #side-content-profile .pic-sq-grid{
-	border-bottom: 1px solid rgba(255,255,255,0.3) ;
+	  border-bottom: 1px solid rgba(201, 146, 65, 1);;
 	width: 95%;
 	margin: 0 2.5%;
 }
@@ -61,4 +63,9 @@
 #load-more-comments{
 	display: block;
 	margin: 0 auto;
+}
+
+.btn-profile{
+	width: 100%;
+	margin-bottom: 15px;
 }
