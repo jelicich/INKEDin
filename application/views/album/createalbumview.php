@@ -7,7 +7,7 @@
 		<div class="input-container-inner">
 			<h3>Nuevo Album</h3>
 			<label for="album-name">Nombre</label>
-			<input type="text" id="album-name" name="name" maxlength="60" required value=""/>	
+			<input type="text" id="album-name" class= "form-control" name="name" maxlength="60" required value=""/>	
 		</div>							
 	</div>
 	<input type="submit" class="btn btn-default btn-lg" value="Crear">

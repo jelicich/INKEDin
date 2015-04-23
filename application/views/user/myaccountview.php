@@ -20,7 +20,7 @@
 	<section id="site-content" class="container">
 		<div class="row">
 			<!-- left col -->
-			<div class="col-md-8">
+			<div class="col-md-8 my-account-left">
 				<div class="register-wrapper">
 					<div id="my-account-header">
 						<h2>Mi Cuenta | <span><?php echo $user['name'].' '.$user['last_name'] ?></span></h2>
@@ -67,26 +67,26 @@
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="name">Nombre</label>
-											<input type="text" id="name" name="name" maxlength="60" required value=<?php echo '"'.$user['name'].'"'?>/>	
+											<input type="text" id="name" class= "form-control" name="name" maxlength="60" required value=<?php echo '"'.$user['name'].'"'?>/>	
 										</div>							
 									</div>
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="last_name">Apellido</label>
-											<input type="text" id="last_name" name="last_name" maxlength="60" required value=<?php echo '"'.$user['last_name'].'"'?>/>
+											<input type="text" id="last_name" class= "form-control" name="last_name" maxlength="60" required value=<?php echo '"'.$user['last_name'].'"'?>/>
 										</div>
 									</div>
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="email">Email</label>
-											<input type="email" id="email" name="email" required value=<?php echo '"'.$user['email'].'"'?>/>
+											<input type="email" id="email" class= "form-control" name="email" required value=<?php echo '"'.$user['email'].'"'?>/>
 										</div>
 									</div>
 
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="province">Provincia</label>
-											<select id="province" name="province">
+											<select id="province" class= "form-control" name="province">
 												<option></option>
 												<?php
 
@@ -106,10 +106,10 @@
 										</div>
 									</div>
 
-									<div class="input-container">
+									<div class="input-container clearfix">
 										<div class="input-container-inner">
 											<label for="city">Ciudad</label>
-											<select id="city" name="city">
+											<select id="city" class= "form-control" name="city">
 												<option></option>
 												<?php 
 												if(isset($cities))
@@ -143,13 +143,13 @@
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="old_password">Contraseña</label>
-											<input type="password" id="old_password" name="old_password" minlength="4" required/>
+											<input type="password" class= "form-control" id="old_password" name="old_password" minlength="4" required/>
 										</div>
 									</div>
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="new_password">Nueva Contraseña</label>
-											<input type="password" id="new_password" name="new_password" minlength="4" required/>
+											<input type="password" id="new_password" class= "form-control" name="new_password" minlength="4" required/>
 										</div>
 									</div>
 									<input type="submit" class="btn btn-default btn-lg" value="Guardar">
@@ -166,7 +166,7 @@
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="about">Acerca de mi</label>
-											<textarea name="about" id="about"><?php echo $user['about'] ?></textarea>		
+											<textarea name="about" id="about" class= "form-control"><?php echo $user['about'] ?></textarea>		
 										</div>							
 									</div>
 									<div class="input-container">
@@ -206,15 +206,15 @@
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="availability">Disponibilidad</label>
-											<textarea name="availability" id="availability"><?php echo $user['availability'] ?></textarea>		
+											<textarea name="availability" id="availability" class= "form-control"><?php echo $user['availability'] ?></textarea>		
 										</div>							
 									</div>
 									<div class="input-container">
 										<div class="input-container-inner">
 											<label for="phone">Telefono</label>
-											<input type="text" id="phone" name="phone" value=<?php echo '"'.$user['phone'].'"'?>/>
+											<input type="text" id="phone" class= "form-control" name="phone" value=<?php echo '"'.$user['phone'].'"'?>/>
 											<label for="address">Dirección</label> <span>(Ej: Av. Santa Fe 2503, Buenos Aires, Argentina)</span>
-											<input type="text" id="address" name="address" value=<?php echo '"'.$user['address'].'"'?>/>
+											<input type="text" id="address" class= "form-control" name="address" value=<?php echo '"'.$user['address'].'"'?>/>
 										</div>							
 									</div>
 									<input type="submit" class="btn btn-default btn-lg" value="Guardar">
