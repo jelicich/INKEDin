@@ -16,8 +16,8 @@
     transition: all 0.5s ease;
 }
 
-#wrapper.toggled {
-    padding-left: 250px;
+#wrapper {
+    padding-left: 0px;
 }
 
 #sidebar-wrapper {
@@ -33,11 +33,14 @@
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    visibility: hidden;
 }
 
+/*
 #wrapper.toggled #sidebar-wrapper {
     width: 250px;
 }
+*/
 
 #page-content-wrapper {
     width: 100%;
@@ -100,22 +103,15 @@
 
 
 
+/* devices with width <= 768px */
 @media(max-width:768px) {
-
-    #wrapper {
+    #wrapper.menu-open {
         padding-left: 250px;
     }
 
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-
-    #sidebar-wrapper {
+    #wrapper.menu-open #sidebar-wrapper {
+        visibility: visible;
         width: 250px;
-    }
-
-    #wrapper.toggled #sidebar-wrapper {
-        width: 0;
     }
 
     #page-content-wrapper {
