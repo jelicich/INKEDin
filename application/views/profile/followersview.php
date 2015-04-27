@@ -1,6 +1,6 @@
 <aside class="col-md-3" id="side-content-profile">
 
-			<div id='favourite_list'>
+			<div id='favourite_list' class="clearfix">
 <?php 		     
 					for ($i=0; $i < sizeof($followers); $i++) { 
 ?>	

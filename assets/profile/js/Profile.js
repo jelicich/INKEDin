@@ -7,16 +7,16 @@ inked.Profile = {
 
     init : function() 
 	{    
-        $( window ).load(function() {
-            $('html, body').animate({
-                scrollTop: 51
-            }, 500);
-        })
+        // $( window ).load(function() {
+        //     $('html, body').animate({
+        //         scrollTop: 51
+        //     }, 500);
+        // })
 
         var map_canvas = document.getElementById("map_canvas");
         if ( map_canvas ) { inked.Profile.dynamicMap(); };
       
-        inked.Profile.dynamicLeftBar();
+        // inked.Profile.dynamicLeftBar();
         $('#comment-form').validate({
                 submitHandler : function(){
                         var i = inked.Profile;
@@ -143,6 +143,8 @@ inked.Profile = {
                 }
             });
     },
+
+ 
 
     loadMoreComments : function()
     {
