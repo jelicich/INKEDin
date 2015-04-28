@@ -633,7 +633,7 @@ overflow: hidden;
 	width: 262px;
 }
 #profile-pic-container{
-	margin: 0 0 10px 10px;
+	margin: 15px 0 10px 10px;
 	/* border-radius: 50%; */
 	overflow: hidden;
 }
@@ -713,12 +713,15 @@ overflow: hidden;
 	display: inline-block;
 	margin-bottom: 5px;
 }
+/*
 .register-fb-container{
 	margin-bottom: 20px;
 	padding: 20px 150px;
 	background: linear-gradient(rgba(240,221,175,0.2), rgba(240,221,175,0.4));
 	border-bottom: 1px solid #f0ddaf;
 }
+*/
+
 .input-container{
 	position: relative;
 }
@@ -1053,24 +1056,43 @@ body{
 }
 
 
-	.menu-profile .btn-profile {
-	  margin-bottom: -1px !important;
-	}
+.menu-profile .btn-profile {
+  margin-bottom: -1px !important;
+}
 
-	.menu-profile #profile-fix-wrapper > nav > ul > li:nth-child(1) > a{
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
-	}
+#profile-fix-wrapper > nav > ul > li:nth-child(1) > a{
+	border-bottom-right-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+}
 
-	.menu-profile #profile-fix-wrapper > nav > ul > li:nth-child(2) > a{
-		border-radius: 0;
-	}
+#profile-fix-wrapper > nav > ul > li:nth-child(2) > a{
+	border-radius: 0 !important;
+}
 
-	.menu-profile #profile-fix-wrapper > nav > ul > li:nth-child(3) > a{
-		border-top-right-radius: 0;
-		border-top-left-radius: 0;
-		margin-bottom: 0px !important;
-	}
+#profile-fix-wrapper > nav > ul > li:nth-child(3) > a{
+	border-top-right-radius: 0 !important;
+	border-top-left-radius: 0 !important;
+	margin-bottom: 0px !important;
+}
+
+.btn-profile{
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+#profile-mid-col > article > ul > li.owner-detail > dl > dt > a h2{
+	margin-top: 5px;
+}
+
+#profile-mid-col > article{
+	border-radius: 10px;
+}
+
+#site-content > div > div.col-md-8 > div > div > a{
+	 max-width: 50%;
+	 min-width: 211px;
+ 	 margin: 0 auto;
+}
 
 @media (max-width: 1200px){
 
@@ -1097,6 +1119,10 @@ body{
 
 	.artists-filter .input-search-sm {
 	  width: 73%;
+	}
+
+	#profile-pic-container {
+	  margin: 0 0 10px 10px;
 	}
 }
 
@@ -1322,7 +1348,7 @@ body{
 	#privacy, 
 	#privacy a{
 		 margin: 0 auto;
-	     width: 265px;
+	     width: 220px;
  		 display: block;
 	}
 
@@ -1637,6 +1663,10 @@ body{
 	#side-content-profile {
 	  margin-top: 15px;
 	}
+
+	.input-container-inner {
+	  width: 100%;
+	}
 }
 
 @media (max-width: 600px){
@@ -1673,6 +1703,10 @@ body{
 
 	.navbar-header{
   		min-width: 38%;
+	}
+
+	#profile-mid-col > article > ul > li.owner-pic{
+		max-width: 39px;
 	}
 }
 

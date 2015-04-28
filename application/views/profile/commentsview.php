@@ -5,13 +5,13 @@
 	<?php 
 		if ($logged_in == true) {
 	?>
-		<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-toggle="modal" data-target="#comments_modal">DEJAR UN COMENTARIO  <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
+		<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-toggle="modal" data-target="#comments_modal">DEJAR UN COMENTARIO</span></a>
 	<?php  
 		}else{
 	?>
 
-	<a href="#" class="btn btn-default btn-block btn-profile col-md-5" >REGISTRATE<span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
-	<a href="#" class="btn btn-default btn-block btn-profile col-md-5" >LOGUEATE<span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a>
+	<a href="#" class="btn btn-default btn-block btn-profile col-md-5" >REGISTRARSE</a>
+	<a href="#" class="btn btn-default btn-block btn-profile col-md-5" >INGRESAR</a>
 	
 	<?php
 		}
@@ -22,21 +22,21 @@
 				<ul class="owner-container owner-comment clearfix">
 					
 					<li class="owner-pic">
-						<img src="<?php echo $comments[$i]['photo_path']; ?>" alt="">
+						<a href="/profile/<?php echo $comments[$i]['user_id']; ?>"><img src="<?php echo $comments[$i]['photo_path']; ?>" alt="" class="img-circle"></a>
 					</li>
 
 					<li class="owner-detail">
 						<dl>
 							<dt>
-								<h2><?php echo $comments[$i]['name'].' '.$comments[$i]['last_name']; ?></h2>
+								<a href="/profile/<?php echo $comments[$i]['user_id']; ?>"><h2><?php echo $comments[$i]['name'].' '.$comments[$i]['last_name']; ?></h2></a>
 							</dt>
 							
 							<dd>
-								<span>
+								<span class="date-format">
 									<?php 
 
 										$comment_date = strtotime($comments[$i]['date']);
-										$comment_date = date('l jS \of F Y h:i:s A', $comment_date); 
+										$comment_date = date('l jS \of F Y h:i', $comment_date); 
 										echo $comment_date;
 									?>
 								</span>
@@ -63,7 +63,7 @@
      
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">DEJA TU COMENTARIO <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></h4>
+        <h4 class="modal-title" id="myModalLabel">DEJA TU COMENTARIO</span></h4>
       </div>
 
       <form method="post" action="/profile/<?php echo $profile_id; ?>/leave_comment" id="comment-form">

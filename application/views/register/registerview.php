@@ -20,11 +20,12 @@
 	<section id="site-content" class="container">
 		<div class="row">
 			<!-- left col -->
-			<div class="col-md-8">
+			<div class="col-md-8 my-account-left">
 				<div class="register-wrapper">
 					<h2>Registrate en INKEDin</h2>
 					<p>Completa el formulario de registro o ingresa con tu cuenta de Facebook</p>
-					<div class="light-bg register-fb-container">
+					
+					<div class="alert alert-danger">
 						<a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
 					</div>
 
@@ -44,28 +45,28 @@
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="name">Nombre</label>
-								<input type="text" id="name" name="name" value="" maxlength="60" required/>	
+								<input type="text" id="name" class="form-control" name="name" value="" maxlength="60" required/>	
 							</div>							
 							<p class="info-input">Solo letras y espacios</p>
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="last_name">Apellido</label>
-								<input type="text" id="last_name" name="last_name" value="" maxlength="60" required/>
+								<input type="text" id="last_name" class="form-control" name="last_name" value="" maxlength="60" required/>
 							</div>
 							<p class="info-input">Solo letras y espacios</p>
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="email">Email</label>
-								<input type="email" id="email" name="email" value="" required/>
+								<input type="email" id="email" class="form-control" name="email" value="" required/>
 							</div>
 							<p class="info-input">Recibiras la confirmacion</p>
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="password-reg">Contraseña</label>
-								<input type="password" id="password-reg" name="password" value="" minlength="4" required/>
+								<input type="password" id="password-reg" class="form-control" name="password" value="" minlength="4" required/>
 							</div>
 							<p class="info-input">Mas de 4 caracteres</p>
 						</div>

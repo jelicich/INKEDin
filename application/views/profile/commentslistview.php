@@ -18,7 +18,7 @@ if(!empty($comments))
 						</dt>
 						
 						<dd>
-							<span>
+							<span >
 								<?php 
 
 									$comment_date = strtotime($comments[$i]['date']);

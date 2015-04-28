@@ -85,7 +85,8 @@
 				?>
 			</div>
 			<div class="col-md-4">
-				<p id="privacy">2015 Copyright. Todos los derechos reservados. <a href="/terms">Terminos y Condiciones.</a></p>
+				<p id="privacy"><span class="glyphicon glyphicon-copyright-mark" ></span> 2015 Todos los derechos reservados 
+				<br><a href="/terms">Terminos y Condiciones</a></p>
 			</div>
 		</div>
 	</div>

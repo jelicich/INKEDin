@@ -37,9 +37,6 @@
 						
 							echo $profile['address'].' '.$profile['city_name'].' '.$profile['province_name']; 
 							$map_or_default = "<div id='map_canvas' style='width:100%; min-height:200px'></div>";
-					}else{
-							
-							echo '<span style="color: rgb(145, 144, 144); */">Direccion desconocida</span>';
 					}
 				?>
 				 </dd>
