@@ -438,5 +438,15 @@ class Controller_Profile extends Controller_Master {
         $save_follower = $model_follower->save_follower($this->id, $user['id']);
     }
 
+    public function action_delete_follower()
+    {   
+        if( $this->request->is_ajax() )
+        {   
+            $this->auto_render = false;
+        }
+
+        
+    }
+
 
 } // End Welcome

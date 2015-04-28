@@ -460,7 +460,8 @@ overflow: hidden;
 	float: left;
 }
 .owner-pic{
-	width: 50px;
+	/*width: 50px;*/
+	max-width: 35px;
 	margin-right: 10px;
 }
 .owner-detail h2{
@@ -616,7 +617,7 @@ overflow: hidden;
 	position: relative;
 	margin-top: -240px;
 	/*margin-top: -200px;*/
-	min-height: 860px;
+	min-height: auto;
 }
 #profile-left-col .profile-absolute{
 	position: absolute;
@@ -1047,14 +1048,31 @@ body{
 
 
 #favourite_list .owner-pic img{
-	max-width: 50%;
+	/*max-width: 50%;*/
+	  max-width: 100%;
 }
 
 #favourite_list .owner-detail  h2{
 	margin-top: 5px;
 	font-size: 16px;
+	float: left;
 }
 
+#favourite_list .owner-detail span{
+	margin-top: 5px;
+}
+
+#favourite_list .owner-detail{
+	width: 79%;
+}
+
+#favourite_list .owner-detail > dl > dd{
+	float: right;
+}
+
+#favourite_list .owner-detail > dl > dd span:hover{
+	opacity: 0.8;
+}
 
 .menu-profile .btn-profile {
   margin-bottom: -1px !important;
@@ -1092,6 +1110,36 @@ body{
 	 max-width: 50%;
 	 min-width: 211px;
  	 margin: 0 auto;
+}
+
+#favourite_list > ul{
+	width: 100%;
+	border: transparent;
+}
+
+#favourite_list > ul li{
+	width: 50%;
+}
+
+#favourite_list > ul li a{
+	margin: 0;
+	border: transparent;
+	background-color: rgb(201, 146, 65);
+	border-radius: 0;
+	
+}
+
+.nav-tabs>li.active>a{
+	background-color: rgb(240, 221, 175) !important;
+	color: #000;
+}
+
+.nav-tabs>li.active>a:focus, 
+.nav-tabs>li.active>a:hover,
+.nav>li>a:hover{
+	cursor: pointer;
+	opacity: 0.8 !important;
+	color: #000;
 }
 
 @media (max-width: 1200px){
@@ -1694,11 +1742,6 @@ body{
 	}
 }
 
-/*
-@media screen and (max-width: 995px) , screen and (max-height: 700px) {
-  ...
-}*/
-
 @media (max-width: 320px){
 
 	.navbar-header{
@@ -1707,6 +1750,10 @@ body{
 
 	#profile-mid-col > article > ul > li.owner-pic{
 		max-width: 39px;
+	}
+
+	.owner-pic {
+	  max-width: 30px;
 	}
 }
 

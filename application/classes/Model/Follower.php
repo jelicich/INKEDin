@@ -34,6 +34,11 @@ class Model_Follower extends ORM{
 
 		return $id;
 	}
+
+	public function delete_follower($profile_id, $user_id)
+	{
+		
+	}
 }
 
 
