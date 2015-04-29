@@ -33,8 +33,11 @@
 														</dt>
 
 <?php 
+// var_dump($profile);
 
-														if ($followers[0]["user_id"] == $user["id"]) {
+
+
+														if ($profile["id"] == $user["id"]) {
 			     				     		
 ?>															<dd>
 																<a href="#" class="remove-favourite" data-favourite="<?php echo $followers[$i]['follower_id']; ?>">

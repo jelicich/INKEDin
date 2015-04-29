@@ -130,6 +130,7 @@ inked.Profile = {
 
     saveFollower : function()
     {   
+        
         var follow_button = $('#add-fav');
         var profile_id = follow_button.attr('data-profile-id');
         var user_id = follow_button.attr('data-user-id');
