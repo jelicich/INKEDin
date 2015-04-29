@@ -112,10 +112,12 @@ class Controller_Profile extends Controller_Master {
 
                 $followers = $this->followers_for( $model_followers ,'followers', 'get_followers_by_profile' );
                 $who_follows_me = $this->followers_for( $model_followers ,'who_follows_me', 'get_who_follows_me');
+                $user = $this->get_user_info();
 
                 $this->template->sidebar = View::factory('profile/followersview');
                 $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
                 $this->template->sidebar->followers = $followers;
+                $this->template->sidebar->user = $user;
                 $this->template->sidebar->who_follows_me = $who_follows_me;
                 $this->template->logged_in = $logged_in;
             }
@@ -146,9 +148,9 @@ class Controller_Profile extends Controller_Master {
         }
     }
     
-    private function followers_for($model_followers ,$who, $get){
+    private function followers_for($model ,$who, $get){
 
-        $who = $model_followers->$get($this->id);
+        $who = $model->$get($this->id);
 
         for ($i=0; $i < sizeof($who); $i++) 
         { 
@@ -453,7 +455,6 @@ class Controller_Profile extends Controller_Master {
 
         $favourite_id = $this->request->param('profile_id'); 
         $user = $this->get_user_info();
-        
         $model_followers = new Model_Follower();
         $remove_favourite = $model_followers->remove_favourite($favourite_id, $user['id']);
 
@@ -468,3 +469,9 @@ class Controller_Profile extends Controller_Master {
 
 
 } // End Welcome
+
+
+
+
+
+

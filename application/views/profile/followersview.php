@@ -32,12 +32,18 @@
 														
 														</dt>
 
-														<dd>
-															<a href="#" class="remove-favourite" data-favourite="<?php echo $followers[$i]['follower_id']; ?>">
-																<span class="glyphicon glyphicon-trash"></span>
-															</a>
-														</dd>
+<?php 
 
+														if ($followers[0]["user_id"] == $user["id"]) {
+			     				     		
+?>															<dd>
+																<a href="#" class="remove-favourite" data-favourite="<?php echo $followers[$i]['follower_id']; ?>">
+																	<span class="glyphicon glyphicon-trash"></span>
+																</a>
+															</dd>
+<?php 
+			 										    }	
+?>
 													</dl>
 												</li>
 											
@@ -52,7 +58,6 @@
 
 					<div role="tabpanel" class="tab-pane" id="account2">
 <?php 		     
- 	// var_dump($who_follows_me);
  	
 						for ($i=0; $i < sizeof($who_follows_me); $i++) { 
 ?>	

@@ -149,7 +149,7 @@ inked.Profile = {
 
     removeFavourite : function()
     {   
-
+       // if ($('.remove-favourite')) {
             var favourites = $('.remove-favourite');
 
             favourites.each(function(){
@@ -178,6 +178,7 @@ inked.Profile = {
                 });
 
             });
+      //  };
     },
 
  
