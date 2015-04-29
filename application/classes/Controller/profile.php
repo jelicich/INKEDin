@@ -151,8 +151,8 @@ class Controller_Profile extends Controller_Master {
     
     private function followers_for($model ,$get){
        
-        $profile = $this->profile; ///////////////
-        $who = $model->$get($profile['id']);
+        $user = $this->get_user_info();
+        $who = $model->$get($user['id']);
 
         for ($i=0; $i < sizeof($who); $i++) 
         { 

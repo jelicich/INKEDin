@@ -33,10 +33,6 @@
 														</dt>
 
 <?php 
-// var_dump($profile);
-
-
-
 														if ($profile["id"] == $user["id"]) {
 			     				     		
 ?>															<dd>
