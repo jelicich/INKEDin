@@ -59,7 +59,7 @@ inked.User = {
                         },
                         success:  function (response) 
                         {
-                                console.log(response);
+                                // console.log(response);
                                 if(response != true)
                                 {
                                 	var li = '';

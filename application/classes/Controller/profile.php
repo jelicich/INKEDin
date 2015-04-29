@@ -109,29 +109,15 @@ class Controller_Profile extends Controller_Master {
             if ($logged_in == true) {
 
                 $model_followers = new Model_Follower();
-                $followers = $model_followers->get_followers_by_profile($this->id);
 
-                for ($i=0; $i < sizeof($followers); $i++) 
-                { 
-
-                    if(empty($followers[$i]['photo']))
-                    {
-                        $followers[$i]['photo_path'] = HTML::image('/assets/common/app/img/default.jpg', array('alt' => $followers[$i]['name'].' '.$followers[$i]['name'], 'class' => 'img-circle'));
-                    }
-                    else
-                    {
-                         $followers[$i]['photo_path'] = HTML::image('/users/'.$followers[$i]['follower_id'].'/img/sm/'.$followers[$i]['photo'], array('alt' => $followers[$i]['name'].' '.$followers[$i]['name'], 'class' => 'img-circle'));
-                    }
-                
-                }
+                $followers = $this->followers_for( $model_followers ,'followers', 'get_followers_by_profile' );
+                $who_follows_me = $this->followers_for( $model_followers ,'who_follows_me', 'get_who_follows_me');
 
                 $this->template->sidebar = View::factory('profile/followersview');
                 $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
                 $this->template->sidebar->followers = $followers;
+                $this->template->sidebar->who_follows_me = $who_follows_me;
                 $this->template->logged_in = $logged_in;
-
-                // $user = $this->get_user_info();
-                // $this->template->user = $user;
             }
         }
         else
@@ -158,6 +144,27 @@ class Controller_Profile extends Controller_Master {
 
             $this->template->content->photos = $photos;
         }
+    }
+    
+    private function followers_for($model_followers ,$who, $get){
+
+        $who = $model_followers->$get($this->id);
+
+        for ($i=0; $i < sizeof($who); $i++) 
+        { 
+
+            if(empty($who[$i]['photo']))
+            {
+                $who[$i]['photo_path'] = HTML::image('/assets/common/app/img/default.jpg', array('alt' => $who[$i]['name'].' '.$who[$i]['name'], 'class' => 'img-circle'));
+            }
+            else
+            {
+                 $who[$i]['photo_path'] = HTML::image('/users/'.$who[$i]['follower_id'].'/img/sm/'.$who[$i]['photo'], array('alt' => $who[$i]['name'].' '.$who[$i]['name'], 'class' => 'img-circle'));
+            }
+        
+        }
+
+        return $who;
     }
 
     public function action_albums_list()
@@ -386,7 +393,6 @@ class Controller_Profile extends Controller_Master {
             $this->template->content->logged_in = $logged_in;
             $this->template->logged_in = $logged_in; /////////////////////////// modificar
         }
-            
     }
 
     public function action_leave_comment()
@@ -438,14 +444,26 @@ class Controller_Profile extends Controller_Master {
         $save_follower = $model_follower->save_follower($this->id, $user['id']);
     }
 
-    public function action_delete_follower()
+    public function action_remove_favourite()
     {   
         if( $this->request->is_ajax() )
         {   
             $this->auto_render = false;
         }
 
+        $favourite_id = $this->request->param('profile_id'); 
+        $user = $this->get_user_info();
         
+        $model_followers = new Model_Follower();
+        $remove_favourite = $model_followers->remove_favourite($favourite_id, $user['id']);
+
+        $followers = $this->followers_for( $model_followers ,'followers', 'get_followers_by_profile' );
+        $who_follows_me = $this->followers_for( $model_followers ,'who_follows_me', 'get_who_follows_me');
+      
+        $view = View::factory('profile/followersview');
+        $view->followers = $followers;
+        $view->who_follows_me = $who_follows_me;
+        $this->response->body($view);
     }
 
 

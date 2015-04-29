@@ -23,6 +23,8 @@ inked.Profile = {
                         i.saveComment();
                 }
         });
+
+        inked.Profile.removeFavourite(); 
     },
 
 
@@ -141,6 +143,40 @@ inked.Profile = {
                    follow_button.removeAttr('onclick id');
                    follow_button.removeClass('btn-default').addClass('btn-success');
                 }
+            });
+    },
+
+
+    removeFavourite : function()
+    {   
+
+            var favourites = $('.remove-favourite');
+
+            favourites.each(function(){
+
+                var _self = $(this);
+
+                _self.on('click', function(e){
+
+                    e.preventDefault();
+                    var data_favourite = _self.data('favourite');
+
+                    $.ajax({
+                            url:   '/profile/'+ data_favourite +'/remove_favourite',
+                            type:  'post',
+                           
+                            success: function(response) 
+                            {   
+                                // console.log(response);
+                                $('#side-content-profile').replaceWith(response);
+                                inked.Profile.removeFavourite();
+
+                            },
+
+                    });
+
+                });
+
             });
     },
 

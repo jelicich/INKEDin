@@ -91,7 +91,6 @@ class Model_Conversation extends ORM{
 		return $conversations;
 	}
 
-
 	public function get_messages_amount($user_id)
 	{	
 		$conversation_id = $this->get_conversation_id($user_id);

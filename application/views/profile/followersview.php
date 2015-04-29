@@ -11,11 +11,12 @@
 					<div role="tabpanel" class="tab-pane active" id="account1">
 
 <?php 		     
+
 						for ($i=0; $i < sizeof($followers); $i++) { 
 ?>	
 							<article class="col-md-12 pic-sq-grid">
 								<div class="tab-content">
-									<div role="tabpanel" class="tab-pane active" id="account1">
+									
 
 										<ul class="owner-container clearfix">
 											
@@ -31,14 +32,17 @@
 														
 														</dt>
 
-														<dd>	<a href="<?php  ?>"><span class="glyphicon glyphicon-trash"></span></a></dd>
+														<dd>
+															<a href="#" class="remove-favourite" data-favourite="<?php echo $followers[$i]['follower_id']; ?>">
+																<span class="glyphicon glyphicon-trash"></span>
+															</a>
+														</dd>
 
 													</dl>
 												</li>
 											
 
 										</ul>
-									</div>
 								</div>
 							</article>
 <?php 
@@ -46,7 +50,39 @@
 ?>
 					</div>
 
-					<div role="tabpanel" class="tab-pane active" id="account2">
+					<div role="tabpanel" class="tab-pane" id="account2">
+<?php 		     
+ 	// var_dump($who_follows_me);
+ 	
+						for ($i=0; $i < sizeof($who_follows_me); $i++) { 
+?>	
+							<article class="col-md-12 pic-sq-grid">
+								<div class="tab-content">
+
+										<ul class="owner-container clearfix">
+											
+											
+												<li class="owner-pic">
+													<a href="<?php echo '/profile/'.$who_follows_me[$i]['follower_id']; ?>"><?php echo $who_follows_me[$i]['photo_path']; ?></a>
+												</li>
+
+												<li class="owner-detail">
+													<dl>
+														<dt>
+															<a href="<?php echo '/profile/'.$who_follows_me[$i]['follower_id']; ?>"><h2><?php echo $who_follows_me[$i]['name'].' '.$who_follows_me[$i]['last_name']; ?></h2></a>
+														
+														</dt>
+
+													</dl>
+												</li>
+											
+
+										</ul>
+								</div>
+							</article>
+<?php 
+			     		}// end for
+?>
 					</div>
 
 				</div>
