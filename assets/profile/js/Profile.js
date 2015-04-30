@@ -175,6 +175,7 @@ inked.Profile = {
                                 // console.log(response);
                                 $('#side-content-profile').replaceWith(response);
                                 inked.Profile.removeFavourite();
+                                inked.Profile.loadMoreFavs();
 
                             },
 

@@ -465,7 +465,7 @@ class Controller_Profile extends Controller_Master {
         $view = View::factory('profile/followersview');
         $view->followers = $followers;
         $view->user = $user;/////
-        $view->profile = $this->profile; ///////////////
+        $view->profile = $this->get_user_info();
         $view->who_follows_me = $who_follows_me;
         $this->response->body($view);
     }
