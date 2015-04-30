@@ -25,6 +25,7 @@ inked.Profile = {
         });
 
         inked.Profile.removeFavourite(); 
+        inked.Profile.loadMoreFavs();
     },
 
 
@@ -153,7 +154,8 @@ inked.Profile = {
        // if ($('.remove-favourite')) {
             var favourites = $('.remove-favourite');
 
-            favourites.each(function(){
+            favourites.each(function()
+            {
 
                 var _self = $(this);
 
@@ -224,6 +226,26 @@ inked.Profile = {
             }
         });
     },
+
+    loadMoreFavs : function()
+    {
+        var $favContainer = $('.fav-container');
+        $favContainer.each(function()
+        {
+            var t = $(this);
+            if(t.height() >= 245)
+            {
+                var btn = '<div class="more-favs"><a href="#">Ver mas</a></div>';
+                t.append(btn);
+                $(t).find('.more-favs a').click(function(e){
+                    e.preventDefault();
+                    t.css('max-height', 'none');
+                    t.find('.more-favs').remove();
+                });
+            }
+
+        });
+    }
 
 };
 

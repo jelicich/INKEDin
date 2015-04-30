@@ -8,10 +8,13 @@
 				</ul>
 
 				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="account1">
+					<div role="tabpanel" class="tab-pane active clearfix fav-container" id="account1">
 
 <?php 		     
-
+						if(empty($followers))
+						{
+							echo '<article class="col-md-12 pic-sq-grid"><p>Sin favoritos</p></article>';
+						};
 						for ($i=0; $i < sizeof($followers); $i++) { 
 ?>	
 							<article class="col-md-12 pic-sq-grid">
@@ -55,9 +58,13 @@
 ?>
 					</div>
 
-					<div role="tabpanel" class="tab-pane" id="account2">
+					<div role="tabpanel" class="tab-pane clearfix fav-container" id="account2">
 <?php 		     
  	
+						if(empty($who_follows_me))
+						{
+							echo '<article class="col-md-12 pic-sq-grid"><p>Sin seguidores</p></article>';
+						};
 						for ($i=0; $i < sizeof($who_follows_me); $i++) { 
 ?>	
 							<article class="col-md-12 pic-sq-grid">
