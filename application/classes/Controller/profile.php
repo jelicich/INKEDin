@@ -110,8 +110,8 @@ class Controller_Profile extends Controller_Master {
 
                 $model_followers = new Model_Follower();
 
-                $followers = $this->followers_for( $model_followers ,'get_followers_by_profile' );
-                $who_follows_me = $this->followers_for( $model_followers ,'get_who_follows_me');
+                $followers = $this->followers_for( $model_followers ,'get_followers_by_profile', $this->id );
+                $who_follows_me = $this->followers_for( $model_followers ,'get_who_follows_me', $this->id );
                 $user = $this->get_user_info();
 
                 $this->template->sidebar = View::factory('profile/followersview');
@@ -149,10 +149,9 @@ class Controller_Profile extends Controller_Master {
         }
     }
     
-    private function followers_for($model ,$get){
+    private function followers_for($model,$get, $id){
        
-        $user = $this->get_user_info();
-        $who = $model->$get($user['id']);
+        $who = $model->$get($id);
 
         for ($i=0; $i < sizeof($who); $i++) 
         { 
@@ -460,8 +459,8 @@ class Controller_Profile extends Controller_Master {
         $model_followers = new Model_Follower();
         $remove_favourite = $model_followers->remove_favourite($favourite_id, $user['id']);
 
-        $followers = $this->followers_for( $model_followers ,'get_followers_by_profile' );
-        $who_follows_me = $this->followers_for( $model_followers , 'get_who_follows_me');
+        $followers = $this->followers_for( $model_followers ,'get_followers_by_profile', $user['id'] );
+        $who_follows_me = $this->followers_for( $model_followers , 'get_who_follows_me', $user['id'] );
       
         $view = View::factory('profile/followersview');
         $view->followers = $followers;

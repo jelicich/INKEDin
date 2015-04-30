@@ -160,10 +160,12 @@ inked.Profile = {
                 _self.on('click', function(e){
 
                     e.preventDefault();
-                    var data_favourite = _self.data('favourite');
+                    
+                    var favourite = _self.data('favourite');
+
 
                     $.ajax({
-                            url:   '/profile/'+ data_favourite +'/remove_favourite',
+                            url:   '/profile/'+ favourite +'/remove_favourite',
                             type:  'post',
                            
                             success: function(response) 
