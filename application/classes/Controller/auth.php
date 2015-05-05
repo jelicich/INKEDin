@@ -39,6 +39,14 @@ class Controller_Auth extends Controller {
 
 	}
 
+	public function action_login_fb()
+	{
+		$email = $this->request->post('email');
+		$id = $this->request->post('id');
+		var_dump($this->request->post());
+		die;
+	}
+
 	public function action_logout()
 	{
 		$model_user = new Model_User();
