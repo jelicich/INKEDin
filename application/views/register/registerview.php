@@ -26,7 +26,7 @@
 					<p>Completa el formulario de registro o ingresa con tu cuenta de Facebook</p>
 					
 					<div class="alert alert-danger">
-						<a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
+						<a href="#" class="btn btn-primary btn-block" onclick="inked.Common.Header.fb_login();">Ingresar con tu cuenta de Facebook</a>
 					</div>
 
 					<?php if (isset($errors)): ?>

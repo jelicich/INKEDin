@@ -7,9 +7,10 @@ inked.Common.Header = {
 	init : function() 
 	{
 		inked.Common.Header.initSidebar();
+
 		/*==============*/
 		/*FACEBOOK LOGIN*/
-
+/*
 		// This is called with the results from from FB.getLoginStatus().
 		  function statusChangeCallback(response) {
 		    console.log('statusChangeCallback');
@@ -102,6 +103,60 @@ inked.Common.Header = {
 		        'Thanks for logging in, ' + response.name + '!';
 		    });
 		  }
+*/		
+		window.fbAsyncInit = function() {
+		    FB.init({
+		        appId   : '1597455557202751',
+		        cookie     : true,  // enable cookies to allow the server to access the session
+			    xfbml      : true,  // parse social plugins on this page
+			    version    : 'v2.2', // use version 2.2
+		        oauth   : true,
+		        status  : true, // check login status
+		        xfbml   : true // parse XFBML
+		    });
+
+		};
+		(function(d){
+	     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+	     js = d.createElement('script'); js.id = id; js.async = true;
+	     js.src = "//connect.facebook.net/en_US/all.js";
+	     d.getElementsByTagName('head')[0].appendChild(js);
+	   }(document));
+
+		this.fb_login = function(){
+		    FB.login(function(response) {
+
+		        if (response.authResponse) {
+		            console.log('Welcome!  Fetching your information.... ');
+		            //console.log(response); // dump complete info
+		            access_token = response.authResponse.accessToken; //get access token
+		            user_id = response.authResponse.userID; //get FB UID
+
+		          //   FB.api('/me', function(response) {
+		          //       user_email = response.email; //get user email
+		          // // you can store this data into your database             
+		          //   });
+
+		    		//login INKEDIN
+				    FB.api('/me', function(response) {
+					    var data = {
+				      		'email' : response.email,
+				      		'name' : response.first_name,
+				      		'id' : response.id,
+				      		'last_name' : response.last_name
+				      	};
+				        $.redirect('/auth/login_fb', data);
+					});
+
+		        } else {
+		            //user hit cancel button
+		            console.log('User cancelled login or did not fully authorize.');
+
+		        }
+		    }, {
+		        scope: 'public_profile,email'
+		    });
+		}
 	},
 
 	initSidebar : function()

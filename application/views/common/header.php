@@ -1,3 +1,4 @@
+
 <header id="site-header" class="full-header navbar navbar-default">
 	<div class="container">
 		<div class="row">
@@ -148,11 +149,14 @@
 			     
 			     </form>
 
-			     <a href="#" class="btn btn-primary btn-block" onlogin="inked.Common.Header.checkLoginState();">Ingresar con tu cuenta de Facebook</a>
-			     <fb:login-button scope="public_profile,email" onlogin="inked.Common.Header.checkLoginState();">
+			     <a href="#" class="btn btn-primary btn-block" onclick="inked.Common.Header.fb_login();">Ingresar con tu cuenta de Facebook</a>
+			     <!--
+			     <fb:login-button scope="public_profile,email" onlogin="inked.Common.Header.checkLoginState();" data-size="xlarge">
 				 </fb:login-button>
-
+				  -->
 				 <div id="status">
+				 </div>
+				 <div id="fb-root">
 				 </div>
 
 		</div>
