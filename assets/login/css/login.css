@@ -6,3 +6,7 @@
 .errors{
 	text-align: left;
 }
+
+.registerview input.btn.btn-default{
+	float: none;
+}

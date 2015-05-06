@@ -117,6 +117,85 @@ class Model_User extends ORM{
 		$this->session->delete('user');
     }
     
+    ////////////
+    //FACEBOOK//
+    ////////////
+    public function fb_user_exists($email)
+    {
+        $user = $this->select('email')
+            ->where('email', '=', $email)
+            ->find();
+
+        if($user->loaded())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public function fb_login($email)
+    {
+
+        $user = $this->select('user.*',array('profile.photo','photo'),array('cover.photo', 'cover'))
+            ->where('email', '=', $email)
+            ->join(array('photos','profile'),'LEFT')
+            ->on('user.photo_id', '=', 'profile.id')
+            ->join(array('photos','cover'),'LEFT')
+            ->on('user.cover_id', '=', 'cover.id')
+            ->find();
+
+
+        if($user->loaded())
+        {    
+            $q = DB::select('styles.*')
+            ->from('userstyles')
+            ->where('userstyles.user_id','=',$user->id)
+            ->join('styles', 'LEFT')
+            ->on('userstyles.style_id','=','styles.id');
+
+            $styles = $q->execute();
+            $styles = $styles->as_array();
+            
+            $user = $user->as_array();
+            
+            $user['styles'] = $styles;
+
+            $this->session->set('logged_in', true);       
+            $this->session->set('user', $user); 
+            $result = true;
+        }
+        else
+        {
+            $result = false;
+        }
+
+        return $result;
+    }
+
+    public function fb_keep_in_session($array)
+    {
+        $this->session->set('fb_user', $array); 
+    }
+
+    public function fb_register($role)
+    {
+        $array = $this->session->get('fb_user');
+        $this->name = $array['name'];
+        $this->last_name = $array['last_name'];
+        $this->email = $array['email'];
+        $this->password = sha1($array['id']);
+        $this->role = $role;
+        $this->hash = sha1(rand(0,1000));
+        $this->active = 1;
+        $this->save();
+        
+        $t = new Model_User();
+        $t->fb_login($array['email']);
+    }
+
     //SESSION METHODS
     public function is_logged_in()
     {

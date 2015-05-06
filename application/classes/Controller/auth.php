@@ -14,7 +14,7 @@ class Controller_Auth extends Controller {
 		
 		if($model_user->login_user($username, $password))
 		{
-			HTTP::redirect('index');
+			HTTP::redirect('/');
 		}
 		else
 		{	
@@ -42,9 +42,47 @@ class Controller_Auth extends Controller {
 	public function action_login_fb()
 	{
 		$email = $this->request->post('email');
-		$id = $this->request->post('id');
-		var_dump($this->request->post());
-		die;
+		$model_user = new Model_User();
+		if($model_user->fb_user_exists($email))
+		{
+			$model_user = new Model_User();
+			if($model_user->fb_login($email))
+			{
+				HTTP::redirect('index');
+			}
+		}
+		else
+		{
+			
+			$model_user->fb_keep_in_session($this->request->post());
+			
+
+			$common_scripts = Kohana::$config->load('common_assets')->get('scripts');
+			$common_styles = Kohana::$config->load('common_assets')->get('styles');
+			
+			$template = View::factory('login/fbaccountview');
+			
+	        $template->head = View::factory('common/head');
+	        $template->header = View::factory('common/header');    
+	        $template->footer = View::factory('common/footer'); 
+	        $template->footer->styles = Helper_Footer::get_styles();
+	        $template->footer->searches = Helper_Footer::get_searches();
+	        $template->head->title = 'INKEDin - Login';
+	        $template->head->common_scripts = $common_scripts;
+	        $template->head->common_styles = $common_styles;
+	        $template->head->custom_scripts = HTML::script('/assets/login/js/Login.js');
+	        $template->head->custom_styles = HTML::style('/assets/login/css/login.css');
+
+	        $this->response->body($template);	
+		}
+	}
+
+	public function action_set_account_fb()
+	{
+		$role = $this->request->post('role');
+		$model_user = new Model_User();
+		$model_user->fb_register($role);
+		HTTP::redirect('index');
 	}
 
 	public function action_logout()

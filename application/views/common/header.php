@@ -148,7 +148,7 @@
 			     
 			     </form>
 
-			     <a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
+			     <a href="#" class="btn btn-primary btn-block" onlogin="inked.Common.Header.checkLoginState();">Ingresar con tu cuenta de Facebook</a>
 			     <fb:login-button scope="public_profile,email" onlogin="inked.Common.Header.checkLoginState();">
 				 </fb:login-button>
 

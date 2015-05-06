@@ -96,20 +96,26 @@ class Model_Conversation extends ORM{
 		$conversation_id = $this->get_conversation_id($user_id);
 		$conversation_id =  $conversation_id->as_array();
 
-		for($i = 0; $i < sizeof($conversation_id); $i++)
-        {
-            $conversation_id[$i] = $conversation_id[$i]->as_array();
+		if(sizeof($conversation_id) > 0)
+		{
+			for($i = 0; $i < sizeof($conversation_id); $i++)
+	        {
+	            $conversation_id[$i] = $conversation_id[$i]->as_array();
 
-             $messages_amount =  DB::select(array(DB::expr('COUNT(message)'), 'total_messages'))
-    	        ->from('messages')
-		        ->where('messages.conversation_id', '=', $conversation_id[$i]['id'])
-		        ->and_where('messages.status', '=', 0)
-		        ->and_where('messages.user_id', '!=', $user_id)
-		        ->execute();
-        }
-        
+	             $messages_amount =  DB::select(array(DB::expr('COUNT(message)'), 'total_messages'))
+	    	        ->from('messages')
+			        ->where('messages.conversation_id', '=', $conversation_id[$i]['id'])
+			        ->and_where('messages.status', '=', 0)
+			        ->and_where('messages.user_id', '!=', $user_id)
+			        ->execute();
+	        }
+	        $messages_amount = $messages_amount->as_array();
+		}
+		else
+		{
+			$messages_amount = [0];
+		}
         	
-        	$messages_amount = $messages_amount->as_array();
-			return $messages_amount;
+		return $messages_amount;
     }
 }
