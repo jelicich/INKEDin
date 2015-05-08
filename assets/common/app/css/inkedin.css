@@ -472,6 +472,15 @@ overflow: hidden;
 .owner-detail p{
 	margin-bottom: 0;
 }
+
+.name-profile h1,
+.name-profile div{
+	float: left;
+}
+.name-profile div{
+	max-width: 220px;
+	margin: 32px 0 0 10px;
+}
 /*------------------*/
 
 #wrapper{
