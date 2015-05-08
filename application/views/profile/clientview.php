@@ -1,7 +1,7 @@
 <div class="col-md-9" id="profile-mid-col">
 	<div class="name-profile clearfix">
 		<h1><?php echo $profile['name'].' '.$profile['last_name']?></h1>
-		<div class="fb-like" data-href="/profile/<?php echo $profile['id']?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+		<div class="fb-like" data-href="/profile/<?php echo $profile['id']?>" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
 	</div>
 </div>
 

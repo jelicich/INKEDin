@@ -21,9 +21,10 @@ if(!empty($comments))
 							<span >
 								<?php 
 
-									$comment_date = strtotime($comments[$i]['date']);
-									$comment_date = date('l jS \of F Y h:i:s A', $comment_date); 
+									$comment_date = Helper_Datetime::date_format( $comments[$i]['date'] );
 									echo $comment_date;
+
+
 								?>
 							</span>
 						</dd>

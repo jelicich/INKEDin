@@ -60,7 +60,7 @@
 
 					<div role="tabpanel" class="tab-pane clearfix fav-container" id="account2">
 <?php 		     
- 	
+
 						if(empty($who_follows_me))
 						{
 							echo '<article class="col-md-12 pic-sq-grid"><p>Sin seguidores</p></article>';
@@ -74,13 +74,13 @@
 											
 											
 												<li class="owner-pic">
-													<a href="<?php echo '/profile/'.$who_follows_me[$i]['follower_id']; ?>"><?php echo $who_follows_me[$i]['photo_path']; ?></a>
+													<a href="<?php echo '/profile/'.$who_follows_me[$i]['id']; ?>"><?php echo $who_follows_me[$i]['photo_path']; ?></a>
 												</li>
 
 												<li class="owner-detail">
 													<dl>
 														<dt>
-															<a href="<?php echo '/profile/'.$who_follows_me[$i]['follower_id']; ?>"><h2><?php echo $who_follows_me[$i]['name'].' '.$who_follows_me[$i]['last_name']; ?></h2></a>
+															<a href="<?php echo '/profile/'.$who_follows_me[$i]['id']; ?>"><h2><?php echo $who_follows_me[$i]['name'].' '.$who_follows_me[$i]['last_name']; ?></h2></a>
 														
 														</dt>
 

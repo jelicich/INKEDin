@@ -35,6 +35,10 @@ h6{
 	font-weight: bold;
 }
 
+.terms strong{
+	color: #7B0404;
+}
+
 /*HEADER DINAMICO FULL*/
 
 #site-header.full-header{
@@ -978,7 +982,7 @@ body{
 
 .full-header .user-menu-buttons {
   	margin-top: 5px;
-  	min-width: 171px;
+  	/*min-width: 171px;*/
 }
 
 .user-menu-photo{
@@ -1182,6 +1186,16 @@ body{
 	#profile-pic-container {
 	  margin: 0 0 10px 10px;
 	}
+
+	#inbox > div.messages-column.col-md-8 > div> div > div > div.col-md-9{
+		width: 65%;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div > div > div > div.col-md-3.conversation-date{
+		width: 35%;
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 @media (max-width: 992px){
@@ -1309,7 +1323,7 @@ body{
 	.each-message-header .col-md-9,
 	.each-message-header .col-md-3{
 		float: left;
-		max-width:  50%;
+		/*max-width:  50%;*/
 	}
 
 	#site-social{
@@ -1366,7 +1380,7 @@ body{
 
 	#site-logo{
 		  float: left;
-		  min-width: 50%;
+		  /*min-width: 50%;*/
 	}
 
 	#site-logo img {
@@ -1699,31 +1713,16 @@ body{
 		border-bottom: 1px solid #c99241;
 	}
 
-	/*.btn-profile {
-	  margin-bottom: -1px !important;
-	}
-
-	#profile-fix-wrapper > nav > ul > li:nth-child(1) > a{
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
-	}
-
-	#profile-fix-wrapper > nav > ul > li:nth-child(2) > a{
-		border-radius: 0;
-	}
-
-	#profile-fix-wrapper > nav > ul > li:nth-child(3) > a{
-		border-top-right-radius: 0;
-		border-top-left-radius: 0;
-		margin-bottom: 0px !important;
-	}*/
-
 	#side-content-profile {
 	  margin-top: 15px;
 	}
 
 	.input-container-inner {
 	  width: 100%;
+	}
+
+	.date-format {
+	  float: right;
 	}
 }
 

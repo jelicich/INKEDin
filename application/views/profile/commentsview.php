@@ -1,7 +1,7 @@
 <section class="col-md-9" id="profile-mid-col">
 	<div class="name-profile clearfix">
 		<h1><?php echo $profile['name'].' '.$profile['last_name']?></h1>
-		<div class="fb-like" data-href="/profile/<?php echo $profile['id']?>" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+		<div class="fb-like" data-href="/profile/<?php echo $profile['id']?>" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
 	</div>
 	<h2 class="profile-section">Comentarios</h2>
 
@@ -38,8 +38,7 @@
 								<span class="date-format">
 									<?php 
 
-										$comment_date = strtotime($comments[$i]['date']);
-										$comment_date = date('l jS \of F Y h:i', $comment_date); 
+										$comment_date = Helper_Datetime::date_format( $comments[$i]['date'] );
 										echo $comment_date;
 									?>
 								</span>

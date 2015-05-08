@@ -4,7 +4,7 @@ class Helper_Datetime{
 	{
 		setlocale(LC_TIME,"es_ES", 'Spanish_Spain', 'Spanish');
 		$d = strtotime($date);
-		return strftime("%a, %d %b %Y %H:%M", $d );
+		return utf8_encode( strftime("%a, %d %b %Y %H:%M", $d ) );
 	}
 }
 ?>

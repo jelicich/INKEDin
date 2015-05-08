@@ -162,7 +162,7 @@ class Controller_Profile extends Controller_Master {
             }
             else
             {
-                 $who[$i]['photo_path'] = HTML::image('/users/'.$who[$i]['follower_id'].'/img/sm/'.$who[$i]['photo'], array('alt' => $who[$i]['name'].' '.$who[$i]['name'], 'class' => 'img-circle'));
+                 $who[$i]['photo_path'] = HTML::image('/users/'.$who[$i]['id'].'/img/sm/'.$who[$i]['photo'], array('alt' => $who[$i]['name'].' '.$who[$i]['name'], 'class' => 'img-circle'));
             }
         
         }
