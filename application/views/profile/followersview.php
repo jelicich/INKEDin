@@ -1,10 +1,10 @@
-<aside class="col-md-3" id="side-content-profile">
+<aside class="col-lg-3 col-md-4" id="side-content-profile">
 
 			<div id='favourite_list' class="clearfix">
 				
 				<ul class="nav nav-tabs" role="tablist">
-					  <li role="presentation" class="active"><a href="#account1" aria-controls="account1" role="tab" data-toggle="tab">Mis favoritos</a></li>
-					  <li role="presentation"><a href="#account2" aria-controls="account2" role="tab" data-toggle="tab">Mis seguidores</a></li>
+					  <li role="presentation" class="active"><a href="#account1" aria-controls="account1" role="tab" data-toggle="tab">Favoritos</a></li>
+					  <li role="presentation"><a href="#account2" aria-controls="account2" role="tab" data-toggle="tab">Seguidores</a></li>
 				</ul>
 
 				<div class="tab-content">

@@ -679,9 +679,11 @@ header, header *{
 	background: #c99241;
 }
 */
+
 #side-content-profile{
 	margin-top: 69px;
 }
+
 /* END PROFILE */
 /*---------------------------------*/
 /*ALBUM*/
@@ -1180,4 +1182,28 @@ body{
 }
 .navbar-header{
 	display: none;
+}
+
+
+
+
+/*Cover the site when menumobile is open*/
+
+#wrapper.menu-open #cover-content{
+		background-color: #fff;
+		z-index: 10;
+		min-height: 800px;
+}
+
+#wrapper.menu-open #cover-content:hover{
+	cursor: pointer;
+}
+
+#wrapper.menu-open #site-content {
+	  position: relative;
+ 	  z-index: -1;
+}
+
+#wrapper.menu-open #site-footer{
+	 z-index: -1;
 }

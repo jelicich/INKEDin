@@ -46,9 +46,9 @@
 /* Favourites ======== */
 
 #favourite_list{
-	/*border-radius: 10px;*/
-	/*  overflow-y: scroll;*/
+	/*min-width: 260px;*/
 }
+
 .fav-container{
 	overflow: hidden;
 	max-height: 245px;

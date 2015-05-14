@@ -44,9 +44,18 @@
 		padding-left: 0;
 		padding-right: 0;
 	}
+
 	#profile-left-col {
 		position: relative;
 		margin-top: -135px;
+	}
+
+	#side-content-profile{
+		margin-top: 0px;
+	}
+
+	#profile-mid-col{
+		margin-top: -68px;
 	}
 }
 
@@ -208,6 +217,15 @@
 	#profile-left-col {
 		  margin-top: -270px;	
 	}
+
+	#side-content-profile{
+		margin-top: 30px;
+	}
+
+	#profile-mid-col{
+		margin-top: 0;
+	}
+
 }
 
 @media (max-width: 767px){
@@ -371,6 +389,10 @@
 	.messages-header .col-md-4{
 		float: left;
 		width: 100%;
+	}
+
+	#inbox{
+		margin-top: 0 !important; 
 	}
 
 	#inbox > div.messages-column.col-md-8 > div.messages-header.col-md-12 > div.col-md-4 > a {
@@ -582,9 +604,12 @@
 	.date-format {
 	  float: right;
 	}
+
 	#site-content {
-	  padding-bottom: 120px;
+	  padding-bottom: 140px;
 	}
+
+	
 }
 
 @media (max-width: 600px){

@@ -172,8 +172,9 @@ inked.Common.Header = {
 	},
 
 	initSidebar : function()
-	{
-
+	{	
+		$('#site-content').nextUntil('body').addBack().wrapAll("<div id='cover-content' class='menu-toggle'></div>");
+		// $('#site-content').wrapAll("<div id='cover-content' class='menu-toggle'></div>");
 
 		$(".menu-toggle").on("click", function() {
 			$("#wrapper").toggleClass("menu-open");
@@ -190,7 +191,7 @@ inked.Common.Header = {
 		}
 
  		$(window).on('resize', onResize);
-	},
+ 	},
 
 	headerResize : function()
 	{
