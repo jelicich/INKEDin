@@ -82,7 +82,9 @@ inked.Photo = {
                 {
                     var src = $('#display-current-photo').attr('src');
                     var $photo = $($('.user-menu-photo')[0]);
+                    var $photo2 = $($('.user-menu-photo')[1]);
                     $photo.attr('src', src);    
+                    $photo2.attr('src', src);    
                 }
                 
             },

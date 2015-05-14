@@ -630,8 +630,8 @@ overflow: hidden;
 }
 #profile-left-col{
 	position: relative;
-	margin-top: -240px;
-	/*margin-top: -200px;*/
+	/* margin-top: -240px; */ 
+	margin-top: -200px;
 	min-height: auto;
 }
 #profile-left-col .profile-absolute{
