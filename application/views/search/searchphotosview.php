@@ -3,46 +3,55 @@
 		<div class="row">			
 
 			<div class="col-md-12">
-			 
-			 <button class="btn btn-toggler" data-toggle="collapse" data-target="#section-results-box"><span class="glyphicon glyphicon-search">&nbsp;</span> Buscar Fotos</button>
-	      
-
-				<div id="section-results-box" class="row bg collapse">
-					<div class="col-md-6" id="photos-result-container" data-column-number="4">
-						<h2>Resultados de fotos</h2>
-						<?php 
-						if(empty($photos))
-						{
-						?>
-						<p>No se encontraron fotos para la busqueda <strong><?php echo $search ?></strong>.</p>
-						<?php
-						}
-						else
-						{
-							if(empty($search))
+			 	
+		 		<div class="clearfix header-search">
+		 			<div class="clearfix">
+						
+			      		<div id="photos-result-container" class="clearfix" data-column-number="4">
+							<h2>Resultados de fotos:</h2>
+							<?php 
+							if(empty($photos))
 							{
-						?>
-								<p>Se encontraron <strong><?php echo $count_photos ?></strong> fotos.</p>		
-						<?php
+							?>
+							<p>No se encontraron fotos para la busqueda <strong><?php echo $search ?></strong>.</p>
+							<?php
 							}
 							else
 							{
-						?>
-								<p>Se encontraron <strong><?php echo $count_photos ?></strong> fotos para la busqueda <strong><?php echo $search ?></strong>.</p>
-						<?php 		
+								if(empty($search))
+								{
+							?>
+									<p>Se encontraron <strong><?php echo $count_photos ?></strong> fotos.</p>		
+							<?php
+								}
+								else
+								{
+							?>
+									<p>Se encontraron <strong><?php echo $count_photos ?></strong> fotos para la busqueda <strong><?php echo $search ?></strong>.</p>
+							<?php 		
+								}
 							}
-						}
-						?>
-					</div>
+							?>
+						</div>	
+						<button class="btn btn-toggler" data-toggle="collapse" data-target="#section-results-box"><span class="glyphicon glyphicon-search">&nbsp;</span> Buscar Fotos</button>
+					</div>	
+		 		</div>
+				
+				
 
-					<div class="col-md-6">
-						<h2>Buscar fotos</h2>
-						<form method="get" onsubmit="inked.Search.buildUrlPhotos(event)">
-							<input type="text" name="search-photos" class="input-search" value="<?php echo $search ?>"/>
-							<input type="submit" value="Buscar" class="btn btn-default btn-sm" />
-						</form>
-					</div>
+				<div class="row">
+					<div id="section-results-box" class="col-md-12 collapse photos-box">
+						<div class="bg box-tools clearfix">
+							<h2>¿Qué estás buscando?</h2>
+							<form method="get" onsubmit="inked.Search.buildUrlPhotos(event)">
+								<input type="text" name="search-photos" class="input-search" value="<?php echo $search ?>"/>
+								<input type="submit" value="Buscar" class="btn btn-default btn-sm" />
+							</form>	
+						</div>
+						
+					</div>					
 				</div>
+				
 			</div>
 			
 			<?php

@@ -64,7 +64,8 @@
 }
 
 #users-result-container .bg,
-#section-results-box.bg{
+#section-results-box.bg,
+#section-results-box .bg{
 	background-color: rgb(240, 221, 175);
 	margin-left: 0px;
 	margin-right: 0px;
@@ -72,4 +73,73 @@
 	
 }
 
+.box-tools{
+	padding: 10px;
+}
+.box-tools h2{
+	margin: 0 10px 0 0;
+	float: left;
+}
+.box-tools form{
+	float: left;
+}
+.header-search >div{
+	float: left;
+	/* min-width: 487px; */
+	width: auto;
+}
+.header-search >div> button{
+	float: right;
+}
+.header-search >div> div{
+	float: right;
+	margin-left: 10px;
+}
+.header-search > div h2{
+	font-size: 14px;
+	display: inline-block;
+	margin: 10px 5px 0 0;
+}
+.header-search > div p{
+	font-size: 14px;
+	display: inline-block;
+	margin: 0
+}
+.artists-box >div {
+	padding: 10px;
+}
 
+@media (max-width: 1200px){}
+@media (max-width: 992px){}
+@media (max-width: 767px){
+	.header-search >div> button{
+		float: none;
+	}
+	.header-search >div> div{
+		float: none;
+	}
+	#users-result-container .bg,
+	#section-results-box.bg,
+	#register-wrapper .bg {
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+	}
+	.artists-box >div>form input[type="submit"] {
+		display: block;
+		width: 100%;
+	}
+}
+@media (max-width: 600px){
+	.box-tools form,
+	.box-tools .input-search{
+		width: 100%;
+	}
+	.box-tools .input-search{
+		margin: 10px 0;
+	}
+	.box-tools input[type="submit"]{
+		display: block;
+		width: 100%;
+	}
+}
+@media (max-width: 320px){}

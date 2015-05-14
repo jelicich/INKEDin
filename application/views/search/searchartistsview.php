@@ -4,38 +4,45 @@
 		
 		<div class="col-md-12">
 			
-		  <button class="btn btn-toggler" data-toggle="collapse" data-target="#section-results-box"><span class="glyphicon glyphicon-search">&nbsp;</span> Buscar artistas</button>
-	      
-	      <div id="section-results-box" class="row bg collapse" >
-				<div class="col-md-6">
+			<div class="clearfix header-search">
+				<div class="clearfix">
+					<div class="clearfix">
 
-				    <h2>Resultados de artistas</h2>
-					<?php 
-					if(empty($users))
-					{
-					?>
-					<p>No se encontraron artistas para la busqueda <strong><?php echo $search ?></strong>.</p>
-					<?php
-					}
-					else
-					{
-						if(empty($search))
+					    <h2>Resultados de artistas:</h2>
+						<?php 
+						if(empty($users))
 						{
-					?>
-							<p>Se encontraron <strong><?php echo $count_users ?></strong> artistas registrados.</p>		
-					<?php
+						?>
+						<p>No se encontraron artistas para la busqueda <strong><?php echo $search ?></strong>.</p>
+						<?php
 						}
 						else
 						{
-					?>
-							<p>Se encontraron <strong><?php echo $count_users ?></strong> artistas para la busqueda <strong><?php echo $search ?></strong>.</p>
-					<?php 		
+							if(empty($search))
+							{
+						?>
+								<p>Se encontraron <strong><?php echo $count_users ?></strong> artistas registrados.</p>		
+						<?php
+							}
+							else
+							{
+						?>
+								<p>Se encontraron <strong><?php echo $count_users ?></strong> artistas para la busqueda <strong><?php echo $search ?></strong>.</p>
+						<?php 		
+							}
 						}
-					}
-					?>
+						?>
+					</div>
+					<button class="btn btn-toggler" data-toggle="collapse" data-target="#section-results-box"><span class="glyphicon glyphicon-search">&nbsp;</span> Buscar artistas</button>	
 				</div>
-				<div class="col-md-6">
-					<h2>Buscar artistas</h2>
+				
+				
+			</div>
+		  
+	      
+	      <div id="section-results-box" class="collapse artists-box">
+				<div class="clearfix bg">
+					<h2>Buscá artistas por localidad, estilos o nombre</h2>
 					<form method="get" class="artists-filter" onsubmit="inked.Search.buildUrlArtists(event)">
 						<ul id="search-user-filters" class="clearfix">
 							<li>

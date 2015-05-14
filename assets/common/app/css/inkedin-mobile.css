@@ -1,0 +1,619 @@
+
+@media (max-width: 1200px){
+
+	.navbar-collapse a{
+		font-size: 24px;
+	}
+
+	.navbar-collapse #site-tools a{
+		font-size: 16px;
+	}
+
+	#site-logo img {
+	  max-width: 150px;
+	  margin-top: -25px;
+	}
+
+	.header-logged .user-menu-buttons a{
+		font-size: 12px !important;
+	}
+
+	.full-header .user-menu-buttons-container {
+	   padding-left: 0px; 
+	}
+
+	.artists-filter .input-search-sm {
+	  width: 73%;
+	}
+
+	#profile-pic-container {
+	  margin: 0 0 10px 10px;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div> div > div > div.col-md-9{
+		width: 65%;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div > div > div > div.col-md-3.conversation-date{
+		width: 35%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+@media (max-width: 992px){
+
+	#site-header .col-md-5{
+		max-width: 44.5%;
+		float: left;
+	}
+
+	#site-header .col-md-2{
+		max-width: 20%;
+		float: left;
+	}
+
+	.navbar-collapse a {
+	  	font-size: 15px;
+	}
+
+	
+	#site-header.full-header {
+		padding-top: 35px;
+	}
+
+	/*.full-header #site-tools > ul li {
+		  float: right;
+	}*/
+
+	.id-container{
+		float: left !important;
+	}
+
+	#site-tools > ul > li:nth-child(2){
+		margin-top: -45px;
+	}
+
+	.id-container:last-child{
+		margin-top: -45px;
+  		margin-left: 115px;
+	}
+
+	.full-header #site-tools #search-box {
+	 	 padding: 5px 0 0 0;
+	 	 max-height: 20px;
+	 	 margin-top: 25px;
+	 	 width: 100%;
+	}
+
+	.full-header #site-tools #search-box input[type="submit"],
+	.full-header #site-tools #search-box input[type="submit"]:hover, 
+	.full-header #site-tools #search-box input[type="submit"]:active{
+		right: 1px;
+		top: 8px;
+	}
+
+	.full-header .user-menu-buttons{
+		max-width: 50%;
+		  margin-top: -15px;
+		  margin-left: 15px;
+	}
+
+	.header-logged #search-box{
+		 float: left !important;
+		 max-width: 53%;
+		 z-index: 10;
+	}
+
+	.user-menu{
+		width: 100%;
+	}
+
+	.user-menu-photo{
+		min-width: 70px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	#site-footer .container .row div{
+		max-width: 20%;
+		float: left;
+	}
+
+	#site-footer .container .row div:last-child{
+		max-width: 100%;
+		float: none;
+	}
+
+	.conversations-column{
+		min-width: 35%;
+		float: left;
+	}
+
+	.messages-column{
+		 min-width: 59%;
+  		float: left;
+	}
+
+	.messages-body {
+	  padding: 15px 0 0 0 !important;
+	}
+
+	#conversation-list > li > a > div.col-md-3 > img{
+		max-width: 52px;
+	}
+
+	#conversation-list > li > a > div.col-md-3{
+		  max-width: 30%;
+		  float: left;
+	}
+
+	#conversation-list > li > a > div.col-md-7,
+	#conversation-list > li > a > div.col-md-2{
+		float: left;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div > div > h4{
+		margin-left: 15px;
+ 	 	float: left;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div.messages-header.col-md-12 > div.col-md-4 > a{
+		max-width: 20%;
+		float: right;
+	}
+
+	.each-message-header .col-md-9,
+	.each-message-header .col-md-3{
+		float: left;
+		/*max-width:  50%;*/
+	}
+
+	#site-social{
+	    width: 125px;
+	}
+
+	#users-result-container .pic-sq-grid{
+		max-width: 33.3%;
+		float: left;
+	}
+
+	.my-account-left{
+		width: 64%;
+		float: left;
+	}
+
+	.side-register{
+		width: 35%;
+		float: left;
+	}
+
+	#site-footer .col-md-2:first-child{
+		z-index: 10;
+	}
+
+	#profile-pic-container{
+		max-width: 150px;
+	}
+
+	#profile-left-col {
+		  margin-top: -270px;	
+	}
+}
+
+@media (max-width: 767px){
+
+	#wrapper {
+	  overflow: hidden;
+	}
+
+	#site-header .col-md-2{
+		max-width: 100%;
+		float: none;
+	}
+
+	.navbar-header{
+		float: left;
+  		min-width: 42%;
+	}
+
+	.navbar-header button{
+		float: left;
+	}
+
+	#site-logo{
+		  float: left;
+		  /*min-width: 50%;*/
+	}
+
+	#site-logo img {
+	  max-width: 90px;
+	   margin-top: 0;
+	}
+
+	#site-header.full-header {
+		padding-top: 0;
+	}
+
+	#site-footer{
+		height: 120px;
+	}
+
+	#footer-tags-2,
+	#footer-tags, 
+	#footer-artists {
+		display: none;
+	}
+
+	#site-social{
+		margin: 0 auto !important;
+		padding-bottom: 10px !important;
+		float: none;
+	}
+
+	#site-header{
+		background: url('../img/header-bg-3.jpg') 0 -77px !important;
+		height: 50px !important;
+		position: fixed !important;
+		top: 0 !important;
+		width: 100% !important;
+		z-index: 10 !important;
+	}
+
+	#privacy, 
+	#privacy a{
+		 margin: 0 auto;
+	     width: 220px;
+ 		 display: block;
+	}
+
+	#messages-alert {
+	  background: rgba(153, 153, 153, 1);
+	  padding: 2px 5px;
+	  margin-right: -4px;
+	  font-size: 12px;
+	}
+
+	#privacy a{
+		width: 145px;
+	}
+
+	#site-footer .container .row div:first-child{
+		max-width: 100%;
+		float: none;
+	}
+
+	#my-img-mobile{
+	  padding-bottom: 24px;
+	  border-bottom: 1px solid rgba(153, 153, 153, 0.16);
+	}
+
+	#my-img-mobile img{
+	  padding: 0;
+	  margin-right: 10px;
+	}
+
+	.search-mobile{
+		background-color: #999;
+		color: #1B1B1B;
+		margin-top: 15px;
+		height: 25px;
+	}
+
+	.search-mobile:focus {
+	  border-color: #333;
+	  webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(132, 133, 134, 0.6);;
+		  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(132, 133, 134, 0.6);;
+	} 
+
+	#sidebar-wrapper > ul > li:nth-child(4){
+	  border-bottom: 1px solid rgba(153, 153, 153, 0.16);
+	}
+
+	.sidebar-nav form > input::-webkit-input-placeholder
+	 {
+	     color:    #222;
+	 }
+
+	 .sidebar-nav form > input:-moz-placeholder
+	 {
+	     color:    #222;
+	 }
+
+	 .sidebar-nav form > input::-moz-placeholder
+	 {
+	     color:    #222;
+	 }
+
+	 .sidebar-nav form > input:-ms-input-placeholder
+	 {
+	     color:    #222;
+	 }
+
+	.conversations-column {
+	  min-width: 100%;
+	}
+
+	#site-content {
+	  padding-top: 50px;
+	  /*padding-bottom: 0px;  cuidado con este padding segun seccion */
+	}
+
+	.conversations-column {
+		  border-right: transparent !important;
+	}
+
+	#conversation-list > li > a > div.col-md-3 {
+	  max-width: 22%;
+	}
+    
+    .messages-column {
+    	min-width: 100%;
+	    padding-bottom: 15px;
+    }
+
+	.hide-inbox-header,
+	.hide-messages-list{
+		display: none;
+	}
+
+	.messages-header .col-md-4{
+		float: left;
+		width: 100%;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div.messages-header.col-md-12 > div.col-md-4 > a {
+		max-width: 100%;
+	}
+
+	#inbox > div.messages-column.col-md-8 > div > div > h4{
+		margin-left: 0;
+	}
+
+	.btn-back{
+		display: block;
+	}
+
+	.messages-header h4{
+		font-size: 16px;
+	}
+
+	.each-message-header .col-md-9, 
+	.each-message-header .col-md-3 {
+	 max-width: 100%; 
+	}
+
+	#search-user-filters li:nth-child(3),
+	#search-user-filters li:nth-child(1), 
+	#search-user-filters li:nth-child(2)  {
+	  width: 100% !important;
+	}
+
+	.artists-filter .input-search-sm,
+	#section-results-box.bg .input-search{
+	  width: 100%;
+	  margin-bottom: 10px;
+	}
+
+	#users-result-container .bg,
+	#section-results-box.bg,
+	#register-wrapper .bg {
+		margin-left: -15px !important;
+		margin-right: -15px !important;
+	}
+
+	.register-wrapper .bg{
+		background-color: red;
+		width: 100%;
+		height: auto;
+	}
+
+	.bg h2{
+		font-size: 25px;
+	}
+
+	#users-result-container .pic-sq-grid{
+		max-width: 100%;
+		float: none;
+	}
+
+	.btn-toggler{
+		margin-top: 10px;
+	}
+
+	#section-results-box,
+	#photos-result-container {
+		margin-top: 0;
+		float: none;
+		margin-left: 0;
+	}
+	#photos-result-container{
+		margin-top: 25px;
+	}
+
+	#users-result-container .pic-sq-grid{
+		max-width: 33.3% !important;
+		float: left !important;
+	}
+
+	.register-wrapper{
+		border: none;
+		padding: 0;
+	}
+
+	.register-wrapper h2{
+		font-size: 25px;
+		margin-top: 30px;
+	}
+
+
+	.side-register{
+		display: none;
+	}
+
+	.register-wrapper .nav.nav-tabs li{
+		width: 100%;
+	/*	border-color: transparent;
+		border-bottom: 1px solid #c99241;
+		border-left: 1px solid #c99241;
+		border-right: 1px solid #c99241;
+     */		background-color: #f0ddaf;
+		margin-bottom: 0;
+		border-bottom: 1px solid #c99241;
+	}
+
+	.register-wrapper .nav-tabs>li.active>a, 
+	.register-wrapper .nav-tabs>li.active>a:focus, 
+	.register-wrapper .nav-tabs>li.active>a:hover{
+		;
+		margin-right: 0;
+		border-radius: 0;
+		border: transparent;
+	}
+
+	.register-wrapper .nav.nav-tabs{
+		   margin-left: -15px;
+		  margin-right: -15px;
+	}
+
+
+	.register-wrapper .nav>li>a:focus, 
+	.register-wrapper .nav>li>a:hover,
+	.register-wrapper .dropdown-menu>li>a:focus, 
+	.register-wrapper .dropdown-menu>li>a:hover{
+	    background-color: rgba(190, 127, 73, 0.37);
+		border-color: transparent;
+		margin-right: 0;
+		border-radius: 0;
+		color: #fff;
+	}
+
+	.register-wrapper .nav-tabs>li.active>a, 
+	.register-wrapper .nav-tabs>li.active>a:focus, 
+	.register-wrapper .nav-tabs>li.active>a:hover{
+		background-color: #BE7F49;
+		color: #fff;
+	}
+
+	#my-account-header{
+		  background-color: rgb(240, 221, 175);
+		  margin-left: -15px;
+		  margin-right: -15px;
+		  padding: 5px 15px 5px 15px;
+		  border-bottom: 1px solid rgb(201, 146, 65);
+	}
+
+	.register-wrapper .dropdown-menu{
+		padding: 0;
+	}
+
+	.register-wrapper .nav .open>a, 
+	.register-wrapper .nav .open>a:focus, 
+	.register-wrapper .nav .open>a:hover {
+	   background-color: transparent; 
+	   border-color: transparent; 
+	}
+
+	.my-account-left {
+		width: 100%;
+	}
+
+	#profile-pic-form, 
+	#profile-cover-form{
+		  margin: 0 auto;
+  		  max-width: 450px;
+	}
+
+	#upload, 
+	#upload-add{
+		width: 100% !important;
+	}
+
+	#container-cover-pic {
+		  margin-top: 0px;
+		  padding-right: 0;
+		  padding-left: 0;
+	}
+
+	#profile-pic-container {
+	  	max-width: 30%;
+	}
+
+	#profile-left-col {
+	  margin-top: -310px;
+	  min-height: 375px;
+	}
+
+	#inner-container-cover-pic > img{
+		min-height: 192px;
+	}
+
+	#profile-pic-container {
+	 min-width: 121.5px;
+	}
+
+	#profile-pic-container > img{
+		min-width: 100px;
+	}
+
+	nav.menu-profile{
+		border-bottom: 1px solid #c99241;
+	}
+
+	#side-content-profile {
+	  margin-top: 15px;
+	}
+
+	.input-container-inner {
+	  width: 100%;
+	}
+
+	.date-format {
+	  float: right;
+	}
+}
+
+@media (max-width: 600px){
+
+	#users-result-container .pic-sq-grid{
+		max-width: 100% !important;
+		float: none !important;
+	}
+
+	#profile-pic-form, 
+	#profile-cover-form{
+  		  min-width: 100%;
+	}
+
+	#profile-left-col {
+	  margin-top: -340px;
+	}
+
+	#profile-pic-container {
+	  max-width: 25%;
+	}
+
+	.ratings{
+		margin-top: 15px;
+	}
+}
+
+@media (max-width: 320px){
+
+	.navbar-header{
+  		min-width: 38%;
+	}
+
+	#profile-mid-col > article > ul > li.owner-pic{
+		max-width: 39px;
+	}
+
+	.owner-pic {
+	  max-width: 30px;
+	}
+}
+
+
+
+
+
