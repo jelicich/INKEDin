@@ -63,7 +63,7 @@ inked.User = {
                                 if(response != true)
                                 {
                                 	var li = '';
-                                	//response = jQuery.parseJSON(response);
+                                	response = jQuery.parseJSON(response);
                                 	$.each(response, function(key, value) {
         							    li += '<li>'+value+'</li>'; 
         							});
