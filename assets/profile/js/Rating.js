@@ -26,6 +26,7 @@ inked.Rating = {
         $('.ratings_stars').bind('click', function() {
 
            var id=$(this).parent().attr("id");
+           var id=id.substring(7);
            var num=$(this).attr("class");
            var poststr="id="+id+"&stars="+num;
            $.ajax({

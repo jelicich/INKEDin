@@ -1170,3 +1170,6 @@ body{
 .home-more{
 	margin-top: 10px;
 }
+.navbar-default{
+	border:none;
+}
