@@ -237,6 +237,9 @@ overflow: hidden;
 .small-header #site-tools{
 }
 */
+.small-header #search-box{
+	margin-top: 0 !important;
+}
 .small-header #site-tools > ul{
 	padding: 0;
 	margin-top: 2px;
@@ -291,7 +294,7 @@ overflow: hidden;
 	margin-top: -7px;
 }
 .small-header .user-menu-buttons-container{
-	padding-right: 0;
+	/* padding-right: 0; */
 }
 .small-header .user-menu-name{
 	font-size: 16px;
@@ -344,7 +347,9 @@ overflow: hidden;
 	color: #000;
 }
 /* END NAV */
-
+.small-header .user-menu-photo{
+	max-width: 15%;
+}
 
 /*END HEADER SMALL*/
 /*--------------------------------*/
@@ -353,13 +358,13 @@ overflow: hidden;
 
 /* TRANSITION  HEADERS */
 
-/*header, header *{
+header, header *{
   transition: all 0.5s;
   -moz-transition: all 0.5s; 
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s; 
 }
-*/
+
 
 /*---------------------------*/
 .full{
@@ -601,8 +606,8 @@ overflow: hidden;
 	font-size: 20px;
 }
 #container-cover-pic{
-	/*margin-top: -140px;*/
-	margin-top: -20px;
+	margin-top: -100px;
+	/* margin-top: -20px; */
 	height: 400px;
 	overflow: hidden;
 	position: relative;
@@ -1172,4 +1177,7 @@ body{
 }
 .navbar-default{
 	border:none;
+}
+.navbar-header{
+	display: none;
 }

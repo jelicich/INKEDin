@@ -7,7 +7,19 @@ inked.Common.Header = {
 	init : function() 
 	{
 		inked.Common.Header.initSidebar();
+		inked.Common.Header.headerResize();
+		$( window ).resize(function() {
+			if($(window).width() < 992 )
+			{
+				$(document).unbind("scroll");
+				$("header").removeClass("small-header").addClass("full-header");
+			}
+			else
+			{
+				inked.Common.Header.headerResize();
+			}
 
+		});
 		/*==============*/
 		/*FACEBOOK LOGIN*/
 /*
@@ -161,18 +173,7 @@ inked.Common.Header = {
 
 	initSidebar : function()
 	{
-		//   if(window.innerWidth > 992){
-				  //   	$(document).on("scroll",function(){
-						//     if($(document).scrollTop()>50){
-						      
-						//         $("header").removeClass("full-header").addClass("small-header");
 
-						//     } else{
-
-						//         $("header").removeClass("small-header").addClass("full-header");
-						//     }
-						// });
-				  //   }
 
 		$(".menu-toggle").on("click", function() {
 			$("#wrapper").toggleClass("menu-open");
@@ -191,6 +192,22 @@ inked.Common.Header = {
  		$(window).on('resize', onResize);
 	},
 
+	headerResize : function()
+	{
+		if($(window).width() > 992)
+	    {
+	    	$(document).on("scroll",function(){
+			    if($(document).scrollTop()>50){
+			      
+			        $("header").removeClass("full-header").addClass("small-header");
+
+			    } else{
+
+			        $("header").removeClass("small-header").addClass("full-header");
+			    }
+			});
+	    }
+	},
 
 	// onClickLogin : function(event)
 	// {

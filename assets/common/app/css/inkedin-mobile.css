@@ -9,16 +9,21 @@
 		font-size: 16px;
 	}
 
-	#site-logo img {
+	.full-header #site-logo img {
 	  max-width: 150px;
-	  margin-top: -25px;
+	  margin-top: 0px;
+	}
+
+	.small-header #site-logo img {
+	  margin-top: 0px;
 	}
 
 	.header-logged .user-menu-buttons a{
 		font-size: 12px !important;
 	}
 
-	.full-header .user-menu-buttons-container {
+	.full-header .user-menu-buttons-container,
+	.small-header .user-menu-buttons-container {
 	   padding-left: 0px; 
 	}
 
@@ -202,7 +207,9 @@
 }
 
 @media (max-width: 767px){
-
+	.navbar-header{
+		display: block;
+	}
 	#wrapper {
 	  overflow: hidden;
 	}
@@ -226,7 +233,7 @@
 		  /*min-width: 50%;*/
 	}
 
-	#site-logo img {
+	.full-header #site-logo img {
 	  max-width: 90px;
 	   margin-top: 0;
 	}
