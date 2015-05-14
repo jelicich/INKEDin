@@ -44,6 +44,10 @@
 		padding-left: 0;
 		padding-right: 0;
 	}
+	#profile-left-col {
+		position: relative;
+		margin-top: -135px;
+	}
 }
 
 @media (max-width: 992px){
