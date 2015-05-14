@@ -174,7 +174,7 @@
 	}
 
 	#users-result-container .pic-sq-grid{
-		max-width: 33.3%;
+		/* max-width: 33.3%; */
 		float: left;
 	}
 
@@ -570,6 +570,9 @@
 
 	.date-format {
 	  float: right;
+	}
+	#site-content {
+	  padding-bottom: 120px;
 	}
 }
 

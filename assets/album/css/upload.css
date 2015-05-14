@@ -149,7 +149,7 @@ section, footer, header, aside{
 
 #upload ul li p,
 #upload-add ul li p{
-    width: 144px;
+    width: auto;
     overflow: hidden;
     white-space: nowrap;
     color: #333;

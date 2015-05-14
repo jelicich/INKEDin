@@ -28,7 +28,7 @@
 						{ 
 					?>
 						<!-- artist -->
-						<article class="col-md-6 pic-sq-grid">
+						<article class="col-md-6 col-sm-6 pic-sq-grid">
 							<div class="inner-pic-sq-grid border-img">
 								<a href="/profile/<?php echo $users[$i]['id']?>"><img src="<?php echo $users[$i]['photo'] ?>" alt="" /></a>
 								<div class="artist-details">
@@ -55,7 +55,7 @@
 						}//END FOR
 					?>
 				
-				<div class="col-md-12">
+				<div class="col-md-12 col-sm-12">
 					<button class="btn btn-default" id="load-more-users" onclick="inked.Search.loadMoreUsers()" data-query="<?php echo $search ?>">VER MAS</button>
 				</div>
 				<?php
@@ -111,7 +111,7 @@
 									<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
 										<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'" data-photo-id="'.$photos[$i]['id'].'"/>
 									</a>
-									<div class="pic-details pic-details-block">
+									<div class="pic-details pic-details-block clearfix">
 										<p class="caption">'.$photos[$i]['description'].'</p>
 										<ul class="owner-container clearfix">
 											<li class="owner-pic"><a href="/profile/'.$photos[$i]['user_id'].'"><img src="'.$photos[$i]['profile_photo'].'" alt="" /></a></li>
@@ -139,7 +139,7 @@
 				?>
 
 				<!-- left col fotos -->
-				<div class="col-md-6" id="left-col-photos">
+				<div class="col-md-6 col-sm-6" id="left-col-photos">
 						
 					<?php
 						echo $even;
@@ -149,7 +149,7 @@
 				<!-- end left col foto -->
 
 				<!-- right col fotos -->
-				<div class="col-md-6" id="right-col-photos">
+				<div class="col-md-6 col-sm-6" id="right-col-photos">
 					
 					<?php 
 						echo $odd;
@@ -162,7 +162,7 @@
 				if(!empty($photos))
 				{
 				?>
-					<div class="col-md-12 full">
+					<div class="col-md-12 col-sm-12 full">
 						<button class="btn btn-default" id="load-more-photos" onclick="inked.Search.loadMorePhotos()" data-query="<?php echo $search ?>">VER MAS</button>
 					</div>
 				<?php

@@ -130,7 +130,7 @@
 				</div>
 			</div>
 				<!-- end right col -->
-			<div class="col-md-12 full">
+			<div class="col-md-12 full home-more">
 				<button class="btn btn-default" id="load-more-photos" onclick="inked.Home.loadMorePhotos()">VER MAS</button>
 				 <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
 			</div>

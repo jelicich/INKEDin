@@ -12,7 +12,8 @@ inked.Home = {
         this.offset_photos += 10;
         var data = {
             "offset" : this.offset_photos,
-        }
+        };
+        console.log(data);
         $.ajax({
                 data: data,
                 url:   '/index/index',
@@ -24,6 +25,7 @@ inked.Home = {
                 },
                 success : function (response) 
                 {
+                    console.log(response);
                     response = jQuery.parseJSON(response);
                     console.log(response);
                     $left = $(response.leftcol);

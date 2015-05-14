@@ -107,7 +107,7 @@
 			{ 
 		?>
 			<!-- artist -->
-			<article class="col-md-3 pic-sq-grid">
+			<article class="col-md-3 col-sm-4 pic-sq-grid">
 				<div class="inner-pic-sq-grid border-img">
 					<a href="/profile/<?php echo $users[$i]['id']?>"><img src="<?php echo $users[$i]['photo'] ?>" alt="" /></a>
 					<div class="artist-details">
@@ -138,7 +138,7 @@
 		{
 		?>
 
-		<div class="col-md-12">
+		<div class="col-md-12 col-sm-12">
 			<button class="btn btn-default" id="load-more-users" onclick="inked.Search.loadMoreUsers()" data-query="<?php echo $search ?>">VER MAS</button>
 		</div>
 		<?php

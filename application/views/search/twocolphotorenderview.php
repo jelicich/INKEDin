@@ -16,7 +16,7 @@ if(!empty($photos))
 					<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
 						<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'" data-photo-id="'.$photos[$i]['id'].'"/>
 					</a>
-					<div class="pic-details pic-details-block">
+					<div class="pic-details pic-details-block clearfix">
 						<p class="caption">'.$photos[$i]['description'].'</p>
 						<ul class="owner-container clearfix">
 							<li class="owner-pic"><a href="/profile/'.$photos[$i]['user_id'].'"><img src="'.$photos[$i]['profile_photo'].'" alt="" /></a></li>

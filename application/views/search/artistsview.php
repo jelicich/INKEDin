@@ -5,7 +5,7 @@ if(!empty($users))
 	{ 
 ?>
 	<!-- artist -->
-	<article class="col-md-<?php echo $cw ?> pic-sq-grid">
+	<article class="col-md-<?php echo $cw ?> col-sm-4 pic-sq-grid">
 		<div class="inner-pic-sq-grid border-img">
 			<a href="#"><img src="<?php echo $users[$i]['photo'] ?>" alt="" /></a>
 			<div class="artist-details">

@@ -88,13 +88,13 @@ class Controller_Index extends Controller_Master {
         }
         if($this->request->is_ajax())
 		{	
-			$view_even = View::factory('home/leftcolrendererview');
-            $view_even->photos = $photos;
-            $view_even->module = 0;
-            $view['leftcol'] = $view_even->render();
+			$view_odd = View::factory('home/leftcolrendererview');
+            $view_odd->leftcol = $leftcol;
+            $view_odd->module = 0;
+            $view['leftcol'] = $view_odd->render();
 
             $view_even = View::factory('home/rightcolrendererview');
-            $view_even->photos = $photos;
+            $view_even->rightcol = $rightcol;
             $view_even->module = 0;
             $view['rightcol'] = $view_even->render();
 

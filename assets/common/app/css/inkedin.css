@@ -467,9 +467,11 @@ overflow: hidden;
 	/*width: 50px;*/
 	max-width: 35px;
 	margin-right: 10px;
+	border-radius: 50%;
+	overflow: hidden;
 }
 .owner-detail h2{
-	margin-top: 15px;
+	margin-top: 0;
 	margin-bottom: 3px;
 	font-size: 18px;
 }
@@ -1159,4 +1161,12 @@ body{
 #site-header > div.container,
 #site-header > div.container > div.row{
 	height: 100%;
+}
+
+#upload ul li p, 
+#upload-add ul li p{
+	width: auto !important;
+}
+.home-more{
+	margin-top: 10px;
 }

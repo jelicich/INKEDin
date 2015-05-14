@@ -79,7 +79,7 @@
 								<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
 									<img src="'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'" data-photo-id="'.$photos[$i]['id'].'"/>
 								</a>
-								<div class="pic-details pic-details-block">
+								<div class="pic-details pic-details-block clearfix">
 									<p class="caption">'.$photos[$i]['description'].'</p>
 									<ul class="owner-container clearfix">
 										<li class="owner-pic"><a href="/profile/'.$photos[$i]['user_id'].'"><img src="'.$photos[$i]['profile_photo'].'" alt="" /></a></li>
@@ -117,7 +117,7 @@
 
 			?>
 			<!--COL 1-->
-			<div class="col-md-3" id="first-col-photos">
+			<div class="col-md-3 col-sm-3" id="first-col-photos">
 				
 				<?php echo $col1?>
 
@@ -125,7 +125,7 @@
 			<!-- END COL 1 -->
 
 			<!--COL 2-->
-			<div class="col-md-3" id="second-col-photos">
+			<div class="col-md-3 col-sm-3" id="second-col-photos">
 				
 				<?php echo $col2?>
 
@@ -133,7 +133,7 @@
 			<!-- END COL 2 -->
 
 			<!--COL 3-->
-			<div class="col-md-3" id="third-col-photos">
+			<div class="col-md-3 col-sm-3" id="third-col-photos">
 				
 				<?php echo $col3?>
 
@@ -141,7 +141,7 @@
 			<!-- END COL 3 -->
 
 			<!--COL 4-->
-			<div class="col-md-3" id="fourth-col-photos">
+			<div class="col-md-3 col-sm-3" id="fourth-col-photos">
 				
 				<?php echo $col4?>
 
@@ -151,7 +151,7 @@
 			if(!empty($photos))
 			{
 			?>
-				<div class="col-md-12">
+				<div class="col-md-12 col-sm-12">
 					<button class="btn btn-default" id="load-more-photos" onclick="inked.Search.loadMorePhotos()" data-query="<?php echo $search ?>">VER MAS</button>
 				</div>
 			<?php

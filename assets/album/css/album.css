@@ -32,6 +32,7 @@
 .btn-finish-container button{
 	display: inline-block;
 	margin: 10px 5px;
+	float: none;
 }
 .photo-edit-container{
 	margin-bottom: 20px;

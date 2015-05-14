@@ -115,8 +115,6 @@ class Controller_Photo extends Controller_Master {
 	            
 	            $id = $photo_model->save_photo($new_name, $album['album_id'], $user['id']);
 	            
-	            
-
 			}
 		}
 		else
