@@ -50,11 +50,11 @@ class Controller_Profile extends Controller_Master {
         //CHECK COVER PIC
         if(empty($profile['cover']))
         {
-            $profile['cover'] = HTML::image('/assets/common/app/img/cover.jpg', array('alt' => $profile['name'].' '.$profile['name']));
+            $profile['cover'] = '/assets/common/app/img/cover.jpg';
         }
         else
         {
-            $profile['cover'] = HTML::image('/users/'.$profile['id'].'/img/reg/'.$profile['cover'], array('alt' => $profile['name'].' '.$profile['name'], 'id' => 'cover-pic'));   
+            $profile['cover'] = '/users/'.$profile['id'].'/img/reg/'.$profile['cover'];   
         }
 
         

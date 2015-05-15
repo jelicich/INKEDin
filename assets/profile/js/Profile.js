@@ -15,8 +15,7 @@ inked.Profile = {
 
         var map_canvas = document.getElementById("map_canvas");
         if ( map_canvas ) { inked.Profile.dynamicMap(); };
-      
-        // inked.Profile.dynamicLeftBar();
+
         $('#comment-form').validate({
                 submitHandler : function(){
                         var i = inked.Profile;
@@ -26,6 +25,20 @@ inked.Profile = {
 
         inked.Profile.removeFavourite(); 
         inked.Profile.loadMoreFavs();
+        inked.Profile.dynamicLeftBar();
+        
+        $( window ).resize(function() {
+            if($(window).width() < 1200 )
+            {
+                $(document).unbind("scroll");
+                 $("#profile-fix-wrapper").removeClass("profile-absolute").removeClass("profile-fixed").addClass("profile-free");
+            }
+            else
+            {
+                inked.Profile.dynamicLeftBar();
+            }
+
+        });
     },
 
 
@@ -74,26 +87,52 @@ inked.Profile = {
 	
     dynamicLeftBar : function()
     {
-        $(document).on("scroll",function(){
-            
-            if($(document).scrollTop()>140)
-            {
-                $("#profile-fix-wrapper").removeClass("profile-free").addClass("profile-fixed");
-                if($(document).scrollTop()>410)
+        if($(window).width() > 1200)
+        {
+            $(document).on("scroll",function(){
+                console.log($(document).scrollTop());
+                if($(document).scrollTop()>140)
                 {
-                    $("#profile-fix-wrapper").removeClass("profile-fixed").addClass("profile-absolute");
-                }
-                if($(document).scrollTop()<410 && $("#profile-fix-wrapper").hasClass("profile-absolute"))
+                    $("#profile-fix-wrapper").removeClass("profile-free").addClass("profile-fixed");
+                    if($(document).scrollTop()>411)
+                    {
+                        $("#profile-fix-wrapper").removeClass("profile-fixed").addClass("profile-absolute");
+                    }
+                    if($(document).scrollTop()<411 && $("#profile-fix-wrapper").hasClass("profile-absolute"))
+                    {
+                        $("#profile-fix-wrapper").removeClass("profile-absolute").addClass("profile-fixed");
+                    }
+                }       
+                else
                 {
-                    $("#profile-fix-wrapper").removeClass("profile-absolute").addClass("profile-fixed");
+                    $("#profile-fix-wrapper").removeClass("profile-fixed").addClass("profile-free");
+                    
                 }
-            }       
-            else
-            {
-                $("#profile-fix-wrapper").removeClass("profile-fixed").addClass("profile-free");
-                
-            }
-        });
+            });
+        }
+        // else if($(window).width() > 992)
+        // {
+        //     $(document).on("scroll",function(){
+        //         console.log($(document).scrollTop());
+        //         if($(document).scrollTop()>140)
+        //         {
+        //             $("#profile-fix-wrapper").removeClass("profile-free").addClass("profile-fixed");
+        //             if($(document).scrollTop()>342)
+        //             {
+        //                 $("#profile-fix-wrapper").removeClass("profile-fixed").addClass("profile-absolute");
+        //             }
+        //             if($(document).scrollTop()<342 && $("#profile-fix-wrapper").hasClass("profile-absolute"))
+        //             {
+        //                 $("#profile-fix-wrapper").removeClass("profile-absolute").addClass("profile-fixed");
+        //             }
+        //         }       
+        //         else
+        //         {
+        //             $("#profile-fix-wrapper").removeClass("profile-fixed").addClass("profile-free");
+                    
+        //         }
+        //     });
+        // }
     },
 
 

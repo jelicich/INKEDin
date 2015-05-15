@@ -637,7 +637,7 @@ header, header *{
 	position: relative;
 	/* margin-top: -240px; */ 
 	margin-top: -200px;
-	min-height: auto;
+	min-height: 850px;
 }
 #profile-left-col .profile-absolute{
 	position: absolute;
@@ -645,7 +645,7 @@ header, header *{
 }
 #profile-left-col .profile-fixed{
 	position: fixed;
-	top: 80px;
+	top: 118px;
 	width: 262px;
 }
 #profile-left-col .profile-absolute{
@@ -654,7 +654,7 @@ header, header *{
 	width: 262px;
 }
 #profile-pic-container{
-	margin: 15px 0 10px 10px;
+	margin: 0 0 10px 10px;
 	/* border-radius: 50%; */
 	overflow: hidden;
 }

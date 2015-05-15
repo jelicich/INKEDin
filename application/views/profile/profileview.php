@@ -18,23 +18,8 @@
 		<div class="row">
 			<!-- COVER PIC -->
 			<div class="col-md-12" id="container-cover-pic">
-				<div id="inner-container-cover-pic">
-					<?php 
-					$pos = strpos($profile['cover'], 'cover');
-					if($pos !== false) 
-					{
-					?>
-						<?php echo $profile['cover'] ?>
-					<?php
-					}
-					else
-					{
-					?>
-						<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><?php echo $profile['cover'] ?></a>
-					<?php
-					}
-					?>
-
+				<div id="inner-container-cover-pic" style="background: url('<?php echo $profile['cover']?>') no-repeat center center; background-size: cover;">
+					
 				</div>
 			</div>
 			<!-- END COVER PIC -->
