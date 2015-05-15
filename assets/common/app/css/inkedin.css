@@ -1186,13 +1186,13 @@ body{
 
 
 
-
 /*Cover the site when menumobile is open*/
 
 #wrapper.menu-open #cover-content{
 		background-color: #fff;
 		z-index: 10;
 		min-height: 800px;
+		position: initial;
 }
 
 #wrapper.menu-open #cover-content:hover{

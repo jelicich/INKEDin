@@ -4,6 +4,7 @@ $scripts = HTML::script('http://code.jquery.com/jquery-latest.js')
 	.HTML::script('/assets/common/app/js/bootstrap.min.js')
 	.HTML::script('/assets/common/app/js/redirect.js')
 	.HTML::script('/assets/common/app/js/App.js')
+	.HTML::script('/assets/common/footer/js/Footer.js')
 	.HTML::script('/assets/common/header/js/Header.js');
 
 $styles = HTML::style('/assets/common/app/css/bootstrap.min.css')

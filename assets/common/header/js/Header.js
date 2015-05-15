@@ -173,15 +173,31 @@ inked.Common.Header = {
 
 	initSidebar : function()
 	{	
-		$('#site-content').nextUntil('body').addBack().wrapAll("<div id='cover-content' class='menu-toggle'></div>");
-		// $('#site-content').wrapAll("<div id='cover-content' class='menu-toggle'></div>");
-
-		$(".menu-toggle").on("click", function() {
+		function layer(){
+			
 			$("#wrapper").toggleClass("menu-open");
 			$("#wrapper .toggled").css("overflow", "inherit");
-	    });
 
-        //check_width();
+
+			if( $('#cover-content').length ){
+				
+				$('#site-content').unwrap();
+
+			}else{
+
+				$('#site-content').nextUntil('body').addBack().wrapAll("<div id='cover-content'></div>");
+				$('#cover-content').on('click', function(){ layer(); })
+			}
+		}
+
+
+		$(".menu-toggle").on("click", function() {
+			layer();
+		});
+
+
+
+
 
 		var t = this;
 		var onResize = function() {
