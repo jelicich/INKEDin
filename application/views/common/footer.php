@@ -92,16 +92,4 @@
 	</div>
 </footer>
 
- <!-- Ver donde poner este js -->
-<script type="text/javascript">
-
-	$('.anchor').on('click', function(event){
-
-		$('html, body').animate({
-   			 scrollTop: $( $(this).attr('href') ).offset().top
-	    }, 500);
-	    return false;
-
-    });
-
-</script>
+ 
