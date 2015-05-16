@@ -35,7 +35,7 @@
 					<img src="/assets/register/img/register-img.jpg" alt="" />
 					<div class="login-button">
 						<h3>Ya estas registrado?</h3>
-						<a href="#" id="second-login" class="btn btn-default btn-lg btn-block" onclick="inked.Register.onClickSecondLogin()">Ingresar</a>
+						<a href="#" id="second-login" class="btn btn-default btn-lg btn-block" onclick="inked.Register.onClickSecondLogin(event)">Ingresar</a>
 					</div>
 
 					<h3>Registrate ahora</h3>

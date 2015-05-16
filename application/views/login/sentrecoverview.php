@@ -43,7 +43,7 @@
 					<?php endif ?>
 					
 
-					<form method="post" action="/auth/reset_password" onsubmit='inked.Login.validateForm()'>
+					<form method="post" action="/auth/reset_password" onsubmit='inked.Login.validateForm(event)'>
 						
 						<div class="input-container">
 							<div class="input-container-inner">
@@ -66,7 +66,7 @@
 					<img src="/assets/register/img/register-img.jpg" alt="" />
 					<div class="login-button">
 						<h3>Ya estas registrado?</h3>
-						<a href="#" id="second-login" class="btn btn-default btn-lg btn-block" onclick="inked.Login.onClickSecondLogin()">Ingresar</a>
+						<a href="#" id="second-login" class="btn btn-default btn-lg btn-block" onclick="inked.Login.onClickSecondLogin(event)">Ingresar</a>
 					</div>
 
 					<h3>Registrate ahora</h3>

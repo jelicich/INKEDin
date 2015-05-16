@@ -234,13 +234,13 @@ inked.Common.Header = {
 	// },
 
 
-	validateForm : function()
+	validateForm : function(event)
 	{
 		var user = $('#username').val();
 		var pass = $('#password').val();
 		if(user == '' || pass == '')
 		{
-			event.preventDefault ? event.preventDefault() : event.returnValue = false;
+			event.preventDefault();
 		}
 	},
 

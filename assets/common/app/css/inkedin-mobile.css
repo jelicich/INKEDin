@@ -79,13 +79,13 @@
 		border-radius: 0;
 	}
 	#site-header .col-md-5{
-		max-width: 44.5%;
-		float: left;
+		/*max-width: 44.5%;
+		float: left;*/
 	}
 
 	#site-header .col-md-2{
-		max-width: 20%;
-		float: left;
+		/*max-width: 20%;
+		float: left;*/
 	}
 
 	.navbar-collapse a {
@@ -282,6 +282,9 @@
 	#site-logo{
 		  float: left;
 		  /*min-width: 50%;*/
+		position: absolute;
+		left: 50%;
+		margin-left: -45px;
 	}
 
 	.full-header #site-logo img {
@@ -393,11 +396,6 @@
 
 	.conversations-column {
 	  min-width: 100%;
-	}
-
-	#site-content {
-	  padding-top: 50px;
-	  /*padding-bottom: 0px;  cuidado con este padding segun seccion */
 	}
 
 	.conversations-column {
@@ -639,7 +637,14 @@
 
 	#site-content {
 	  padding-bottom: 140px;
+	  padding-top: 65px;
+	  /*padding-bottom: 0px;  cuidado con este padding segun seccion */
 	}
+
+	.mob-btn-logo{
+		position: relative;
+	}
+
 
 	
 }

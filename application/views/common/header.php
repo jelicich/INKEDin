@@ -50,7 +50,7 @@
 			</div>
  
 			<!-- default menu -->
-			<div class="col-md-5 full">
+			<div class="col-md-5 col-sm-5 full">
 				<div class="collapse navbar-collapse">
 					
 					<nav>
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-2">
+			<div class="col-md-2 col-sm-2 clearfix mob-btn-logo">
 
 				<!-- burger -->
 				<div class="navbar-header">
@@ -83,7 +83,7 @@
 			</div>
 
 			<!-- default log reg -->
-			<div class="col-md-5 full">
+			<div class="col-md-5 col-sm-5 full">
 				<div class="collapse navbar-collapse">
 					
 					<div id="site-tools">
@@ -132,7 +132,7 @@
       
 		<div class="modal-body">
 	        	
-	        	<form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm()">
+	        	<form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm(event)">
 		        	<div class="form-group">
 						<label for="username" class="col-sm-3 control-label">Usuario</label>
 						<div class="col-sm-9">

@@ -8,20 +8,20 @@ inked.Login = {
 		$('#email').focus();
 	},
 
-	onClickSecondLogin : function()
+	onClickSecondLogin : function(event)
 	{
-		event.preventDefault ? event.preventDefault() : event.returnValue = false;
+		event.preventDefault();
 		$('#login-toggle').toggle();
 		$('#username').focus();	
 	},
 
-	validateForm : function()
+	validateForm : function(event)
 	{
 		var user = $('#email-view').val();
 		var pass = $('#password-view').val();
 		if(user == '' || pass == '')
 		{
-			event.preventDefault ? event.preventDefault() : event.returnValue = false;
+			event.preventDefault();
 		}
 	}
 };
