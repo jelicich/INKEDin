@@ -232,7 +232,15 @@
 	}
 
 	#profile-left-col {
-		  margin-top: -120px;	
+		  margin-top: -190px;	
+	}
+
+	.name-profile{
+		padding-left: 10px;
+	}
+	.name-profile h1{
+		color: #fff;
+		text-shadow: 0 0 3px rgba(0,0,0,.8);
 	}
 
 	#side-content-profile{
@@ -693,6 +701,15 @@
 
 	.owner-pic {
 	  max-width: 30px;
+	}
+	.name-profile{
+		position: relative;
+	}
+	.name-profile .fb-like{
+		margin: 0;
+		position: absolute;
+		top: 70px;
+		left: 150px;
 	}
 }
 @media (min-width: 768px){

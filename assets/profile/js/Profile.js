@@ -26,8 +26,10 @@ inked.Profile = {
         inked.Profile.removeFavourite(); 
         inked.Profile.loadMoreFavs();
         inked.Profile.dynamicLeftBar();
+        inked.Profile.moveName();
         
-        $( window ).resize(function() {
+        $( window ).resize(function() 
+        {
             if($(window).width() < 1200 )
             {
                 $(document).unbind("scroll");
@@ -37,6 +39,8 @@ inked.Profile = {
             {
                 inked.Profile.dynamicLeftBar();
             }
+
+            inked.Profile.moveName();
 
         });
     },
@@ -285,6 +289,20 @@ inked.Profile = {
             }
 
         });
+    },
+
+    moveName : function()
+    {
+        if($(window).width() < 992 )
+        {
+            var $nameprof = $($('#profile-mid-col').find('.name-profile')[0]);
+            $nameprof.prependTo('#profile-left-col');
+        }
+        else
+        {
+            var $nameprof = $($('#profile-left-col').find('.name-profile')[0]);
+            $nameprof.prependTo('#profile-mid-col');
+        }
     }
 
 };
