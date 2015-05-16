@@ -42,6 +42,7 @@
 							?>
 
 							<input type="text" value="" placeholder="Buscar..." class="form-control search-mobile" <?php echo $search; ?> >
+							<input type="submit" value="Buscar" class="btn btn-default btn-sm btn-block">
 						</form>
 					</li> 
 
@@ -95,7 +96,7 @@
 										$search = '';
 									?>
 									<input type="text" id="search-input" value="<?php echo $search ?>">
-									<input type="submit" value="" id="search-btn">
+									<input type="submit" value="">
 								</form>
 							</li>
 

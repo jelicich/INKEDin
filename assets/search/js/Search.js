@@ -145,7 +145,6 @@ inked.Search = {
 
     buildUrlPhotos : function(event)
     {
-        console.log('saras');
         event.preventDefault();
         var query = $('input[name="search-photos"]').val()
         window.location = '/search/photos/'+query;
@@ -153,7 +152,6 @@ inked.Search = {
 
     buildUrlArtists : function(event)
     {
-        console.log('saras');
         event.preventDefault();
         var query = $('input[name="search-artists"]').val()
         if(query == '')

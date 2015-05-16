@@ -224,7 +224,7 @@
 	}
 
 	#site-footer .col-md-2:first-child{
-		z-index: 10;
+		/*z-index: 10;*/
 	}
 
 	#profile-pic-container{
@@ -252,6 +252,9 @@
 }
 
 @media (max-width: 767px){
+	#site-footer .container .row div{
+		max-width: 100%;
+	}
 	.navbar{
 		border-radius: 0;
 	}
@@ -334,8 +337,10 @@
 	}
 
 	#site-footer .container .row div:first-child{
+		/*
 		max-width: 100%;
 		float: none;
+		*/
 	}
 
 	#my-img-mobile{
@@ -353,6 +358,7 @@
 		color: #1B1B1B;
 		margin-top: 15px;
 		height: 25px;
+		margin-bottom: 5px;
 	}
 
 	.search-mobile:focus {

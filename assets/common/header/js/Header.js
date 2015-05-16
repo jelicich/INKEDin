@@ -247,7 +247,7 @@ inked.Common.Header = {
 	buildUrl : function(event)
 	{
 		event.preventDefault();
-		var query = $('#search-input').val();
+		var query = $(event.target).find('input[type="text"]').val();
 		window.location = '/search/all/'+query;
 	}
 };
