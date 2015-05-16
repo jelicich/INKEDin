@@ -84,7 +84,7 @@
 				}//END IF
 				?>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-4 col-xs-12">
 				<p id="privacy"><span class="glyphicon glyphicon-copyright-mark" ></span> 2015 Todos los derechos reservados 
 				<br><a href="/terms">Terminos y Condiciones</a></p>
 			</div>

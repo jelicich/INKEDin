@@ -156,8 +156,10 @@
 	}
 
 	#site-footer .container .row div:last-child{
+		/*
 		max-width: 100%;
 		float: none;
+		*/
 	}
 
 	.conversations-column{
