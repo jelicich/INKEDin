@@ -94,7 +94,7 @@ inked.Profile = {
         if($(window).width() > 1200)
         {
             $(document).on("scroll",function(){
-                console.log($(document).scrollTop());
+                //console.log($(document).scrollTop());
                 if($(document).scrollTop()>140)
                 {
                     $("#profile-fix-wrapper").removeClass("profile-free").addClass("profile-fixed");

@@ -90,12 +90,17 @@
 						}
 
 					?>
+					
+
+					<?php 
+							if (isset($logged_in)) 
+							{	
+					?>
 
 					<div class="profile-buttons-container <?php echo $border_bottom; ?>"  >
 
 						<?php 
-							if (isset($logged_in)) 
-							{	
+							//if (isset($logged_in)){	
 							  	$this_profile_followers_list = [];
 
 							  	foreach ($profile['profile_followers'] as $key ) 
@@ -121,10 +126,13 @@
 										<a href="#" class="btn btn-success btn-block btn-profile" >YA ES TU FAVORITO !</span></a>
 						<?php 		}
 								}// end if 2
-							}// end if 1
+							//}// end if 1
 						?>
 					
 					</div>
+					<?php 
+					}
+					?>
 					
 					<nav class="menu-profile">
 						<ul>
@@ -178,8 +186,11 @@
            		<?php	
            		}
            		?>
-           		
             </div>
+            
+        	<a href="#" class="album-arrow album-prev" onclick="inked.Profile.prevPhoto()"><img src="/assets/profile/img/l_arrow.png" alt=""></a>
+        	<a href="#" class="album-arrow album-next" onclick="inked.Profile.nextPhoto()"><img src="/assets/profile/img/r_arrow.png" alt=""></a>
+            
         </div>
     </div>
   </div>

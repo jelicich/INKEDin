@@ -26,7 +26,7 @@ if(!empty($leftcol))
 		<!-- img -->
 		<article class="col-md-<?php echo $col_size ?> pic-sq-grid">
 			<div class="inner-pic-sq-grid border-img">
-				<a href="#"><img src="<?php echo $leftcol[$i]['photo'] ?>" alt="<?php echo $leftcol[$i]['description'] ?>" /></a>
+				<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><img src="<?php echo $leftcol[$i]['photo'] ?>" alt="<?php echo $leftcol[$i]['description'] ?>" /></a>
 				<div class="pic-details">
 					<p class="caption"><?php echo $leftcol[$i]['description'] ?></p>
 					<ul class="owner-container clearfix">

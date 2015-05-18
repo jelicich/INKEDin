@@ -77,7 +77,7 @@
 
 			    <h1 id="site-logo">
 					<a href="/">
-						<img src="\assets\common\app\img\inkedin-logo.png">
+						<img src="/assets/common/app/img/inkedin-logo.png" alt="INKEDin">
 					</a>
 				</h1>
 			</div>
@@ -132,7 +132,7 @@
       
 		<div class="modal-body">
 	        	
-	        	<form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm(event)">
+	        	<form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm(event)" class="clearfix">
 		        	<div class="form-group">
 						<label for="username" class="col-sm-3 control-label">Usuario</label>
 						<div class="col-sm-9">

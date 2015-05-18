@@ -86,7 +86,7 @@
 
 			    <h1 id="site-logo">
 					<a href="/">
-						<img src="\assets\common\app\img\inkedin-logo.png">
+						<img src="/assets/common/app/img/inkedin-logo.png" alt="INKEDin">
 					</a>
 				</h1>
 			</div>
@@ -118,7 +118,7 @@
 										</h3>
 										<ul class="user-menu-buttons clearfix">
 											<li><a href="/user">Mi Cuenta</a></li>
-											<li><a href="<?php echo "/message/inbox/"; ?>" >Inbox 
+											<li class="inbox-btn"><a href="<?php echo "/message/inbox/"; ?>" >Inbox 
 													
 														<?php 
 															if (isset($messages_amount) && $messages_amount[0]['total_messages'] != 0) {

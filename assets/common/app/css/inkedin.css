@@ -553,7 +553,7 @@ header, header *{
 .profile-section{
 	border-top: 1px solid #c99241;
 	padding-top: 5px;
-	margin-top: 5px;
+	margin-top: 0px;
 }
 .btn-profile{
 	font-size: 16px;
@@ -947,7 +947,7 @@ body{
 /* modal login */
 .modal-dialog {
 	margin: 50px auto;
-	max-width: 350px;
+	/* max-width: 350px; */
 	padding: 0 15px;
 }
 
@@ -1126,7 +1126,7 @@ body{
 }
 
 #profile-mid-col > article{
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 }
 
 #site-content > div > div.col-md-8 > div > div > a{
@@ -1184,8 +1184,40 @@ body{
 	display: none;
 }
 
+.inbox-btn{
+	position: relative;
+}
+.inbox-btn #messages-alert{
+	position: absolute;
+	top: -7px;
+	border-radius: 50%;
+	font-size: 10px;
+	left: 30px;
+	min-width: 18px;
+	text-align: center;
+}
 
-
+.profileview .modal-body .album-arrow{
+	position: absolute;
+	width: 21px;
+	height: 33px;
+	top: 50%;
+	margin-top: -16px;
+	opacity: 0.3;
+	transition: opacity 0.5s;
+}
+.profileview .modal-body .album-arrow.album-prev{
+	left:10px;
+}
+.profileview .modal-body .album-arrow.album-next{
+	right:10px;
+}
+.profileview .modal-body .album-arrow.album-prev:hover{
+	opacity: 1;
+}
+.profileview .modal-body .album-arrow.album-next:hover{
+	opacity: 1;
+}
 /*Cover the site when menumobile is open*/
 
 #wrapper.menu-open #cover-content{
@@ -1206,4 +1238,5 @@ body{
 
 #wrapper.menu-open #site-footer{
 	 z-index: -1;
+}-1;
 }
