@@ -154,3 +154,6 @@ label[for="province"]{
 	border-bottom: 1px solid #c99241;
 	padding: 10px;
 }
+.no-mar{
+	margin-bottom: 0;
+}

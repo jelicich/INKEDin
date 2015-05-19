@@ -26,7 +26,7 @@ if(!empty($photos))
 			$location .= ', '.$photos[$i]['city'];
 		}
 		
-		$html = '<article class="col-md-3 pic-sq-grid fav-container">
+		$html = '<article class="col-md-3 pic-sq-grid ">
 			<div class="inner-pic-sq-grid border-img">
 				<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
 					<img src="/users/'.$photos[$i]['owner_id'].'/img/thumb/'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'" data-photo-id="'.$photos[$i]['photo_id'].'"/>
