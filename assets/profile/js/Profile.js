@@ -303,6 +303,11 @@ inked.Profile = {
             var $nameprof = $($('#profile-left-col').find('.name-profile')[0]);
             $nameprof.prependTo('#profile-mid-col');
         }
+    },
+
+    navPhotos : function()
+    {
+        
     }
 
 };

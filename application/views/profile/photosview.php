@@ -5,7 +5,7 @@
 	</div>
 	<h2 class="profile-section"><?php echo $photos[0]['name']; ?></h2>
 	
-	<div class="row">	
+	<div class="row" id="photos-album-container">	
 	<?php
 	for ($i=0; $i < sizeof($photos); $i++) 
 	{ 
