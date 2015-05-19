@@ -43,6 +43,10 @@ inked.Profile = {
             inked.Profile.moveName();
 
         });
+
+        $('#photos-album-container').ready(function(){
+            inked.Profile.initNavPhotos();
+        });
     },
 
 
@@ -305,9 +309,53 @@ inked.Profile = {
         }
     },
 
-    navPhotos : function()
+    initNavPhotos : function()
     {
-        
+        var t = this;
+        t.$container = $('#photos-album-container');
+        t.photos = t.$container.find('img.photo-album');
+        $.each(t.photos, function( i, value ) 
+        {
+            $(t.photos[i]).attr('data-order',i);
+        });
+    },
+
+    navPhotos : function(e)
+    {
+        e.preventDefault();
+        var t = this;
+        var current = parseInt($('#photo-target').attr('data-order'));
+        if( $(e.target).parent().attr('data-dir') =='left' )
+        {
+            var newPos = current -1;
+            if(newPos == -1)
+            {
+                newPos = t.photos.length -1;
+            }
+        }
+        else
+        {
+            var newPos = current +1;
+            if(newPos > t.photos.length -1)
+            {
+                newPos = 0;
+            }
+            
+        }
+        var newSrc = $($(t.photos)[newPos]).attr('src');
+        var lg_src = newSrc.replace('/sm/','/reg/');
+        var newId = $($(t.photos)[newPos]).attr('data-photo-id');
+        var desc = $($(t.photos)[newPos]).attr('alt');
+        var tags = $($(t.photos)[newPos]).attr('data-tags');
+        $('#photo-target').attr('src', lg_src);
+        $('#photo-target').attr('data-order', newPos);
+        $('#photo-target').attr('data-photo-id', newId);
+
+        $('#myModal').find('.caption').html(desc);
+        $('#photo-tags').html(tags);
+
+        $('#myModal').find('.pic-details').remove();
+        $($(t.photos)[newPos]).parent().parent().find('.pic-details').clone().appendTo('.modal-tools');
     }
 
 };

@@ -24,6 +24,7 @@ inked.Common.Modal = {
             //console.log($(this).children());
             var src = $(this).children().attr('src');
             var photo_id = $(this).children().attr('data-photo-id');
+            var order = $(this).children().attr('data-order');
 
             if(src.indexOf('/thumb/') != (-1))
             {
@@ -39,7 +40,8 @@ inked.Common.Modal = {
             }
             
             $('#photo-target').attr('src', lg_src);
-            $('#photo-target').attr('data-photo-id', photo_id);        
+            $('#photo-target').attr('data-photo-id', photo_id);
+            $('#photo-target').attr('data-order', order);
             var desc = $(this).children().attr('alt');
             var tags = $(this).children().attr('data-tags');
             //$('#photo-description').html(desc);
@@ -47,6 +49,16 @@ inked.Common.Modal = {
 
             //console.log($(this));
             $(this).parent().find('.pic-details').clone().appendTo('.modal-tools');
+
+            var className = $(this).attr('class');
+            if( className.indexOf('prof-pic') != -1 )
+            {
+                $('.album-arrow').css('display','none');
+            }
+            else
+            {
+                $('.album-arrow').css('display','block');   
+            }
         });
     },
 
