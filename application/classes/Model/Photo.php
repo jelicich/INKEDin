@@ -36,8 +36,8 @@ class Model_Photo extends ORM{
 
 	public function delete_photo($photo)
 	{
-		$album = $this->where('id', '=', $photo)->find();
-		$album->delete();
+		$photo = $this->where('id', '=', $photo)->find();
+		$photo->delete();
 	}
 
 	public function get_photos_by_album_and_user($album_id, $user_id)

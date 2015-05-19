@@ -18,6 +18,7 @@
 
 	<!-- content -->
 	<section id="site-content" class="container">
+		<?php //var_dump($user) ?>
 		<div class="row">
 			<!-- left col -->
 			<div class="col-md-8 my-account-left">

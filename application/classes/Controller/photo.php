@@ -139,20 +139,22 @@ class Controller_Photo extends Controller_Master {
 		if($this->request->post('target') == 'profile')
 		{
 			$key = 'photo_id';
+			$key2 = 'photo';
 		}
 		elseif($this->request->post('target') == 'cover')
 		{
 			$key = 'cover_id';
+			$key2 = 'cover';
 		}
 		if(!empty($user[$key]))
 		{
 			$photo_model = new Model_Photo();
 			$photo_model->delete_photo($user[$key]);
 
-			unlink('./users/'.$user['id'].'/img/md/'.$user['photo']);
-			unlink('./users/'.$user['id'].'/img/reg/'.$user['photo']);
-			unlink('./users/'.$user['id'].'/img/sm/'.$user['photo']);
-			unlink('./users/'.$user['id'].'/img/thumb/'.$user['photo']);
+			unlink('./users/'.$user['id'].'/img/md/'.$user[$key2]);
+			unlink('./users/'.$user['id'].'/img/reg/'.$user[$key2]);
+			unlink('./users/'.$user['id'].'/img/sm/'.$user[$key2]);
+			unlink('./users/'.$user['id'].'/img/thumb/'.$user[$key2]);
 		}
 
 		
