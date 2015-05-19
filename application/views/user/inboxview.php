@@ -104,7 +104,7 @@
 					
 					<div class="messages-header col-md-12 clearfix">
 							
-						<div class="col-md-8">
+						<div class="col-lg-8">
 							
 						<?php 
 								if(isset($user_from)) {  

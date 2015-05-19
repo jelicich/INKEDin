@@ -889,7 +889,7 @@ body{
 }
 
 #sidebar-wrapper{
-    margin-top: -1px !important;
+    margin-top: 0px !important;
     overflow: hidden;
     background-color: #222;
 }

@@ -12,6 +12,7 @@ $col2 = '';
 $col3 = '';
 $col4 = '';
 $count = 1;
+
 if(!empty($photos))
 {
 	for ($i = 0; $i < sizeof($photos); $i++) 

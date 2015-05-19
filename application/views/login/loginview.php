@@ -20,12 +20,13 @@
 	<section id="site-content" class="container">
 		<div class="row">
 			<!-- left col -->
-			<div class="col-md-8">
+			<div class="col-md-8 my-account-left">
 				<div class="register-wrapper">
 					<h2>Error al ingresar</h2>
 					<p>Los datos ingresados son inválidos. <a href="/auth/recover">¿Olvidaste tu contraseña?</a></p>
-					<div class="light-bg register-fb-container">
-						<a href="#" class="btn btn-primary btn-block">Ingresar con tu cuenta de Facebook</a>
+					
+					<div class="alert alert-danger">
+						<a href="#" class="btn btn-primary btn-block" onclick="inked.Common.Header.fb_login();">Ingresar con tu cuenta de Facebook</a>
 					</div>
 
 					<?php if (isset($errors)): ?>
@@ -45,14 +46,14 @@
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="email">Email</label>
-								<input type="text" id="email-view" name="username" value=<?php echo '"'.$email.'"'?> />
+								<input type="text" id="email-view" class="form-control" name="username" value=<?php echo '"'.$email.'"'?> />
 							</div>
 							<p class="info-input">Campo obligatorio</p>
 						</div>
 						<div class="input-container">
 							<div class="input-container-inner">
 								<label for="password">Contraseña</label>
-								<input type="password" id="password-view" name="password" value="" />
+								<input type="password" id="password-view" class="form-control" name="password" value="" />
 							</div>
 							<p class="info-input">Campo obligatorio</p>
 						</div>

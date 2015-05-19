@@ -57,8 +57,8 @@
 	#profile-mid-col{
 		/* margin-top: -68px; */
 	}
-
 }
+
 @media (max-width: 1199px){
 	#profile-left-col .profile-fixed {
 	  width: 212.5px;
@@ -69,11 +69,13 @@
 		top: 204px;
 	}
 }
+
 @media (min-width: 1199px){
 	#profile-left-col{
 		margin-top: -200px !important;
 	}
 }
+
 @media (max-width: 992px){
 	.navbar{
 		border-radius: 0;
@@ -168,7 +170,7 @@
 	}
 
 	.messages-column{
-		 min-width: 59%;
+		 min-width: 55%;
   		float: left;
 	}
 
@@ -367,11 +369,18 @@
 	}
 
 	.search-mobile{
-		background-color: #999;
+		background-color: #fff;
 		color: #1B1B1B;
 		margin-top: 15px;
 		height: 25px;
 		margin-bottom: 5px;
+	}
+
+	#sidebar-wrapper input[type=submit].btn-block {
+	  width: 30%;
+	  background-color: #999;
+	  border-color: #333;
+	  color: #333;
 	}
 
 	.search-mobile:focus {
@@ -432,7 +441,7 @@
 	}
 
 	#inbox{
-		margin-top: 0 !important; 
+		margin-top: -15px !important; 
 	}
 
 	#inbox > div.messages-column.col-md-8 > div.messages-header.col-md-12 > div.col-md-4 > a {
@@ -512,6 +521,7 @@
 	.register-wrapper{
 		border: none;
 		padding: 0;
+		margin-top: -15px;
 	}
 
 	.register-wrapper h2{
@@ -654,9 +664,6 @@
 	.mob-btn-logo{
 		position: relative;
 	}
-
-
-	
 }
 
 @media (max-width: 600px){
@@ -687,7 +694,6 @@
 	}
 }
 
-
 @media (max-width: 320px){
 	.navbar{
 		border-radius: 0;
@@ -714,11 +720,10 @@
 		left: 150px;
 	}
 }
+
 @media (min-width: 768px){
 	.navbar{
 		border-radius: 0;
 	}
 }
-
-
 

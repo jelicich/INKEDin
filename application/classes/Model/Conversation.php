@@ -88,6 +88,15 @@ class Model_Conversation extends ORM{
 			array_push($conversations[$i], $last_message_piece[0]);
 		}
 
+		function order_by_date($a, $b)
+		{
+		    $t1 = strtotime($a[0]['date']);
+		    $t2 = strtotime($b[0]['date']);
+		    return $t2 - $t1;
+		}    
+
+		usort($conversations, 'order_by_date');
+
 		return $conversations;
 	}
 
