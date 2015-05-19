@@ -1245,3 +1245,6 @@ body{
 	position: absolute;
 	background: url('/assets/common/app/img/loading.gif') center center no-repeat white;
 }
+#side-content-profile.client-sidebar{
+	margin-top: 15px;
+}

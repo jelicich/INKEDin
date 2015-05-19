@@ -1,4 +1,4 @@
-<div class="col-md-9" id="profile-mid-col">
+<div class="col-md-9 client-mid" id="profile-mid-col">
 	<div class="name-profile clearfix">
 		<h1><?php echo $profile['name'].' '.$profile['last_name']?></h1>
 		<div class="fb-like" data-href="/profile/<?php echo $profile['id']?>" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
@@ -17,7 +17,7 @@ if(!empty($photos))
 {
 	for ($i = 0; $i < sizeof($photos); $i++) 
 	{
-		if($count > 4)
+		if($count > 3)
 		{
 			$count = 1;
 		}
@@ -27,12 +27,12 @@ if(!empty($photos))
 			$location .= ', '.$photos[$i]['city'];
 		}
 		
-		$html = '<article class="col-md-3 pic-sq-grid ">
+		$html = '<article class="pic-sq-grid ">
 			<div class="inner-pic-sq-grid border-img">
-				<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal">
-					<img src="/users/'.$photos[$i]['owner_id'].'/img/thumb/'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'" data-photo-id="'.$photos[$i]['photo_id'].'"/>
+				<a href="#" class="photo-anchor photo-client" data-toggle="modal" data-target="#myModal">
+					<img src="/users/'.$photos[$i]['owner_id'].'/img/thumb/'.$photos[$i]['photo'].'" alt="'.$photos[$i]['description'].'" data-tags="'.$photos[$i]['tags'].'" data-photo-id="'.$photos[$i]['photo_id'].'" class="photo-album"/>
 				</a>
-				<div class="pic-details pic-details-block">
+				<div class="pic-details pic-details-block clearfix">
 					<p class="caption">'.$photos[$i]['description'].'</p>
 					<ul class="owner-container clearfix">
 						<li class="owner-pic"><a href="/profile/'.$photos[$i]['owner_id'].'"><img src="'.$photos[$i]['profile_photo'].'" alt="" /></a></li>
@@ -63,17 +63,24 @@ if(!empty($photos))
 				$col3 .= $html;
 				break;
 
-			case 4:
-				$col4 .= $html;
-				break;
 		}
 		$count++;
 	}//END FOR
 }//END IF
-
-echo $col1;
-echo $col2;
-echo $col3;
-echo $col4;
-
 ?>
+<div class="col-lg-9 col-md-8 col-sm-12">
+	<div class="row" id="photos-album-container">
+		<div class="col-md-4 col-sm-4">
+			<?php echo $col1; ?> 
+		</div>
+		<div class="col-md-4 col-sm-4">
+			<?php echo $col2; ?> 
+		</div>
+		<div class="col-md-4 col-sm-4">
+			<?php echo $col3; ?> 
+		</div>
+		
+	</div>
+</div>
+	
+

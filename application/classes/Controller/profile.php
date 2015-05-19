@@ -93,6 +93,22 @@ class Controller_Profile extends Controller_Master {
 
 	public function action_index()
 	{   
+        $logged_in = $this->is_logged_in();
+        // Follower
+        $model_followers = new Model_Follower();
+
+        $followers = $this->followers_for( $model_followers ,'get_followers_by_profile', $this->id );
+        $who_follows_me = $this->followers_for( $model_followers ,'get_who_follows_me', $this->id );
+        $user = $this->get_user_info();
+
+        $this->template->sidebar = View::factory('profile/followersview');
+        $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
+        $this->template->sidebar->followers = $followers;
+        $this->template->sidebar->user = $user; ///////////////
+        $this->template->sidebar->profile = $this->profile; ///////////////
+        $this->template->sidebar->who_follows_me = $who_follows_me;
+        $this->template->logged_in = $logged_in;
+
         if($this->profile['role'] == 1)
         {
             if ( $this->profile['address'] != null || $this->profile['city_name'] != null || $this->profile['province_name'] != null ) {
@@ -102,26 +118,7 @@ class Controller_Profile extends Controller_Master {
             }
             $this->template->content = View::factory('profile/aboutview');
             $this->template->content->profile = $this->profile;
-
-            $logged_in = $this->is_logged_in();
-
-            // Follower
-            if ($logged_in == true) {
-
-                $model_followers = new Model_Follower();
-
-                $followers = $this->followers_for( $model_followers ,'get_followers_by_profile', $this->id );
-                $who_follows_me = $this->followers_for( $model_followers ,'get_who_follows_me', $this->id );
-                $user = $this->get_user_info();
-
-                $this->template->sidebar = View::factory('profile/followersview');
-                $this->template->head->custom_styles .= HTML::style('/assets/profile/css/profile.css');
-                $this->template->sidebar->followers = $followers;
-                $this->template->sidebar->user = $user; ///////////////
-                $this->template->sidebar->profile = $this->profile; ///////////////
-                $this->template->sidebar->who_follows_me = $who_follows_me;
-                $this->template->logged_in = $logged_in;
-            }
+        
         }
         else
         {

@@ -56,6 +56,10 @@ inked.Common.Modal = {
                 $('.album-arrow').css('display','none');
                 $('.modal-tools').css('display','none');
             }
+            else if(className.indexOf('photo-client') != -1)
+            {
+                $('.album-arrow').css('display','none');
+            }
             else
             {
                 $('.album-arrow').css('display','block');   

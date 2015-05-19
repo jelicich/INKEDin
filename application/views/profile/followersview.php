@@ -1,10 +1,19 @@
-<aside class="col-lg-3 col-md-4" id="side-content-profile">
+<aside class="col-lg-3 col-md-4 col-sm-12 <?php if($profile['role'] == 2){ echo 'client-sidebar';}?>" id="side-content-profile">
 
 			<div id='favourite_list' class="clearfix">
 				
 				<ul class="nav nav-tabs" role="tablist">
 					  <li role="presentation" class="active"><a href="#account1" aria-controls="account1" role="tab" data-toggle="tab">Favoritos</a></li>
-					  <li role="presentation"><a href="#account2" aria-controls="account2" role="tab" data-toggle="tab">Seguidores</a></li>
+					  <li role="presentation">
+					  	<?php 
+					  	if($profile['role'] == 1)
+					  	{
+				  		?>
+				  			<a href="#account2" aria-controls="account2" role="tab" data-toggle="tab">Seguidores</a>
+				  		<?php
+					  	}
+					  	?>
+					  </li>
 				</ul>
 
 				<div class="tab-content">
