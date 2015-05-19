@@ -1238,5 +1238,10 @@ body{
 
 #wrapper.menu-open #site-footer{
 	 z-index: -1;
-}-1;
+}
+.mask-pic{
+	top: 15px;
+	left: 15px;
+	position: absolute;
+	background: url('/assets/common/app/img/loading.gif') center center no-repeat white;
 }

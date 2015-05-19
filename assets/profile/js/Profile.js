@@ -347,7 +347,14 @@ inked.Profile = {
         var newId = $($(t.photos)[newPos]).attr('data-photo-id');
         var desc = $($(t.photos)[newPos]).attr('alt');
         var tags = $($(t.photos)[newPos]).attr('data-tags');
+        
+        $('#photo-target').after('<div class="mask-pic"></div>');
+        $('.mask-pic').css('height',$('#photo-target').height());
+        $('.mask-pic').css('width',$('#photo-target').width());
         $('#photo-target').attr('src', lg_src);
+        $('#photo-target').bind('load', function() {
+            $('.modal-body .mask-pic').remove();
+        });
         $('#photo-target').attr('data-order', newPos);
         $('#photo-target').attr('data-photo-id', newId);
 
