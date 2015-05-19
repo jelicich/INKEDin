@@ -54,10 +54,13 @@ inked.Common.Modal = {
             if( className.indexOf('prof-pic') != -1 )
             {
                 $('.album-arrow').css('display','none');
+                $('.modal-tools').css('display','none');
             }
             else
             {
                 $('.album-arrow').css('display','block');   
+                $('.modal-tools').css('display','block');
+                $('#myModal .pic-details').addClass('pic-details-block');
             }
         });
     },

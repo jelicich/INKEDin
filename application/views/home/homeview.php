@@ -48,7 +48,7 @@
 							<!-- img -->
 							<article class="col-md-<?php echo $col_size ?> pic-sq-grid">
 								<div class="inner-pic-sq-grid border-img">
-									<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><img src="<?php echo $leftcol[$i]['photo'] ?>" alt="<?php echo $leftcol[$i]['description'] ?>" data-photo-id="<?php echo $leftcol[$i]['id']?>"/></a>
+									<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><img src="<?php echo $leftcol[$i]['photo'] ?>" alt="<?php echo $leftcol[$i]['description'] ?>" data-tags="<?php echo $leftcol[$i]['tags'] ?>" data-photo-id="<?php echo $leftcol[$i]['id']?>"/></a>
 									<div class="pic-details">
 										<p class="caption"><?php echo $leftcol[$i]['description'] ?></p>
 										<ul class="owner-container clearfix">
@@ -58,6 +58,7 @@
 												<p><?php echo $location ?></p>
 											</li>
 										</ul>
+										<span class="date-format"><?php echo Helper_Datetime::date_format($leftcol[$i]['date']) ?></span>
 									</div>
 								</div>
 							</article>
@@ -105,7 +106,7 @@
 							<!-- img -->
 							<article class="col-md-<?php echo $col_size ?> pic-sq-grid">
 								<div class="inner-pic-sq-grid border-img">
-									<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><img src="<?php echo $rightcol[$i]['photo'] ?>" alt="<?php echo $rightcol[$i]['description'] ?>" data-photo-id="<?php echo $rightcol[$i]['id']?>"/></a>
+									<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><img src="<?php echo $rightcol[$i]['photo'] ?>" alt="<?php echo $rightcol[$i]['description'] ?>" data-tags="<?php echo $rightcol[$i]['tags'] ?>" data-photo-id="<?php echo $rightcol[$i]['id']?>"/></a>
 									<div class="pic-details">
 										<p class="caption"><?php echo $rightcol[$i]['description'] ?></p>
 										<ul class="owner-container clearfix">
@@ -115,6 +116,7 @@
 												<p><?php echo $location ?></p>
 											</li>
 										</ul>
+										<span class="date-format"><?php echo Helper_Datetime::date_format($rightcol[$i]['date']) ?></span>
 									</div>
 								</div>
 							</article>

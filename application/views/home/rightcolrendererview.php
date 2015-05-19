@@ -26,7 +26,7 @@ if(!empty($rightcol))
 		<!-- img -->
 		<article class="col-md-<?php echo $col_size ?> pic-sq-grid">
 			<div class="inner-pic-sq-grid border-img">
-				<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><img src="<?php echo $rightcol[$i]['photo'] ?>" alt="<?php echo $rightcol[$i]['description'] ?>" /></a>
+				<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><img src="<?php echo $rightcol[$i]['photo'] ?>" alt="<?php echo $rightcol[$i]['description'] ?>" data-tags="<?php echo $rightcol[$i]['tags'] ?>" /></a>
 				<div class="pic-details">
 					<p class="caption"><?php echo $rightcol[$i]['description'] ?></p>
 					<ul class="owner-container clearfix">
@@ -36,6 +36,7 @@ if(!empty($rightcol))
 							<p><?php echo $location ?></p>
 						</li>
 					</ul>
+					<span class="date-format"><?php echo Helper_Datetime::date_format($rightcol[$i]['date']) ?></span>
 				</div>
 			</div>
 		</article>
