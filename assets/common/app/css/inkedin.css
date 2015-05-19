@@ -606,9 +606,9 @@ header, header *{
 	font-size: 20px;
 }
 #container-cover-pic{
-	margin-top: -100px;
+	margin-top: -140px;
 	/* margin-top: -20px; */
-	height: 400px;
+	height: 440px;
 	overflow: hidden;
 	position: relative;
 }
