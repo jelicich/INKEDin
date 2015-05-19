@@ -56,7 +56,7 @@ class Model_Photo extends ORM{
 		return $photos;
 	}
 
-	public function search_photos($param, $offset, $limit, $group = FALSE)
+	public function search_photos($param, $offset, $limit)
 	{
 		$this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province', 'users.delete')
 			->where('photo.tags', 'LIKE', '%'.$param.'%')
@@ -72,10 +72,7 @@ class Model_Photo extends ORM{
             ->join('provinces', 'LEFT')
             ->on('users.province_id','=','provinces.id')
             ->order_by('photo.date','DESC');
-            if($group)
-            {
-            	$this->group_by('photo.user_id');
-            }
+
         $photos = $this->limit($limit)
             ->offset($offset)
 			->find_all();
@@ -87,6 +84,40 @@ class Model_Photo extends ORM{
 			$photos[$i] = $photos[$i]->as_array();
 		}
 		return $photos;
+	}
+
+	public function show_latest_photos($limit, $offset)
+	{
+		$this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province', 'users.delete')
+			->where('users.delete','=',0)
+			->and_where('users.role','=',1)
+			->join('users')
+            ->on('photo.user_id', '=', 'users.id')
+            ->join(array('photos', 'profile' ), 'LEFT')
+            ->on('users.photo_id', '=', 'profile.id')
+            ->join('cities','LEFT')
+            ->on('users.city_id','=','cities.id')
+            ->join('provinces', 'LEFT')
+            ->on('users.province_id','=','provinces.id')
+            ->order_by('photo.date','DESC');
+
+        $photos = $this->limit($limit)
+            ->offset($offset)
+			->find_all();
+
+		$photos = $photos->as_array();
+		$latest_photos = array();
+		$ignore_users = array();
+		foreach($photos as $photo) {
+			$user_id = $photo->user_id;
+			$is_ignored = (in_array($user_id, $ignore_users));
+			if (!$is_ignored) {
+				$latest_photos[] = $photo->as_array();
+				$ignore_users[] = $user_id;
+			}
+		}
+
+		return $latest_photos;
 	}
 
 	public function count_photos($param)

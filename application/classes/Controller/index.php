@@ -33,7 +33,7 @@ class Controller_Index extends Controller_Master {
 			$offset = 0;
 		}
 		$model_photos = new Model_Photo();
-		$photos = $model_photos->search_photos('', $offset, 10 , TRUE);
+		$photos = $model_photos->show_latest_photos(10, $offset);
         $leftcol = '';
         $rightcol = '';
         $l_count = 1;
