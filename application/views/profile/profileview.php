@@ -61,7 +61,7 @@
 						else
 						{
 						?>
-							<a href="#" class="photo-anchor" data-toggle="modal" data-target="#myModal"><?php echo $profile['photo'] ?></a>
+							<a href="#" class="photo-anchor prof-pic" data-toggle="modal" data-target="#myModal"><?php echo $profile['photo'] ?></a>
 						<?php
 						}
 						?>
@@ -188,8 +188,8 @@
            		?>
             </div>
             
-        	<a href="#" class="album-arrow album-prev" onclick="inked.Profile.prevPhoto()"><img src="/assets/profile/img/l_arrow.png" alt=""></a>
-        	<a href="#" class="album-arrow album-next" onclick="inked.Profile.nextPhoto()"><img src="/assets/profile/img/r_arrow.png" alt=""></a>
+        	<a href="#" class="album-arrow album-prev" data-dir="left" onclick="inked.Profile.navPhotos(event)"><img src="/assets/profile/img/l_arrow.png" alt=""></a>
+        	<a href="#" class="album-arrow album-next" data-dir="right" onclick="inked.Profile.navPhotos(event)"><img src="/assets/profile/img/r_arrow.png" alt=""></a>
             
         </div>
     </div>
