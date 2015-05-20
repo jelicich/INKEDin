@@ -122,7 +122,6 @@
 					</div> <!-- closes messages header -->
 
 					<?php 
-					
 						if(isset($messages)) {  
 
 							$messages_class = '';

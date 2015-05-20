@@ -78,7 +78,7 @@ class Model_Conversation extends ORM{
 
 			$last_message_piece = DB::query(Database::SELECT, "
 				SELECT m.id, m.date,
-				LEFT(m.message, 30) as message, 
+				LEFT(m.message, 20) as message, 
 				m.user_id, 
 				m.status FROM messages m WHERE m.conversation_id = '$conversation_id' ORDER BY m.date DESC LIMIT 1")
 			->execute();
