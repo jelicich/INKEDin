@@ -122,6 +122,7 @@
 					</div> <!-- closes messages header -->
 
 					<?php 
+					
 						if(isset($messages)) {  
 
 							$messages_class = '';
@@ -139,10 +140,10 @@
 									$profile_url = "/profile/".$user['id'];
 									
 								}else{
-
+								
 									$messages_class = "class='each-message their-messages col-md-12'";
 									$message_from = $user_from['name'].' '.$user_from['last_name'];
-									$message_photo = $conversations[0]['photo'];
+									$message_photo = $messages[$i]['photo'];
 									$profile_url = "/profile/".$user_from['id'];
 								    
 								}

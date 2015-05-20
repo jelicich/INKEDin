@@ -45,6 +45,22 @@ class Controller_Message extends Controller_Master {
         $model_message = new Model_Message();
         $messages = $model_message->get_messages_by_conversation_id( $user_from['id'], $user['id'] );
 
+        for ($i=0; $i < sizeof($messages) ; $i++) {
+            
+            
+            $alt = 'Inkedin Inbox - Conversacion con'.' '.$messages[$i]['name'].' '.$messages[$i]['last_name'];
+            $default_img = HTML::image('/assets/common/app/img/default.jpg', array('alt' => $alt, 'class' => 'img-circle'));
+            
+            if( empty($messages[$i]['photo']) )
+            {
+                $messages[$i]['photo'] = $default_img;
+
+            }else{
+
+                $messages[$i]['photo'] = $this->img_path_alt($messages[$i]['user_id'], $messages[$i]['photo'], $alt);
+            }
+        }
+
         $this->load_common_inbox_stuff();
         $this->template->user_from = $user_from;
         $this->template->messages = $messages;
@@ -52,9 +68,9 @@ class Controller_Message extends Controller_Master {
     }
 
 
-    private function img_path_alt($user_id, $user_photo, $alt_name, $alt_lastname) // ver si esta funcion agiliza o no...
+    private function img_path_alt($user_id, $user_photo, $alt) // ver si esta funcion agiliza o no...
     {
-        return  HTML::image('/users/'.$user_id.'/img/sm/'.$user_photo, array('alt' => $alt_name.' '.$alt_lastname, 'class' => 'img-circle'));   
+        return  HTML::image('/users/'.$user_id.'/img/sm/'.$user_photo, array('alt' => $alt, 'class' => 'img-circle'));   
     }
 
     private function load_common_inbox_stuff()
@@ -69,17 +85,18 @@ class Controller_Message extends Controller_Master {
             $model_conversation = new Model_Conversation();
             $conversations = $model_conversation->get_inbox_headers_by_profile($profile_id);
 
-            $default_img = HTML::image('/assets/common/app/img/default.jpg', array('alt' => ' ', 'class' => 'img-circle'));
-            
             for ($i=0; $i < sizeof($conversations) ; $i++) { 
                     
+                    $alt = 'Inkedin Inbox - Conversacion con'.' '.$conversations[$i]['name'].' '.$conversations[$i]['last_name'];
+                    $default_img = HTML::image('/assets/common/app/img/default.jpg', array('alt' => $alt, 'class' => 'img-circle'));
+
                     if( empty($conversations[$i]['photo']) )
                     {
                         $conversations[$i]['photo'] = $default_img;
 
                     }else{
                        
-                        $conversations[$i]['photo'] = $this->img_path_alt($conversations[$i]['from_id'], $conversations[$i]['photo'], $conversations[$i]['name'], $conversations[$i]['name']);
+                        $conversations[$i]['photo'] = $this->img_path_alt($conversations[$i]['from_id'], $conversations[$i]['photo'], $alt);
                     }
 
                     if( empty($user['photo']) ){
@@ -88,7 +105,7 @@ class Controller_Message extends Controller_Master {
 
                     }else{
 
-                         $conversations[$i]['profile_photo'] = $this->img_path_alt($user['id'], $user['photo'], $conversations[$i]['name'], $conversations[$i]['name']);
+                         $conversations[$i]['profile_photo'] = $this->img_path_alt($user['id'], $user['photo'], $alt);
                     }
             }
 

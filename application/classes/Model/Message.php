@@ -17,13 +17,16 @@ class Model_Message extends ORM{
 
 	public function get_messages_by_conversation_id($user_from, $user_id)
 	{	
-
 		$model_conversation = new Model_Conversation();
 		$conversation_id = $model_conversation->get_conversation_id( $user_from, $user_id );
 
-		$messages = $this->select('message.*') 
+		$messages = $this->select('message.*', 'users.id', 'users.name', 'users.last_name','users.photo_id', 'photos.id', 'photos.photo') 
 		->where('conversation_id','=', $conversation_id)
-		->order_by('date', 'DESC')
+		->join('users', 'LEFT')
+		->on('users.id','=','message.user_id')
+		->join('photos', 'LEFT')
+		->on('users.photo_id','=','photos.id')
+		->order_by('message.date', 'DESC')
 		->find_all();
 
 		$messages = $messages->as_array();
@@ -40,6 +43,7 @@ class Model_Message extends ORM{
             $query->execute();
 
 		return $messages;
+
 	}
 
 
