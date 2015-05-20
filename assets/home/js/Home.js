@@ -37,7 +37,9 @@ inked.Home = {
                     $left.fadeIn(1000);
                     $right.fadeIn(1000);
                     $('#load-more-photos').html('VER MAS');
-                    inked.Common.Modal.init();
+                    //inked.Common.Modal.init();
+                    inked.Common.Modal.setEventListenerModal();
+                    inked.Common.Modal.setOnClickModal($('.photo-anchor-new'));
                     if(response.leftcol != "" && response.rightcol != "")
                     {
                         $('#load-more-photos').removeClass('disabled');
@@ -48,48 +50,6 @@ inked.Home = {
                     }
                 }
             });
-    },
-
-    loadMoreUsers : function()
-    {
-        this.offset_users += 20;
-        var query = $('#load-more-users').attr('data-query');
-        var cw = $('#users-result-container').attr('data-column-width');
-        var data = {
-            "offset" : this.offset_users,
-            "cw" : cw,
-        }
-
-        $.ajax({
-            data: data,
-            url:   '/search/artists/'+ query,
-            type:  'post',
-            beforeSend : function()
-            {
-                $('#load-more-users').addClass('disabled');
-                $('#load-more-users').html('<img src="/assets/common/app/img/loading.gif" class="loading-gif" width="16" height="16" alt="Cargando"/>');
-            },
-            success : function (response) 
-            {
-                //console.log(response);
-                var $last_article = $('#users-result-container').find('article').last();
-                $response = $(response);
-                $response.hide();
-                $last_article.after($response);
-                $response.fadeIn(1000);
-
-                $('#load-more-users').html('Ver mas');
-
-                if(response != "")
-                {
-                    $('#load-more-users').removeClass('disabled');
-                }
-                else
-                {
-                   $('#load-more-users').html('Fin')
-                }
-            }
-        });
     },
 
     buildUrlPhotos : function(event)
