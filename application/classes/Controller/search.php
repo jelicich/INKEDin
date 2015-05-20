@@ -44,6 +44,11 @@ class Controller_Search extends Controller_Master {
         {
             $photos = $this->search_photos($param, 0, 16);
             $users = $this->search_users($param, 0);    
+
+            $now = date("Y-m-d H:i:s");
+        
+            //SAVE SEARCH TERM
+            Model_Search::save_term($param, $now);
         }
         
         $this->template->content->photos = $photos['photos'];
@@ -51,10 +56,7 @@ class Controller_Search extends Controller_Master {
         $this->template->content->users = $users['users'];
         $this->template->content->count_users = $users['count'];
 
-        $now = date("Y-m-d H:i:s");
         
-        //SAVE SEARCH TERM
-        Model_Search::save_term($param, $now);
     
 	}
 

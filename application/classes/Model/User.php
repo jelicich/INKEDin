@@ -371,7 +371,7 @@ class Model_User extends ORM{
 
     public function search_users($param, $offset, $province, $city)
     {
-        $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*', 'user.delete')
+        $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*', 'user.delete', array(DB::expr('(ratings.total_value/ratings.total_votes)'), 'rating'))
             ->where('user.role','=', '1')
             ->and_where('user.delete','=', '0');
         if(empty($param) && empty($province))
@@ -468,6 +468,11 @@ class Model_User extends ORM{
             ->on('user.id','=','userstyles.user_id')
             ->join('styles','LEFT')
             ->on('userstyles.style_id','=','styles.id')
+            ->join('ratings','LEFT')
+            ->on('user.id','=','ratings.id')
+            ->order_by('user.id', 'DESC')
+            ->order_by('rating', 'DESC')
+            ->order_by('total_votes', 'DESC')
             ->group_by('user.id')
             ->limit(20)
             ->offset($offset)
@@ -486,7 +491,7 @@ class Model_User extends ORM{
     public function count_users($param)
     {
 
-        $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*')
+        $this->select('user.name', 'user.last_name', 'user.id', 'user.role', 'user.photo_id', 'user.city_id', 'user.province_id', 'photos.photo', 'cities.city', 'provinces.province', 'styles.style', 'userstyles.*', array(DB::expr('(ratings.total_value/ratings.total_votes)'), 'rating'))
             ->where('user.role','=', '1')
             ->and_where('user.delete','=', '0');
         if(empty($param) && empty($province))
@@ -583,6 +588,11 @@ class Model_User extends ORM{
             ->on('user.id','=','userstyles.user_id')
             ->join('styles','LEFT')
             ->on('userstyles.style_id','=','styles.id')
+            ->join('ratings','LEFT')
+            ->on('user.id','=','ratings.id')
+            ->order_by('user.id', 'DESC')
+            ->order_by('rating', 'DESC')
+            ->order_by('total_votes', 'DESC')
             ->group_by('user.id')
             ->find_all();
 
