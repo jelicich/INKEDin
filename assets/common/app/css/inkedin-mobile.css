@@ -647,6 +647,7 @@
 
 	nav.menu-profile{
 		border-bottom: 1px solid #c99241;
+		  margin-bottom: 15px;
 	}
 
 	#side-content-profile {
@@ -659,6 +660,11 @@
 
 	.date-format {
 	  float: right;
+	}
+
+	.client-dates .date-format{
+	  float: left;
+	  width: 100%;
 	}
 
 	#site-content {
