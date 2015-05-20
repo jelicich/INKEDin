@@ -134,15 +134,15 @@
 	        	
 	        	<form method="POST" action="/auth/login" onsubmit="inked.Common.Header.validateForm(event)" class="clearfix">
 		        	<div class="form-group">
-						<label for="username" class="col-sm-3 control-label">Usuario</label>
+						<label for="username" class="col-sm-3 control-label">E-mail</label>
 						<div class="col-sm-9">
-						<input type="text" id="username" class="form-control" placeholder="Usuario" name="username" value=""></div>
+						<input type="text" id="username" class="form-control" placeholder="E-mail" name="username" value=""></div>
 					</div>
 
 					<div class="form-group">
 						<label for="password" class="col-sm-3 control-label">Contraseña</label>
 						<div class="col-sm-9">
-						<input type="password" class="form-control" id="password" placeholder="Password" name="password"></div>
+						<input type="password" class="form-control" id="password" placeholder="Contraseña" name="password"></div>
 					</div>
 			
 

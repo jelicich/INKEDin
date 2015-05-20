@@ -18,7 +18,7 @@
 		<div class="row">
 			<!-- COVER PIC -->
 			<div class="col-md-12" id="container-cover-pic">
-				<div id="inner-container-cover-pic" style="background: url('<?php echo $profile['cover']?>') no-repeat center center; background-size: cover;">
+				<div id="inner-container-cover-pic" style="background: url('<?php echo $profile['cover']?>') no-repeat center center #000; background-size: cover;">
 					
 				</div>
 			</div>
@@ -117,7 +117,7 @@
 								 	if (!in_array( $user['id'], $this_profile_followers_list )) 
 								 	{
 						?>		
-										<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-profile-id ="<?php echo $profile['id']; ?>" onclick="inked.Profile.saveFollower()" >AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+										<a href="#" class="btn btn-default btn-block btn-profile" id="add-fav" data-profile-id ="<?php echo $profile['id']; ?>" onclick="inked.Profile.saveFollower(event)" >AGREGAR A FAVORITOS  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
 						<?php 
 									}
 									else

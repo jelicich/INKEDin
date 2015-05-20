@@ -65,4 +65,11 @@
 	float: right;
 }
 
-
+@media (max-width: 992px){
+	#edit-album label {
+		background: url('../img/arrow.png') no-repeat #f0ddaf right 8px;
+	}
+	#edit-album label.label-open {
+	  background: url('../img/arrow.png') no-repeat #f0ddaf right -17px;
+	}
+}

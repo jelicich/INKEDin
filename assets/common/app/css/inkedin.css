@@ -706,12 +706,21 @@ header, header *{
 	margin-top: 10px;
 }
 /*overwrite bootstrap*/
+/*
 .modal-backdrop{
 	background-color: #fff;
 }
 .modal-backdrop.in {
 	opacity: .85;
 }
+*/
+.modal-backdrop{
+	background: none;
+}
+.modal{
+	background: rgba(255,255,255,.8)
+}
+
 .modal-content{
 	background-color: #f0ddaf;
 	border-radius: 0;
@@ -1247,4 +1256,7 @@ body{
 }
 #side-content-profile.client-sidebar{
 	margin-top: 15px;
+}
+.col-md-6.pic-sq-grid .owner-detail{
+	max-width: 175px;
 }

@@ -57,6 +57,10 @@
 	#profile-mid-col{
 		/* margin-top: -68px; */
 	}
+
+	.col-md-6.pic-sq-grid .owner-detail{
+		max-width: 125px;
+	}
 }
 
 @media (max-width: 1199px){
@@ -250,7 +254,7 @@
 	}
 	.name-profile h1{
 		color: #fff;
-		text-shadow: 0 0 3px rgba(0,0,0,.8);
+		text-shadow: 0 0 3px rgba(0,0,0,.8), 0 0 7px rgba(0,0,0,0.8), 0 0 10px gray;
 	}
 
 	#side-content-profile{
@@ -266,6 +270,10 @@
 	}
 	#profile-left-col {
 		min-height: 0;
+	}
+
+	.col-md-6.pic-sq-grid .owner-detail{
+		max-width: initial;
 	}
 }
 
@@ -580,7 +588,7 @@
 	.register-wrapper .nav-tabs>li.active>a, 
 	.register-wrapper .nav-tabs>li.active>a:focus, 
 	.register-wrapper .nav-tabs>li.active>a:hover{
-		background-color: #BE7F49;
+		background-color: #BE7F49 !important;
 		color: #fff;
 	}
 
