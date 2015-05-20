@@ -88,36 +88,67 @@ class Model_Photo extends ORM{
 
 	public function show_latest_photos($limit, $offset)
 	{
-		$this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province', 'users.delete')
-			->where('users.delete','=',0)
-			->and_where('users.role','=',1)
-			->join('users')
-            ->on('photo.user_id', '=', 'users.id')
-            ->join(array('photos', 'profile' ), 'LEFT')
-            ->on('users.photo_id', '=', 'profile.id')
+		$subquery = DB::select('photos.*')
+		    ->from('photos')
+		    ->order_by('photos.date', 'DESC');
+
+		$photos = ORM::factory('user')
+			->select('user.id', 'user.name', 'user.last_name', 'user.photo_id', 'user.city_id', 'user.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province', 'user.delete', 'p.*')
+			->where('user.delete','=',0)
+			->and_where('user.role','=',1)
+			->join(array($subquery, 'p'), 'INNER')
+			->on('user.id','=','p.user_id')
+			->join(array('photos', 'profile' ), 'LEFT')
+            ->on('user.photo_id', '=', 'profile.id')
             ->join('cities','LEFT')
-            ->on('users.city_id','=','cities.id')
+            ->on('user.city_id','=','cities.id')
             ->join('provinces', 'LEFT')
-            ->on('users.province_id','=','provinces.id')
-            ->order_by('photo.date','DESC');
-
-        $photos = $this->limit($limit)
+            ->on('user.province_id','=','provinces.id')
+            ->group_by('user.id')
+            ->order_by('p.date','DESC')
+            ->limit($limit)
             ->offset($offset)
-			->find_all();
+            ->find_all();
 
-		$photos = $photos->as_array();
-		$latest_photos = array();
-		$ignore_users = array();
-		foreach($photos as $photo) {
-			$user_id = $photo->user_id;
-			$is_ignored = (in_array($user_id, $ignore_users));
-			if (!$is_ignored) {
-				$latest_photos[] = $photo->as_array();
-				$ignore_users[] = $user_id;
-			}
+        $photos = $photos->as_array();
+		
+		for($i = 0; $i < sizeof($photos); $i++)
+		{
+			$photos[$i] = $photos[$i]->as_array();
 		}
+		//var_dump($photos);
+		//die;
+		return $photos;
 
-		return $latest_photos;
+		// $photos = $this->select('photo.*','users.id', 'users.name', 'users.last_name', 'users.photo_id', 'users.city_id', 'users.province_id', array('profile.photo', "profile_photo"), 'cities.city', 'provinces.province', 'users.delete')
+		// 	->where('users.delete','=',0)
+		// 	->and_where('users.role','=',1)
+		// 	->join('users')
+  //           ->on('photo.user_id', '=', 'users.id')
+  //           ->join(array('photos', 'profile' ), 'LEFT')
+  //           ->on('users.photo_id', '=', 'profile.id')
+  //           ->join('cities','LEFT')
+  //           ->on('users.city_id','=','cities.id')
+  //           ->join('provinces', 'LEFT')
+  //           ->on('users.province_id','=','provinces.id')
+  //           ->order_by('photo.date','DESC')
+  //           ->limit($limit)
+  //           ->offset($offset)
+		// 	->find_all();
+
+		// $photos = $photos->as_array();
+		// $latest_photos = array();
+		// $ignore_users = array();
+		// foreach($photos as $photo) {
+		// 	$user_id = $photo->user_id;
+		// 	$is_ignored = (in_array($user_id, $ignore_users));
+		// 	if (!$is_ignored) {
+		// 		$latest_photos[] = $photo->as_array();
+		// 		$ignore_users[] = $user_id;
+		// 	}
+		// }
+
+		// return $latest_photos;
 	}
 
 	public function count_photos($param)

@@ -12,9 +12,6 @@
 	<!-- header-->
 	<?php echo $header; ?>
 	<!-- end header-->
-<?php
-var_dump($leftcol);
-?>
 
 	<!-- content -->
 	<section id="site-content" class="container">
